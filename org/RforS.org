@@ -1,0 +1,277 @@
+
+#+setupfile: info/index-sos-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
+
+* Rによるやさしい統計学
+
+** 教科書
+
+   [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]]
+
+** 参考サイト
+
+   - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]]    [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]] の解説動画とデータ
+
+   - [[https://htsuda.net/stats/][Rによる統計入門]] 津田裕之氏
+     - google colaboratory で R を使うについても書かれている
+
+   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
+
+   - [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
+
+   - [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]]
+   
+
+* Rによるやさしい統計学
+  
+** 目標
+
+   R で書かれたコードを読めるようになりましょう。
+
+** 1章
+*** 基本的な操作の概要 1.4.2
+**** R または RStudio の起動と終了 [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html][R-Source]]
+***** 開始
+       #+begin_src shell :results output
+R --save
+       #+end_src
+
+       #+RESULTS:
+       #+begin_example
+
+      R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+      Copyright (C) 2020 The R Foundation for Statistical Computing
+      Platform: x86_64-pc-linux-gnu (64-bit)
+
+      R は、自由なソフトウェアであり、「完全に無保証」です。 
+      一定の条件に従えば、自由にこれを再配布することができます。 
+      配布条件の詳細に関しては、'license()' あるいは 'licence()' と入力してください。 
+
+      R は多くの貢献者による共同プロジェクトです。 
+      詳しくは 'contributors()' と入力してください。 
+      また、R や R のパッケージを出版物で引用する際の形式については 
+      'citation()' と入力してください。 
+
+      'demo()' と入力すればデモをみることができます。 
+      'help()' とすればオンラインヘルプが出ます。 
+      'help.start()' で HTML ブラウザによるヘルプがみられます。 
+      'q()' と入力すれば R を終了します。 
+
+      > 
+       #+end_example
+
+***** R はインタープリタ
+     
+     - ユーザがプログラムを入力し，
+     - R システムが入力プログラムを実行し，結果を表示する
+     - 上矢印，下矢印で前の式を呼び出し，エンターで実行
+     - history() で入力式一覧
+      
+
+***** 終了
+       #+begin_src R 
+# quit()
+       #+end_src
+
+       #+RESULTS:
+
+**** 簡単な計算   [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html][R-Source::簡単な計算 ]] 
+
+***** 四則演算  [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html][R-Source::簡単な計算 ]]
+     #+begin_src R :results output :session t :exports both
+
+ 3+5
+ 10-3
+ 2*3
+ 20/4 # 割り算をするときは/ (スラッシュ)
+
+	 #+end_src
+
+	 #+RESULTS:
+	 : [1] 8
+	 : [1] 7
+	 : [1] 6
+	 : [1] 5
+**** 関数   [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html][R-Source::関数事始]] 
+    
+***** 平方根を求める
+     #+begin_src R :session :results output :exports both
+sqrt(16)
+     #+end_src
+
+     #+RESULTS:
+     : [1] 4
+
+     - sqrt が関数の名前，(16) が関数に渡す *引数*。
+    
+***** 底が10の対数
+      #+begin_src R :session t :results output :exports both
+ log(2, base=10)
+      #+end_src
+
+      #+RESULTS:
+      : [1] 0.30103
+
+      #+begin_src R :session t :results output :exports both
+# help(log)
+      #+end_src
+
+     
+
+     
+
+ 
+
+
+*** Rをもっとさわってみよう 1.5  [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html][R-Source::ベクトルの作成]]
+
+    #+begin_src R :session t :results output :exports both
+summary(c(173,178,180,183,182,174,179,179,174,192))
+    #+end_src
+
+    #+RESULTS:
+    :    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    :   173.0   175.0   179.0   179.4   181.5   192.0
+
+    - c(173,178,180,183,182,174,179,179,174,192) :: 10個の要素を持つベ
+      クトルを作る (関数のよびだし)
+
+    - 与えられたデータの
+      - Min. ::  最小値
+      - 1st Qu. :: 第一四分位数 (下から1/4点)
+      - Median :: 中央値
+      - Mead :: 平均値
+      - 3rd Qu. :: 第三四分位数 (下から3/4点)
+      - Max. :: 最大値
+
+*** 複数の値をまとめて使う [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html][R-Source]]
+
+**** 10人分のデータにまとめて名前をつける  [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html][R-Source::ベクトルの作成]] [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html][R-Source::オブジェクトと代入]]
+    #+begin_src R :session t :results output :exports both
+(身長 <- c(173,178,180,183,182,174,179,179,174,192))
+    #+end_src
+
+    #+RESULTS:
+    :  [1] 173 178 180 183 182 174 179 179 174 192
+
+    - 「身長」という名前の変数に10人分のデータを格納している
+      - 変数は，名前と値を持つ
+      - 名前で，参照し，
+      - 参照すると値がでてくる
+
+    - 「変数 <- 式」という構文を代入という
+      
+**** 変数を使う [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html][R-Source::オブジェクトと代入]]
+     
+#+begin_src R :session t :results output :exports both
+身長
+#+end_src
+
+#+RESULTS:
+:  [1] 173 178 180 183 182 174 179 179 174 
+
+**** 行列を使う [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html][R-Source::行列の生成]]
+
+#+begin_src R :session t :results output :exports both
+(ホークス <- matrix(
+  c(173,178,180,183,182,174,179,179,174,192,
+    17000,14000,9000,50000,30000,12000,900,2100,1000,2500),
+  10, 2))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+      [,1]  [,2]
+ [1,]  173 17000
+ [2,]  178 14000
+ [3,]  180  9000
+ [4,]  183 50000
+ [5,]  182 30000
+ [6,]  174 12000
+ [7,]  179   900
+ [8,]  179  2100
+ [9,]  174  1000
+[10,]  192  2500
+#+end_example
+      - matrix(ベクトル，行数，列数) :: ベクトルを 行数×列数 の行列に
+        する
+
+	
+**** 外部データファイルを読み込む
+
+     [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/40.html][R-Source::ファイルからデータを読み込む]]
+
+     * 作業ディレクトリ [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/06.html][R-Source::作業ディレクトリの変更]]
+
+       ファイルからデータやプログラムを読み込んだり，ファイルにデータ
+       を書き出したりする場所を作業ディレクトリという
+
+#+begin_src R :session t :results output :exports both
+setwd("~/Lects/R")
+getwd()
+system("ls")
+#+end_src
+
+#+RESULTS:
+:  setwd("~/Lects/R") でエラー:  作業ディレクトリを変更できません
+: [1] "/nas/home/masayuki/COMM/Lects/R"
+: 2020-repo-01.org  R-learning.org~   binom.r		      r-plot.png
+: 2020-repo-02.org  RforStatistcs     dist-uniform.r	      stat-12.org
+: 2020-repo-03.org  Rintro	    gauss3d-rot.r	      stat-12.org~
+: 3.log		  Rplots.pdf	    gauss3d.R		      stat-lse.org
+: 3.ps		  Rprobability.org  gauss3d.org		      www.medi-08-data-06.work
+: 3.tex		  ai-trend	    graphs
+: R-learning.org	  babel		    low_of_large_numbers.org
+
+#+begin_src R :session t :results output :exports both
+(ホークス.2 <- read.csv("Data/hawks.csv"))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+   height salary
+1     173  17000
+2     178  14000
+3     180   9000
+4     183  50000
+5     182  30000
+6     174  12000
+7     179    900
+8     179   2100
+9     174   1000
+10    192   2500
+#+end_example
+
+*** 関数を作ってみよう     [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html][R-Source::関数事始]]
+
+**** 標本分散を計算する関数を作る
+
+     Rの var() 関数は，不偏分散を計算する関数なので，
+     標本分散を計算する関数を定義してみる:
+
+#+begin_src R :session t :results output :exports both :tangle ~/Lects/R/
+(varp <- function (x) {
+  var(x)*(length(x)-1)/length(x)
+})
+#+end_src
+
+#+RESULTS:
+: function (x) {
+:   var(x)*(length(x)-1)/length(x)
+: }
+
+#+begin_src R :session t :results output :exports both
+ (x <- c(10, 13, 8, 15, 8))
+ var(x)
+ varp(x)
+#+end_src
+
+#+RESULTS:
+: [1] 10 13  8 15  8
+: [1] 9.7
+: [1] 7.76
+
+
