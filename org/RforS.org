@@ -5,25 +5,6 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* Rによるやさしい統計学
-
-** 教科書
-
-   [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]]
-
-** 参考サイト
-
-   - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]]    [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]] の解説動画とデータ
-
-   - [[https://htsuda.net/stats/][Rによる統計入門]] 津田裕之氏
-     - google colaboratory で R を使うについても書かれている
-
-   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
-
-   - [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
-
-   - [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]]
-   
 
 * Rによるやさしい統計学
   

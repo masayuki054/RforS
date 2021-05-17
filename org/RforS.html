@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-15 土 09:27 -->
+<!-- 2021-05-17 月 21:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rによるやさしい統計学による入門</title>
@@ -234,54 +234,45 @@
 <div id="content">
 <h1 class="title">Rによるやさしい統計学による入門</h1>
 
-<div id="outline-container-org1a72745" class="outline-2">
-<h2 id="org1a72745">Rによるやさしい統計学</h2>
-<div class="outline-text-2" id="text-org1a72745">
+
+<div id="outline-container-org7287f6d" class="outline-2">
+<h2 id="org7287f6d">Rによるやさしい統計学</h2>
+<div class="outline-text-2" id="text-org7287f6d">
 </div>
-<div id="outline-container-org3bc0d35" class="outline-3">
-<h3 id="org3bc0d35">基本的な操作の概要 1.4.2</h3>
-<div class="outline-text-3" id="text-org3bc0d35">
+<div id="outline-container-orgceb7190" class="outline-3">
+<h3 id="orgceb7190">目標</h3>
+<div class="outline-text-3" id="text-orgceb7190">
+<p>
+R で書かれたコードを読めるようになりましょう。
+</p>
 </div>
-<div id="outline-container-org09c9351" class="outline-4">
-<h4 id="org09c9351">R または RStudio の起動と終了 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h4>
-<div class="outline-text-4" id="text-org09c9351">
 </div>
-<div id="outline-container-org888af81" class="outline-5">
-<h5 id="org888af81">開始</h5>
-<div class="outline-text-5" id="text-org888af81">
+
+<div id="outline-container-orga59e5d0" class="outline-3">
+<h3 id="orga59e5d0">1章</h3>
+<div class="outline-text-3" id="text-orga59e5d0">
+</div>
+<div id="outline-container-org57a1599" class="outline-4">
+<h4 id="org57a1599">基本的な操作の概要 1.4.2</h4>
+<div class="outline-text-4" id="text-org57a1599">
+</div>
+<div id="outline-container-orgf70bafd" class="outline-5">
+<h5 id="orgf70bafd">R または RStudio の起動と終了 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h5>
+<div class="outline-text-5" id="text-orgf70bafd">
+</div>
+<div id="outline-container-org139b354" class="outline-6">
+<h6 id="org139b354">開始</h6>
+<div class="outline-text-6" id="text-org139b354">
 <div class="org-src-container">
 <pre class="src src-shell">R --save
 </pre>
 </div>
-
-<pre class="example" id="orgad380ac">
-
-      R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
-      Copyright (C) 2020 The R Foundation for Statistical Computing
-      Platform: x86_64-pc-linux-gnu (64-bit)
-
-      R は、自由なソフトウェアであり、「完全に無保証」です。 
-      一定の条件に従えば、自由にこれを再配布することができます。 
-      配布条件の詳細に関しては、'license()' あるいは 'licence()' と入力してください。 
-
-      R は多くの貢献者による共同プロジェクトです。 
-      詳しくは 'contributors()' と入力してください。 
-      また、R や R のパッケージを出版物で引用する際の形式については 
-      'citation()' と入力してください。 
-
-      'demo()' と入力すればデモをみることができます。 
-      'help()' とすればオンラインヘルプが出ます。 
-      'help.start()' で HTML ブラウザによるヘルプがみられます。 
-      'q()' と入力すれば R を終了します。 
-
-      &gt; 
-</pre>
 </div>
 </div>
 
-<div id="outline-container-orgc456744" class="outline-5">
-<h5 id="orgc456744">R はインタープリタ</h5>
-<div class="outline-text-5" id="text-orgc456744">
+<div id="outline-container-orgb0993d0" class="outline-6">
+<h6 id="orgb0993d0">R はインタープリタ</h6>
+<div class="outline-text-6" id="text-orgb0993d0">
 <ul class="org-ul">
 <li>ユーザがプログラムを入力し，</li>
 <li>R システムが入力プログラムを実行し，結果を表示する</li>
@@ -292,40 +283,50 @@
 </div>
 
 
-<div id="outline-container-orge09bfb3" class="outline-5">
-<h5 id="orge09bfb3">終了</h5>
-<div class="outline-text-5" id="text-orge09bfb3">
+<div id="outline-container-orgfc1ab50" class="outline-6">
+<h6 id="orgfc1ab50">終了</h6>
+<div class="outline-text-6" id="text-orgfc1ab50">
 <div class="org-src-container">
-<pre class="src src-R">quit()
+<pre class="src src-R"># quit()
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7caa055" class="outline-4">
-<h4 id="org7caa055">簡単な計算 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source</a></h4>
-<div class="outline-text-4" id="text-org7caa055">
+<div id="outline-container-orgc159880" class="outline-5">
+<h5 id="orgc159880">簡単な計算   <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h5>
+<div class="outline-text-5" id="text-orgc159880">
+</div>
+<div id="outline-container-org9d832c3" class="outline-6">
+<h6 id="org9d832c3">四則演算  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h6>
+<div class="outline-text-6" id="text-org9d832c3">
 <div class="org-src-container">
 <pre class="src src-R">
- 3+5
- 10-3
- 2*3
- 20/4 <span style="color: #99968b;"># </span><span style="color: #99968b;">&#21106;&#12426;&#31639;&#12434;&#12377;&#12427;&#12392;&#12365;&#12399;/ (&#12473;&#12521;&#12483;&#12471;&#12517;)</span>
+3+5
+10-3
+2*3
+20/4 # 割り算をするときは/ (スラッシュ)
 
+</pre>
+</div>
+
+<pre class="example">
+[1] 8
+[1] 7
+[1] 6
+[1] 5
 </pre>
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orge66016d" class="outline-4">
-<h4 id="orge66016d">関数</h4>
-<div class="outline-text-4" id="text-orge66016d">
+<div id="outline-container-orgdb501bb" class="outline-5">
+<h5 id="orgdb501bb">関数   <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h5>
+<div class="outline-text-5" id="text-orgdb501bb">
 </div>
-<div id="outline-container-orgd99fd25" class="outline-5">
-<h5 id="orgd99fd25">平方根を求める</h5>
-<div class="outline-text-5" id="text-orgd99fd25">
+<div id="outline-container-orgc0cbbd5" class="outline-6">
+<h6 id="orgc0cbbd5">平方根を求める</h6>
+<div class="outline-text-6" id="text-orgc0cbbd5">
 <div class="org-src-container">
 <pre class="src src-R">sqrt(16)
 </pre>
@@ -334,16 +335,248 @@
 <pre class="example">
 [1] 4
 </pre>
+
+
+<ul class="org-ul">
+<li>sqrt が関数の名前，(16) が関数に渡す *引数*。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2ab4276" class="outline-6">
+<h6 id="org2ab4276">底が10の対数</h6>
+<div class="outline-text-6" id="text-org2ab4276">
+<div class="org-src-container">
+<pre class="src src-R">log(2, base=10)
+</pre>
+</div>
+
+<pre class="example">
+[1] 0.30103
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R"># help(log)
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-org288bd83" class="outline-5">
-<h5 id="org288bd83"></h5>
-<div class="outline-text-5" id="text-org288bd83">
+
+
+
+
+
+
+<div id="outline-container-org4d80939" class="outline-4">
+<h4 id="org4d80939">Rをもっとさわってみよう 1.5  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a></h4>
+<div class="outline-text-4" id="text-org4d80939">
+<div class="org-src-container">
+<pre class="src src-R">summary(c(173,178,180,183,182,174,179,179,174,192))
+</pre>
+</div>
+
+<pre class="example">
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+173.0   175.0   179.0   179.4   181.5   192.0
+</pre>
+
+
+<dl class="org-dl">
+<dt>c(173,178,180,183,182,174,179,179,174,192)</dt><dd>10個の要素を持つベ
+クトルを作る (関数のよびだし)</dd>
+
+<dt>(no term)</dt><dd>与えられたデータの
+<dl class="org-dl">
+<dt>Min.</dt><dd>最小値</dd>
+<dt>1st Qu.</dt><dd>第一四分位数 (下から1/4点)</dd>
+<dt>Median</dt><dd>中央値</dd>
+<dt>Mead</dt><dd>平均値</dd>
+<dt>3rd Qu.</dt><dd>第三四分位数 (下から3/4点)</dd>
+<dt>Max.</dt><dd>最大値</dd>
+</dl></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org56e41e7" class="outline-4">
+<h4 id="org56e41e7">複数の値をまとめて使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
+<div class="outline-text-4" id="text-org56e41e7">
+</div>
+<div id="outline-container-org85a3f80" class="outline-5">
+<h5 id="org85a3f80">10人分のデータにまとめて名前をつける  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-org85a3f80">
+<div class="org-src-container">
+<pre class="src src-R">(身長 &lt;- c(173,178,180,183,182,174,179,179,174,192))
+</pre>
+</div>
+
+<pre class="example">
+[1] 173 178 180 183 182 174 179 179 174 192
+</pre>
+
+
+<ul class="org-ul">
+<li>「身長」という名前の変数に10人分のデータを格納している
+<ul class="org-ul">
+<li>変数は，名前と値を持つ</li>
+<li>名前で，参照し，</li>
+<li>参照すると値がでてくる</li>
+</ul></li>
+
+<li>「変数 &lt;- 式」という構文を代入という</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9260e18" class="outline-5">
+<h5 id="org9260e18">変数を使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-org9260e18">
+<div class="org-src-container">
+<pre class="src src-R">身長
+</pre>
+</div>
+
+<pre class="example">
+[1] 173 178 180 183 182 174 179 179 174 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3304620" class="outline-5">
+<h5 id="org3304620">行列を使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a></h5>
+<div class="outline-text-5" id="text-org3304620">
+<div class="org-src-container">
+<pre class="src src-R">(ホークス &lt;- matrix(
+  c(173,178,180,183,182,174,179,179,174,192,
+    17000,14000,9000,50000,30000,12000,900,2100,1000,2500),
+  10, 2))
+</pre>
+</div>
+
+<pre class="example" id="orgfdf3474">
+      [,1]  [,2]
+ [1,]  173 17000
+ [2,]  178 14000
+ [3,]  180  9000
+ [4,]  183 50000
+ [5,]  182 30000
+ [6,]  174 12000
+ [7,]  179   900
+ [8,]  179  2100
+ [9,]  174  1000
+[10,]  192  2500
+</pre>
+<dl class="org-dl">
+<dt>matrix(ベクトル，行数，列数)</dt><dd>ベクトルを 行数×列数 の行列に
+する</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-org41aed86" class="outline-5">
+<h5 id="org41aed86">外部データファイルを読み込む</h5>
+<div class="outline-text-5" id="text-org41aed86">
 <p>
-log(2, base=10)
+<a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/40.html">R-Source::ファイルからデータを読み込む</a>
 </p>
+
+<ul class="org-ul">
+<li><p>
+作業ディレクトリ <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/06.html">R-Source::作業ディレクトリの変更</a>
+</p>
+
+<p>
+ファイルからデータやプログラムを読み込んだり，ファイルにデータ
+を書き出したりする場所を作業ディレクトリという
+</p></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">setwd("~/Lects/R")
+getwd()
+system("ls")
+</pre>
+</div>
+
+<pre class="example">
+ setwd("~/Lects/R") でエラー:  作業ディレクトリを変更できません
+[1] "/nas/home/masayuki/COMM/Lects/R"
+2020-repo-01.org  R-learning.org~   binom.r		      r-plot.png
+2020-repo-02.org  RforStatistcs     dist-uniform.r	      stat-12.org
+2020-repo-03.org  Rintro	    gauss3d-rot.r	      stat-12.org~
+3.log		  Rplots.pdf	    gauss3d.R		      stat-lse.org
+3.ps		  Rprobability.org  gauss3d.org		      www.medi-08-data-06.work
+3.tex		  ai-trend	    graphs
+R-learning.org	  babel		    low_of_large_numbers.org
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">(ホークス.2 &lt;- read.csv("Data/hawks.csv"))
+</pre>
+</div>
+
+<pre class="example" id="org1b1d79c">
+   height salary
+1     173  17000
+2     178  14000
+3     180   9000
+4     183  50000
+5     182  30000
+6     174  12000
+7     179    900
+8     179   2100
+9     174   1000
+10    192   2500
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce9b13e" class="outline-4">
+<h4 id="orgce9b13e">関数を作ってみよう     <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
+<div class="outline-text-4" id="text-orgce9b13e">
+</div>
+<div id="outline-container-orgc761980" class="outline-5">
+<h5 id="orgc761980">標本分散を計算する関数を作る</h5>
+<div class="outline-text-5" id="text-orgc761980">
+<p>
+Rの var() 関数は，不偏分散を計算する関数なので，
+標本分散を計算する関数を定義してみる:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">(varp &lt;- function (x) {
+  var(x)*(length(x)-1)/length(x)
+})
+</pre>
+</div>
+
+<pre class="example">
+function (x) {
+  var(x)*(length(x)-1)/length(x)
+}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">(x &lt;- c(10, 13, 8, 15, 8))
+var(x)
+varp(x)
+</pre>
+</div>
+
+<pre class="example">
+[1] 10 13  8 15  8
+[1] 9.7
+[1] 7.76
+</pre>
 </div>
 </div>
 </div>
@@ -352,7 +585,7 @@ log(2, base=10)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-05-15 土 09:27</p>
+<p class="date">Created: 2021-05-17 月 21:33</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
