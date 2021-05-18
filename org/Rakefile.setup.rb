@@ -5,6 +5,7 @@ EXCLUDES = [
 ]
 
 ORGS = [
+  "index.org",
   "RforS.org",
 ]
 

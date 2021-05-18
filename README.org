@@ -26,4 +26,8 @@
    [[./org/RforS.org]] emacs-org babel
 
    https://masayuki054.github.io/RforS/RforS.html
+
+* zoom
+
+  
    

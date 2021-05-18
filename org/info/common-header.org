@@ -3,7 +3,6 @@
 #+OPTIONS: ^:{}
 #+PROPERTY:  header-args :padline no
 #+title: Rによるやさしい統計学による入門
-
 #+author: suzuki@iwate-u.ac.jp
 #+HTML_MATHJAX:  path:"http://cdn.mathjax.org/mathjax/latest/MathJax.js"
 

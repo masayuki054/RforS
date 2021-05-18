@@ -1,4 +1,3 @@
-
 #+setupfile: info/index-sos-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師

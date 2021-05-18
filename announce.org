@@ -1,0 +1,28 @@
+* Iassistant announces
+
+** 5/19 リモート講義情報 [2021-05-18 火]
+
+- 5/19 10:30 開始です。10:00頃から接続可にするつもりです。
+- リアルタイムに参加できない人は，保存動画を視聴してください。
+- 作成したプログラムにコメントを書き込んで，提出してください。
+
+*** 講義用のページ
+
+    https://github.com/masayuki054/RforS
+  
+*** zoom 情報
+
+- zoom id: suzuki@iwate-u.ac.jp
+
+- meeing info:
+
+  URL: https://zoom.us/j/5280602571?pwd=WFNlRmYxcHVaRXV3eW10dkswVVFWdz09
+  ID: 528 060 2571
+  password: 0yzsb1
+
+*** 閲覧page
+
+  https://masayuki054.github.io/RforS
+
+  
+  
