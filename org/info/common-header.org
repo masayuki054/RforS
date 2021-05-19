@@ -1,4 +1,3 @@
-#+setupfile: ~/ict.git/org/info/index-sos-header.setup
 #+OPTIONS:   H:6 toc:nil num:nil
 #+OPTIONS: ^:{}
 #+PROPERTY:  header-args :padline no
