@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-19 水 09:29 -->
+<!-- 2021-05-19 水 09:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rによるやさしい統計学による入門</title>
@@ -232,34 +232,34 @@
 <h1 class="title">Rによるやさしい統計学による入門</h1>
 
 
-<div id="outline-container-org0141833" class="outline-2">
-<h2 id="org0141833">Rによるやさしい統計学</h2>
-<div class="outline-text-2" id="text-org0141833">
+<div id="outline-container-orgc5c0982" class="outline-2">
+<h2 id="orgc5c0982">Rによるやさしい統計学</h2>
+<div class="outline-text-2" id="text-orgc5c0982">
 </div>
-<div id="outline-container-orgda8179c" class="outline-3">
-<h3 id="orgda8179c">目標</h3>
-<div class="outline-text-3" id="text-orgda8179c">
+<div id="outline-container-org1fd1e6c" class="outline-3">
+<h3 id="org1fd1e6c">目標</h3>
+<div class="outline-text-3" id="text-org1fd1e6c">
 <p>
 R で書かれたコードを読めるようになりましょう。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org755811f" class="outline-3">
-<h3 id="org755811f">1章</h3>
-<div class="outline-text-3" id="text-org755811f">
+<div id="outline-container-org69b2427" class="outline-3">
+<h3 id="org69b2427">1章</h3>
+<div class="outline-text-3" id="text-org69b2427">
 </div>
-<div id="outline-container-org281b270" class="outline-4">
-<h4 id="org281b270">基本的な操作の概要 1.4.2</h4>
-<div class="outline-text-4" id="text-org281b270">
+<div id="outline-container-orgcb47fe9" class="outline-4">
+<h4 id="orgcb47fe9">基本的な操作の概要 1.4.2</h4>
+<div class="outline-text-4" id="text-orgcb47fe9">
 </div>
-<div id="outline-container-org2cdcec5" class="outline-5">
-<h5 id="org2cdcec5">R または RStudio の起動と終了 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h5>
-<div class="outline-text-5" id="text-org2cdcec5">
+<div id="outline-container-org5b1eee2" class="outline-5">
+<h5 id="org5b1eee2">R または RStudio の起動と終了 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h5>
+<div class="outline-text-5" id="text-org5b1eee2">
 </div>
-<div id="outline-container-org8ee98ba" class="outline-6">
-<h6 id="org8ee98ba">開始</h6>
-<div class="outline-text-6" id="text-org8ee98ba">
+<div id="outline-container-org6407562" class="outline-6">
+<h6 id="org6407562">開始</h6>
+<div class="outline-text-6" id="text-org6407562">
 <div class="org-src-container">
 <pre class="src src-shell">R --save
 </pre>
@@ -267,9 +267,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-orgec6d0aa" class="outline-6">
-<h6 id="orgec6d0aa">R はインタープリタ</h6>
-<div class="outline-text-6" id="text-orgec6d0aa">
+<div id="outline-container-orgb4243ed" class="outline-6">
+<h6 id="orgb4243ed">R はインタープリタ</h6>
+<div class="outline-text-6" id="text-orgb4243ed">
 <ul class="org-ul">
 <li>ユーザがプログラムを入力し，</li>
 <li>R システムが入力プログラムを実行し，結果を表示する</li>
@@ -280,9 +280,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 
 
-<div id="outline-container-org1595413" class="outline-6">
-<h6 id="org1595413">終了</h6>
-<div class="outline-text-6" id="text-org1595413">
+<div id="outline-container-org6685ff3" class="outline-6">
+<h6 id="org6685ff3">終了</h6>
+<div class="outline-text-6" id="text-org6685ff3">
 <div class="org-src-container">
 <pre class="src src-R"># quit()
 </pre>
@@ -291,13 +291,13 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-orga29ab45" class="outline-5">
-<h5 id="orga29ab45">簡単な計算   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h5>
-<div class="outline-text-5" id="text-orga29ab45">
+<div id="outline-container-org666dfd8" class="outline-5">
+<h5 id="org666dfd8">簡単な計算   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a> <a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a></h5>
+<div class="outline-text-5" id="text-org666dfd8">
 </div>
-<div id="outline-container-org662fe05" class="outline-6">
-<h6 id="org662fe05">四則演算  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h6>
-<div class="outline-text-6" id="text-org662fe05">
+<div id="outline-container-orgdc5e322" class="outline-6">
+<h6 id="orgdc5e322">四則演算  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h6>
+<div class="outline-text-6" id="text-orgdc5e322">
 <div class="org-src-container">
 <pre class="src src-R">
 3+5
@@ -316,14 +316,19 @@ R で書かれたコードを読めるようになりましょう。
 </pre>
 </div>
 </div>
+
+<div id="outline-container-org4795a48" class="outline-6">
+<h6 id="org4795a48"><a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a> の課題をやってみましょう</h6>
 </div>
-<div id="outline-container-org920d817" class="outline-5">
-<h5 id="org920d817">関数   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h5>
-<div class="outline-text-5" id="text-org920d817">
 </div>
-<div id="outline-container-org5586a5e" class="outline-6">
-<h6 id="org5586a5e">平方根を求める</h6>
-<div class="outline-text-6" id="text-org5586a5e">
+
+<div id="outline-container-org203270f" class="outline-5">
+<h5 id="org203270f">関数   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h5>
+<div class="outline-text-5" id="text-org203270f">
+</div>
+<div id="outline-container-org5bc0e29" class="outline-6">
+<h6 id="org5bc0e29">平方根を求める</h6>
+<div class="outline-text-6" id="text-org5bc0e29">
 <div class="org-src-container">
 <pre class="src src-R">sqrt(16)
 </pre>
@@ -340,9 +345,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org1f30963" class="outline-6">
-<h6 id="org1f30963">底が10の対数</h6>
-<div class="outline-text-6" id="text-org1f30963">
+<div id="outline-container-orga567e08" class="outline-6">
+<h6 id="orga567e08">底が10の対数</h6>
+<div class="outline-text-6" id="text-orga567e08">
 <div class="org-src-container">
 <pre class="src src-R">log(2, base=10)
 </pre>
@@ -363,9 +368,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 
 
-<div id="outline-container-org575723a" class="outline-4">
-<h4 id="org575723a">Rをもっとさわってみよう 1.5  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a></h4>
-<div class="outline-text-4" id="text-org575723a">
+<div id="outline-container-org68416ab" class="outline-4">
+<h4 id="org68416ab">Rをもっとさわってみよう 1.5  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a>   - <a href="https://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a></h4>
+<div class="outline-text-4" id="text-org68416ab">
 <div class="org-src-container">
 <pre class="src src-R">summary(c(173,178,180,183,182,174,179,179,174,192))
 </pre>
@@ -381,12 +386,11 @@ R で書かれたコードを読めるようになりましょう。
 <dt>c(173,178,180,183,182,174,179,179,174,192)</dt><dd>10個の要素を持つベ
 クトルを作る (関数のよびだし)</dd>
 
-<dt>(no term)</dt><dd>与えられたデータの
-<dl class="org-dl">
+<dt>与えられたデータの統計代表値</dt><dd><dl class="org-dl">
 <dt>Min.</dt><dd>最小値</dd>
 <dt>1st Qu.</dt><dd>第一四分位数 (下から1/4点)</dd>
 <dt>Median</dt><dd>中央値</dd>
-<dt>Mead</dt><dd>平均値</dd>
+<dt>Mean</dt><dd>平均値</dd>
 <dt>3rd Qu.</dt><dd>第三四分位数 (下から3/4点)</dd>
 <dt>Max.</dt><dd>最大値</dd>
 </dl></dd>
@@ -394,13 +398,13 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org0a4ba46" class="outline-4">
-<h4 id="org0a4ba46">複数の値をまとめて使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
-<div class="outline-text-4" id="text-org0a4ba46">
+<div id="outline-container-orgb53c477" class="outline-4">
+<h4 id="orgb53c477">複数の値をまとめて使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
+<div class="outline-text-4" id="text-orgb53c477">
 </div>
-<div id="outline-container-orge583d46" class="outline-5">
-<h5 id="orge583d46">10人分のデータにまとめて名前をつける  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
-<div class="outline-text-5" id="text-orge583d46">
+<div id="outline-container-org2335e99" class="outline-5">
+<h5 id="org2335e99">10人分のデータにまとめて名前をつける  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-org2335e99">
 <div class="org-src-container">
 <pre class="src src-R">(身長 &lt;- c(173,178,180,183,182,174,179,179,174,192))
 </pre>
@@ -424,9 +428,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org37ac3cd" class="outline-5">
-<h5 id="org37ac3cd">変数を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
-<div class="outline-text-5" id="text-org37ac3cd">
+<div id="outline-container-orgf0c2059" class="outline-5">
+<h5 id="orgf0c2059">変数を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-orgf0c2059">
 <div class="org-src-container">
 <pre class="src src-R">身長
 </pre>
@@ -438,9 +442,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org68d53ca" class="outline-5">
-<h5 id="org68d53ca">行列を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a></h5>
-<div class="outline-text-5" id="text-org68d53ca">
+<div id="outline-container-org9aa3af4" class="outline-5">
+<h5 id="org9aa3af4">行列を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a></h5>
+<div class="outline-text-5" id="text-org9aa3af4">
 <div class="org-src-container">
 <pre class="src src-R">(ホークス &lt;- matrix(
   c(173,178,180,183,182,174,179,179,174,192,
@@ -449,7 +453,7 @@ R で書かれたコードを読めるようになりましょう。
 </pre>
 </div>
 
-<pre class="example" id="org3136399">
+<pre class="example" id="org88d6568">
       [,1]  [,2]
  [1,]  173 17000
  [2,]  178 14000
@@ -469,10 +473,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-
-<div id="outline-container-orgab2273c" class="outline-5">
-<h5 id="orgab2273c">外部データファイルを読み込む</h5>
-<div class="outline-text-5" id="text-orgab2273c">
+<div id="outline-container-org16d5936" class="outline-5">
+<h5 id="org16d5936">外部データファイルを読み込む</h5>
+<div class="outline-text-5" id="text-org16d5936">
 <p>
 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/40.html">R-Source::ファイルからデータを読み込む</a>
 </p>
@@ -513,7 +516,7 @@ R-learning.org	  babel		    low_of_large_numbers.org
 </pre>
 </div>
 
-<pre class="example" id="orgd2d4d32">
+<pre class="example" id="orgf407644">
    height salary
 1     173  17000
 2     178  14000
@@ -530,13 +533,13 @@ R-learning.org	  babel		    low_of_large_numbers.org
 </div>
 </div>
 
-<div id="outline-container-orgd97b9cd" class="outline-4">
-<h4 id="orgd97b9cd">関数を作ってみよう     <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
-<div class="outline-text-4" id="text-orgd97b9cd">
+<div id="outline-container-orgb6c7261" class="outline-4">
+<h4 id="orgb6c7261">関数を作ってみよう     <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
+<div class="outline-text-4" id="text-orgb6c7261">
 </div>
-<div id="outline-container-orgbed1414" class="outline-5">
-<h5 id="orgbed1414">標本分散を計算する関数を作る</h5>
-<div class="outline-text-5" id="text-orgbed1414">
+<div id="outline-container-org55cadfa" class="outline-5">
+<h5 id="org55cadfa">標本分散を計算する関数を作る</h5>
+<div class="outline-text-5" id="text-org55cadfa">
 <p>
 Rの var() 関数は，不偏分散を計算する関数なので，
 標本分散を計算する関数を定義してみる:
@@ -576,7 +579,7 @@ varp(x)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-05-19 水 09:29</p>
+<p class="date">Created: 2021-05-19 水 09:57</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
