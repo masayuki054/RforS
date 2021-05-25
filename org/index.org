@@ -1,4 +1,6 @@
-#+setupfile: ~/ict.git/org/info/index-sos-header.setup
-#+include: ~/ict.git/org/info/common-header.org
+#+setupfile: info/index-sos-header.setup
+#+include: info/common-header.org
 #+title: 「Rによるやさしい統計学」のRの演習
-#+include:  RforS.org :minlevel 1
+#+include:  RforS-0.org :minlevel 2
+#+include:  RforS-1.org :minlevel 2
+#+include:  RforS-2.org :minlevel 2

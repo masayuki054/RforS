@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-05-26 水 06:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc004667">1. 基本的な操作</a>
+<ul>
+<li><a href="#org8eb4ef6">1.1. 目標</a></li>
+<li><a href="#orgce5cc9c">1.2. 1章</a>
+<ul>
+<li><a href="#org90cd140">1.2.1. 基本的な操作の概要 1.4.2</a></li>
+<li><a href="#orgbded42e">1.2.2. Rをもっとさわってみよう 1.5  R-Source::ベクトルの作成   - R解説(2)</a></li>
+<li><a href="#org159722b">1.2.3. 複数の値をまとめて使う R-Source</a></li>
+<li><a href="#org49386c5">1.2.4. 関数を作ってみよう     R-Source::関数事始</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc004667" class="outline-2">
+<h2 id="orgc004667"><span class="section-number-2">1</span> 基本的な操作</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8eb4ef6" class="outline-3">
+<h3 id="org8eb4ef6"><span class="section-number-3">1.1</span> 目標</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+R で書かれたコードを読めるようになりましょう。
+</p>
+
+<ul class="org-ul">
+<li>式を理解しましょう</li>
+<li>関数を理解しましょう</li>
+<li>ベクトルを知りましょう</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgce5cc9c" class="outline-3">
+<h3 id="orgce5cc9c"><span class="section-number-3">1.2</span> 1章</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org90cd140" class="outline-4">
+<h4 id="org90cd140"><span class="section-number-4">1.2.1</span> 基本的な操作の概要 1.4.2</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org24fa237"></a>R または RStudio の起動と終了 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a><br />
+<ol class="org-ol">
+<li><a id="orgc81221b"></a>開始<br />
+<div class="outline-text-6" id="text-1-2-1-1-1">
+<div class="org-src-container">
+<pre class="src src-shell">R --save
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgd63451e"></a>R はインタープリタ<br />
+<div class="outline-text-6" id="text-1-2-1-1-2">
+<ul class="org-ul">
+<li>ユーザがプログラムを入力し，</li>
+<li>R システムが入力プログラムを実行し，結果を表示する</li>
+<li>上矢印，下矢印で前の式を呼び出し，エンターで実行</li>
+<li>history() で入力式一覧</li>
+</ul>
+</div>
+</li>
+
+
+<li><a id="orgdb78af4"></a>終了<br />
+<div class="outline-text-6" id="text-1-2-1-1-3">
+<div class="org-src-container">
+<pre class="src src-R"># quit()
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+
+<li><a id="orga7667e3"></a>簡単な計算   <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a> <a href="http://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a><br />
+<ol class="org-ol">
+<li><a id="org4817ecd"></a>四則演算  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a><br />
+<div class="outline-text-6" id="text-1-2-1-2-1">
+<div class="org-src-container">
+<pre class="src src-R">
+3+5
+10-3
+2*3
+20/4 # 割り算をするときは/ (スラッシュ)
+21 %/% 5
+21 %% 5
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 8
+[1] 7
+[1] 6
+[1] 5
+[1] 4
+[1] 1
+</pre>
+</div>
+</li>
+
+
+<li><a id="orgcbd8527"></a><a href="http://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a> の課題をやってみましょう<br /></li>
+</ol>
+</li>
+
+<li><a id="orgb05dd1e"></a>関数   <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a><br />
+<ol class="org-ol">
+<li><a id="orgd022aa1"></a>平方根を求める<br />
+<div class="outline-text-6" id="text-1-2-1-3-1">
+<div class="org-src-container">
+<pre class="src src-R">
+sqrt(16) * sqrt(99) + sqrt(1)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 40.7995
+</pre>
+
+
+<ul class="org-ul">
+<li>sqrt が関数の名前，(16) が関数に渡す *引数*。</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgd1e2c58"></a>底が10の対数<br />
+<div class="outline-text-6" id="text-1-2-1-3-2">
+<div class="org-src-container">
+<pre class="src src-R">
+log(10, base=10)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 1
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R"># help(log)
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+
+
+<div id="outline-container-orgbded42e" class="outline-4">
+<h4 id="orgbded42e"><span class="section-number-4">1.2.2</span> Rをもっとさわってみよう 1.5  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a>   - <a href="http://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a></h4>
+<div class="outline-text-4" id="text-1-2-2">
+<div class="org-src-container">
+<pre class="src src-R">
+(height &lt;- c(173,178,180,183,182,174,179,179,174,192)) # ベクトル化
+
+summary(height)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 173 178 180 183 182 174 179 179 174 192
+  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 173.0   175.0   179.0   179.4   181.5   192.0
+</pre>
+
+
+<dl class="org-dl">
+<dt>c(173,178,180,183,182,174,179,179,174,192)</dt><dd>10個の要素を持つベ
+クトルを作る (関数のよびだし)</dd>
+
+<dt>与えられたデータの統計代表値</dt><dd><dl class="org-dl">
+<dt>Min.</dt><dd>最小値</dd>
+<dt>1st Qu.</dt><dd>第一四分位数 (下から1/4点)</dd>
+<dt>Median</dt><dd>中央値</dd>
+<dt>Mean</dt><dd>平均値</dd>
+<dt>3rd Qu.</dt><dd>第三四分位数 (下から3/4点)</dd>
+<dt>Max.</dt><dd>最大値</dd>
+</dl></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org159722b" class="outline-4">
+<h4 id="org159722b"><span class="section-number-4">1.2.3</span> 複数の値をまとめて使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="org6216610"></a>10人分のデータにまとめて名前をつける  <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a><br />
+<div class="outline-text-5" id="text-1-2-3-1">
+<div class="org-src-container">
+<pre class="src src-R">
+(身長 &lt;- c(173,178,180,183,182,174,179,179,174,192))
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 173 178 180 183 182 174 179 179 174 192
+</pre>
+
+
+
+<ul class="org-ul">
+<li>「身長」という名前の変数に10人分のデータを格納している
+<ul class="org-ul">
+<li>変数は，名前と値を持つ</li>
+<li>名前で，参照し，</li>
+<li>参照すると値がでてくる</li>
+</ul></li>
+
+<li>「変数 &lt;- 式」という構文を代入という</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org89d8246"></a>変数を使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a><br />
+<div class="outline-text-5" id="text-1-2-3-2">
+<div class="org-src-container">
+<pre class="src src-R">
+身長
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 173 178 180 183 182 174 179 179 174 192
+</pre>
+</div>
+</li>
+
+<li><a id="org779a1f6"></a>行列を使う <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a><br />
+<div class="outline-text-5" id="text-1-2-3-3">
+<div class="org-src-container">
+<pre class="src src-R">
+(ホークス &lt;- matrix(
+  c(173,178,180,183,182,174,179,179,174,192,
+    17000,14000,9000,50000,30000,12000,900,2100,1000,2500),
+  10, 2))
+
+</pre>
+</div>
+
+<pre class="example" id="orgb929a80">
+      [,1]  [,2]
+ [1,]  173 17000
+ [2,]  178 14000
+ [3,]  180  9000
+ [4,]  183 50000
+ [5,]  182 30000
+ [6,]  174 12000
+ [7,]  179   900
+ [8,]  179  2100
+ [9,]  174  1000
+[10,]  192  2500
+</pre>
+<dl class="org-dl">
+<dt>matrix(ベクトル，行数，列数)</dt><dd>ベクトルを 行数×列数 の行列に
+する</dd>
+</dl>
+</div>
+</li>
+
+<li><a id="orgccf4606"></a>外部データファイルを読み込む<br />
+<div class="outline-text-5" id="text-1-2-3-4">
+<p>
+<a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/40.html">R-Source::ファイルからデータを読み込む</a>
+</p>
+
+<ul class="org-ul">
+<li><p>
+作業ディレクトリ <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/06.html">R-Source::作業ディレクトリの変更</a>
+</p>
+
+<p>
+ファイルからデータやプログラムを読み込んだり，ファイルにデータ
+を書き出したりする場所を作業ディレクトリという
+</p></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">setwd("~/Lects/R")
+getwd()
+system("ls")
+</pre>
+</div>
+
+<pre class="example">
+ setwd("~/Lects/R") でエラー:  作業ディレクトリを変更できません
+[1] "/nas/home/masayuki/COMM/Lects/R"
+2020-repo-01.org  R-learning.org~   binom.r		      r-plot.png
+2020-repo-02.org  RforStatistcs     dist-uniform.r	      stat-12.org
+2020-repo-03.org  Rintro	    gauss3d-rot.r	      stat-12.org~
+3.log		  Rplots.pdf	    gauss3d.R		      stat-lse.org
+3.ps		  Rprobability.org  gauss3d.org		      www.medi-08-data-06.work
+3.tex		  ai-trend	    graphs
+R-learning.org	  babel		    low_of_large_numbers.org
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+(ホークス.2 &lt;- read.csv("Data/hawks.csv"))
+
+</pre>
+</div>
+
+<pre class="example">
+file(file, "rt") でエラー:  コネクションを開くことができません 
+追加情報:  警告メッセージ: 
+file(file, "rt") で: 
+  ファイル 'Data/hawks.csv' を開くことができません: そのようなファイルやディレクトリはありません
+</pre>
+</div>
+</li>
+</ol>
+</div>
+
+
+
+<div id="outline-container-org49386c5" class="outline-4">
+<h4 id="org49386c5"><span class="section-number-4">1.2.4</span> 関数を作ってみよう     <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
+<div class="outline-text-4" id="text-1-2-4">
+</div>
+<ol class="org-ol">
+<li><a id="org2909a26"></a>標本分散を計算する関数を作る<br />
+<div class="outline-text-5" id="text-1-2-4-1">
+<p>
+Rの var() 関数は，不偏分散を計算する関数なので，
+標本分散を計算する関数を定義してみる:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+(varp &lt;- function (x) {
+  var(x)*(length(x)-1)/length(x)
+})
+
+</pre>
+</div>
+
+<pre class="example">
+function (x) {
+  var(x)*(length(x)-1)/length(x)
+}
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+(x &lt;- c(10, 13, 8, 15, 8))
+var(x)
+varp(x)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 10 13  8 15  8
+[1] 9.7
+[1] 7.76
+</pre>
+</div>
+</li>
+
+
+<li><a id="org83792e1"></a>プログラムを読み込む<br />
+<div class="outline-text-5" id="text-1-2-4-2">
+<div class="org-src-container">
+<pre class="src src-R">
+setwd("~/COMM/Lects/R/mylib/")
+getwd()
+system("ls")
+(source("varp.r"))
+
+</pre>
+</div>
+
+<pre class="example">
+[1] "/nas/home/masayuki/COMM/Lects/R/mylib"
+varp.r
+$value
+function (x) {
+  var(x)*(length(x)-1)/length(x)
+}
+
+$visible
+[1] TRUE
+</pre>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-05-26 水 06:30</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

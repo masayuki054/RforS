@@ -6,7 +6,9 @@ EXCLUDES = [
 
 ORGS = [
   "index.org",
-  "RforS.org",
+  "RforS-0.org",
+  "RforS-1.org",
+  "RforS-2.org",
 ]
 
 SUBDIRS = [

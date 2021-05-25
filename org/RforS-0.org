@@ -1,0 +1,41 @@
+* Rの実行環境
+  
+** 目標
+
+   R で書かれたコードを読めるようになりましょう。
+
+   - R の実行環境について理解しましょう。
+
+** 0章
+   
+*** 作業環境の設定
+
+    Rの作業・実行環境を設定する
+
+    : ホーム/ の下の COMM/ の下の Lects/ の下の R ディレクトリ
+
+#+begin_src R :session t :results output :exports both
+
+setwd("~/COMM/Lects/R/")
+(getwd())
+
+#+end_src
+
+#+RESULTS:
+: [1] "/nas/home/masayuki/COMM/Lects/R"
+
+*** プログラムの読み込み
+
+#+begin_src R :session t :results output :exports both
+
+source("Libs/varp.r")  # ~/COMM/Lects/R/Libs ディレクトリにある varp.r 
+
+#+end_src
+
+#+RESULTS:
+:  file(filename, "r", encoding = encoding) でエラー: 
+:    コネクションを開くことができません 
+:  追加情報:  警告メッセージ: 
+:  file(filename, "r", encoding = encoding) で: 
+:    ファイル 'Libs/varp.r' を開くことができません: そのようなファイルやディレクトリはありません
+    

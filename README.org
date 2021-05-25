@@ -1,10 +1,28 @@
 * 「Rによるやさしい統計学」の演習
 
-  
 
 ** 教科書
 
    [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]]
+
+** 演習用コンテンツ
+
+   教科書のまとめ
+   
+   - Emacs org-mode版
+     0. [[./org/RforS-0.org]] (5.26)
+     1. [[./org/RforS-1.org]] (5.19)
+     2. [[./org/RforS-2.org]] (5.26)	
+
+   - HTML版 https://masayuki054.github.io/RforS
+
+** 参考サイト  [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]] 
+
+  [[http://whitewell.sakura.ne.jp/R/Rintro-01.html][- R解説(1)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-02.html][R解説(2)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-03.html][R解説(3)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-04.html][R解説(4)]]
+   
 
 ** 参考サイト
 
@@ -20,24 +38,4 @@
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
      - 教科書に基づいた確率統計の講義サイト
      
-   
-** 演習用コンテンツ
-
-   教科書のまとめ
-   
-   - Emacs org-mode版 [[./org/RforS.org]] 
-
-   - HTML版 https://masayuki054.github.io/RforS
-
-  [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]] 
-
-  [[http://whitewell.sakura.ne.jp/R/Rintro-01.html][- R解説(1)]] 課題をやってみましょう
-  - [[http://whitewell.sakura.ne.jp/R/Rintro-02.html][R解説(2)]] 課題をやってみましょう
-  - [[http://whitewell.sakura.ne.jp/R/Rintro-03.html][R解説(3)]]
-  - [[http://whitewell.sakura.ne.jp/R/Rintro-04.html][R解説(4)]]
-
-
-* zoom
-
-  
    
