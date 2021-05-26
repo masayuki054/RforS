@@ -1,3 +1,5 @@
+  
+    
 * Iassistant announces
 
 ** 5/19 リモート講義情報 [2021-05-18 火]
@@ -22,10 +24,10 @@
 
 *** 閲覧page
 
-  https://masayuki054.github.io/RforS
 
   [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]]
   [[http://whitewell.sakura.ne.jp/R/Rintro-01.html][- R解説(1)]] 課題をやってみましょう
   - [[http://whitewell.sakura.ne.jp/R/Rintro-02.html][R解説(2)]] 課題をやってみましょう
   - [[http://whitewell.sakura.ne.jp/R/Rintro-03.html][R解説(3)]]
   - [[http://whitewell.sakura.ne.jp/R/Rintro-04.html][R解説(4)]]
+

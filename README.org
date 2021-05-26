@@ -16,6 +16,28 @@
 
    - HTML版 https://masayuki054.github.io/RforS
 
+** 関連ページ
+- https://masayuki054.github.io/RforS
+- https://github.com/masayuki054/RforS  
+
+** ブログ
+  
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/192843][確率統計学 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/202703][講義の進行 確率統計2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/28/083025][レポートと試験のこと 確率統計2021 - masayuki054's diary]]  
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/190718][Rに関すること - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/193244][講義予定 確率統計学 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/213400][演習問題 確率統計 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/03/14/163010][授業アンケートへの解答 データ解析 2020 - masayuki054's diary]]
+
+
+** ドライブ
+
+- [[https://drive.google.com/drive/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w][アンケート - Google ドライブ]]   
+- [[https://drive.google.com/drive/folders/1E3kil-he8dK0iGxrEpB4GIsxiJ1N7LKd][2021 - Google ドライブ]]
+- [[https://drive.google.com/drive/u/0/folders/1deXv6LjZU3KXXCjeTJfR2YfB6KEsOtKy][黒板 - Google ドライブ]]
+     
+
 ** 参考サイト  [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]] 
 
   [[http://whitewell.sakura.ne.jp/R/Rintro-01.html][- R解説(1)]] 課題をやってみましょう
