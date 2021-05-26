@@ -13,14 +13,21 @@
 
     教科書の代りに，[[https://bioinfo-dojo.net/2016/01/19/dataset_iris/][R 使い方 組込みデータセット iris データフレーム]] を
     参考にします。
-    
 
+    目的は，データセット，ベクトルを使った計算を理解することです。
+    
 **** iris データセット
 
      150個の菖蒲のデータ:
 
      - petal: はなびら
+       - .length
+       - .width
      - sepal: がく
+       - .length
+       - .width
+
+     ヘルプで調べます:
      
 #+begin_src R :session t :results output :exports both
 
@@ -28,7 +35,9 @@ help(iris)
 
 #+end_src
      
-irisデータセットのなかみ
+**** irisデータセットのなかみ
+
+     中身のデータを見てみましょう:
 
 #+begin_src R :session t :results output :exports both
 
@@ -192,6 +201,8 @@ iris
 #+end_example
 
 **** データ型を調べる
+
+     iris 変数の中身のデータ型を調べます:
      
 #+begin_src R :session t :results output :exports both
 
@@ -202,6 +213,8 @@ class(iris)
 #+RESULTS:
 : [1] "data.frame"
 
+     データフレーム型ですね。いわゆる表 (見出し付きの表，テーブル)です
+     ね。
 
 **** iris を文字列化
 
@@ -212,6 +225,7 @@ class(iris)
 str(iris)
 
 #+end_src
+
 
 **** 花弁の長さの列を取り出す
      
@@ -232,6 +246,8 @@ iris[,"Sepal.Length"]
 : [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 : [145] 6.7 6.7 6.3 6.5 6.2 5.9
 
+別のやりかたでも取り出せます:
+
 #+begin_src R :session t :results output :exports both
 
 iris$Sepal.Length
@@ -249,44 +265,72 @@ iris$Sepal.Length
 : [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 : [145] 6.7 6.7 6.3 6.5 6.2 5.9
 
+データフレームの1行目を取り出して，そのデータ型を調べます:
+
 #+begin_src R :session t :results output :exports both
 
+iris[1,]
 class(iris[1,])
 
 #+end_src
 
 #+RESULTS:
+:   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+: 1          5.1         3.5          1.4         0.2  setosa
 : [1] "data.frame"
 
-#+begin_src R :session t :results output :exports both
+なんと，見出しも付随したデータフレームになります。
+(解説ページの内容とは異なります)。
 
+1列目を取り出すとどうでしょう：
+
+#+begin_src R :session t :results output :exports both
+iris[,1]
 class(iris[,1])
 
 #+end_src
 
 #+RESULTS:
-: [1] "numeric"
+#+begin_example
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+[1] "numeric"
+#+end_example
+
+これは，見出しのつかない，ただの，ベクトルとなります。
 
 **** ベクトル
 
+     -iris[,1]- と同じ意味ですが:
+     
 #+begin_src R :session t :results output :exports both
 
 iris[,"Sepal.Length"]
-
-#+end_src
-
-***** ベクトル
-      
-#+begin_src R :session t :results output :exports both
-
 class(iris[,"Sepal.Length"])
-
 #+end_src
 
 #+RESULTS:
-: [1] "numeric"
+#+begin_example
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+[1] "numeric"
+#+end_example
 
-***** リスト
+***** データフレーム
 
 #+begin_src R :session t :results output :exports both
 
