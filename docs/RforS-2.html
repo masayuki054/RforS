@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-26 水 06:30 -->
+<!-- 2021-05-26 水 09:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -243,16 +243,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga3902cd">1. Rで一変数の記述統計</a>
+<li><a href="#orgfb209b3">1. Rで一変数の記述統計</a>
 <ul>
-<li><a href="#org979759c">1.1. 目標</a></li>
-<li><a href="#orgb2df393">1.2. 1つの変数の記述統計 ーー 教科書2章</a>
+<li><a href="#org58ef539">1.1. 目標</a></li>
+<li><a href="#orgc44162e">1.2. 1つの変数の記述統計 ーー 教科書2章</a>
 <ul>
-<li><a href="#org407ec1b">1.2.1. Rに組込まれたデータセット iris</a></li>
-<li><a href="#org30a8726">1.2.2. データセットの特徴</a></li>
-<li><a href="#org5fc2fe6">1.2.3. 平均 (教科書2.5)</a></li>
-<li><a href="#org41ba666">1.2.4. 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</a></li>
-<li><a href="#org9a82619">1.2.5. 標準化</a></li>
+<li><a href="#org7cc5b3f">1.2.1. Rに組込まれたデータセット iris</a></li>
+<li><a href="#orgfcee93c">1.2.2. データセットの特徴</a></li>
+<li><a href="#org11b035c">1.2.3. 平均 (教科書2.5)</a></li>
+<li><a href="#orgd94c56b">1.2.4. 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</a></li>
+<li><a href="#org11cef5b">1.2.5. 標準化</a></li>
 </ul>
 </li>
 </ul>
@@ -260,12 +260,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga3902cd" class="outline-2">
-<h2 id="orga3902cd"><span class="section-number-2">1</span> Rで一変数の記述統計</h2>
+<div id="outline-container-orgfb209b3" class="outline-2">
+<h2 id="orgfb209b3"><span class="section-number-2">1</span> Rで一変数の記述統計</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org979759c" class="outline-3">
-<h3 id="org979759c"><span class="section-number-3">1.1</span> 目標</h3>
+<div id="outline-container-org58ef539" class="outline-3">
+<h3 id="org58ef539"><span class="section-number-3">1.1</span> 目標</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 R で書かれたコードを読めるようになりましょう。
@@ -278,12 +278,12 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-orgb2df393" class="outline-3">
-<h3 id="orgb2df393"><span class="section-number-3">1.2</span> 1つの変数の記述統計 ーー 教科書2章</h3>
+<div id="outline-container-orgc44162e" class="outline-3">
+<h3 id="orgc44162e"><span class="section-number-3">1.2</span> 1つの変数の記述統計 ーー 教科書2章</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org407ec1b" class="outline-4">
-<h4 id="org407ec1b"><span class="section-number-4">1.2.1</span> Rに組込まれたデータセット iris</h4>
+<div id="outline-container-org7cc5b3f" class="outline-4">
+<h4 id="org7cc5b3f"><span class="section-number-4">1.2.1</span> Rに組込まれたデータセット iris</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li><a href="https://bioinfo-dojo.net/2016/01/19/dataset_iris/">R 使い方 組込みデータセット iris データフレーム</a></li>
@@ -293,7 +293,7 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 
 <ol class="org-ol">
-<li><a id="orge1832ea"></a>iris データセット<br />
+<li><a id="org32e0e3b"></a>iris データセット<br />
 <div class="outline-text-5" id="text-1-2-1-1">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -311,169 +311,7 @@ iris
 </pre>
 </div>
 
-<pre class="example" id="org03d7b4e">
-    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-1            5.1         3.5          1.4         0.2     setosa
-2            4.9         3.0          1.4         0.2     setosa
-3            4.7         3.2          1.3         0.2     setosa
-4            4.6         3.1          1.5         0.2     setosa
-5            5.0         3.6          1.4         0.2     setosa
-6            5.4         3.9          1.7         0.4     setosa
-7            4.6         3.4          1.4         0.3     setosa
-8            5.0         3.4          1.5         0.2     setosa
-9            4.4         2.9          1.4         0.2     setosa
-10           4.9         3.1          1.5         0.1     setosa
-11           5.4         3.7          1.5         0.2     setosa
-12           4.8         3.4          1.6         0.2     setosa
-13           4.8         3.0          1.4         0.1     setosa
-14           4.3         3.0          1.1         0.1     setosa
-15           5.8         4.0          1.2         0.2     setosa
-16           5.7         4.4          1.5         0.4     setosa
-17           5.4         3.9          1.3         0.4     setosa
-18           5.1         3.5          1.4         0.3     setosa
-19           5.7         3.8          1.7         0.3     setosa
-20           5.1         3.8          1.5         0.3     setosa
-21           5.4         3.4          1.7         0.2     setosa
-22           5.1         3.7          1.5         0.4     setosa
-23           4.6         3.6          1.0         0.2     setosa
-24           5.1         3.3          1.7         0.5     setosa
-25           4.8         3.4          1.9         0.2     setosa
-26           5.0         3.0          1.6         0.2     setosa
-27           5.0         3.4          1.6         0.4     setosa
-28           5.2         3.5          1.5         0.2     setosa
-29           5.2         3.4          1.4         0.2     setosa
-30           4.7         3.2          1.6         0.2     setosa
-31           4.8         3.1          1.6         0.2     setosa
-32           5.4         3.4          1.5         0.4     setosa
-33           5.2         4.1          1.5         0.1     setosa
-34           5.5         4.2          1.4         0.2     setosa
-35           4.9         3.1          1.5         0.2     setosa
-36           5.0         3.2          1.2         0.2     setosa
-37           5.5         3.5          1.3         0.2     setosa
-38           4.9         3.6          1.4         0.1     setosa
-39           4.4         3.0          1.3         0.2     setosa
-40           5.1         3.4          1.5         0.2     setosa
-41           5.0         3.5          1.3         0.3     setosa
-42           4.5         2.3          1.3         0.3     setosa
-43           4.4         3.2          1.3         0.2     setosa
-44           5.0         3.5          1.6         0.6     setosa
-45           5.1         3.8          1.9         0.4     setosa
-46           4.8         3.0          1.4         0.3     setosa
-47           5.1         3.8          1.6         0.2     setosa
-48           4.6         3.2          1.4         0.2     setosa
-49           5.3         3.7          1.5         0.2     setosa
-50           5.0         3.3          1.4         0.2     setosa
-51           7.0         3.2          4.7         1.4 versicolor
-52           6.4         3.2          4.5         1.5 versicolor
-53           6.9         3.1          4.9         1.5 versicolor
-54           5.5         2.3          4.0         1.3 versicolor
-55           6.5         2.8          4.6         1.5 versicolor
-56           5.7         2.8          4.5         1.3 versicolor
-57           6.3         3.3          4.7         1.6 versicolor
-58           4.9         2.4          3.3         1.0 versicolor
-59           6.6         2.9          4.6         1.3 versicolor
-60           5.2         2.7          3.9         1.4 versicolor
-61           5.0         2.0          3.5         1.0 versicolor
-62           5.9         3.0          4.2         1.5 versicolor
-63           6.0         2.2          4.0         1.0 versicolor
-64           6.1         2.9          4.7         1.4 versicolor
-65           5.6         2.9          3.6         1.3 versicolor
-66           6.7         3.1          4.4         1.4 versicolor
-67           5.6         3.0          4.5         1.5 versicolor
-68           5.8         2.7          4.1         1.0 versicolor
-69           6.2         2.2          4.5         1.5 versicolor
-70           5.6         2.5          3.9         1.1 versicolor
-71           5.9         3.2          4.8         1.8 versicolor
-72           6.1         2.8          4.0         1.3 versicolor
-73           6.3         2.5          4.9         1.5 versicolor
-74           6.1         2.8          4.7         1.2 versicolor
-75           6.4         2.9          4.3         1.3 versicolor
-76           6.6         3.0          4.4         1.4 versicolor
-77           6.8         2.8          4.8         1.4 versicolor
-78           6.7         3.0          5.0         1.7 versicolor
-79           6.0         2.9          4.5         1.5 versicolor
-80           5.7         2.6          3.5         1.0 versicolor
-81           5.5         2.4          3.8         1.1 versicolor
-82           5.5         2.4          3.7         1.0 versicolor
-83           5.8         2.7          3.9         1.2 versicolor
-84           6.0         2.7          5.1         1.6 versicolor
-85           5.4         3.0          4.5         1.5 versicolor
-86           6.0         3.4          4.5         1.6 versicolor
-87           6.7         3.1          4.7         1.5 versicolor
-88           6.3         2.3          4.4         1.3 versicolor
-89           5.6         3.0          4.1         1.3 versicolor
-90           5.5         2.5          4.0         1.3 versicolor
-91           5.5         2.6          4.4         1.2 versicolor
-92           6.1         3.0          4.6         1.4 versicolor
-93           5.8         2.6          4.0         1.2 versicolor
-94           5.0         2.3          3.3         1.0 versicolor
-95           5.6         2.7          4.2         1.3 versicolor
-96           5.7         3.0          4.2         1.2 versicolor
-97           5.7         2.9          4.2         1.3 versicolor
-98           6.2         2.9          4.3         1.3 versicolor
-99           5.1         2.5          3.0         1.1 versicolor
-100          5.7         2.8          4.1         1.3 versicolor
-101          6.3         3.3          6.0         2.5  virginica
-102          5.8         2.7          5.1         1.9  virginica
-103          7.1         3.0          5.9         2.1  virginica
-104          6.3         2.9          5.6         1.8  virginica
-105          6.5         3.0          5.8         2.2  virginica
-106          7.6         3.0          6.6         2.1  virginica
-107          4.9         2.5          4.5         1.7  virginica
-108          7.3         2.9          6.3         1.8  virginica
-109          6.7         2.5          5.8         1.8  virginica
-110          7.2         3.6          6.1         2.5  virginica
-111          6.5         3.2          5.1         2.0  virginica
-112          6.4         2.7          5.3         1.9  virginica
-113          6.8         3.0          5.5         2.1  virginica
-114          5.7         2.5          5.0         2.0  virginica
-115          5.8         2.8          5.1         2.4  virginica
-116          6.4         3.2          5.3         2.3  virginica
-117          6.5         3.0          5.5         1.8  virginica
-118          7.7         3.8          6.7         2.2  virginica
-119          7.7         2.6          6.9         2.3  virginica
-120          6.0         2.2          5.0         1.5  virginica
-121          6.9         3.2          5.7         2.3  virginica
-122          5.6         2.8          4.9         2.0  virginica
-123          7.7         2.8          6.7         2.0  virginica
-124          6.3         2.7          4.9         1.8  virginica
-125          6.7         3.3          5.7         2.1  virginica
-126          7.2         3.2          6.0         1.8  virginica
-127          6.2         2.8          4.8         1.8  virginica
-128          6.1         3.0          4.9         1.8  virginica
-129          6.4         2.8          5.6         2.1  virginica
-130          7.2         3.0          5.8         1.6  virginica
-131          7.4         2.8          6.1         1.9  virginica
-132          7.9         3.8          6.4         2.0  virginica
-133          6.4         2.8          5.6         2.2  virginica
-134          6.3         2.8          5.1         1.5  virginica
-135          6.1         2.6          5.6         1.4  virginica
-136          7.7         3.0          6.1         2.3  virginica
-137          6.3         3.4          5.6         2.4  virginica
-138          6.4         3.1          5.5         1.8  virginica
-139          6.0         3.0          4.8         1.8  virginica
-140          6.9         3.1          5.4         2.1  virginica
-141          6.7         3.1          5.6         2.4  virginica
-142          6.9         3.1          5.1         2.3  virginica
-143          5.8         2.7          5.1         1.9  virginica
-144          6.8         3.2          5.9         2.3  virginica
-145          6.7         3.3          5.7         2.5  virginica
-146          6.7         3.0          5.2         2.3  virginica
-147          6.3         2.5          5.0         1.9  virginica
-148          6.5         3.0          5.2         2.0  virginica
-149          6.2         3.4          5.4         2.3  virginica
-150          5.9         3.0          5.1         1.8  virginica
-  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
- [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
- [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
- [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
- [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
- [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
-[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
-[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
-[145] 6.7 6.7 6.3 6.5 6.2 5.9
-</pre>
-<pre class="example" id="org07faae6">
+<pre class="example" id="org9e51c1a">
     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 1            5.1         3.5          1.4         0.2     setosa
 2            4.9         3.0          1.4         0.2     setosa
@@ -638,7 +476,7 @@ iris
 </div>
 </li>
 
-<li><a id="org022cb82"></a>iris の型<br />
+<li><a id="org0be607c"></a>iris の型<br />
 <div class="outline-text-5" id="text-1-2-1-2">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -653,7 +491,7 @@ class(iris)
 </div>
 </li>
 
-<li><a id="orgfbb51f7"></a>iris を文字列化<br />
+<li><a id="org646f416"></a>iris を文字列化<br />
 <div class="outline-text-5" id="text-1-2-1-3">
 <p>
 -str- は構造をもつ (structual) データを文字列化 (serial) する
@@ -717,7 +555,7 @@ iris[,1]
 </div>
 </li>
 
-<li><a id="orgce6614e"></a>ベクトル<br />
+<li><a id="org3ced5b1"></a>ベクトル<br />
 <div class="outline-text-5" id="text-1-2-1-4">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -728,7 +566,7 @@ iris[,"Sepal.Length"]
 </div>
 
 <ol class="org-ol">
-<li><a id="orgcd8425b"></a>ベクトル<br />
+<li><a id="org38a8c16"></a>ベクトル<br />
 <div class="outline-text-6" id="text-1-2-1-4-1">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -743,7 +581,7 @@ class(iris[,"Sepal.Length"])
 </div>
 </li>
 
-<li><a id="org2c64061"></a>リスト<br />
+<li><a id="org74ebcae"></a>リスト<br />
 <div class="outline-text-6" id="text-1-2-1-4-2">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -762,12 +600,12 @@ class(iris[1,])
 </ol>
 </div>
 
-<div id="outline-container-org30a8726" class="outline-4">
-<h4 id="org30a8726"><span class="section-number-4">1.2.2</span> データセットの特徴</h4>
+<div id="outline-container-orgfcee93c" class="outline-4">
+<h4 id="orgfcee93c"><span class="section-number-4">1.2.2</span> データセットの特徴</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org42e79d9"></a>次元<br />
+<li><a id="org4c5d4dc"></a>次元<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -782,7 +620,7 @@ dim(iris)
 </div>
 </li>
 
-<li><a id="org4b8fa64"></a>行数<br />
+<li><a id="org9504b08"></a>行数<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -793,7 +631,7 @@ nrow(iris)
 </div>
 </li>
 
-<li><a id="orgf2fa10a"></a>列数<br />
+<li><a id="org888dabd"></a>列数<br />
 <div class="outline-text-5" id="text-1-2-2-3">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -805,7 +643,7 @@ ncolumn(iris)
 </li>
 
 
-<li><a id="orgcefb06c"></a>要約統計量<br />
+<li><a id="org5642b3a"></a>要約統計量<br />
 <div class="outline-text-5" id="text-1-2-2-4">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -814,7 +652,7 @@ summary(iris)
 </pre>
 </div>
 
-<pre class="example" id="orga025276">
+<pre class="example" id="org69ceacd">
  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -842,7 +680,7 @@ summary(iris$Sepal.Length)
 </div>
 </li>
 
-<li><a id="orgbbdf99a"></a>度数 (頻度) 分布表 &#x2013; ヒストグラム<br />
+<li><a id="org0b53a73"></a>度数 (頻度) 分布表 &#x2013; ヒストグラム<br />
 <div class="outline-text-5" id="text-1-2-2-5">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -855,12 +693,12 @@ hist(iris$Sepal.Length,breaks=100)
 </ol>
 </div>
 
-<div id="outline-container-org5fc2fe6" class="outline-4">
-<h4 id="org5fc2fe6"><span class="section-number-4">1.2.3</span> 平均 (教科書2.5)</h4>
+<div id="outline-container-org11b035c" class="outline-4">
+<h4 id="org11b035c"><span class="section-number-4">1.2.3</span> 平均 (教科書2.5)</h4>
 <div class="outline-text-4" id="text-1-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org244968a"></a>データの代表値<br />
+<li><a id="orge76e14f"></a>データの代表値<br />
 <div class="outline-text-5" id="text-1-2-3-1">
 <dl class="org-dl">
 <dt>Min.</dt><dd>最小値</dd>
@@ -873,7 +711,7 @@ hist(iris$Sepal.Length,breaks=100)
 </div>
 </li>
 
-<li><a id="org10bced9"></a>平均 (mean)<br />
+<li><a id="orgcfd67c6"></a>平均 (mean)<br />
 <div class="outline-text-5" id="text-1-2-3-2">
 <div class="org-src-container">
 <pre class="src src-R">my.mean &lt;- function (v) {
@@ -893,7 +731,7 @@ mean(iris$Sepal.Length)
 </div>
 </li>
 
-<li><a id="org0f155e9"></a>中央値 (median)<br />
+<li><a id="org29c56d8"></a>中央値 (median)<br />
 <div class="outline-text-5" id="text-1-2-3-3">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -908,7 +746,7 @@ median(iris$Sepal.Length)
 </div>
 </li>
 
-<li><a id="orgba56ad0"></a>最頻値 (median)<br />
+<li><a id="org7c15112"></a>最頻値 (median)<br />
 <div class="outline-text-5" id="text-1-2-3-4">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -938,8 +776,8 @@ hist(iris$Sepal.Length, breaks=100)
 </ol>
 </div>
 
-<div id="outline-container-org41ba666" class="outline-4">
-<h4 id="org41ba666"><span class="section-number-4">1.2.4</span> 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
+<div id="outline-container-orgd94c56b" class="outline-4">
+<h4 id="orgd94c56b"><span class="section-number-4">1.2.4</span> 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <dl class="org-dl">
 <dt>代表値</dt><dd>分布の中心的位置を示す</dd>
@@ -949,7 +787,7 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 
 <ol class="org-ol">
-<li><a id="org351bf22"></a>データ<br />
+<li><a id="org9e5863f"></a>データ<br />
 <div class="outline-text-5" id="text-1-2-4-1">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -964,7 +802,7 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 </li>
 
-<li><a id="orgfea7afc"></a>平均<br />
+<li><a id="orgd211d94"></a>平均<br />
 <div class="outline-text-5" id="text-1-2-4-2">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1006,7 +844,7 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="org9b5144f"></a>平均からの偏差<br />
+<li><a id="orgdd77dd2"></a>平均からの偏差<br />
 <div class="outline-text-5" id="text-1-2-4-3">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1021,7 +859,7 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="org138653b"></a>平均からの偏差の二乗<br />
+<li><a id="org281117e"></a>平均からの偏差の二乗<br />
 <div class="outline-text-5" id="text-1-2-4-4">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1036,7 +874,7 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="org393da08"></a>データ数<br />
+<li><a id="orgc3d4fbe"></a>データ数<br />
 <div class="outline-text-5" id="text-1-2-4-5">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1063,7 +901,7 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="orgce1aa53"></a>平均からの偏差の二乗和<br />
+<li><a id="org06907fd"></a>平均からの偏差の二乗和<br />
 <div class="outline-text-5" id="text-1-2-4-6">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1078,7 +916,7 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="orgcfe9e56"></a>分散<br />
+<li><a id="orgdc08ce2"></a>分散<br />
 <div class="outline-text-5" id="text-1-2-4-7">
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1114,7 +952,7 @@ sum(テストa) /length(テストa)
 </li>
 
 
-<li><a id="org6438bb8"></a>標準偏差<br />
+<li><a id="org2abd199"></a>標準偏差<br />
 <div class="outline-text-5" id="text-1-2-4-8">
 <p>
 標準偏差は，各データの平均からの距離の平均です。
@@ -1137,8 +975,8 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </ol>
 </div>
 
-<div id="outline-container-org9a82619" class="outline-4">
-<h4 id="org9a82619"><span class="section-number-4">1.2.5</span> 標準化</h4>
+<div id="outline-container-org11cef5b" class="outline-4">
+<h4 id="org11cef5b"><span class="section-number-4">1.2.5</span> 標準化</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <p>
 平均が \(\mu\), 標準偏差が \(\sigma\) である分布を，
@@ -1151,7 +989,7 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-05-26 水 06:30</p>
+<p class="date">Created: 2021-05-26 水 09:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
