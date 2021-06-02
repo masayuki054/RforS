@@ -1,5 +1,9 @@
 * 6/2-07回目の講義予定
 
+  
+先週のアンケートの意見を読んで，オンラインのときは，講義の進行予定を記
+したページを作成することにしました。
+
 ** 今日の決り
 
    これは講師自身への決まりです。破ったときには，指摘してくれるとうれ
@@ -15,21 +19,23 @@
 
 ** 今日訪ずれるサイトなど
 
+   - [[http://masayuki054.hatenablog.com/entry/2021/04/20/192843][確率統計学 2021 - masayuki054's diary]]
+     - [[http://masayuki054.hatenablog.com/entry/2021/05/12/073950?_ga=2.50677417.1608764057.1622555124-251679600.1592307203][講義アンケートまとめ 確率統計2021 - masayuki054's diary]] に意見など     
+     
    - [[https://drive.google.com/drive/u/0/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w][アンケート - Google ドライブ]] に毎回のアンケートと集計結果
 
    - [[https://github.com/masayuki054/RforS/][GitHub - masayuki054/RforS]]
      - [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]     
+
    - [[https://drive.google.com/drive/folders/10dnYKqIDUbx4qT23k-p_RikOQjKwHCdz][notes-2020 - Google ドライブ]]
      - [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]]
 
    - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]]
-     
-
    - [[https://www1.doshisha.ac.jp/~mjin/R/Chap_10/10.html][データ解析・マイニングとR言語]] R と確率分布
-
    - [[https://qiita.com/Quantas/items/3e3951e646313cba1d2c][簡単なポアソン分布まとめ（Rでの出力付き） - Qiita]] 
 
-   - [[https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83][ポアソン分布 - Wikipedia]] で例を     
+   - [[https://ja.wikipedia.org/wiki/%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83][二項分布 - Wikipedia]]     
+   - [[https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83][ポアソン分布 - Wikipedia]]
 
 ** このページについて
 
@@ -89,8 +95,6 @@
 ** Rと確率分布の紹介
 
    今日は，講義の途中に，Rによる確率分布のプログラミングがあります。
-
-   
 
    [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] に一覧があり
    ます。
@@ -387,9 +391,6 @@ plot(y, prob, type="o")
       - ガンマ分布 (多次元分布の学習後)
 
       - カイ二乗分布とt-分布 (多次元分布の学習後)
-
-
-
 
 ** 終了時
 
