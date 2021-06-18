@@ -329,7 +329,6 @@ x <- seq(0,20,0.1)
 plot(x, dnorm(x, 10, 4))
      #+end_src
 
-
      #+RESULTS:
 
      #+begin_src R :session t :results output :exports both
