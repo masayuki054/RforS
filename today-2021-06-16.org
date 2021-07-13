@@ -108,7 +108,6 @@
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf][t分布 - t.pdf]]
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf][CHISQ-TABLE.docx - chisq.pdf]]
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
-
    
 *** Done 前回のオンライン講義のアンケートについて [2021-06-16 水 10:38]
     CLOSED: [2021-06-16 水 10:52]
@@ -124,16 +123,16 @@
 *** Todo いろいろな確率分布 (離散型) 
    
      - ポアソン分布
-     
 
 **** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] 離散型 の ポアソン分布 Po(lambda)(k) [2021-06-16 水 11:19]
      CLOSED: [2021-06-16 水 11:19]
 
      - [[https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83][ポアソン分布 - Wikipedia]] で例を
      - 二項分布とポアソン分布
-       - N >> 1indleをいっていっていかいすぐに~よくを一定時間内になんだ
-         か良きる頻度ラムダのポアソン分布ですねファッション分布て警戒で
-         実際に
+       - N >> 1 で，
+を一定時間内になんだ
+         か良きる頻度ラムダ
+
 
     
 ***** 問題 (急患用ベッド数) 
@@ -351,15 +350,13 @@ plot(z, dnorm(z, 0, 1))
     
 **** 確率分布のグラフをRで描いてください
 
-     Rにより，下記の分布のグラフを描き，
+     Rにより，複数のパラメーターにたいし下記の分布のグラフを描き，
      一つの pdfにまとめ，提出してください。
 
      - 二項分布
      - ポアソン分布
      - 指数分布
      - 正規分布
-
-     近いうちに，Webclass で出題します。
 
 *** [[https://heavywatal.github.io/rstats/config.html][R環境設定 - Heavy Watal]] そのうちやるかも
 
