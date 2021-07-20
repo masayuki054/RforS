@@ -16,7 +16,7 @@ gauss_2d_x <- function(x,y) {   # 2次元正規分布のxに関する周辺密�
    gauss_1d(x)
  }
 
-gauss3d_y <- function(x,y) {   # 2次元正規分布のyにに関する周辺密度関数
+gauss_2d_y <- function(x,y) {   # 2次元正規分布のyにに関する周辺密度関数
    gauss_1d(y)
  }
 
@@ -33,6 +33,7 @@ draw_gauss <- function (x,y,ff,color,title,file,width=512,height=384) {
   z <- outer(x,y,ff) # [x_i, y_j, gauss(x_i, y_j)] 
 
   persp(x, y, z,
+
         xlim=c(-3,3), ylim=c(-3,3), zlim=c(0,0.5), 
         theta = 30, phi = 30, expand = 0.5,
         col = color, ticktype="detailed",
@@ -63,19 +64,19 @@ yy <- seq(0,0.01,length=2)
 
 
 # 2次元正規分布
-draw_gauss(x,y, gauss3d, "lightblue", "gauss3d_同時", "graphs/gauss3d.png")
+draw_gauss(x,y, gauss_2d, "lightblue", "gauss3d_同時", "graphs/gauss3d.png")
 
 # f(x,[0,0.01])
-draw_gauss(x,yy, gauss3d,  "lightblue", "gauss3d_P(X=x, Y=0)", "graphs/gauss3d.png")
+draw_gauss(x,yy, gauss_2d,  "lightblue", "gauss3d_P(X=x, Y=0)", "graphs/gauss3dy0.png")
 
 # f([0,0.1], x)
-draw_gauss(xx,y, gauss3d, "lightblue", "gauss3ld_P(X=0, Y=y)", "graphs/gauss3d.png")
+draw_gauss(xx,y, gauss_2d, "lightblue", "gauss3ld_P(X=0, Y=y)", "graphs/gauss3dx0.png")
 
-draw_gauss(xx,y, gauss3d_y, "blue", "gauss3d_周辺_y", "graphs/gauss3d_marginal_x.png")
-draw_gauss(x,yy, gauss3d_x, "red", "gauss3d_周辺_x", "graphs/gauss3d_marginal_y.png")
+draw_gauss(xx,y, gauss_2d_y, "blue", "gauss3d_周辺_y", "graphs/gauss3d_marginal_x.png")
+draw_gauss(x,yy, gauss_2d_x, "red", "gauss3d_周辺_x", "graphs/gauss3d_marginal_y.png")
 
-draw_gauss(x_0_1, y, gauss3d, "lightblue", "P([0..1, -2..0])", "graphs/gauss3d_x_y")
-draw_gauss(x_0_2, y_m2_0, gauss3d, "lightblue", "P([0..1, -2..0])", "graphs/gauss3d_x_y")
+draw_gauss(x_0_1, y, gauss_2d, "lightblue", "P([0..1, -2..0])", "graphs/gauss3d_x_y.png")
+draw_gauss(x_0_2, y_m2_0, gauss_2d, "lightblue", "P([0..1, -2..0])", "graphs/gauss3d_x_y.png")
 
 #+end_src
 
