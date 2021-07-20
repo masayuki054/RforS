@@ -26,7 +26,7 @@ gauss_1d <- function(x) {   # 1次元正規分布の確率密度関数
 
 # 3次元描画関数
 
-draw_gauss <- function (x,y,ff,color,title,file,width=512,height=384) {
+draw_gauss <- function (x,y,ff,color,title,file,width=1024,height=768) {
 
   png(file, width,height)
 
@@ -81,6 +81,10 @@ draw_gauss(x_0_2, y_m2_0, gauss_2d, "lightblue", "P([0..1, -2..0])", "graphs/gau
 #+end_src
 
 #+RESULTS:
+|     0.288675134594813 | -0.0833333333333333 | 0.144337567297406 | -0.144337567297406 |
+|     0.166666666666667 |   0.144337567297406 |             -0.25 |               0.25 |
+| -6.12323399573676e-17 |    1.73205080756888 |                 1 |                 -1 |
+|  1.53080849893419e-17 |  -0.433012701892219 | -2.98205080756888 |   3.98205080756888 |
 
 
 
