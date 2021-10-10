@@ -1,0 +1,109 @@
+* R
+  
+** 講義のブログ
+   
+   [[https://masayuki054.hatenablog.com/entry/2021/03/11/103431][生物統計学 2021 - masayuki054's diary]]
+  
+** 教科書のサイト
+
+   [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
+   - スライドとデータがあります。
+   
+* R 一般
+
+ - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
+  
+ - [[http://www.f.waseda.jp/sakas/R/][道具箱：R]]
+
+ - [[https://ai-trend.jp/programming/][PROGRAMMING | AVILEN AI Trend]] (python, R, ... )
+
+ - [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
+
+ - [[https://www.r-project.org/][R: The R Project for Statistical Computing]]
+   
+* R と Rコマンダーのインストール方法
+
+ - [[https://personal.hs.hirosaki-u.ac.jp/pteiki/research/yodosha/index.html][羊土社「統計解析実践ガイド」]] 弘前大学
+
+*  R と Rコマンダーの使い方
+
+  - [[https://oku.edu.mie-u.ac.jp/~okumura/stat/first.html][Rの初歩]]
+  - [[http://chianti.ucsd.edu/~rsaito/ENTRY1/WEB_RS3/PDF/JPN/Texts/R_Stats2.pdf][初心者用 - R_Stats2.pdf]]
+  - [[http://plaza.umin.ac.jp/~takeshou/R/Rcmdrfirst.html][Rコマンダーの簡単な使い方]]
+  
+ - [[https://www.youtube.com/watch?v=MylCkVnA9jc&list=PLi8B8P-sIpDhAHCW4s7FbkExNueHFOC3b][(24) はじめてのＲ 第1回はじめに （全10回） - YouTube]]
+
+ - [[https://www.youtube.com/watch?v=fXNKsXFMj7Y&list=PLi8B8P-sIpDhir9u8RxTzVPhU43QtyNdW][(24) Ｒコマンダー 第1回 はじめに （全11回） - YouTube]]
+
+ - [[https://www.youtube.com/watch?v=9h_x7fV1vqI][(30) 統計解析ソフト「R」の使い方 〜Rの導入・パッケージの導入・作図・統計解析の基本編〜 - YouTube]]     
+
+* Rの設定など
+
+   - [[https://oku.edu.mie-u.ac.jp/~okumura/stat/first.html][Rの初歩]]
+   - [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-2][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]
+
+* R言語 入門
+  - シンプル [[https://so-zou.jp/robot/tech/numerical-analysis/r/][R プログラミング解説]]
+
+* Rによる統計学講義
+
+** 「Rによるやさしい統計学」
+
+***  [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
+    中京大 白井先生
+
+*** [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学)
+    - Rによるやさしい統計学の動画による解説
+
+** 生物統計学 (東大，農工大)
+   R コードの参考に
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/distribution.html][生物統計学１（10.9）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex1.html][演習１（10.9）]]
+      [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ans1.html][解答１]]
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/hytest.html][生物統計学２（10.23）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex2.html][演習２（10.23）]]
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html][生物統計学３（10.30）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex3.html][演習３（10.30）]]
+
+** [[http://www3.u-toyama.ac.jp/kkarato/2016/statistics/][統計学--2016--富山大学経済学部--唐渡広志]]
+   ppt よくできている
+
+** [[https://htsuda.net/stats/][Rによる統計入門]] 津田裕之氏
+   - google colaboratory で R を使う
+   - colabo note 例  [[https://colab.research.google.com/drive/1cPOGoBin8sQAJqJtnmS0H8mAqzyI9CzY][R_tutorial.ipynb - Colaboratory]]
+
+* Rを使った統計学トピック的解説
+
+** 医療職からデータサイエンティストへ blog
+
+   - わかりやすく簡単な説明
+   - R のコード
+  
+   - [[https://www.medi-08-data-06.work/archive/category/%E7%B5%B1%E8%A8%88%E5%AD%A6][統計学 カテゴリーの記事一覧 - 医療職からデータサイエンティストへ]]
+   - [[https://www.medi-08-data-06.work/entry/2018/12/18/232204][R の 確率密度関数 ( rnorm, pnorm, qnorm, dnorm ) とは何なのか]]
+   - [[https://www.medi-08-data-06.work/entry/kernel-estimate2][カーネル密度推定~グラフィカルにまとめてみる~]]
+   - [[https://www.medi-08-data-06.work/entry/distribution][脱統計初学者！確率分布まとめ~ベルヌーイ分布・二項分布・ポワソン分布・指数分布~]]
+   - [[https://www.medi-08-data-06.work/entry/normal_tdist][脱統計初学者！確率分布まとめ~正規分布・t分布とは~]]
+   - [[https://www.medi-08-data-06.work/entry/entral_limit_theorem][中心極限定理って結局何なのさ - 医療職からデータサイエンティストへ]]
+   - [[https://www.medi-08-data-06.work/entry/staticapower][有意水準と検出力をグラフィカルにシミュレーションで理解する]]
+
+   
+* マニュアル的な
+
+***  [[https://cran.r-project.org/doc/contrib/manuals-jp/Mase-Rstatman.pdf][Mase-Rstatman.pdf]]  基本パッケージ，カテゴリ別紹介，ヘルプドキュメント
+*** [[https://cran.r-project.org/manuals.html][CRAN: Manuals]] R
+  - [[https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf][R-intro.pdf]]
+  - [[https://cran.r-project.org/doc/manuals/r-release/R-lang.pdf][R-lang.pdf]]
+*** [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
+
+    
+* graphics
+
+   [[http://www.f.waseda.jp/sakas/R/Rgraphics17.html][R:グラフィックス]] 早稲田のよくまとまった説明
+
+   [[https://data-science.gr.jp/implementation/ida_r_barplot.html][Rによる棒グラフの描画]] [[https://data-science.gr.jp/implementation.html#ida][データ科学便覧 実装関連事項]] データ科学便覧
+
+   [[https://www.kobiwa.jp/2017/02/18/post-240/][[R]グラフの一部を塗りつぶす]] ** [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/graphics.org::*正規分布グラフの区間を塗り潰す][正規分布グラフの区間を塗り潰す]] (R)
+
+   [[https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/persp][persp function | R Documentation]]   3次元描画関数  
+

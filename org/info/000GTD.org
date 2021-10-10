@@ -22,3 +22,8 @@
        Dir.glob("*/").map { |d| "#+include: #{d}/map.org" }
 
 #+END_SRC
+
+** mathjax (変更)
+
+   #+HTML_MATHJAX:  path:"http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+   

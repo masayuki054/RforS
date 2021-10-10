@@ -1,0 +1,79 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS: tex:t 
+#+property: header-arg:R :session t :results output :exports both
+
+* R を知るために
+
+** Rを使った統計学トピック的解説
+
+*** 医療職からデータサイエンティストへ blog
+
+    - わかりやすく簡単な説明
+    - R のコード
+  
+**** 統計かてごり
+
+     [[https://www.medi-08-data-06.work/archive/category/%E7%B5%B1%E8%A8%88%E5%AD%A6][統計学 カテゴリーの記事一覧 - 医療職からデータサイエンティストへ]]
+
+**** 確率分布
+
+     - [[https://www.medi-08-data-06.work/entry/2018/12/18/232204][R の 確率密度関数 ( rnorm, pnorm, qnorm, dnorm ) とは何なのか]]
+
+     - [[https://www.medi-08-data-06.work/entry/kernel-estimate2][カーネル密度推定~グラフィカルにまとめてみる~]]
+
+     - [[https://www.medi-08-data-06.work/entry/distribution][脱統計初学者！確率分布まとめ~ベルヌーイ分布・二項分布・ポワソン分
+       布・指数分布~]]
+
+     - [[https://www.medi-08-data-06.work/entry/normal_tdist][脱統計初学者！確率分布まとめ~正規分布・t分布とは~]]
+
+     
+**** 大数の法則と中心極限定理
+   
+    - [[https://www.medi-08-data-06.work/entry/entral_limit_theorem][中心極限定理って結局何なのさ - 医療職からデータサイエンティストへ]]
+    
+**** 検定
+   
+     - [[https://www.medi-08-data-06.work/entry/staticapower][有意水準と検出力をグラフィカルにシミュレーションで理解する]]
+
+   
+* statistics
+
+** 標本平均の分布
+
+   - [[https://ai-trend.jp/programming/r-beginner/simulated/][Rでサイコロの和のシミュレートをしてグラフ化する | AVILEN AI Trend]]
+
+
+** R 正規分布と標準化 
+
+   [[http://www2.hak.hokkyodai.ac.jp/fukuda/lecture/SocialLinguistics/Rshagen/05distributionR.html][05distributionR.html]]
+   dnorm(x,m,s) 平均m, 分散の, xにおける確率密度を返す
+   pnorm(z)： P(Z<z) lower.tail=true
+   qnorm(lower.prob) z値が返る
+   rnorm(n,m,s): N(m,s)にしたがう,長さnの乱数列を返す
+
+#+begin_src R :results output :session t
+plot(1:100, dnorm(1:100,50,10))
+#+end_src
+
+#+RESULTS:
+
+
+** R で2次元正規分布のグラフを描く
+
+   [[file:~/Desktop/remote/stat/R/gauss3d.org]]    n
+
+   [[https://stats.biopapyrus.jp/r/graph/devset.html][複数ウィンドウ | R で複数の描画デバイス（ウィンドウ）を起動する方法]]
+
+   [[https://stats.biopapyrus.jp/r/graph/imagedevice.html][グラフの保存 | R で描いたグラフを PNG や PDF に保存する方法]]
+
+   [[https://y-mattu.hatenablog.com/entry/rstudio_emacs][Emacsで作るオレオレRStudio - ★データ解析備忘録★]]
+
+
+ [2020-10-20 火 21:46]
+
+
+
+
+

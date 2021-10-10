@@ -1,0 +1,15 @@
+** 変動 (variation)
+   
+#+BEGIN_SRC dot :file variation.png :exports results :cache yes
+graph R {
+	 全体変動 [shape=box, label="全体変動"];
+ 	 eq  [shape=plaintext, label="="];
+	 effect [shape=box, label = "目的要因変動" ];
+	plus [shape=plaintext, label="+" ];
+	 error [ shape=box, label = "誤差変動"];
+}
+#+END_SRC
+
+#+RESULTS[ef8a761e66b74d69acc71b03010404f5bae816ee]:
+[[file:variation.png]]
+

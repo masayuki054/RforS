@@ -1,0 +1,35 @@
+#+begin_src R :session t :results output :exports both
+
+      loops = 10000
+      sample_size <- 100
+      標本平均 <- numeric(length=loops)
+      
+      for(i in 1:loops) {
+        標本 <- rnorm(n=sample_size, mean=50, sd=10)
+        標本平均[i] <- mean(標本)
+      }
+      
+      hist(標本平均)
+
+誤差絶対値5以下 <- ifelse( abs(標本平均-50) <= 5, 1, 0)
+table(誤差絶対値5以下)
+
+mean(標本平均)
+var(標本平均)
+
+png("graphs/fig-04-14.png", width=400, height=300)
+hist(標本平均,freq=FALSE)
+curve(dnorm(x,mean=50,sd=sqrt(10)), add=TRUE)
+dev.off()
+#+end_src
+
+#+RESULTS:
+: 誤差絶対値5以下
+:     1 
+: 10000
+: [1] 49.98757
+: [1] 0.9734302
+: X11cairo 
+:        2
+
+[[graphs/fig-04-14.png]]

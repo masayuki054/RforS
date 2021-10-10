@@ -1,0 +1,99 @@
+** 関連サイト
+
+   [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)
+   - RforSの動画解説
+
+   [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
+   - Rの基礎
+   - 確率
+   - RforS の解説
+
+   [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-3][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]     
+
+** Rの説明
+    
+*** Biostat R入門
+     
+    - [[http://chianti.ucsd.edu/~rsaito/ENTRY1/WEB_RS3/PDF/JPN/Texts/R_Stats2.pdf][初心者用 - R_Stats2.pdf]]
+    
+    - [[https://so-zou.jp/robot/tech/numerical-analysis/r/][R プログラミング解説]]
+
+*** その他
+
+     [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/59.html][R-Source]] (基本統計量)
+    
+     [[http://www.mi.u-tokyo.ac.jp/teaching_material.html][数理・データサイエンス関連教材 | 東京大学 数理・情報教育研究センター]]
+     - Rstudio による R入門， 動画
+** graphics
+
+   [[http://www.f.waseda.jp/sakas/R/Rgraphics17.html][R:グラフィックス]] 早稲田のよくまとまった説明
+
+   [[https://data-science.gr.jp/implementation/ida_r_barplot.html][Rによる棒グラフの描画]] [[https://data-science.gr.jp/implementation.html#ida][データ科学便覧 実装関連事項]] データ科学便覧
+
+   [[https://www.kobiwa.jp/2017/02/18/post-240/][[R]グラフの一部を塗りつぶす]] ** [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/graphics.org::*正規分布グラフの区間を塗り潰す][正規分布グラフの区間を塗り潰す]] (R)
+
+** Rの環境
+   
+#+begin_src R :session t :results output :exports both
+
+## system("dir")
+## system("mkdir graphs")
+
+objects() #
+ls()
+
+#+end_src
+
+#+RESULTS:
+: [1] "科目"   "好意度" "人"
+: [1] "科目"   "好意度" "人"
+
+** R グラフの埋め込み
+
+#+NAME: age-score-table
+| Age | Score |
+|-----+-------|
+|  10 |    82 |
+|  15 |   100 |
+|   8 |    52 |
+|  13 |    75 |
+|  12 |    38 |
+|   9 |    80 |
+|  13 |    92 |
+|  11 |    65 |
+|  15 |    85 |
+|  18 |    98 |
+|   3 |    20 |
+|  15 |    92 |
+|  14 |    78 |
+|  12 |    53 |
+
+Age 	Score
+
+
+#+BEGIN_SRC R :var table=age-score-table :results output graphics :file graphs/r-plot.png :width 320 :height 320 :cache yes
+
+plot(table)
+
+abline(lm(table$Score ~ table$Age), col="red")
+#+END_SRC
+
+#+RESULTS[939ce4b5757853928f88a4a4f825fdbc96662a2b]:
+
+
+[[./r-plot.png]]
+
+#+BEGIN_SRC R :results output graphics :file r-plot.png :width 320 :height 320 :cache yes
+
+plot(table)
+
+abline(lm(table$Score ~ table$Age), col="red")
+#+END_SRC
+
+
+** データフレームの扱い
+   [[file:~/COMM/Lects/R/Rintro/Rintro-3.org][file:~/COMM/Lects/R/Rintro/Rintro-3.org]]
+   RforS-package.org
+   RforS-data.org
+
+   

@@ -1,0 +1,308 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS: tex:t 
+#+property: header-arg:R :session t :results output :exports both
+
+
+* 6章 2つの平均値を比較する
+
+  1. 独立な2群の平均値の差の検定
+
+  2. 対応のある2群の平均値の差の検定      
+
+** 6.1 2つの平均値を比較するケース
+
+   - 男女で心理学テストの平均値に差があるかを検討したい。
+
+   - 統計が好き・嫌いで統計テストの平均値に差があるかを検討したい。
+
+   - 統計の指導を受けたことにより成績が向上するかを検討したい。
+      
+      
+** 6.2 独立な2群の検定
+
+    
+*** 分散既知 あるいは 大標本の場合 (z-検定)
+
+    確率変数の和の平均と分散の期待値の公式より，標本平均の差の標本分
+    布は，
+         
+    \begin{equation}
+    \bar{x_1} - \bar{x_2} \sim n(\mu_1-\mu_2, \sigma^2(\frac{1}{n_1}+\frac{1}{n_2}))
+    \end{equation}
+
+    標準化することで，
+
+    \[
+    \bar{Z} = 
+    \frac{\bar{X_1} - \bar{X_2} -
+    (\mu_1-\mu_2)}{\sigma\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+    \sim N(0,1)
+    \]
+
+*** 分散未知の場合 (t-検定)
+
+    母分散を不偏分散で推定する。
+    標本平均の不偏分散を \( \hat{\sigma_1} \), \( \hat{\sigma_2} \)
+    \) とすると，標本平均の差の不偏分散は，その加重平均となる：
+
+    \[
+    \hat{\sigma}_pooled = \frac{(n_1-1)\hat{\sigma_1}^2 +
+    (n_2-1)\hat{\sigma_2}^2}
+    {(n_1-1) + (n_2 -1)}
+    \]
+
+    母分散の推定量 \( \hat{\sigma}_{pooled} \) のことを，2群をプールし
+    た分散という。
+
+    \[
+    \bar{t} = 
+    \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\hat{\sigma}_pooled^2\frac{1}{n_1}+\frac{1}{n_2}}}
+    \sim t_{(n_1-1)+(n_2-2)}
+    \]
+
+     
+     
+*** 例題
+
+    統計テスト1の得点の平均値に男女で有意な差があるでしょうか？
+    有意水準5%，両側検定してください。
+
+     
+**** データの準備
+
+    #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+
+     (指導法データ <- read.csv("data/shidouhouU8.csv"))
+     class(指導法データ)
+
+    #+end_src
+
+    #+RESULTS:
+    #+begin_example
+	SID   name sex math stat psych_test stat_test1 stat_test2 method
+     1    1   大村  男 嫌い 好き         13          6         10      C
+     2    2   本多  男 嫌い 好き         14         10         13      B
+     3    3   川崎  男 好き 好き          7          6          8      B
+     4    4   多村  男 好き 好き         12         10         15      A
+     5    5   松中  男 嫌い 嫌い         10          5          8      B
+     6    6 小久保  男 嫌い 嫌い          6          3          6      C
+     7    7   柴原  男 嫌い 嫌い          8          5          9      A
+     8    8   井手  男 嫌い 嫌い         15          9         10      D
+     9    9   田上  男 嫌い 嫌い          4          3          7      D
+     10  10   松田  男 好き 嫌い         14          3          3      D
+     11  11   高谷  女 好き 好き          9         11         18      A
+     12  12   杉内  女 嫌い 好き          6          6         14      A
+     13  13   和田  女 好き 好き         10         11         18      A
+     14  14   新垣  女 嫌い 嫌い         12          9         11      C
+     15  15   大隣  女 嫌い 好き          5          7         12      B
+     16  16   水田  女 好き 嫌い         12          5          5      D
+     17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+     18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+     19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+     20  20   馬原  女 嫌い 嫌い         15          9          7      D
+     [1] "data.frame"
+    #+end_example
+
+***** 男女別
+      #+begin_src R :session t :results output :exports both
+
+(統計1男 <- subset(指導法データ, sex=="男")$stat_test1)
+(統計1女 <- subset(指導法データ, sex=="女")$stat_test1)
+
+  #+end_src
+
+  #+RESULTS:
+  :  [1]  6 10  6 10  5  3  5  9  3  3
+  :  [1] 11  6 11  9  7  5  8  7  7  9
+
+
+   
+**** t-検定 (等母分散)
+
+     母分散が等しいことを前提としているので，2群の分散が等しいことを
+     示す var.equal=TRUE を指定する。
+
+     #+begin_src R :session t :results output :exports both
+
+      t.test(統計1男, 統計1女, var.equal=TRUE)
+
+     #+end_src
+
+     #+RESULTS:
+     #+begin_example
+
+	      Two Sample t-test
+
+      data:  統計1男 and 統計1女
+      t = -1.8429, df = 18, p-value = 0.08188
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -4.2800355  0.2800355
+      sample estimates:
+      mean of x mean of y 
+	      6         8
+     #+end_example
+
+      
+**** t-検定 (異なる母分散)
+
+     2群の分散が等しくないいことを
+     示す var.equal=FALSE を指定する。
+
+     帰無分布は同じく t-分布であるが、自由度が異なる
+     (統計学入門，12.2.4)
+
+     #+begin_src R :session t :results output :exports both
+
+      t.test(統計1男, 統計1女, var.equal=FALSE)
+
+     #+end_src
+
+     #+RESULTS:
+     #+begin_example
+
+	      Welch Two Sample t-test
+
+      data:  統計1男 and 統計1女
+      t = -1.8429, df = 16.321, p-value = 0.08359
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -4.2969668  0.2969668
+      sample estimates:
+      mean of x mean of y 
+	      6         8
+     #+end_example
+
+** 6.3 t-検定の前提条件
+
+   1. 標本抽出が無作為に行われていること
+   2. 母集団の分布が正規分布であること
+   3. 2つの母集団の分散が等質であること
+
+   3つの条件は，帰無分布が t-分布になるために必要です。
+
+    
+*** 6.3.1 分散の等質性の検定
+
+    - 2つの母集団の分散の等質性を，
+    - それぞれの母集団からの2つの標本を用いて，
+    - 「ふたつの母分散は等しい」という帰無仮説の検定をおこなう
+    - R では， var.test
+
+       
+**** 例題
+
+     クラスA,Bの統計学のテストの平均点に有意な差があるでしょうか？
+     有意水準5%で検定を行ってください。
+
+***** データ
+      #+begin_src R :session t :results output :exports both
+
+(クラスA <- c(54, 55, 52, 48, 50, 38, 41, 40, 53, 52))
+(クラスB <- c(57, 63, 50, 60, 61, 69, 43, 58, 36, 29))
+var.test(クラスA, クラスB)
+
+      #+end_src
+
+      #+RESULTS:
+      #+begin_example
+	[1] 54 55 52 48 50 38 41 40 53 52
+	[1] 57 63 50 60 61 69 43 58 36 29
+
+	       F test to compare two variances
+
+       data:  クラスA and クラスB
+       F = 0.24157, num df = 9, denom df = 9, p-value = 0.04588
+       alternative hypothesis: true ratio of variances is not equal to 1
+       95 percent confidence interval:
+	0.06000201 0.97255026
+       sample estimates:
+       ratio of variances 
+		0.2415677
+      #+end_example
+
+       
+**** 6.4 対応のある (z,t)-検定
+
+     - 独立な2群 or 対応のない2群 ::
+       例えば30人の被験者を，ランダムに2群に分た場合
+
+     - 対応のある2群 :: 
+       同じ人の2種類のデータ。対応付られた2人ごとのデータ。
+	
+***** 対応のあるデータの検定量
+
+      統計テスト1の得点を \( X_1 \),
+      統計テスト2の得点を \( X_2 \),
+      対応する得点差を \( D  = X_2 - X_1 \), とすると，それらの標本平
+      均にたいし，下式が成り立つ:
+
+      \[
+       \bar{D} = \bar{X}_2 - \bar{X}_1
+      \]
+
+****** 得点差の標本平均の計算
+	
+     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+
+     指導法データ <- read.csv("data/shidouhouU8.csv")
+
+     (統計テスト1 <- 指導法データ$stat_test1)
+     (統計テスト2 <- 指導法データ$stat_test2)
+     (変化量 <- 統計テスト2 - 統計テスト1)
+     c(mean(統計テスト2) - mean(統計テスト1), mean(変化量))
+
+#+end_src
+
+#+RESULTS:
+:  [1]  6 10  6 10  5  3  5  9  3  3 11  6 11  9  7  5  8  7  7  9
+:  [1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
+:  [1]  4  3  2  5  3  3  4  1  4  0  7  8  7  2  5  0 -1  5  0 -2
+: [1] 3 3
+       
+       
+
+
+       
+****** 得点差の標本平均が従がう分布
+
+       - \( X_i \sim N(\mu_{i}, \sigma^2_{i}) \) を仮定すれば，
+       - \( D \sim N(\mu_{D}, \sigma^2_{D}) \)  となり，
+       - 標本分布は，\( \bar{D} \sim N(\mu_{D},	  \frac{\sigma^2_{D}}{n}) \) となる。
+       - \( \bar{D} \) を標準化して, \( n \)を標本数として，
+	 \[
+	 Z = \frac {\bar{D} - \mu_{D}} {\sigma_{D} \sqrt{n}} \sim N(0,1)
+	 \]
+       - \(\mu_D \) が既知ならば，z-検定
+       - \(\mu_D \) が未知ならば，不偏分散を用いたt-検定
+	  
+****** 例題：
+       「指導法データ」の統計テスト1と統計テスト2の得点について、指導
+       の前後で統計テストの得点が変化したといえるでしょうか。有意水準
+       5％、両側検定で検定してください。
+
+       #+begin_src R :session t :results output :exports both
+
+        t.test(変化量)
+
+       #+end_src
+
+       #+RESULTS:
+       #+begin_example
+
+		One Sample t-test
+
+	data:  変化量
+	t = 4.8399, df = 19, p-value = 0.0001138
+	alternative hypothesis: true mean is not equal to 0
+	95 percent confidence interval:
+	 1.702645 4.297355
+	sample estimates:
+	mean of x 
+		3
+       #+end_example
+
+
+

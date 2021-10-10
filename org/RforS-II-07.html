@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-20 月 21:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</head>
+<body>
+<div id="content">
+
+
+<div id="outline-container-orga8f1ee3" class="outline-2">
+<h2 id="orga8f1ee3">Rによるやさしい統計</h2>
+<div class="outline-text-2" id="text-orga8f1ee3">
+<p>
+<a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a>
+</p>
+</div>
+
+<div id="outline-container-orgce549c7" class="outline-3">
+<h3 id="orgce549c7">7章 分散分析</h3>
+<div class="outline-text-3" id="text-orgce549c7">
+<p>
+3つ以上の平均値を比較するために，分散分析を紹介する
+</p>
+</div>
+
+<div id="outline-container-org90e738e" class="outline-4">
+<h4 id="org90e738e">7.1 一元配置分散分析</h4>
+<div class="outline-text-4" id="text-org90e738e">
+</div>
+<div id="outline-container-orgc2b34d3" class="outline-5">
+<h5 id="orgc2b34d3">データの準備</h5>
+<div class="outline-text-5" id="text-orgc2b34d3">
+<div class="org-src-container">
+<pre class="src src-R">
+     (&#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)) class(&#25351;&#23566;&#27861;&#12487;&#12540;
+     &#12479;)
+
+</pre>
+</div>
+
+<pre class="example" id="org71c426c">
+	 SID   name sex math stat psych_test stat_test1 stat_test2 method
+      1    1   大村  男 嫌い 好き         13          6         10      C
+      2    2   本多  男 嫌い 好き         14         10         13      B
+      3    3   川崎  男 好き 好き          7          6          8      B
+      4    4   多村  男 好き 好き         12         10         15      A
+      5    5   松中  男 嫌い 嫌い         10          5          8      B
+      6    6 小久保  男 嫌い 嫌い          6          3          6      C
+      7    7   柴原  男 嫌い 嫌い          8          5          9      A
+      8    8   井手  男 嫌い 嫌い         15          9         10      D
+      9    9   田上  男 嫌い 嫌い          4          3          7      D
+      10  10   松田  男 好き 嫌い         14          3          3      D
+      11  11   高谷  女 好き 好き          9         11         18      A
+      12  12   杉内  女 嫌い 好き          6          6         14      A
+      13  13   和田  女 好き 好き         10         11         18      A
+      14  14   新垣  女 嫌い 嫌い         12          9         11      C
+      15  15   大隣  女 嫌い 好き          5          7         12      B
+      16  16   水田  女 好き 嫌い         12          5          5      D
+      17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+      18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+      19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+      20  20   馬原  女 嫌い 嫌い         15          9          7      D
+      [1] "data.frame"
+</pre>
+</div>
+
+<div id="outline-container-org39f373f" class="outline-6">
+<h6 id="org39f373f">指導法 (A, B, C, D)ごとの統計テスト2の得点表の作成</h6>
+<div class="outline-text-6" id="text-org39f373f">
+<div class="org-src-container">
+<pre class="src src-R">
+(As <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"A"</span>)$stat_test2)
+(Bs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"B"</span>)$stat_test2)
+(Cs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"C"</span>)$stat_test2)
+(Ds <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"D"</span>)$stat_test2)
+(table.71 <span style="color: #e5786d;">&lt;-</span> data.frame(A=As, B=Bs, C=Cs, D=Ds))
+</pre>
+</div>
+
+<pre class="example" id="orgeb3c3fe">
+  [1] 15  9 18 14 18
+  [1] 13  8  8 12  7
+  [1] 10  6 11  7 12
+  [1] 10  7  3  5  7
+     A  B  C  D
+  1 15 13 10 10
+  2  9  8  6  7
+  3 18  8 11  3
+  4 14 12  7  5
+  5 18  7 12  7
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org13b4de9" class="outline-6">
+<h6 id="org13b4de9">変動の区別</h6>
+<div class="outline-text-6" id="text-org13b4de9">
+</div>
+<div id="outline-container-orgbd6be48" class="outline-7">
+<h7 id="orgbd6be48">全体の変動</h7>
+<div class="outline-text-7" id="text-orgbd6be48">
+<ul class="org-ul">
+<li>全データをまとめて扱う</li>
+<li>全平均 と 個々のデータの偏差，分散</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgad566e7" class="outline-7">
+<h7 id="orgad566e7">方法の違いによる変動</h7>
+<div class="outline-text-7" id="text-orgad566e7">
+<ul class="org-ul">
+<li>方法ごとにグループを作成</li>
+<li>全平均 と グループ内平均との偏差，分散</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4598436" class="outline-7">
+<h7 id="org4598436">個の違いによる変動 (誤差)</h7>
+<div class="outline-text-7" id="text-org4598436">
+<ul class="org-ul">
+<li>同じ方法グループ内のデータの変動は，個々の違いが原因。</li>
+<li>指導法の効果を見るためには，雑音と考える。</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org253c11f" class="outline-6">
+<h6 id="org253c11f">検定統計量 ::</h6>
+<div class="outline-text-6" id="text-org253c11f">
+<p>
+\[
+	 F = \frac { \mbox{群間平方和} / \mbox{群間の自由度} }
+	 { \mbox{群内平方和} / \mbox{群内の自由度} }
+	 \] (mboxが出力されていませんので，教科書を参照)
+</p>
+
+<p>
+\( F \) は，全ての群の母平均が等しいときに，* F分布 * に従う
+</p>
+
+<dl class="org-dl">
+<dt>群間平方和</dt><dd>全体平均値と群間平均値の差の2乗和</dd>
+<dt>群内平方和</dt><dd>群内平均値との差の2乗和</dd>
+</dl>
+
+<div class="org-src-container">
+<pre class="src src-R">
+(As <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"A"</span>)$stat_test2)
+(Bs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"B"</span>)$stat_test2)
+(Cs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"C"</span>)$stat_test2)
+(Ds <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"D"</span>)$stat_test2)
+(&#20840;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> cbind(As, Bs, Cs, Ds))
+
+</pre>
+</div>
+
+<pre class="example" id="org0a405b9">
+       [1] 15  9 18 14 18
+       [1] 13  8  8 12  7
+       [1] 10  6 11  7 12
+       [1] 10  7  3  5  7
+	    As Bs Cs Ds
+       [1,] 15 13 10 10
+       [2,]  9  8  6  7
+       [3,] 18  8 11  3
+       [4,] 14 12  7  5
+       [5,] 18  7 12  7
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org95d4f3e" class="outline-6">
+<h6 id="org95d4f3e">群平均</h6>
+<div class="outline-text-6" id="text-org95d4f3e">
+<div class="org-src-container">
+<pre class="src src-R">
+(&#32676;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> colMeans(&#20840;&#12487;&#12540;&#12479;))
+
+</pre>
+</div>
+
+<pre class="example">
+  As   Bs   Cs   Ds 
+14.8  9.6  9.2  6.4
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4e28bd1" class="outline-6">
+<h6 id="org4e28bd1">全データの平均</h6>
+<div class="outline-text-6" id="text-org4e28bd1">
+<div class="org-src-container">
+<pre class="src src-R">
+(&#20840;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> mean(&#20840;&#12487;&#12540;&#12479;))
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 10
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2e2d6f8" class="outline-6">
+<h6 id="org2e2d6f8">全平均行列</h6>
+<div class="outline-text-6" id="text-org2e2d6f8">
+<p>
+教科書では行列を作っていますが，ここではスカラーのまま扱います。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgffd8cf7" class="outline-6">
+<h6 id="orgffd8cf7">群平均行列の作成</h6>
+<div class="outline-text-6" id="text-orgffd8cf7">
+<p>
+群平均ベクトルを5回繰り返し，行列に変換する:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">(&#32676;&#24179;&#22343;&#34892;&#21015; <span style="color: #e5786d;">&lt;-</span> matrix(rep(&#32676;&#24179;&#22343;, 5), nrow=5, ncol=4, byrow=<span style="color: #92a65e; font-weight: bold;">TRUE</span>))
+
+</pre>
+</div>
+
+<pre class="example">
+     [,1] [,2] [,3] [,4]
+[1,] 14.8  9.6  9.2  6.4
+[2,] 14.8  9.6  9.2  6.4
+[3,] 14.8  9.6  9.2  6.4
+[4,] 14.8  9.6  9.2  6.4
+[5,] 14.8  9.6  9.2  6.4
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org9a48d37" class="outline-6">
+<h6 id="org9a48d37">全体差</h6>
+<div class="outline-text-6" id="text-org9a48d37">
+<div class="org-src-container">
+<pre class="src src-R">
+(&#20840;&#20307;&#24046; <span style="color: #e5786d;">&lt;-</span> &#20840;&#12487;&#12540;&#12479; - &#20840;&#24179;&#22343;) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#34892;&#21015; - &#12473;&#12459;&#12521;</span>
+
+</pre>
+</div>
+
+<pre class="example">
+     As Bs Cs Ds
+[1,]  5  3  0  0
+[2,] -1 -2 -4 -3
+[3,]  8 -2  1 -7
+[4,]  4  2 -3 -5
+[5,]  8 -3  2 -3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0546ca9" class="outline-6">
+<h6 id="org0546ca9">群間差</h6>
+<div class="outline-text-6" id="text-org0546ca9">
+<p>
+群平均行列 から 全平均を引く
+</p>
+<div class="org-src-container">
+<pre class="src src-R">
+(&#32676;&#38291;&#24046; <span style="color: #e5786d;">&lt;-</span> &#32676;&#24179;&#22343;&#34892;&#21015; - &#20840;&#24179;&#22343;)
+</pre>
+</div>
+
+<pre class="example">
+     [,1] [,2] [,3] [,4]
+[1,]  4.8 -0.4 -0.8 -3.6
+[2,]  4.8 -0.4 -0.8 -3.6
+[3,]  4.8 -0.4 -0.8 -3.6
+[4,]  4.8 -0.4 -0.8 -3.6
+[5,]  4.8 -0.4 -0.8 -3.6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1088bfa" class="outline-6">
+<h6 id="org1088bfa">群内差</h6>
+<div class="outline-text-6" id="text-org1088bfa">
+<p>
+全データから各群内平均を引く
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+(&#32676;&#20869;&#24046; <span style="color: #e5786d;">&lt;-</span> &#20840;&#12487;&#12540;&#12479; - &#32676;&#24179;&#22343;&#34892;&#21015;)
+
+</pre>
+</div>
+
+<pre class="example">
+       As   Bs   Cs   Ds
+[1,]  0.2  3.4  0.8  3.6
+[2,] -5.8 -1.6 -3.2  0.6
+[3,]  3.2 -1.6  1.8 -3.4
+[4,] -0.8  2.4 -2.2 -1.4
+[5,]  3.2 -2.6  2.8  0.6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb19d3c2" class="outline-6">
+<h6 id="orgb19d3c2">平方</h6>
+<div class="outline-text-6" id="text-orgb19d3c2">
+<div class="org-src-container">
+<pre class="src src-R">
+&#20840;&#20307;&#24046;^2
+&#32676;&#38291;&#24046;^2
+&#32676;&#20869;&#24046;^2
+
+</pre>
+</div>
+
+<pre class="example" id="orga5b8398">
+     As Bs Cs Ds
+[1,] 25  9  0  0
+[2,]  1  4 16  9
+[3,] 64  4  1 49
+[4,] 16  4  9 25
+[5,] 64  9  4  9
+      [,1] [,2] [,3]  [,4]
+[1,] 23.04 0.16 0.64 12.96
+[2,] 23.04 0.16 0.64 12.96
+[3,] 23.04 0.16 0.64 12.96
+[4,] 23.04 0.16 0.64 12.96
+[5,] 23.04 0.16 0.64 12.96
+        As    Bs    Cs    Ds
+[1,]  0.04 11.56  0.64 12.96
+[2,] 33.64  2.56 10.24  0.36
+[3,] 10.24  2.56  3.24 11.56
+[4,]  0.64  5.76  4.84  1.96
+[5,] 10.24  6.76  7.84  0.36
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2a551c8" class="outline-6">
+<h6 id="org2a551c8">平方和と自由度とF-値</h6>
+<div class="outline-text-6" id="text-org2a551c8">
+<div class="org-src-container">
+<pre class="src src-R">
+&#32676;&#38291;&#24179;&#26041;&#21644; <span style="color: #e5786d;">&lt;-</span> sum(&#32676;&#38291;&#24046;^2)
+&#32676;&#20869;&#24179;&#26041;&#21644; <span style="color: #e5786d;">&lt;-</span> sum(&#32676;&#20869;&#24046;^2)
+&#20840;&#20307;&#24179;&#26041;&#21644; <span style="color: #e5786d;">&lt;-</span> &#32676;&#38291;&#24179;&#26041;&#21644; + &#32676;&#20869;&#24179;&#26041;&#21644;
+
+
+(&#32676;&#38291;&#33258;&#30001;&#24230; <span style="color: #e5786d;">&lt;-</span> ncol(&#20840;&#12487;&#12540;&#12479;)-1)
+(&#32676;&#20869;&#33258;&#30001;&#24230; <span style="color: #e5786d;">&lt;-</span> (nrow(&#20840;&#12487;&#12540;&#12479;)-1) * ncol(&#20840;&#12487;&#12540;&#12479;))
+(&#20840;&#20307;&#33258;&#30001;&#24230; <span style="color: #e5786d;">&lt;-</span> length(&#20840;&#12487;&#12540;&#12479;)-1 )
+
+&#20840;&#20307;&#33258;&#30001;&#24230; - &#32676;&#38291;&#33258;&#30001;&#24230; - &#32676;&#20869;&#33258;&#30001;&#24230;
+
+
+(&#32676;&#38291;&#24179;&#22343;&#24179;&#26041; <span style="color: #e5786d;">&lt;-</span> &#32676;&#38291;&#24179;&#26041;&#21644;/&#32676;&#38291;&#33258;&#30001;&#24230;)
+(&#32676;&#20869;&#24179;&#22343;&#24179;&#26041; <span style="color: #e5786d;">&lt;-</span> &#32676;&#20869;&#24179;&#26041;&#21644;/&#32676;&#20869;&#33258;&#30001;&#24230;)
+(&#20840;&#20307;&#24179;&#22343;&#24179;&#26041; <span style="color: #e5786d;">&lt;-</span> &#20840;&#20307;&#24179;&#26041;&#21644;/&#20840;&#20307;&#33258;&#30001;&#24230;)
+
+(F <span style="color: #e5786d;">&lt;-</span> &#32676;&#38291;&#24179;&#22343;&#24179;&#26041; / &#32676;&#20869;&#24179;&#22343;&#24179;&#26041;)
+
+
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 3
+[1] 16
+[1] 19
+[1] 0
+[1] 61.33333
+[1] 8.625
+[1] 16.94737
+[1] 7.111111
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga9d2b8c" class="outline-5">
+<h5 id="orga9d2b8c">7.1.3 多重比較 (Tukey の方法)</h5>
+<div class="outline-text-5" id="text-orga9d2b8c">
+<p>
+7.1.1項の帰無仮説の棄却では，4つの群の母平均が等しくないことは分
+るが，どの群に間に差があるのかは分らない。
+</p>
+
+<p>
+どの群に間に差があるのかを調べるために，* 多重比較 * とよばれる方
+法を使う。
+</p>
+
+<p>
+ここでは，Tukeyの方法について説明する。
+</p>
+</div>
+
+
+<div id="outline-container-org98e59f8" class="outline-6">
+<h6 id="org98e59f8">検定統計量 q</h6>
+<div class="outline-text-6" id="text-org98e59f8">
+<p>
+各群のデータ数と分散が等しいと仮定します。
+</p>
+
+<p>
+\[
+      q = \frac { | \textrm{比較する群の平均値差} | } {
+      \sqrt{\textrm{群内の平均平方} / \textrm{各群のデータ数} }}
+      \]
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgfd342d4" class="outline-6">
+<h6 id="orgfd342d4">データの準備</h6>
+<div class="outline-text-6" id="text-orgfd342d4">
+<div class="org-src-container">
+<pre class="src src-R">
+     &#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)
+
+(As <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"A"</span>)$stat_test2)
+(Bs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"B"</span>)$stat_test2)
+(Cs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"C"</span>)$stat_test2)
+(Ds <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"D"</span>)$stat_test2)
+(&#20840;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> cbind(As, Bs, Cs, Ds))
+
+     (&#25351;&#23566;&#27861; <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$method)
+     <span style="color: #99968b;"># </span><span style="color: #99968b;">(&#25351;&#23566;&#27861;2 &lt;- factor(&#25351;&#23566;&#27861;))  # &#35201;&#22240;&#12505;&#12463;&#12488;&#12523;&#12395;&#22793;&#25563;&#65292;&#36949;&#12356;&#12364;&#12394;&#12356;&#12424;&#12358;&#12394;&#12290;&#12290;&#12290;</span>
+     (&#32113;&#35336;&#12486;&#12473;&#12488;2 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test2)
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c56b15" class="outline-6">
+<h6 id="org3c56b15">統計検定値 q の実現値値</h6>
+<div class="outline-text-6" id="text-org3c56b15">
+<div class="org-src-container">
+<pre class="src src-R">      
+      (q <span style="color: #e5786d;">&lt;-</span> abs(mean(As)-mean(Ds)) / sqrt(&#32676;&#20869;&#24179;&#22343;&#24179;&#26041;/nrow(&#20840;&#12487;&#12540;&#12479;)))
+      
+</pre>
+</div>
+
+<pre class="example">
+[1] 6.395651
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6c86ff6" class="outline-6">
+<h6 id="org6c86ff6">棄却域の決定</h6>
+<div class="outline-text-6" id="text-org6c86ff6">
+<p>
+有意水準 5%, 平均値の数 4, 群内自由度 16，を指定します。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+qtukey(0.95, 4, 16)
+qtukey(0.05, 4, 16, lower.tail=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 4.046093
+[1] 4.046093
+</pre>
+
+
+<p>
+どちらも4.046093となり，棄却域は \( q > 4.046093 \) となります。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd72d9f7" class="outline-6">
+<h6 id="orgd72d9f7">TukeyHSD (Honest Significantl Difference)</h6>
+<div class="outline-text-6" id="text-orgd72d9f7">
+<div class="org-src-container">
+<pre class="src src-R">
+TukeyHSD(aov(&#32113;&#35336;&#12486;&#12473;&#12488;2 ~ &#25351;&#23566;&#27861;))
+
+</pre>
+</div>
+
+<pre class="example" id="org5d00cbd">
+	Tukey multiple comparisons of means
+	  95% family-wise confidence level
+
+      Fit: aov(formula = 統計テスト2 ~ 指導法)
+
+      $指導法
+	  diff        lwr        upr     p adj
+      B-A -5.2 -10.514108  0.1141085 0.0562227
+      C-A -5.6 -10.914108 -0.2858915 0.0371222
+      D-A -8.4 -13.714108 -3.0858915 0.0017736
+      C-B -0.4  -5.714108  4.9141085 0.9963241
+      D-B -3.2  -8.514108  2.1141085 0.3446966
+      D-C -2.8  -8.114108  2.5141085 0.4561325
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-09-20 月 21:00</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

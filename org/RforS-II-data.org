@@ -1,0 +1,226 @@
+** データフレームの扱い
+   [[file:~/COMM/Lects/R/Rintro/Rintro-3.org][file:~/COMM/Lects/R/Rintro/Rintro-3.org]]
+
+** 関連サイト
+   [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)   ここに指導法データの csv ファイルがあります。
+
+** データの置き場
+
+   この講義用フォルダの下， ./data にしましょう。
+
+** 指導法データ (data.frame)
+
+     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+
+     (指導法データ <- read.csv("data/shidouhouU8.csv"))
+     class(指導法データ)
+     str(指導法データ)
+
+     #+end_src
+
+     #+RESULTS:
+     #+begin_example
+	SID   name sex math stat psych_test stat_test1 stat_test2 method
+     1    1   大村  男 嫌い 好き         13          6         10      C
+     2    2   本多  男 嫌い 好き         14         10         13      B
+     3    3   川崎  男 好き 好き          7          6          8      B
+     4    4   多村  男 好き 好き         12         10         15      A
+     5    5   松中  男 嫌い 嫌い         10          5          8      B
+     6    6 小久保  男 嫌い 嫌い          6          3          6      C
+     7    7   柴原  男 嫌い 嫌い          8          5          9      A
+     8    8   井手  男 嫌い 嫌い         15          9         10      D
+     9    9   田上  男 嫌い 嫌い          4          3          7      D
+     10  10   松田  男 好き 嫌い         14          3          3      D
+     11  11   高谷  女 好き 好き          9         11         18      A
+     12  12   杉内  女 嫌い 好き          6          6         14      A
+     13  13   和田  女 好き 好き         10         11         18      A
+     14  14   新垣  女 嫌い 嫌い         12          9         11      C
+     15  15   大隣  女 嫌い 好き          5          7         12      B
+     16  16   水田  女 好き 嫌い         12          5          5      D
+     17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+     18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+     19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+     20  20   馬原  女 嫌い 嫌い         15          9          7      D
+     [1] "data.frame"
+     'data.frame':	20 obs. of  9 variables:
+      $ SID       : int  1 2 3 4 5 6 7 8 9 10 ...
+      $ name      : Factor w/ 20 levels "井手","高谷",..: 14 18 12 13 6 5 4 1 16 7 ...
+      $ sex       : Factor w/ 2 levels "女","男": 2 2 2 2 2 2 2 2 2 2 ...
+      $ math      : Factor w/ 2 levels "嫌い","好き": 1 1 2 2 1 1 1 1 1 2 ...
+      $ stat      : Factor w/ 2 levels "嫌い","好き": 2 2 2 2 1 1 1 1 1 1 ...
+      $ psych_test: int  13 14 7 12 10 6 8 15 4 14 ...
+      $ stat_test1: int  6 10 6 10 5 3 5 9 3 3 ...
+      $ stat_test2: int  10 13 8 15 8 6 9 10 7 3 ...
+      $ method    : Factor w/ 4 levels "A","B","C","D": 3 2 2 1 2 3 1 4 4 4 ...
+     #+end_example
+
+     #+begin_src R :session t :results output :exports both
+
+数学s <- 指導法データ$math
+統計s <- 指導法データ$stat
+心理学テスト <- 指導法データ$psych_test
+統計テスト1 <- 指導法データ$stat_test1
+統計テスト2 <- 指導法データ$stat_test2
+
+#+end_src
+
+*** クロス集計表
+     #+begin_src R :session t :results output :exports both
+
+     (クロス集計表 <- table(数学s, 統計s))
+
+     class(クロス集計表)
+     #+end_src
+
+     #+RESULTS:
+     :       統計s
+     : 数学s 嫌い 好き
+     :   嫌い   10    4
+     :   好き    2    4
+     : [1] "table"
+
+#+begin_src R :session t :results output :exports both
+colnames(クロス集計表)
+rownames(クロス集計表)
+#+end_src
+
+#+RESULTS:
+: [1] "嫌い" "好き"
+: [1] "嫌い" "好き"
+
+#+begin_src R :session t :results output :exports both
+
+addmargins(クロス集計表)
+
+クロス集計表
+
+#+end_src
+
+#+RESULTS:
+:       統計s
+: 数学s 嫌い 好き Sum
+:   嫌い   10    4  14
+:   好き    2    4   6
+:   Sum    12    8  20
+:       統計s
+: 数学s 嫌い 好き
+:   嫌い   10    4
+:   好き    2    4
+
+#+begin_src R :session t :results output :exports both
+sum(クロス集計表[1,])
+sum(クロス集計表[2,])
+
+#+end_src
+
+#+RESULTS:
+: [1] 14
+: [1] 6
+
+#+begin_src R :session t :results output :exports both
+sum(クロス集計表[,1])
+sum(クロス集計表[,2])
+
+#+end_src
+
+#+RESULTS:
+: [1] 12
+: [1] 8
+
+#+begin_src R :session t :results output :exports both
+( total <- sum(sum(クロス集計表[,1]),sum(クロス集計表[,2])) )
+
+期待度数s <- matrix(nrow=2, ncol=2)
+for(i in 1:2) {
+  sc <- sum(クロス集計表[i,])
+  for(j in 1:2) {
+    sr <- sum(クロス集計表[,j])
+    期待度数s[i,j] <- sc*sr/total
+  }
+}
+期待度数s
+
+#+end_src
+
+#+RESULTS:
+: [1] 20
+:      [,1] [,2]
+: [1,]  8.4  5.6
+: [2,]  3.6  2.4
+
+#+begin_src R :session t :results output :exports both
+
+観測度数s <- クロス集計表
+
+(chi2 <- (観測度数s-期待度数s)^2/期待度数s)
+
+sum(chi2)
+
+#+end_src
+
+#+RESULTS:
+:       統計s
+: 数学s      嫌い      好き
+:   嫌い 0.3047619 0.4571429
+:   好き 0.7111111 1.0666667
+: [1] 2.539683
+
+*** table と 行列
+
+    #+begin_src R :session t :results output :exports both
+    (履修A <- matrix(c(16,12,4,8),nrow=2,
+                     dimnames=list(系=c("文系", "理系"),
+                                   履修=c("した", "しない"))
+    ))
+    #+end_src
+
+    #+RESULTS:
+    :       履修
+    : 系    した しない
+    :   文系   16      4
+    :   理系   12      8
+
+
+    
+*** subset
+    #+begin_src R :session t :results output :exports both
+
+subset(指導法データ, sex=="男")$stat_test1
+subset(指導法データ, sex=="女")$stat_test1
+
+#+end_src
+
+#+RESULTS:
+:  [1]  6 10  6 10  5  3  5  9  3  3
+:  [1] 11  6 11  9  7  5  8  7  7  9
+
+
+*** 7章の一元
+
+#+begin_src R :session t :results output :exports both
+# (統計2と指導 <- 指導法データ[c(8,9)])
+# (統計2と指導 <- 指導法データ[c("stat_test2","method")])
+
+(As <- subset(指導法データ, method=="A"))
+(As <- subset(指導法データ, method=="A"))$stat_test2
+(Bs <- subset(指導法データ, method=="B"))$stat_test2
+(Cs <- subset(指導法データ, method=="C"))$stat_test2
+(Ds <- subset(指導法データ, method=="D"))$stat_test2
+
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+   SID name sex math stat psych_test stat_test1 stat_test2 method
+4    4 多村  男 好き 好き         12         10         15      A
+7    7 柴原  男 嫌い 嫌い          8          5          9      A
+11  11 高谷  女 好き 好き          9         11         18      A
+12  12 杉内  女 嫌い 好き          6          6         14      A
+13  13 和田  女 好き 好き         10         11         18      A
+[1] 15  9 18 14 18
+[1] 13  8  8 12  7
+[1] 10  6 11  7 12
+[1] 10  7  3  5  7
+#+end_example
+

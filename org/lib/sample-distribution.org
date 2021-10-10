@@ -1,0 +1,36 @@
+* 標本が従う分布
+** \( \chi^2 \)-分布
+
+** t-分布
+    
+** F-分布
+
+  - 統計検定量 F-値 ::
+    - 標準正規分布に従う2つの母集団から無作為抽出してきた，
+    - 2つの \(\chi^2 \)-値の比
+    - \(\chi^2 \)-値は自由度で大きく変化するので自由度で割る
+
+  F分布は，
+
+       \[ 
+       F{(\nu_1, \nu_2)} = \frac {\chi^2_{\nu_1} / \nu_1} {\chi^2_{\nu_2} / \nu_2} 
+       \]
+
+       (\(\chi\)の大文字出力されず，小文字を使っています。)
+
+       #+begin_src R :session t :results output :exports both
+
+        curve(df(x,1,4), col="red")
+        curve(df(x,2,2), col="blue", add=TRUE)
+        curve(df(x,5,28), col="green", add=TRUE)
+        curve(df(x,28,5), col="black", add=TRUE)                           
+
+       #+end_src
+
+       #+RESULTS:
+
+       
+
+
+
+       

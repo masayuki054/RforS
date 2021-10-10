@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-08 金 20:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content">
+
+<div id="outline-container-org3cd572b" class="outline-2">
+<h2 id="org3cd572b">4章 母集団と標本</h2>
+<div class="outline-text-2" id="text-org3cd572b">
+</div>
+<div id="outline-container-orgba5168f" class="outline-3">
+<h3 id="orgba5168f">4.1 母集団と標本</h3>
+<div class="outline-text-3" id="text-orgba5168f">
+<dl class="org-dl">
+<dt>母集団</dt><dd></dd>
+
+<dt>標本 </dt><dd></dd>
+
+<dt>母数 (パラメーター)</dt><dd></dd>
+
+<dt>標本抽出</dt><dd></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org44e85ed" class="outline-3">
+<h3 id="org44e85ed">4.2 推測統計の分類</h3>
+<div class="outline-text-3" id="text-org44e85ed">
+</div>
+<div id="outline-container-org493f515" class="outline-4">
+<h4 id="org493f515">推定</h4>
+<div class="outline-text-4" id="text-org493f515">
+</div>
+<div id="outline-container-org118681e" class="outline-5">
+<h5 id="org118681e">点推定</h5>
+</div>
+<div id="outline-container-org9aa8dc9" class="outline-5">
+<h5 id="org9aa8dc9">区間推定</h5>
+</div>
+</div>
+<div id="outline-container-org8a68d45" class="outline-4">
+<h4 id="org8a68d45">検定</h4>
+<div class="outline-text-4" id="text-org8a68d45">
+<ul class="org-ul">
+<li>母集団について述べた二つの異なる主張(仮説)</li>
+<li>どちらを採択するかを決める</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6568bac" class="outline-3">
+<h3 id="org6568bac">4.3 点推定</h3>
+<div class="outline-text-3" id="text-org6568bac">
+</div>
+<div id="outline-container-orgb880db7" class="outline-4">
+<h4 id="orgb880db7">手順</h4>
+<div class="outline-text-4" id="text-orgb880db7">
+<ol class="org-ol">
+<li>標本の抽出
+<b>標本のサイズ</b> $ n $</li>
+<li>標本を用いて，母平均の推定値を計算する</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#36523;&#38263; <span style="color: #e5786d;">&lt;-</span> c(165.2, 175.9, 161.7, 174.2, 172.1, 163.3, 170.9, 170.6, 168.4, 171.3)
+
+mean(&#36523;&#38263;)
+var(&#36523;&#38263;)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 169.36
+[1] 21.66711
+</pre>
+</div>
+
+<div id="outline-container-org48d6eed" class="outline-5">
+<h5 id="org48d6eed">意味</h5>
+<div class="outline-text-5" id="text-org48d6eed">
+<ul class="org-ul">
+<li>記述統計の文脈では，数値要約のための代表値を求める，こと</li>
+<li>推測統計の文脈では，母平均の点推定を行う，こと</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f94f38" class="outline-4">
+<h4 id="org6f94f38">推定量と推定値</h4>
+<div class="outline-text-4" id="text-org6f94f38">
+<dl class="org-dl">
+<dt>標本統計量</dt><dd>標本平均，標本分散，&#x2026;</dd>
+<dt>母集団の統計量</dt><dd>母平均，母分散，。。。</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-org06795e7" class="outline-4">
+<h4 id="org06795e7">標本抽出に伴なう誤差</h4>
+<div class="outline-text-4" id="text-org06795e7">
+<p>
+<a href="https://www.intage.co.jp/glossary/041/">標本誤差とは｜市場調査ならインテージ</a>
+</p>
+
+<ul class="org-ul">
+<li>推定値と母数の誤差</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org865ce1f" class="outline-3">
+<h3 id="org865ce1f">4.4 推定値がどれくらいあてになるのかを調べる方法</h3>
+<div class="outline-text-3" id="text-org865ce1f">
+<ol class="org-ol">
+<li><p>
+標本抽出の方法としての単純無作為抽出
+</p>
+
+<p>
+単純無作為抽出
+</p></li>
+
+<li>単純無作為抽出によって得られるデータの性質としての確率変数</li>
+
+<li>確率変数がどのような値をとるのかを示す確率分布</li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-R">
+(&#12469;&#12452;&#12467;&#12525;6 <span style="color: #e5786d;">&lt;-</span> ceiling(runif(n=6,min=0,max=6 )))
+table(&#12469;&#12452;&#12467;&#12525;6)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 2 4 2 1 5 1
+サイコロ6
+1 2 4 5 
+2 2 1 1
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#12469;&#12452;&#12467;&#12525;60000 <span style="color: #e5786d;">&lt;-</span> ceiling(runif(n=60000,min=0,max=6 ))
+table(&#12469;&#12452;&#12467;&#12525;60000)
+
+</pre>
+</div>
+
+<pre class="example">
+サイコロ60000
+    1     2     3     4     5     6 
+10041  9981  9961  9926 10110  9981
+</pre>
+
+
+
+<ol class="org-ol">
+<li><p>
+確率分布を用いた母集団の表現としての母集団分布
+</p>
+
+<p>
+男女比が 2:1 である母集団
+</p></li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-R">barplot(c(2/3, 1/3), names.arg=c(<span style="color: #95e454;">"&#30007;&#24615;"</span>, <span style="color: #95e454;">"&#22899;&#24615;"</span>),
+        xlab=<span style="color: #95e454;">"&#24615;&#21029;"</span>, ylab=<span style="color: #95e454;">"&#27604;&#29575;"</span>,
+        main=<span style="color: #95e454;">"&#22259;4.3 &#24615;&#21029;&#12398;&#27597;&#38598;&#22243;&#20998;&#24067;&#12398;&#20363;"</span>)
+box(lty=1)
+
+
+</pre>
+</div>
+
+<p>
+<b>無作為抽出の標本は，母集団分布に従う</b>
+</p>
+
+<ol class="org-ol">
+<li><p>
+代表的な母集団分布である正規分布
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+png(<span style="color: #95e454;">"graphs/norm_graphs.png"</span>,width=400,height=300)
+
+curve(dnorm(x), from=-4, to=4)
+curve(dnorm(x,sd=2), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+curve(dnorm(x,mean=1,sd=1), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+norm_graphs <span style="color: #e5786d;">&lt;-</span> recordPlot()
+dev.off()
+dev.new()
+replayPlot(norm_graphs) <span style="color: #99968b;">## </span><span style="color: #99968b;">&#12358;&#12414;&#12367;&#20877;&#25551;&#30011;&#12373;&#12428;&#12394;&#12356;??? </span>
+
+</pre>
+</div>
+
+<pre class="example">
+png 
+  2
+</pre></li>
+</ol>
+
+
+<ol class="org-ol">
+<li>Rを使って正規分布の母集団から標本を抽出する方法</li>
+</ol>
+</div>
+
+
+<div id="outline-container-org1ed666f" class="outline-4">
+<h4 id="org1ed666f">4.4.7 正規母集団から単純無作為抽出を行なう</h4>
+<div class="outline-text-4" id="text-org1ed666f">
+<p>
+例えば、平均50、標準偏差10の正規母集団からn＝5の標本を無作為抽出
+する
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+rnorm(n=5, mean=50, sd=10)
+rnorm(n=5, mean=50, sd=10)
+dev.new()
+png(<span style="color: #95e454;">"graphs/fig-04-07.png"</span>, width=400,height=300)
+hist(rnorm(n=5, mean=50, sd=10))
+dev.off()
+png(<span style="color: #95e454;">"graphs/fig-04-08.png"</span>, width=400,height=300)
+hist(rnorm(n=1000, mean=50, sd=10))
+dev.off()
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 66.52000 35.27322 37.61918 42.73592 58.70167
+[1] 53.47085 69.57608 52.92380 46.23520 25.29411
+X11cairo 
+       2
+X11cairo 
+       2
+</pre>
+
+
+
+<div id="org46ea4d1" class="figure">
+<p><img src="./graphs/fig-04-07.png" alt="fig-04-07.png" />
+</p>
+</div>
+
+
+
+
+<div id="orgaac5bbf" class="figure">
+<p><img src="./graphs/fig-04-08.png" alt="fig-04-08.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a70341" class="outline-3">
+<h3 id="org2a70341">4.5 標本分布</h3>
+<div class="outline-text-3" id="text-org2a70341">
+<dl class="org-dl">
+<dt>標本分布</dt><dd><p>
+標本統計量の確率分布のこと
+</p>
+
+<p>
+推定値の信頼性の判断に用いる
+</p>
+
+<p>
+標本分布は標本における個々のデータの実現値を表した度数分布ではな
+く、標本統計量の確率分布であると
+</p></dd>
+</dl>
+</div>
+
+<div id="outline-container-orgace9172" class="outline-4">
+<h4 id="orgace9172">4.5.1 標本分布から何が分るのか</h4>
+<div class="outline-text-4" id="text-orgace9172">
+<ul class="org-ul">
+<li>図4.9 標本分布の中心は、ほぼ「母数の本当の値」の
+ところに来ている</li>
+
+<li>図4.10 標本分布の中心は、「母数の本当の値」からずれている</li>
+
+<li>図4.11 標本分布の中心は、ほぼ「母数の本当の値」のところに来てい
+るが，運が良ければ母数の本当の値に非常に近いものになりますが、
+運が悪いと大きく外れてしまうことになります。つまり、当たり外れ
+が大きくて、推定値はあまりあてになるとはいえなそう</li>
+</ul>
+
+<p>
+標本分布を調べるときの観点候補:
+</p>
+
+<p>
+（1）標本分布が母数の本当の値を中心として分布しているか
+（2）標本分布が横に大きく広がっていないか
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89aa357" class="outline-4">
+<h4 id="org89aa357">標本分布を経験的に求める</h4>
+<div class="outline-text-4" id="text-org89aa357">
+<p>
+標本分布は次のものから数学的に求まる:
+</p>
+
+<ol class="org-ol">
+<li>母集団分布</li>
+<li>標本統計量の計算式 (変数変換)</li>
+<li>標本数</li>
+</ol>
+
+<p>
+Rを用いて，理論的ではなく，経験的の標本分布を求めることができる
+</p>
+
+<p>
+標本統計量の実現値を大量に得られれば，そのヒストグラムは，標本分
+布近いものとなるはず。
+</p>
+
+<ul class="org-ul">
+<li>サイズ $ n $ の標本を何度も繰かえし抽出し，実現量を計算し，ヒス
+トグラムを作成する</li>
+</ul>
+
+<p>
+しかし，母集団分布が母数を含めてわかっていないため，「もし母集団
+分布がこのような正規分布だったら、このくらいあてになる推定値が得
+られる」ということを検討することになる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2848b4e" class="outline-4">
+<h4 id="org2848b4e">4.5.3 正規母集団の母平均の推定</h4>
+<div class="outline-text-4" id="text-org2848b4e">
+<ul class="org-ul">
+<li>母集団分布 \( \sim N(50, 10^2)\)</li>
+<li>\( n = 10 \)</li>
+<li>母平均の推定量は，標本平均 \( \overline{X} \)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">
+     &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=10, mean=50, sd=10)
+     mean(&#27161;&#26412;)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 53.10192
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4e8fd95" class="outline-4">
+<h4 id="org4e8fd95">4.5.4 標本分布を求める</h4>
+<div class="outline-text-4" id="text-org4e8fd95">
+<p>
+母平均の推定を10000回繰り返し
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+      loops = 10000
+      
+      &#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=loops)
+      
+      <span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:loops) {
+        &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=10, mean=50, sd=10)
+        &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
+      }
+      
+      hist(&#27161;&#26412;&#24179;&#22343;)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979; <span style="color: #e5786d;">&lt;-</span> ifelse( abs(&#27161;&#26412;&#24179;&#22343;-50) &lt;= 5, 1, 0)
+table(&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979;)
+
+</pre>
+</div>
+
+<pre class="example">
+誤差絶対値5以下
+   0    1 
+1167 8833
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+mean(&#27161;&#26412;&#24179;&#22343;)
+var(&#27161;&#26412;&#24179;&#22343;)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 50.01761
+[1] 10.06572
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">png(<span style="color: #95e454;">"graphs/fig-04-13.png"</span>, width=400, height=300)
+hist(&#27161;&#26412;&#24179;&#22343;,freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+curve(dnorm(x,mean=50,sd=sqrt(10)), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+dev.off()
+</pre>
+</div>
+
+<pre class="example">
+png 
+  3
+</pre>
+
+
+
+<div id="orgef0dbc3" class="figure">
+<p><img src="./graphs/fig-04-13.png" alt="fig-04-13.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35bc5d8" class="outline-4">
+<h4 id="org35bc5d8">4.5.5 不偏性</h4>
+<div class="outline-text-4" id="text-org35bc5d8">
+<p>
+推定値 (e.g. 標本平均) の平均 (e.g. 標本分布の平均) は
+母集団分布によらず，
+母数 (e.g. 母平均) に一致すること
+</p>
+
+<p>
+標本平均は，母平均の不偏推定量である。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ce4cd1" class="outline-4">
+<h4 id="org3ce4cd1">4.5.6 標準誤差</h4>
+<div class="outline-text-4" id="text-org3ce4cd1">
+<p>
+推定量の標本分布を調べるときの2つの観点のうち「（2）標本分布が横
+に大きく広がっていないか」にかかわるのが標準誤差です。
+</p>
+
+<p>
+標準誤差は、推定量の標本分布の標準偏差として定義します。
+</p>
+
+<p>
+標準誤差が小さいということは、運不運によって結果が大きく左右され
+ないということです。また、誰がいつやってもだいたい同じ結果が安定
+して得られるということもできます。
+</p>
+
+<p>
+上で見た、N(50,102)の正規母集団からn＝10の標本を抽出したときの標
+本平均の例では、
+</p>
+<ul class="org-ul">
+<li>標本平均の標本分布はN(50,10)でしたから、</li>
+<li>標準誤差は $\sqrt{10}$となります。</li>
+</ul>
+
+<p>
+一般的に、
+</p>
+<ul class="org-ul">
+<li>平均μ、分散σ2の正規分布N(μ,σ2)にしたがう母集団から</li>
+<li>サンプルサイズnの標本を抽出したとき、</li>
+<li>その標本平均の標本分布は \( N(\mu, \frac{\sigma^2}{n}) \)となる</li>
+<li>標準誤差は \( \frac{\sigma}{\sqrt{n}} \) となります。</li>
+</ul>
+
+<p>
+このことから、
+</p>
+
+<ol class="org-ol">
+<li>母集団分布の分散（標準偏差）が大きいほど、標本平均の標準誤差が
+大きくなる。つまり、母分散が大きいと、そこから無作為抽出した標
+本の平均値は母平均から外れた値をとりやすくなる。</li>
+
+<li>サンプルサイズが大きいほど、標本平均の標準誤差が小さくなる。つ
+まり、サンプルサイズを大きくすれば、そこから無作為抽出した標本
+の平均値は母平均に近い値をとりやすくなる</li>
+</ol>
+
+<p>
+実際に、先ほどのN(50,102)という母集団からの標本抽出の例で、サンプ
+ルサイズを10倍のn＝100にしてみると
+</p>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+      loops = 10000
+      sample_size <span style="color: #e5786d;">&lt;-</span> 100
+      &#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=loops)
+      
+      <span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:loops) {
+        &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=sample_size, mean=50, sd=10)
+        &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
+      }
+      
+      hist(&#27161;&#26412;&#24179;&#22343;)
+
+&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979; <span style="color: #e5786d;">&lt;-</span> ifelse( abs(&#27161;&#26412;&#24179;&#22343;-50) &lt;= 5, 1, 0)
+table(&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979;)
+
+mean(&#27161;&#26412;&#24179;&#22343;)
+var(&#27161;&#26412;&#24179;&#22343;)
+
+png(<span style="color: #95e454;">"graphs/fig-04-14.png"</span>, width=400, height=300)
+hist(&#27161;&#26412;&#24179;&#22343;,freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+curve(dnorm(x,mean=50,sd=sqrt(10)), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+dev.off()
+</pre>
+</div>
+
+<pre class="example">
+誤差絶対値5以下
+    1 
+10000
+[1] 49.9936
+[1] 0.9948733
+X11cairo 
+       2
+</pre>
+
+
+
+<div id="orgcdbb56a" class="figure">
+<p><img src="./graphs/fig-04-14.png" alt="fig-04-14.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org967cde4" class="outline-3">
+<h3 id="org967cde4">4.6 標本平均以外の標本分布</h3>
+<div class="outline-text-3" id="text-org967cde4">
+<p>
+あらゆる標本統計量に対して標本分布を考えることができる。
+</p>
+</div>
+
+
+<div id="outline-container-orge7af925" class="outline-4">
+<h4 id="orge7af925">標本分散と不偏分散の標本分布</h4>
+<div class="outline-text-4" id="text-orge7af925">
+<ul class="org-ul">
+<li>不偏分散は，母分散の不偏推定量</li>
+<li>標本分散は，標本の散布度</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">samples.no <span style="color: #e5786d;">&lt;-</span> 10000
+sample.size <span style="color: #e5786d;">&lt;-</span> 10
+this.mean <span style="color: #e5786d;">&lt;-</span> 50
+this.sd <span style="color: #e5786d;">&lt;-</span> 10
+
+&#27161;&#26412;&#20998;&#25955;s <span style="color: #e5786d;">&lt;-</span> numeric(samples.no)
+&#19981;&#20559;&#20998;&#25955;s <span style="color: #e5786d;">&lt;-</span> numeric(samples.no)
+
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:samples.no) {
+  &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=sample.size,mean=this.mean,sd=this.sd)
+  &#27161;&#26412;&#20998;&#25955;s[i] <span style="color: #e5786d;">&lt;-</span> mean((&#27161;&#26412;-mean(&#27161;&#26412;))^2)
+  &#19981;&#20559;&#20998;&#25955;s[i] <span style="color: #e5786d;">&lt;-</span> var(&#27161;&#26412;)
+}
+
+c(mean(&#27161;&#26412;&#20998;&#25955;s),sd(&#27161;&#26412;&#20998;&#25955;s))
+c(mean(&#19981;&#20559;&#20998;&#25955;s),sd(&#19981;&#20559;&#20998;&#25955;s))
+
+png(<span style="color: #95e454;">"graphs/fig-04-16-1.png"</span>,width=400,height=300)
+hist(&#27161;&#26412;&#20998;&#25955;s, breaks=seq(0,500,10))
+dev.off()
+png(<span style="color: #95e454;">"graphs/fig-04-16-2.png"</span>,width=400,height=300)
+hist(&#19981;&#20559;&#20998;&#25955;s, breaks=seq(0,500,10))
+dev.off()
+
+&#27161;&#26412;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978; <span style="color: #e5786d;">&lt;-</span> ifelse(&#27161;&#26412;&#20998;&#25955;s&gt;=200,1,0)
+&#19981;&#20559;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978; <span style="color: #e5786d;">&lt;-</span> ifelse(&#19981;&#20559;&#20998;&#25955;s&gt;=200,1,0)
+
+table(&#27161;&#26412;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978;)
+table(&#19981;&#20559;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978;)
+
+
+</pre>
+</div>
+
+<pre class="example" id="org4c4685a">
+     [1] 90.26902 42.74878
+     [1] 100.29891  47.49865
+     X11cairo 
+	    2
+     X11cairo 
+	    2
+     標本分散誤差100以上
+	0    1 
+     9817  183
+     不偏分散誤差100以上
+	0    1 
+     9631  369
+</pre>
+
+
+
+<p>
+<img src="./graphs/fig-04-16-1.png" alt="fig-04-16-1.png" />
+<img src="./graphs/fig-04-16-2.png" alt="fig-04-16-2.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdd393c6" class="outline-4">
+<h4 id="orgdd393c6">4.6.2 中央値の標本分布</h4>
+<div class="outline-text-4" id="text-orgdd393c6">
+<p>
+母平均の推定量として，標本平均よりよい標本統計量はないのか？
+</p>
+
+<dl class="org-dl">
+<dt>よい推定量</dt><dd>標本誤差の小さい推定値が得られやすい</dd>
+</dl>
+
+<p>
+中央値を母平均の推定量として使えるか
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">samples.no <span style="color: #e5786d;">&lt;-</span> 10000
+sample.size <span style="color: #e5786d;">&lt;-</span> 10
+this.mean <span style="color: #e5786d;">&lt;-</span> 50
+this.sd <span style="color: #e5786d;">&lt;-</span> 10
+
+&#27161;&#26412;&#24179;&#22343;s <span style="color: #e5786d;">&lt;-</span> numeric(samples.no)
+&#27161;&#26412;&#20013;&#22830;&#20516;s <span style="color: #e5786d;">&lt;-</span> numeric(samples.no)
+
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:samples.no) {
+  &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=sample.size,mean=this.mean,sd=this.sd)
+  &#27161;&#26412;&#24179;&#22343;s[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
+  &#27161;&#26412;&#20013;&#22830;&#20516;s[i] <span style="color: #e5786d;">&lt;-</span> median(&#27161;&#26412;)
+}
+
+gc(mean(&#27161;&#26412;&#24179;&#22343;s), sd(&#27161;&#26412;&#24179;&#22343;s))
+c(mean(&#27161;&#26412;&#20013;&#22830;&#20516;s), sd(&#27161;&#26412;&#20013;&#22830;&#20516;s))
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 49.956336  3.207652
+[1] 49.964114  3.734581
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-10-08 金 20:30</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

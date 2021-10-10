@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-08 金 20:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content">
+
+
+<div id="outline-container-org8d81f43" class="outline-2">
+<h2 id="org8d81f43">6章 2つの平均値を比較する</h2>
+<div class="outline-text-2" id="text-org8d81f43">
+<ol class="org-ol">
+<li>独立な2群の平均値の差の検定</li>
+
+<li>対応のある2群の平均値の差の検定</li>
+</ol>
+</div>
+
+<div id="outline-container-orgba554bd" class="outline-3">
+<h3 id="orgba554bd">6.1 2つの平均値を比較するケース</h3>
+<div class="outline-text-3" id="text-orgba554bd">
+<ul class="org-ul">
+<li>男女で心理学テストの平均値に差があるかを検討したい。</li>
+
+<li>統計が好き・嫌いで統計テストの平均値に差があるかを検討したい。</li>
+
+<li>統計の指導を受けたことにより成績が向上するかを検討したい。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org33197d7" class="outline-3">
+<h3 id="org33197d7">6.2 独立な2群の検定</h3>
+<div class="outline-text-3" id="text-org33197d7">
+</div>
+<div id="outline-container-orgf1fa37b" class="outline-4">
+<h4 id="orgf1fa37b">分散既知 あるいは 大標本の場合 (z-検定)</h4>
+<div class="outline-text-4" id="text-orgf1fa37b">
+<p>
+確率変数の和の平均と分散の期待値の公式より，標本平均の差の標本分
+布は，
+</p>
+
+\begin{equation}
+\bar{x_1} - \bar{x_2} \sim n(\mu_1-\mu_2, \sigma^2(\frac{1}{n_1}+\frac{1}{n_2}))
+\end{equation}
+
+<p>
+標準化することで，
+</p>
+
+<p>
+\[
+    \bar{Z} = 
+    \frac{\bar{X_1} - \bar{X_2} -
+    (\mu_1-\mu_2)}{\sigma\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}
+    \sim N(0,1)
+    \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgecd4027" class="outline-4">
+<h4 id="orgecd4027">分散未知の場合 (t-検定)</h4>
+<div class="outline-text-4" id="text-orgecd4027">
+<p>
+母分散を不偏分散で推定する。
+標本平均の不偏分散を \( \hat{\sigma_1} \), \( \hat{\sigma_2} \)
+\) とすると，標本平均の差の不偏分散は，その加重平均となる：
+</p>
+
+<p>
+\[
+    \hat{\sigma}_pooled = \frac{(n_1-1)\hat{\sigma_1}^2 +
+    (n_2-1)\hat{\sigma_2}^2}
+    {(n_1-1) + (n_2 -1)}
+    \]
+</p>
+
+<p>
+母分散の推定量 \( \hat{\sigma}_{pooled} \) のことを，2群をプールし
+た分散という。
+</p>
+
+<p>
+\[
+    \bar{t} = 
+    \frac{\bar{X_1} - \bar{X_2}}{\sqrt{\hat{\sigma}_pooled^2\frac{1}{n_1}+\frac{1}{n_2}}}
+    \sim t_{(n_1-1)+(n_2-2)}
+    \]
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgcfe932d" class="outline-4">
+<h4 id="orgcfe932d">例題</h4>
+<div class="outline-text-4" id="text-orgcfe932d">
+<p>
+統計テスト1の得点の平均値に男女で有意な差があるでしょうか？
+有意水準5%，両側検定してください。
+</p>
+</div>
+
+
+<div id="outline-container-org8a26634" class="outline-5">
+<h5 id="org8a26634">データの準備</h5>
+<div class="outline-text-5" id="text-org8a26634">
+<div class="org-src-container">
+<pre class="src src-R">
+     (&#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>))
+     class(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;)
+
+</pre>
+</div>
+
+<pre class="example" id="orged51dd6">
+	SID   name sex math stat psych_test stat_test1 stat_test2 method
+     1    1   大村  男 嫌い 好き         13          6         10      C
+     2    2   本多  男 嫌い 好き         14         10         13      B
+     3    3   川崎  男 好き 好き          7          6          8      B
+     4    4   多村  男 好き 好き         12         10         15      A
+     5    5   松中  男 嫌い 嫌い         10          5          8      B
+     6    6 小久保  男 嫌い 嫌い          6          3          6      C
+     7    7   柴原  男 嫌い 嫌い          8          5          9      A
+     8    8   井手  男 嫌い 嫌い         15          9         10      D
+     9    9   田上  男 嫌い 嫌い          4          3          7      D
+     10  10   松田  男 好き 嫌い         14          3          3      D
+     11  11   高谷  女 好き 好き          9         11         18      A
+     12  12   杉内  女 嫌い 好き          6          6         14      A
+     13  13   和田  女 好き 好き         10         11         18      A
+     14  14   新垣  女 嫌い 嫌い         12          9         11      C
+     15  15   大隣  女 嫌い 好き          5          7         12      B
+     16  16   水田  女 好き 嫌い         12          5          5      D
+     17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+     18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+     19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+     20  20   馬原  女 嫌い 嫌い         15          9          7      D
+     [1] "data.frame"
+</pre>
+</div>
+
+<div id="outline-container-org15e2654" class="outline-6">
+<h6 id="org15e2654">男女別</h6>
+<div class="outline-text-6" id="text-org15e2654">
+<div class="org-src-container">
+<pre class="src src-R">
+(&#32113;&#35336;1&#30007; <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, sex==<span style="color: #95e454;">"&#30007;"</span>)$stat_test1)
+(&#32113;&#35336;1&#22899; <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, sex==<span style="color: #95e454;">"&#22899;"</span>)$stat_test1)
+
+</pre>
+</div>
+
+<pre class="example">
+[1]  6 10  6 10  5  3  5  9  3  3
+[1] 11  6 11  9  7  5  8  7  7  9
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgbde2b32" class="outline-5">
+<h5 id="orgbde2b32">t-検定 (等母分散)</h5>
+<div class="outline-text-5" id="text-orgbde2b32">
+<p>
+母分散が等しいことを前提としているので，2群の分散が等しいことを
+示す var.equal=TRUE を指定する。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+      t.test(&#32113;&#35336;1&#30007;, &#32113;&#35336;1&#22899;, var.equal=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+
+</pre>
+</div>
+
+<pre class="example" id="org6a9c38b">
+
+	      Two Sample t-test
+
+      data:  統計1男 and 統計1女
+      t = -1.8429, df = 18, p-value = 0.08188
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -4.2800355  0.2800355
+      sample estimates:
+      mean of x mean of y 
+	      6         8
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgbdce1cb" class="outline-5">
+<h5 id="orgbdce1cb">t-検定 (異なる母分散)</h5>
+<div class="outline-text-5" id="text-orgbdce1cb">
+<p>
+2群の分散が等しくないいことを
+示す var.equal=FALSE を指定する。
+</p>
+
+<p>
+帰無分布は同じく t-分布であるが、自由度が異なる
+(統計学入門，12.2.4)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+      t.test(&#32113;&#35336;1&#30007;, &#32113;&#35336;1&#22899;, var.equal=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+
+</pre>
+</div>
+
+<pre class="example" id="org91f655a">
+
+	      Welch Two Sample t-test
+
+      data:  統計1男 and 統計1女
+      t = -1.8429, df = 16.321, p-value = 0.08359
+      alternative hypothesis: true difference in means is not equal to 0
+      95 percent confidence interval:
+       -4.2969668  0.2969668
+      sample estimates:
+      mean of x mean of y 
+	      6         8
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1eaae9a" class="outline-3">
+<h3 id="org1eaae9a">6.3 t-検定の前提条件</h3>
+<div class="outline-text-3" id="text-org1eaae9a">
+<ol class="org-ol">
+<li>標本抽出が無作為に行われていること</li>
+<li>母集団の分布が正規分布であること</li>
+<li>2つの母集団の分散が等質であること</li>
+</ol>
+
+<p>
+3つの条件は，帰無分布が t-分布になるために必要です。
+</p>
+</div>
+
+
+<div id="outline-container-orgbb2d9d1" class="outline-4">
+<h4 id="orgbb2d9d1">6.3.1 分散の等質性の検定</h4>
+<div class="outline-text-4" id="text-orgbb2d9d1">
+<ul class="org-ul">
+<li>2つの母集団の分散の等質性を，</li>
+<li>それぞれの母集団からの2つの標本を用いて，</li>
+<li>「ふたつの母分散は等しい」という帰無仮説の検定をおこなう</li>
+<li>R では， var.test</li>
+</ul>
+</div>
+
+
+<div id="outline-container-org09dc312" class="outline-5">
+<h5 id="org09dc312">例題</h5>
+<div class="outline-text-5" id="text-org09dc312">
+<p>
+クラスA,Bの統計学のテストの平均点に有意な差があるでしょうか？
+有意水準5%で検定を行ってください。
+</p>
+</div>
+
+<div id="outline-container-org2a45f8a" class="outline-6">
+<h6 id="org2a45f8a">データ</h6>
+<div class="outline-text-6" id="text-org2a45f8a">
+<div class="org-src-container">
+<pre class="src src-R">
+(&#12463;&#12521;&#12473;A <span style="color: #e5786d;">&lt;-</span> c(54, 55, 52, 48, 50, 38, 41, 40, 53, 52))
+(&#12463;&#12521;&#12473;B <span style="color: #e5786d;">&lt;-</span> c(57, 63, 50, 60, 61, 69, 43, 58, 36, 29))
+var.test(&#12463;&#12521;&#12473;A, &#12463;&#12521;&#12473;B)
+
+</pre>
+</div>
+
+<pre class="example" id="orgdf1185c">
+	[1] 54 55 52 48 50 38 41 40 53 52
+	[1] 57 63 50 60 61 69 43 58 36 29
+
+	       F test to compare two variances
+
+       data:  クラスA and クラスB
+       F = 0.24157, num df = 9, denom df = 9, p-value = 0.04588
+       alternative hypothesis: true ratio of variances is not equal to 1
+       95 percent confidence interval:
+	0.06000201 0.97255026
+       sample estimates:
+       ratio of variances 
+		0.2415677
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd1c4179" class="outline-5">
+<h5 id="orgd1c4179">6.4 対応のある (z,t)-検定</h5>
+<div class="outline-text-5" id="text-orgd1c4179">
+<dl class="org-dl">
+<dt>独立な2群 or 対応のない2群</dt><dd>例えば30人の被験者を，ランダムに2群に分た場合</dd>
+
+<dt>対応のある2群</dt><dd>同じ人の2種類のデータ。対応付られた2人ごとのデータ。</dd>
+</dl>
+</div>
+
+<div id="outline-container-orgfae05e1" class="outline-6">
+<h6 id="orgfae05e1">対応のあるデータの検定量</h6>
+<div class="outline-text-6" id="text-orgfae05e1">
+<p>
+統計テスト1の得点を \( X_1 \),
+統計テスト2の得点を \( X_2 \),
+対応する得点差を \( D  = X_2 - X_1 \), とすると，それらの標本平
+均にたいし，下式が成り立つ:
+</p>
+
+<p>
+\[
+       \bar{D} = \bar{X}_2 - \bar{X}_1
+      \]
+</p>
+</div>
+
+<div id="outline-container-orgbb706cb" class="outline-7">
+<h7 id="orgbb706cb">得点差の標本平均の計算</h7>
+<div class="outline-text-7" id="text-orgbb706cb">
+<div class="org-src-container">
+<pre class="src src-R">
+     &#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)
+
+     (&#32113;&#35336;&#12486;&#12473;&#12488;1 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test1)
+     (&#32113;&#35336;&#12486;&#12473;&#12488;2 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test2)
+     (&#22793;&#21270;&#37327; <span style="color: #e5786d;">&lt;-</span> &#32113;&#35336;&#12486;&#12473;&#12488;2 - &#32113;&#35336;&#12486;&#12473;&#12488;1)
+     c(mean(&#32113;&#35336;&#12486;&#12473;&#12488;2) - mean(&#32113;&#35336;&#12486;&#12473;&#12488;1), mean(&#22793;&#21270;&#37327;))
+
+</pre>
+</div>
+
+<pre class="example">
+ [1]  6 10  6 10  5  3  5  9  3  3 11  6 11  9  7  5  8  7  7  9
+ [1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
+ [1]  4  3  2  5  3  3  4  1  4  0  7  8  7  2  5  0 -1  5  0 -2
+[1] 3 3
+</pre>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org96dc28e" class="outline-7">
+<h7 id="org96dc28e">得点差の標本平均が従がう分布</h7>
+<div class="outline-text-7" id="text-org96dc28e">
+<ul class="org-ul">
+<li>\( X_i \sim N(\mu_{i}, \sigma^2_{i}) \) を仮定すれば，</li>
+<li>\( D \sim N(\mu_{D}, \sigma^2_{D}) \)  となり，</li>
+<li>標本分布は，\( \bar{D} \sim N(\mu_{D},	  \frac{\sigma^2_{D}}{n}) \) となる。</li>
+<li>\( \bar{D} \) を標準化して, \( n \)を標本数として，
+\[
+	 Z = \frac {\bar{D} - \mu_{D}} {\sigma_{D} \sqrt{n}} \sim N(0,1)
+	 \]</li>
+<li>\(\mu_D \) が既知ならば，z-検定</li>
+<li>\(\mu_D \) が未知ならば，不偏分散を用いたt-検定</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge0e7d59" class="outline-7">
+<h7 id="orge0e7d59">例題：</h7>
+<div class="outline-text-7" id="text-orge0e7d59">
+<p>
+「指導法データ」の統計テスト1と統計テスト2の得点について、指導
+の前後で統計テストの得点が変化したといえるでしょうか。有意水準
+5％、両側検定で検定してください。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+        t.test(&#22793;&#21270;&#37327;)
+
+</pre>
+</div>
+
+<pre class="example" id="org909c897">
+
+		One Sample t-test
+
+	data:  変化量
+	t = 4.8399, df = 19, p-value = 0.0001138
+	alternative hypothesis: true mean is not equal to 0
+	95 percent confidence interval:
+	 1.702645 4.297355
+	sample estimates:
+	mean of x 
+		3
+</pre>
+
+<p>
+#+begin_src R :session t :results output :exports both
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-10-08 金 20:27</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
