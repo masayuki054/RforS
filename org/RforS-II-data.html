@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-11 月 10:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Masayuki Suzuki" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org87af7b0">1. データフレームの扱い</a></li>
+<li><a href="#org99d9f2a">2. 関連サイト</a></li>
+<li><a href="#org5cfddaf">3. データの置き場</a></li>
+<li><a href="#orge1b8891">4. 指導法データ (data.frame)</a>
+<ul>
+<li><a href="#org80b0aef">4.1. クロス集計表</a></li>
+<li><a href="#org98767ce">4.2. table と 行列</a></li>
+<li><a href="#orge09d346">4.3. subset</a></li>
+<li><a href="#orgb4f4a7a">4.4. 7章の一元</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org87af7b0" class="outline-2">
+<h2 id="org87af7b0"><span class="section-number-2">1</span> データフレームの扱い</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="file:///nas/home/masayuki/COMM/Lects/R/Rintro/Rintro-3.html">file:~/COMM/Lects/R/Rintro/Rintro-3.org</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99d9f2a" class="outline-2">
+<h2 id="org99d9f2a"><span class="section-number-2">2</span> 関連サイト</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山)   ここに指導法データの csv ファイルがあります。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5cfddaf" class="outline-2">
+<h2 id="org5cfddaf"><span class="section-number-2">3</span> データの置き場</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+この講義用フォルダの下， ./data にしましょう。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge1b8891" class="outline-2">
+<h2 id="orge1b8891"><span class="section-number-2">4</span> 指導法データ (data.frame)</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-R">
+     (&#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>))
+     class(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;)
+     str(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;)
+
+</pre>
+</div>
+
+<pre class="example" id="org4d2e12a">
+	SID   name sex math stat psych_test stat_test1 stat_test2 method
+     1    1   大村  男 嫌い 好き         13          6         10      C
+     2    2   本多  男 嫌い 好き         14         10         13      B
+     3    3   川崎  男 好き 好き          7          6          8      B
+     4    4   多村  男 好き 好き         12         10         15      A
+     5    5   松中  男 嫌い 嫌い         10          5          8      B
+     6    6 小久保  男 嫌い 嫌い          6          3          6      C
+     7    7   柴原  男 嫌い 嫌い          8          5          9      A
+     8    8   井手  男 嫌い 嫌い         15          9         10      D
+     9    9   田上  男 嫌い 嫌い          4          3          7      D
+     10  10   松田  男 好き 嫌い         14          3          3      D
+     11  11   高谷  女 好き 好き          9         11         18      A
+     12  12   杉内  女 嫌い 好き          6          6         14      A
+     13  13   和田  女 好き 好き         10         11         18      A
+     14  14   新垣  女 嫌い 嫌い         12          9         11      C
+     15  15   大隣  女 嫌い 好き          5          7         12      B
+     16  16   水田  女 好き 嫌い         12          5          5      D
+     17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+     18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+     19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+     20  20   馬原  女 嫌い 嫌い         15          9          7      D
+     [1] "data.frame"
+     'data.frame':	20 obs. of  9 variables:
+      $ SID       : int  1 2 3 4 5 6 7 8 9 10 ...
+      $ name      : Factor w/ 20 levels "井手","高谷",..: 14 18 12 13 6 5 4 1 16 7 ...
+      $ sex       : Factor w/ 2 levels "女","男": 2 2 2 2 2 2 2 2 2 2 ...
+      $ math      : Factor w/ 2 levels "嫌い","好き": 1 1 2 2 1 1 1 1 1 2 ...
+      $ stat      : Factor w/ 2 levels "嫌い","好き": 2 2 2 2 1 1 1 1 1 1 ...
+      $ psych_test: int  13 14 7 12 10 6 8 15 4 14 ...
+      $ stat_test1: int  6 10 6 10 5 3 5 9 3 3 ...
+      $ stat_test2: int  10 13 8 15 8 6 9 10 7 3 ...
+      $ method    : Factor w/ 4 levels "A","B","C","D": 3 2 2 1 2 3 1 4 4 4 ...
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#25968;&#23398;s <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$math
+&#32113;&#35336;s <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat
+&#24515;&#29702;&#23398;&#12486;&#12473;&#12488; <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$psych_test
+&#32113;&#35336;&#12486;&#12473;&#12488;1 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test1
+&#32113;&#35336;&#12486;&#12473;&#12488;2 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test2
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org80b0aef" class="outline-3">
+<h3 id="org80b0aef"><span class="section-number-3">4.1</span> クロス集計表</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-R">
+     (&#12463;&#12525;&#12473;&#38598;&#35336;&#34920; <span style="color: #e5786d;">&lt;-</span> table(&#25968;&#23398;s, &#32113;&#35336;s))
+
+     class(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;)
+</pre>
+</div>
+
+<pre class="example">
+      統計s
+数学s 嫌い 好き
+  嫌い   10    4
+  好き    2    4
+[1] "table"
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">colnames(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;)
+rownames(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;)
+</pre>
+</div>
+
+<pre class="example">
+[1] "嫌い" "好き"
+[1] "嫌い" "好き"
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+addmargins(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;)
+
+&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;
+
+</pre>
+</div>
+
+<pre class="example">
+      統計s
+数学s 嫌い 好き Sum
+  嫌い   10    4  14
+  好き    2    4   6
+  Sum    12    8  20
+      統計s
+数学s 嫌い 好き
+  嫌い   10    4
+  好き    2    4
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[1,])
+sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[2,])
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 14
+[1] 6
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,1])
+sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,2])
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 12
+[1] 8
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">( total <span style="color: #e5786d;">&lt;-</span> sum(sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,1]),sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,2])) )
+
+&#26399;&#24453;&#24230;&#25968;s <span style="color: #e5786d;">&lt;-</span> matrix(nrow=2, ncol=2)
+<span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:2) {
+  sc <span style="color: #e5786d;">&lt;-</span> sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[i,])
+  <span style="color: #8ac6f2; font-weight: bold;">for</span>(j <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:2) {
+    sr <span style="color: #e5786d;">&lt;-</span> sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,j])
+    &#26399;&#24453;&#24230;&#25968;s[i,j] <span style="color: #e5786d;">&lt;-</span> sc*sr/total
+  }
+}
+&#26399;&#24453;&#24230;&#25968;s
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 20
+     [,1] [,2]
+[1,]  8.4  5.6
+[2,]  3.6  2.4
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#35251;&#28204;&#24230;&#25968;s <span style="color: #e5786d;">&lt;-</span> &#12463;&#12525;&#12473;&#38598;&#35336;&#34920;
+
+(chi2 <span style="color: #e5786d;">&lt;-</span> (&#35251;&#28204;&#24230;&#25968;s-&#26399;&#24453;&#24230;&#25968;s)^2/&#26399;&#24453;&#24230;&#25968;s)
+
+sum(chi2)
+
+</pre>
+</div>
+
+<pre class="example">
+      統計s
+数学s      嫌い      好き
+  嫌い 0.3047619 0.4571429
+  好き 0.7111111 1.0666667
+[1] 2.539683
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org98767ce" class="outline-3">
+<h3 id="org98767ce"><span class="section-number-3">4.2</span> table と 行列</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-R">    (&#23653;&#20462;A <span style="color: #e5786d;">&lt;-</span> matrix(c(16,12,4,8),nrow=2,
+                     dimnames=list(&#31995;=c(<span style="color: #95e454;">"&#25991;&#31995;"</span>, <span style="color: #95e454;">"&#29702;&#31995;"</span>),
+                                   &#23653;&#20462;=c(<span style="color: #95e454;">"&#12375;&#12383;"</span>, <span style="color: #95e454;">"&#12375;&#12394;&#12356;"</span>))
+    ))
+</pre>
+</div>
+
+<pre class="example">
+      履修
+系    した しない
+  文系   16      4
+  理系   12      8
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-orge09d346" class="outline-3">
+<h3 id="orge09d346"><span class="section-number-3">4.3</span> subset</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+<pre class="src src-R">
+subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, sex==<span style="color: #95e454;">"&#30007;"</span>)$stat_test1
+subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, sex==<span style="color: #95e454;">"&#22899;"</span>)$stat_test1
+
+</pre>
+</div>
+
+<pre class="example">
+[1]  6 10  6 10  5  3  5  9  3  3
+[1] 11  6 11  9  7  5  8  7  7  9
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgb4f4a7a" class="outline-3">
+<h3 id="orgb4f4a7a"><span class="section-number-3">4.4</span> 7章の一元</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;"># </span><span style="color: #99968b;">(&#32113;&#35336;2&#12392;&#25351;&#23566; &lt;- &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;[c(8,9)])</span>
+<span style="color: #99968b;"># </span><span style="color: #99968b;">(&#32113;&#35336;2&#12392;&#25351;&#23566; &lt;- &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;[c("stat_test2","method")])</span>
+
+(As <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"A"</span>))
+(As <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"A"</span>))$stat_test2
+(Bs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"B"</span>))$stat_test2
+(Cs <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"C"</span>))$stat_test2
+(Ds <span style="color: #e5786d;">&lt;-</span> subset(&#25351;&#23566;&#27861;&#12487;&#12540;&#12479;, method==<span style="color: #95e454;">"D"</span>))$stat_test2
+
+
+</pre>
+</div>
+
+<pre class="example" id="orge94a95f">
+   SID name sex math stat psych_test stat_test1 stat_test2 method
+4    4 多村  男 好き 好き         12         10         15      A
+7    7 柴原  男 嫌い 嫌い          8          5          9      A
+11  11 高谷  女 好き 好き          9         11         18      A
+12  12 杉内  女 嫌い 好き          6          6         14      A
+13  13 和田  女 好き 好き         10         11         18      A
+[1] 15  9 18 14 18
+[1] 13  8  8 12  7
+[1] 10  6 11  7 12
+[1] 10  7  3  5  7
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2021-10-11 月 10:04</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
