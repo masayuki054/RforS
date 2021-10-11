@@ -1,364 +1,109 @@
-* 前回のこと ([[./today-2021-06-02.org]]) [2021-06-16 水 10:36]
+#+setupfile: org/info/index-bigblow-header.setup
+#+include: org/info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
 
-** 先週のサイト
+* 10/11 01回目の講義記録
 
-   - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]]
-   - [[https://www1.doshisha.ac.jp/~mjin/R/Chap_10/10.html][データ解析・マイニングとR言語]] R と確率分布
-   - [[https://ja.wikipedia.org/wiki/%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83][二項分布 - Wikipedia]]
+** 関連
 
-** このページについて
-
-   [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
-
-   は今日のオンライン講義の説明の流れです。
-
-   - Emacs org-mode で書いています。
-   - github からダウンロード可能です。
-
-   - 講義中皆さんは，Webページを見てください。僕は，Emacsで時刻など書
-     き込みながら，説明していきます。
-
-   - 講義後，記録としてアップ予定です。
-     
-** Done [[https://github.com/masayuki054/RforS/][GitHub - masayuki054/RforS]] について 
-   CLOSED: [2021-06-15 火 22:28]
-
-   Rの演習のためのリポジトリです。
-
-   - 最新版 (working copy) は，僕の家のPCの中にあります。ほとんど，Emacs org-mode の文
-     書です。
-
-   - ある時点で，最新版をリポジトリにコピー (push) してあります。
-     
-** Done 講義ノートについて 
-*** Done [[https://drive.google.com/drive/folders/10dnYKqIDUbx4qT23k-p_RikOQjKwHCdz][notes-2020 - Google ドライブ]]
-
-    手書きの講義ノートです。昨年度のオンライン講義で，iPad/Note2 で書
-    き込みながら講義したものです。
-
-    手元で見てください。
-
-    説明の際は，iPad/Note2 で書き込みながら説明します。
-
-*** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] の紹介
-
-    [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]]を見てください。下記の記法が使われています。注意してくださ
-    い。
-    
-    - r.v. :: random variable, 確率変数
-    - 1:n :: 1から n まで    X_i, i=1:n
-    - f(x) :: r.v. X が従う分布の確率密度関数
-    - p.d.f :: Probability Density Function, 確率密度関数
-    - P(Xの条件式) :: 確率関数， Xの条件式が真となる確率を与える
-
-** Done Rと確率分布の紹介 
-   CLOSED: [2021-06-15 火 21:48]
-
-   今日は，講義の途中に，Rによる確率分布のプログラミングがあります。
-
-   [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] に一覧があり
-   ます。
-
-   一様分布 (min, max) に対して，次のような関数が用意されています:
    
-   - runif(n, min, max) :: 一様分布の乱数列 
-   - dunif(x, min, max) :: 一様分布の pdf の計算
-   - punif(x, min, max) :: 一様分布の 分布関数  
-       
+*** このページ
 
+    [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
+    - 今日のオンライン講義の説明の流れです。
+    - Emacs org-mode で書いています。
+    - github からダウンロード可能です。
+    - ~suzuki/public_html/stat2 
 
-* 6/16-08回目の講義予定
+*** 講義ノート
+    [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
+    - 板書用の手書きノート 
+
+*** Rに関すること
+    - [[./org/R-info.org]]
+    - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
+
+*** 参考書
+    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
+      - 中京大 白井先生, Rによるやさしい統計学
+
+    - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学)
+      - Rによるやさしい統計学の動画による解説
+
+   - [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
+     - 絵が豊富
   
-** Todo 今日の決り
+*** 2冊の教科書と進行
 
-   これは講師自身への決まりです。破ったときには，指摘してくれるとうれ
-   しいです。
+    確率と統計
+    - K: 進行 K-7, K-5, K-8, K-10, K-11, K-12
 
-  - 話題ごとに，Emacs のファイルにタイムスタンプを打つこと
+    Rによるやさしい統計学
+    - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
 
-  - 講義ノート・教科書を読んでもらってから，説明すること
-
-  - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
-    すること
-
-** Todo 今日訪ずれるサイトなど
-
-   - [[http://masayuki054.hatenablog.com/entry/2021/04/20/192843][確率統計学 2021 - masayuki054's diary]]
-     - [[http://masayuki054.hatenablog.com/entry/2021/05/12/073950?_ga=2.50677417.1608764057.1622555124-251679600.1592307203][講義アンケートまとめ 確率統計2021 - masayuki054's diary]] に意見など     
-     
-   - [[https://drive.google.com/drive/u/0/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w][アンケート - Google ドライブ]] に毎回のアンケートと集計結果
-
-   - [[https://github.com/masayuki054/RforS/][GitHub - masayuki054/RforS]]
-     - [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]     
-
-   - [[https://drive.google.com/drive/folders/10dnYKqIDUbx4qT23k-p_RikOQjKwHCdz][notes-2020 - Google ドライブ]]
-     - [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]]
-
-   - [[https://mathwords.net/dbinom][Rで二項分布の計算をする（dbinomなど） - 具体例で学ぶ数学]]
-   - [[https://qiita.com/Quantas/items/3e3951e646313cba1d2c][簡単なポアソン分布まとめ（Rでの出力付き） - Qiita]]
-   - [[https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83][ポアソン分布 - Wikipedia]]
-     
-** Todo 分布表
-
-   R が使えないときに，確率計算に使ってください。
-   
-   - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf][標準正規分布配布用 - z.pdf]]
-   - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf][t分布 - t.pdf]]
-   - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf][CHISQ-TABLE.docx - chisq.pdf]]
-   - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
-
-   
-** Done 前回のオンライン講義のアンケートについて [2021-06-16 水 10:38]
-   CLOSED: [2021-06-16 水 10:52]
-
-   [[https://drive.google.com/drive/u/0/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w][アンケート - Google ドライブ]] に毎回のアンケートと集計結果
-
-   [[http://masayuki054.hatenablog.com/entry/2021/05/12/073950?_ga=2.50677417.1608764057.1622555124-251679600.1592307203][講義アンケートまとめ 確率統計2021 - masayuki054's diary]] に意見など
-   の一覧です。
-
-   - 質問要望意見には僕からの返答してあるものもあります。ここだけ読ん
-     でみましょう。
-     
-** Todo いろいろな確率分布 (離散型) 
-   
-    - ポアソン分布
-     
-
-*** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] 離散型 の ポアソン分布 Po(lambda)(k) [2021-06-16 水 11:19]
-    CLOSED: [2021-06-16 水 11:19]
-
-    - [[https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83][ポアソン分布 - Wikipedia]] で例を
-    - 二項分布とポアソン分布
-      - N >> 1indleをいっていっていかいすぐに~よくを一定時間内になんだ
-        か良きる頻度ラムダのポアソン分布ですねファッション分布て警戒で
-        実際に
+    対応
+    - 標本と統計的推測 K-7:R-4
+    - 大数の法則と中心極限定理 K-5:R-4
+    - 点推定 K-8: (R-4, R-5)
+    - 区間推定 K-10:R-4
+    - 検定 K-11, R-5
+    - いろいろな検定 K-12:(R-6, R-7)
+    
 
     
-**** 問題 (急患用ベッド数) 
-     - ある病院では，急患用に4床のベッドを常時用意している。
-     - 収容される救急患者数 X, が Po(2.5) に従がう
-     - ベッドが不足する確率を計算してください。
+*** 気をつけること
 
-       poisson distribution - {d,p,r,q}pois
+   - 講義ノート・教科書を読んでもらってから，説明すること
 
-       #+begin_src R :session t :results output :exports both
+   - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
+     すること
 
-1-ppois(4, 2.5) # 1ー(0~4までの確率)
+*** 分布表
 
-1-ppois(5, 2.5) 
-
-       #+end_src
-
-       #+RESULTS:
-       : [1] 0.108822
-       : [1] 0.04202104
-
-     
-**** Rプログラミング skipped
-
-
-     [[https://qiita.com/Quantas/items/3e3951e646313cba1d2c][簡単なポアソン分布まとめ（Rでの出力付き） - Qiita]] から例を取りま
-     した。
-
-     [[http://kou.oita-ed.jp/miesogo/image/Math2_201112.pdf][馬に蹴られて死ぬ確率.pdf]] 
-
-***** ポアソン分布の期待値と確率変数
-
-   ポアソン分布を, $Po(\lambda)$で表す.\\
-   確率変数$Y$がポアソン分布$Po(\lambda)$に従うならば,
-   期待値と分散は等しくなる.\\
-   $$\\
-   E(Y) = \lambda, V(Y) = \lambda\\\
-   (\lambda\fallingdotseq np, 1 - p \fallingdotseq 1 \Longrightarrow E(y) =
-   np → \lambda, V(y) = np(1 - p) → \lambda)\\
-   $$
-
-***** ポアソン分布を使う場合
-
-      主に, 以下のような場合ポアソン分布を使う.
-
-   1. カウントデータである
-   2. 平均と分散が概ね等しい
-   3. 標本が大きく, 確率が小さい時
-
-***** ポアソン分布の例
-   プロシア騎兵連隊において馬に蹴られて亡くなった兵士の数
-
-   $\lambda = 0.61, E(Y) = 0.61, V(Y) = 0.61, \sqrt{V(Y)} = 0.77$
-
-   | 死亡数 | 0     | 1    | 2    | 3   | 4   | 5   |
-   |--------+-------+------+------+-----+-----+-----|
-   | 観測数 | 109   | 65   | 22   | 3   | 1   | 0   |
-   | 理論値 | 108.7 | 66.3 | 20.2 | 4.1 | 0.6 | 0.1 |
-
-***** ポアソン分布の出力
-****** ポアソン分布の確率の出力
-
-   ポアソン分布の確率は, =dpois(x, lambda = "")=を用いて行う. 
-   上での例を用いると, 以下:
-
-   #+begin_src R :session t :results output :exports both
-library(magrittr)
-y <- c(0, 1, 2, 3, 4, 5)
-(prob <- dpois(y, lambda = 0.61))
-prob %>% round(digits = 2)
-
-   #+end_src
-
-   #+RESULTS:
-   : [1] 0.5433508691 0.3314440301 0.1010904292 0.0205550539 0.0031346457
-   : [6] 0.0003824268
-   : [1] 0.54 0.33 0.10 0.02 0.00 0.00
-
-   [[https://shohei-doi.github.io/quant_polisci/pipe.html][第24章 パイプ演算子%>%について | Rで計量政治学入門]]    
-
-****** ポアソン分布のグラフの出力
-
-       =plot()=を用いたグラフを出力
-
-   #+begin_src R :session t :results output :exports both
-
-y <- c(0, 1, 2, 3, 4, 5)
-  prob <- dpois(y, lambda = 0.61)
-  plot(y, prob, type="o")
-
-   #+end_src
-
-   #+RESULTS:
-
-   頻度 (\lambda) の違いによるポアソン分布の形状変化
-
-   - 1：20 に対して lambda = 10 だと2項分布 (=0。5)
-
-   #+begin_src R :session t :results output :exports both
-
-y <- 1:20
-prob <- dpois(y, lambda = 10)
-plot(y, prob, type="o")
-
-   #+end_src
-
-   #+RESULTS:
-
-
-*** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] 連続型 の 一様分布 unif [2021-06-16 水 11:24]
-    CLOSED: [2021-06-16 水 11:24]
-
-    [[https://ja.wikipedia.org/wiki/%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83][一様分布 - Wikipedia]]
-
-    
-*** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] 連続型 の 指数分布 unif [2021-06-16 水 11:24]
-    CLOSED: [2021-06-16 水 11:57]
-
-    [[https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83][指数分布 - Wikipedia]]
-
-    これは例えばポアソン過程——事象が連続して独立に一定の発生率で起こ
-    る過程——に従う事象の時間間隔を記述する。
-
-    - ポアソン過程
-    - 無記憶性
-
-**** 二項分布との関係
-
-     N回のベルヌーイ試行で，
-
-     - Np = lambda
-     - N >> 1
-
-     のとき，最初の成功が x である確率
-
-     
-**** 確率密度関数の導出
-
-     - 無記憶性からの導出
-     - ポアソン過程からの導出
-      
-**** 確率密度関数
-
-      Exp(lambda)(x) = lambda exp(-lambda x)
-      
-**** グラフ
-
-     #+begin_src R :session t :results output :exports both
-x <- seq(0,10,0.1)
-plot(x, dexp(x, 2))
-     #+end_src
-
-     #+RESULTS:
-      
-**** 冷蔵庫の故障
-     
-     - ある冷蔵個の寿命 X は， 平均が10年の指数分布にしたがっている
-     - 運悪く，5年以内に壊れてしまう確率は？
-
-       #+begin_src R :session t :results output :exports both
-
-pexp(5, 0.1) # 1年に0.1回起る事象が，5年までに1回起る確率
-
-       #+end_src
-
-       #+RESULTS:
-       : [1] 0.3934693
-
-      
-*** Done [[https://drive.google.com/file/d/1DNPRXQFmRIA0uZNE4ec-JNh1zf6X6mPy/view?usp=sharing][3章1変数]] 連続型 の 正規分布 unif [2021-06-16 水 11:57]
-    CLOSED: [2021-06-16 水 12:12]
-
-    [[https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83][正規分布 - Wikipedia]]
-
-    - 中心極限定理により、独立な多数の因子の和として表される確率変数は正規分布に従
-    - 巨大な n に対する二項分布とも考えることができる。
-
-      - Np = \mu
-      - Np(1-p) = \sigma^2
-	
-**** 確率密度関数
-
-      N(\mu, \sigma^2) = 1/sqrt(2 Pi \sigma^2) exp(-(x-\mu)^2/2\sigma^2)
-
-**** 標準化と標準正規分布
-
-     変数変換 z = (x-\mu) / \sigma によって
-
-     N(\mu, \sigma^2) の正規分布は，
-     N(0, 1) の標準正規分布に変換される。
-
-**** グラフ
-     #+begin_src R :session t :results output :exports both
-x <- seq(0,20,0.1)
-plot(x, dnorm(x, 10, 4))
-     #+end_src
-
-
-     #+RESULTS:
-
-     #+begin_src R :session t :results output :exports both
-z <- (x-10)/2
-plot(z, dnorm(z, 0, 1))
-     #+end_src
-     
-     #+RESULTS:
-      
-** Rの課題
+    R が使えないときに，確率計算に使ってください。
    
-*** [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]] のRの基礎 (3)の下の節：
-    - 入出力
-    - 基本的なグラフィクス
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf][標準正規分布配布用 - z.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf][t分布 - t.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf][CHISQ-TABLE.docx - chisq.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
+   
 
-    れぞれ課題をおこない，正しい結果が得られることを確認し，
-    ソースプログラムを提出してください。
+** 今日の流れ
+   
+*** Rの環境
+
     
-*** 確率分布のグラフをRで描いてください
+**** Rの実行環境
+     
+     - R(コンソール)，Rcmdr, RStudio, どれを使うか自分きめて
+       ください。
 
-    Rにより，下記の分布のグラフを描き，
-    一つの pdfにまとめ，提出してください。
+     - [[https://heavywatal.github.io/rstats/config.html][R環境設定 - Heavy Watal]]
+     - [[https://oku.edu.mie-u.ac.jp/~okumura/stat/first.html][Rの初歩]]
+     - [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-2][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]
 
-    - 二項分布
-    - ポアソン分布
-    - 指数分布
-    - 正規分布
+     - 作業用のフォルダを準備し，スクリプトやデータの読み込み，保存がで
+       きること
 
-    近いうちに，Webclass で出題します。
+       ： ~/stat2/R とか
 
-** [[https://heavywatal.github.io/rstats/config.html][R環境設定 - Heavy Watal]] そのうちやるかも
+**** データの準備
+     
+     - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学) からデータをダウンロードしてください。
+       漢字コードの違う二つの圧縮ファイルがあります，utf-8 のものを
+       ダウンロードしてください。
 
+       ： ~/stat2/R/data とかに
+
+*** 標本と統計的推測
+
+    [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]]
+    - RforS の4章になります。
+    - 教科書は，主に7章になります。
+      
+    
+
+
+     
