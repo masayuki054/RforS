@@ -53,7 +53,7 @@ system("mkdir graphs")
     
 **** 手順
      1. 標本の抽出
-	*標本のサイズ* $ n $
+	*標本のサイズ* \( n \)
      2. 標本を用いて，母平均の推定値を計算する
 
 #+begin_src R :session t :results output :exports both
