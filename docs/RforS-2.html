@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-26 水 09:12 -->
+<!-- 2021-10-17 日 20:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -243,16 +243,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfb209b3">1. Rで一変数の記述統計</a>
+<li><a href="#org6932894">1. Rで一変数の記述統計</a>
 <ul>
-<li><a href="#org58ef539">1.1. 目標</a></li>
-<li><a href="#orgc44162e">1.2. 1つの変数の記述統計 ーー 教科書2章</a>
+<li><a href="#org0d1b92e">1.1. 目標</a></li>
+<li><a href="#orgadda599">1.2. 1つの変数の記述統計 ーー 教科書2章</a>
 <ul>
-<li><a href="#org7cc5b3f">1.2.1. Rに組込まれたデータセット iris</a></li>
-<li><a href="#orgfcee93c">1.2.2. データセットの特徴</a></li>
-<li><a href="#org11b035c">1.2.3. 平均 (教科書2.5)</a></li>
-<li><a href="#orgd94c56b">1.2.4. 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</a></li>
-<li><a href="#org11cef5b">1.2.5. 標準化</a></li>
+<li><a href="#orgf0a97b2">1.2.1. Rに組込まれたデータセット iris</a></li>
+<li><a href="#org1434e1e">1.2.2. 平均 (教科書2.5)</a></li>
+<li><a href="#orgdebff1e">1.2.3. 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</a></li>
+<li><a href="#org95dcb13">1.2.4. 標準化</a></li>
 </ul>
 </li>
 </ul>
@@ -260,12 +259,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfb209b3" class="outline-2">
-<h2 id="orgfb209b3"><span class="section-number-2">1</span> Rで一変数の記述統計</h2>
+<div id="outline-container-org6932894" class="outline-2">
+<h2 id="org6932894"><span class="section-number-2">1</span> Rで一変数の記述統計</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org58ef539" class="outline-3">
-<h3 id="org58ef539"><span class="section-number-3">1.1</span> 目標</h3>
+<div id="outline-container-org0d1b92e" class="outline-3">
+<h3 id="org0d1b92e"><span class="section-number-3">1.1</span> 目標</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 R で書かれたコードを読めるようになりましょう。
@@ -278,40 +277,70 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-orgc44162e" class="outline-3">
-<h3 id="orgc44162e"><span class="section-number-3">1.2</span> 1つの変数の記述統計 ーー 教科書2章</h3>
+<div id="outline-container-orgadda599" class="outline-3">
+<h3 id="orgadda599"><span class="section-number-3">1.2</span> 1つの変数の記述統計 ーー 教科書2章</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org7cc5b3f" class="outline-4">
-<h4 id="org7cc5b3f"><span class="section-number-4">1.2.1</span> Rに組込まれたデータセット iris</h4>
+<div id="outline-container-orgf0a97b2" class="outline-4">
+<h4 id="orgf0a97b2"><span class="section-number-4">1.2.1</span> Rに組込まれたデータセット iris</h4>
 <div class="outline-text-4" id="text-1-2-1">
-<ul class="org-ul">
-<li><a href="https://bioinfo-dojo.net/2016/01/19/dataset_iris/">R 使い方 組込みデータセット iris データフレーム</a></li>
-<li>petal: はなびら</li>
-<li>sepal: がく</li>
-</ul>
+<p>
+教科書の代りに，<a href="https://bioinfo-dojo.net/2016/01/19/dataset_iris/">R 使い方 組込みデータセット iris データフレーム</a> を
+参考にします。
+</p>
+
+<p>
+目的は，データセット，ベクトルを使った計算を理解することです。
+</p>
 </div>
 
 <ol class="org-ol">
-<li><a id="org32e0e3b"></a>iris データセット<br />
+<li><a id="org593a804"></a>iris データセット<br />
 <div class="outline-text-5" id="text-1-2-1-1">
+<p>
+150個の菖蒲のデータ:
+</p>
+
+<ul class="org-ul">
+<li>petal: はなびら
+<ul class="org-ul">
+<li>.length</li>
+<li>.width</li>
+</ul></li>
+<li>sepal: がく
+<ul class="org-ul">
+<li>.length</li>
+<li>.width</li>
+</ul></li>
+</ul>
+
+<p>
+ヘルプで調べます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
-help("iris")
+help(iris)
 
 </pre>
 </div>
+</div>
+</li>
 
+<li><a id="org19f552e"></a>irisデータセットのなかみ<br />
+<div class="outline-text-5" id="text-1-2-1-2">
+<p>
+中身のデータを見てみましょう:
+</p>
 
 <div class="org-src-container">
-<pre class="src src-R">data(iris)
+<pre class="src src-R">
 iris
-(hoge &lt;- iris[,1])
 
 </pre>
 </div>
 
-<pre class="example" id="org9e51c1a">
+<pre class="example" id="orgd81e6fb">
     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 1            5.1         3.5          1.4         0.2     setosa
 2            4.9         3.0          1.4         0.2     setosa
@@ -463,21 +492,16 @@ iris
 148          6.5         3.0          5.2         2.0  virginica
 149          6.2         3.4          5.4         2.3  virginica
 150          5.9         3.0          5.1         1.8  virginica
-  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
- [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
- [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
- [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
- [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
- [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
-[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
-[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
-[145] 6.7 6.7 6.3 6.5 6.2 5.9
 </pre>
 </div>
 </li>
 
-<li><a id="org0be607c"></a>iris の型<br />
-<div class="outline-text-5" id="text-1-2-1-2">
+<li><a id="org6a55271"></a>データ型を調べる<br />
+<div class="outline-text-5" id="text-1-2-1-3">
+<p>
+iris 変数の中身のデータ型を調べます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 class(iris)
@@ -488,11 +512,17 @@ class(iris)
 <pre class="example">
 [1] "data.frame"
 </pre>
+
+
+<p>
+データフレーム型ですね。いわゆる表 (見出し付きの表，テーブル)です
+ね。
+</p>
 </div>
 </li>
 
-<li><a id="org646f416"></a>iris を文字列化<br />
-<div class="outline-text-5" id="text-1-2-1-3">
+<li><a id="org68d6261"></a>iris を文字列化<br />
+<div class="outline-text-5" id="text-1-2-1-4">
 <p>
 -str- は構造をもつ (structual) データを文字列化 (serial) する
 </p>
@@ -503,40 +533,15 @@ str(iris)
 
 </pre>
 </div>
-
-<pre class="example">
-'data.frame':	150 obs. of  5 variables:
- $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
- $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
- $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
- $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
- $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
-</pre>
+</div>
+</li>
 
 
+<li><a id="orgd72ade3"></a>花弁の長さの列を取り出す<br />
+<div class="outline-text-5" id="text-1-2-1-5">
 <div class="org-src-container">
 <pre class="src src-R">
 iris[,"Sepal.Length"]
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-R">
-iris$Sepal.Length
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-R">
-iris[1,]
-
-</pre>
-</div>
-<div class="org-src-container">
-<pre class="src src-R">
-iris[,1]
 
 </pre>
 </div>
@@ -552,37 +557,116 @@ iris[,1]
 [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 [145] 6.7 6.7 6.3 6.5 6.2 5.9
 </pre>
-</div>
-</li>
 
-<li><a id="org3ced5b1"></a>ベクトル<br />
-<div class="outline-text-5" id="text-1-2-1-4">
+
+<p>
+別のやりかたでも取り出せます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
-iris[,"Sepal.Length"]
-
-</pre>
-</div>
-</div>
-
-<ol class="org-ol">
-<li><a id="org38a8c16"></a>ベクトル<br />
-<div class="outline-text-6" id="text-1-2-1-4-1">
-<div class="org-src-container">
-<pre class="src src-R">
-class(iris[,"Sepal.Length"])
+iris$Sepal.Length
 
 </pre>
 </div>
 
 <pre class="example">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+</pre>
+
+
+<p>
+データフレームの1行目を取り出して，そのデータ型を調べます:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+iris[1,]
+class(iris[1,])
+
+</pre>
+</div>
+
+<pre class="example">
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+[1] "data.frame"
+</pre>
+
+
+<p>
+なんと，見出しも付随したデータフレームになります。
+(解説ページの内容とは異なります)。
+</p>
+
+<p>
+1列目を取り出すとどうでしょう：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">iris[,1]
+class(iris[,1])
+
+</pre>
+</div>
+
+<pre class="example" id="org90bcb81">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
 [1] "numeric"
 </pre>
+
+<p>
+これは，見出しのつかない，ただの，ベクトルとなります。
+</p>
 </div>
 </li>
 
-<li><a id="org74ebcae"></a>リスト<br />
-<div class="outline-text-6" id="text-1-2-1-4-2">
+<li><a id="org5f3990d"></a>ベクトル<br />
+<div class="outline-text-5" id="text-1-2-1-6">
+<p>
+-iris[,1]- と同じ意味ですが:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+iris[,"Sepal.Length"]
+class(iris[,"Sepal.Length"])
+</pre>
+</div>
+
+<pre class="example" id="orge648e31">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+[1] "numeric"
+</pre>
+</div>
+
+<ol class="org-ol">
+<li><a id="org9578a71"></a>データフレーム<br />
+<div class="outline-text-6" id="text-1-2-1-6-1">
 <div class="org-src-container">
 <pre class="src src-R">
 class(iris[1,])
@@ -597,16 +681,11 @@ class(iris[1,])
 </li>
 </ol>
 </li>
-</ol>
-</div>
 
-<div id="outline-container-orgfcee93c" class="outline-4">
-<h4 id="orgfcee93c"><span class="section-number-4">1.2.2</span> データセットの特徴</h4>
-<div class="outline-text-4" id="text-1-2-2">
-</div>
+<li><a id="orgbd605e0"></a>データセットの特徴<br />
 <ol class="org-ol">
-<li><a id="org4c5d4dc"></a>次元<br />
-<div class="outline-text-5" id="text-1-2-2-1">
+<li><a id="org8d68d53"></a>次元<br />
+<div class="outline-text-6" id="text-1-2-1-7-1">
 <div class="org-src-container">
 <pre class="src src-R">
 dim(iris)
@@ -620,8 +699,8 @@ dim(iris)
 </div>
 </li>
 
-<li><a id="org9504b08"></a>行数<br />
-<div class="outline-text-5" id="text-1-2-2-2">
+<li><a id="org53e83a6"></a>行数<br />
+<div class="outline-text-6" id="text-1-2-1-7-2">
 <div class="org-src-container">
 <pre class="src src-R">
 nrow(iris)
@@ -631,8 +710,8 @@ nrow(iris)
 </div>
 </li>
 
-<li><a id="org888dabd"></a>列数<br />
-<div class="outline-text-5" id="text-1-2-2-3">
+<li><a id="orgec0aeea"></a>列数<br />
+<div class="outline-text-6" id="text-1-2-1-7-3">
 <div class="org-src-container">
 <pre class="src src-R">
 ncolumn(iris)
@@ -643,8 +722,8 @@ ncolumn(iris)
 </li>
 
 
-<li><a id="org5642b3a"></a>要約統計量<br />
-<div class="outline-text-5" id="text-1-2-2-4">
+<li><a id="org8fe7339"></a>要約統計量<br />
+<div class="outline-text-6" id="text-1-2-1-7-4">
 <div class="org-src-container">
 <pre class="src src-R">
 summary(iris)
@@ -652,7 +731,7 @@ summary(iris)
 </pre>
 </div>
 
-<pre class="example" id="org69ceacd">
+<pre class="example" id="org2cc7f2e">
  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -680,8 +759,8 @@ summary(iris$Sepal.Length)
 </div>
 </li>
 
-<li><a id="org0b53a73"></a>度数 (頻度) 分布表 &#x2013; ヒストグラム<br />
-<div class="outline-text-5" id="text-1-2-2-5">
+<li><a id="org4ac8647"></a>度数 (頻度) 分布表 &#x2013; ヒストグラム<br />
+<div class="outline-text-6" id="text-1-2-1-7-5">
 <div class="org-src-container">
 <pre class="src src-R">
 hist(iris$Sepal.Length,breaks=100)
@@ -691,15 +770,25 @@ hist(iris$Sepal.Length,breaks=100)
 </div>
 </li>
 </ol>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-org11b035c" class="outline-4">
-<h4 id="org11b035c"><span class="section-number-4">1.2.3</span> 平均 (教科書2.5)</h4>
-<div class="outline-text-4" id="text-1-2-3">
+<div id="outline-container-org1434e1e" class="outline-4">
+<h4 id="org1434e1e"><span class="section-number-4">1.2.2</span> 平均 (教科書2.5)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+ここから教科書2.5の内容になります。
+</p>
 </div>
+
 <ol class="org-ol">
-<li><a id="orge76e14f"></a>データの代表値<br />
-<div class="outline-text-5" id="text-1-2-3-1">
+<li><a id="org5b689c3"></a>データの代表値<br />
+<div class="outline-text-5" id="text-1-2-2-1">
+<p>
+与えられたデータの特徴を捕える統計量は下記のものがある:
+</p>
+
 <dl class="org-dl">
 <dt>Min.</dt><dd>最小値</dd>
 <dt>1st Qu.</dt><dd>第一四分位数 (下から1/4点)</dd>
@@ -711,10 +800,16 @@ hist(iris$Sepal.Length,breaks=100)
 </div>
 </li>
 
-<li><a id="orgcfd67c6"></a>平均 (mean)<br />
-<div class="outline-text-5" id="text-1-2-3-2">
+<li><a id="org2560ce2"></a>平均 (mean)<br />
+<div class="outline-text-5" id="text-1-2-2-2">
+<p>
+平均を R で定義すると下記の関数 -my.mean- となる。
+-mean- は Rに組込まれた平均を求めるための関数。
+</p>
+
 <div class="org-src-container">
-<pre class="src src-R">my.mean &lt;- function (v) {
+<pre class="src src-R">
+my.mean &lt;- function (v) {
   sum(v)/length(v)
 }
 
@@ -728,11 +823,16 @@ mean(iris$Sepal.Length)
 [1] 5.843333
 [1] 5.843333
 </pre>
+
+
+<p>
+-sum- はベクトルの総和，-legth- はベクトル長を求める関数。
+</p>
 </div>
 </li>
 
-<li><a id="org29c56d8"></a>中央値 (median)<br />
-<div class="outline-text-5" id="text-1-2-3-3">
+<li><a id="orgac3a4c9"></a>中央値 (median)<br />
+<div class="outline-text-5" id="text-1-2-2-3">
 <div class="org-src-container">
 <pre class="src src-R">
 median(iris$Sepal.Length)
@@ -746,8 +846,8 @@ median(iris$Sepal.Length)
 </div>
 </li>
 
-<li><a id="org7c15112"></a>最頻値 (median)<br />
-<div class="outline-text-5" id="text-1-2-3-4">
+<li><a id="org29f5dad"></a>最頻値 (median)<br />
+<div class="outline-text-5" id="text-1-2-2-4">
 <div class="org-src-container">
 <pre class="src src-R">
 table(iris$Sepal.Length)
@@ -764,6 +864,13 @@ table(iris$Sepal.Length)
 </pre>
 
 
+<p>
+irisデータフレームのSepal.Lengthの各値に対し，出現頻度を求めている。
+</p>
+
+<p>
+下記のように，ヒストグラムを描くこともできる:
+</p>
 
 <div class="org-src-container">
 <pre class="src src-R">
@@ -776,9 +883,9 @@ hist(iris$Sepal.Length, breaks=100)
 </ol>
 </div>
 
-<div id="outline-container-orgd94c56b" class="outline-4">
-<h4 id="orgd94c56b"><span class="section-number-4">1.2.4</span> 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
-<div class="outline-text-4" id="text-1-2-4">
+<div id="outline-container-orgdebff1e" class="outline-4">
+<h4 id="orgdebff1e"><span class="section-number-4">1.2.3</span> 散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
+<div class="outline-text-4" id="text-1-2-3">
 <dl class="org-dl">
 <dt>代表値</dt><dd>分布の中心的位置を示す</dd>
 <dt>散布度</dt><dd>分布の，中心からの，散らばり，ばらつき
@@ -787,8 +894,8 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 
 <ol class="org-ol">
-<li><a id="org9e5863f"></a>データ<br />
-<div class="outline-text-5" id="text-1-2-4-1">
+<li><a id="org3be6472"></a>ベクトル・データの準備<br />
+<div class="outline-text-5" id="text-1-2-3-1">
 <div class="org-src-container">
 <pre class="src src-R">
 (テストa &lt;- c(10, 13, 8, 15, 8))
@@ -802,8 +909,12 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 </li>
 
-<li><a id="orgd211d94"></a>平均<br />
-<div class="outline-text-5" id="text-1-2-4-2">
+<li><a id="orgff9784c"></a>平均<br />
+<div class="outline-text-5" id="text-1-2-3-2">
+<p>
+まずは，各値を加えてみる:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 10+13+8+15+8
@@ -819,6 +930,10 @@ sum(テストa) # ベクトルの要素の和
 </pre>
 
 
+<p>
+ベクトルの総和を使う:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 sum(テストa) /length(テストa)
@@ -830,6 +945,10 @@ sum(テストa) /length(テストa)
 [1] 10.8
 </pre>
 
+
+<p>
+Rシステムの平 -mean- を使ってみる:
+</p>
 
 <div class="org-src-container">
 <pre class="src src-R">
@@ -844,8 +963,13 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="orgdd77dd2"></a>平均からの偏差<br />
-<div class="outline-text-5" id="text-1-2-4-3">
+<li><a id="orgb9674c4"></a>平均からの偏差<br />
+<div class="outline-text-5" id="text-1-2-3-3">
+<p>
+ベクトルの各要素から，平均値を引くことで，平均からの偏差ベクトル
+が求まる:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差 &lt;- テストa - テストaの平均) # (ベクトル - 数値) の結果はベクトル!
@@ -859,8 +983,13 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="org281117e"></a>平均からの偏差の二乗<br />
-<div class="outline-text-5" id="text-1-2-4-4">
+<li><a id="org58a2a5c"></a>平均からの偏差の二乗<br />
+<div class="outline-text-5" id="text-1-2-3-4">
+<p>
+平均からの偏差ベクトルを2乗すると，各要素を2乗したベクトルが求ま
+る：
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差の二乗 &lt;- 平均からの偏差^2) # (べくとる)^2 は要素の2乗のベクトル!
@@ -874,8 +1003,12 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="orgc3d4fbe"></a>データ数<br />
-<div class="outline-text-5" id="text-1-2-4-5">
+<li><a id="orga105456"></a>データ数<br />
+<div class="outline-text-5" id="text-1-2-3-5">
+<p>
+データ数は，ベクトルの長さそのもの:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (データ数 &lt;- length(テストa))
@@ -886,23 +1019,11 @@ sum(テストa) /length(テストa)
 <pre class="example">
 [1] 5
 </pre>
-
-
-<div class="org-src-container">
-<pre class="src src-R">
-(平均からの偏差の二乗 &lt;- 平均からの偏差^2) # (べくとる)^2 は要素の2乗のベクトル!
-
-</pre>
-</div>
-
-<pre class="example">
-[1]  0.64  4.84  7.84 17.64  7.84
-</pre>
 </div>
 </li>
 
-<li><a id="org06907fd"></a>平均からの偏差の二乗和<br />
-<div class="outline-text-5" id="text-1-2-4-6">
+<li><a id="orga18bb7c"></a>平均からの偏差の二乗和<br />
+<div class="outline-text-5" id="text-1-2-3-6">
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差の二乗和 &lt;- sum(平均からの偏差の二乗))
@@ -916,8 +1037,8 @@ sum(テストa) /length(テストa)
 </div>
 </li>
 
-<li><a id="orgdc08ce2"></a>分散<br />
-<div class="outline-text-5" id="text-1-2-4-7">
+<li><a id="orgbb52b10"></a>分散<br />
+<div class="outline-text-5" id="text-1-2-3-7">
 <div class="org-src-container">
 <pre class="src src-R">
 (分散 &lt;- 平均からの偏差の二乗和/データ数)
@@ -934,10 +1055,12 @@ sum(テストa) /length(テストa)
 これまでの操作を関数にまとめると，
 </p>
 
-
 <div class="org-src-container">
-<pre class="src src-R">my.分散 &lt;- function(v){
+<pre class="src src-R">
+my.分散 &lt;- function(v){
+
   sum((v - mean(v))^2)/length(v)
+
 }
 
 (分散 &lt;- my.分散(テストa))
@@ -952,8 +1075,8 @@ sum(テストa) /length(テストa)
 </li>
 
 
-<li><a id="org2abd199"></a>標準偏差<br />
-<div class="outline-text-5" id="text-1-2-4-8">
+<li><a id="org948e50c"></a>標準偏差<br />
+<div class="outline-text-5" id="text-1-2-3-8">
 <p>
 標準偏差は，各データの平均からの距離の平均です。
 $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
@@ -975,9 +1098,10 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </ol>
 </div>
 
-<div id="outline-container-org11cef5b" class="outline-4">
-<h4 id="org11cef5b"><span class="section-number-4">1.2.5</span> 標準化</h4>
-<div class="outline-text-4" id="text-1-2-5">
+
+<div id="outline-container-org95dcb13" class="outline-4">
+<h4 id="org95dcb13"><span class="section-number-4">1.2.4</span> 標準化</h4>
+<div class="outline-text-4" id="text-1-2-4">
 <p>
 平均が \(\mu\), 標準偏差が \(\sigma\) である分布を，
 平均が \(0\), 標準偏差が \(1\) である分布に(変数)変換するのが，
@@ -989,7 +1113,7 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-05-26 水 09:12</p>
+<p class="date">Created: 2021-10-17 日 20:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
