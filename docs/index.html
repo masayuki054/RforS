@@ -3,7 +3,7 @@
 "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-05-26 水 09:12 -->
+<!-- 2021-10-17 日 20:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>「Rによるやさしい統計学」のRの演習</title>
@@ -250,18 +250,18 @@
 });
 </script>
 <script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">「Rによるやさしい統計学」のRの演習</h1>
-<div id="outline-container-org70da221" class="outline-2">
-<h2 id="org70da221">Rの実行環境</h2>
-<div class="outline-text-2" id="text-org70da221">
+<div id="outline-container-orgca343d5" class="outline-2">
+<h2 id="orgca343d5">Rの実行環境</h2>
+<div class="outline-text-2" id="text-orgca343d5">
 </div>
-<div id="outline-container-org6ad6a74" class="outline-3">
-<h3 id="org6ad6a74">目標</h3>
-<div class="outline-text-3" id="text-org6ad6a74">
+<div id="outline-container-org23f26ea" class="outline-3">
+<h3 id="org23f26ea">目標</h3>
+<div class="outline-text-3" id="text-org23f26ea">
 <p>
 R で書かれたコードを読めるようになりましょう。
 </p>
@@ -272,13 +272,13 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org026d6aa" class="outline-3">
-<h3 id="org026d6aa">0章</h3>
-<div class="outline-text-3" id="text-org026d6aa">
+<div id="outline-container-org96977bb" class="outline-3">
+<h3 id="org96977bb">0章</h3>
+<div class="outline-text-3" id="text-org96977bb">
 </div>
-<div id="outline-container-orgd938724" class="outline-4">
-<h4 id="orgd938724">作業環境の設定</h4>
-<div class="outline-text-4" id="text-orgd938724">
+<div id="outline-container-org674d562" class="outline-4">
+<h4 id="org674d562">作業環境の設定</h4>
+<div class="outline-text-4" id="text-org674d562">
 <p>
 Rの作業・実行環境を設定する
 </p>
@@ -302,9 +302,9 @@ setwd("~/COMM/Lects/R/")
 </div>
 </div>
 
-<div id="outline-container-org7902c8c" class="outline-4">
-<h4 id="org7902c8c">プログラムの読み込み</h4>
-<div class="outline-text-4" id="text-org7902c8c">
+<div id="outline-container-org26fe9b0" class="outline-4">
+<h4 id="org26fe9b0">プログラムの読み込み</h4>
+<div class="outline-text-4" id="text-org26fe9b0">
 <div class="org-src-container">
 <pre class="src src-R">
 source("Libs/varp.r")  # ~/COMM/Lects/R/Libs ディレクトリにある varp.r 
@@ -323,13 +323,13 @@ file(filename, "r", encoding = encoding) で:
 </div>
 </div>
 </div>
-<div id="outline-container-org0f1da35" class="outline-2">
-<h2 id="org0f1da35">基本的な操作</h2>
-<div class="outline-text-2" id="text-org0f1da35">
+<div id="outline-container-org41c3c62" class="outline-2">
+<h2 id="org41c3c62">基本的な操作</h2>
+<div class="outline-text-2" id="text-org41c3c62">
 </div>
-<div id="outline-container-orge4a7da0" class="outline-3">
-<h3 id="orge4a7da0">目標</h3>
-<div class="outline-text-3" id="text-orge4a7da0">
+<div id="outline-container-org73a034a" class="outline-3">
+<h3 id="org73a034a">目標</h3>
+<div class="outline-text-3" id="text-org73a034a">
 <p>
 R で書かれたコードを読めるようになりましょう。
 </p>
@@ -342,21 +342,21 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org3785e43" class="outline-3">
-<h3 id="org3785e43">1章</h3>
-<div class="outline-text-3" id="text-org3785e43">
+<div id="outline-container-orgda9eec5" class="outline-3">
+<h3 id="orgda9eec5">1章</h3>
+<div class="outline-text-3" id="text-orgda9eec5">
 </div>
-<div id="outline-container-org1c4ea0e" class="outline-4">
-<h4 id="org1c4ea0e">基本的な操作の概要 1.4.2</h4>
-<div class="outline-text-4" id="text-org1c4ea0e">
+<div id="outline-container-orgda98b2b" class="outline-4">
+<h4 id="orgda98b2b">基本的な操作の概要 1.4.2</h4>
+<div class="outline-text-4" id="text-orgda98b2b">
 </div>
-<div id="outline-container-org661b893" class="outline-5">
-<h5 id="org661b893">R または RStudio の起動と終了 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h5>
-<div class="outline-text-5" id="text-org661b893">
+<div id="outline-container-org4aa51df" class="outline-5">
+<h5 id="org4aa51df">R または RStudio の起動と終了 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/02.html">R-Source</a></h5>
+<div class="outline-text-5" id="text-org4aa51df">
 </div>
-<div id="outline-container-orgb14990a" class="outline-6">
-<h6 id="orgb14990a">開始</h6>
-<div class="outline-text-6" id="text-orgb14990a">
+<div id="outline-container-org2bcfb25" class="outline-6">
+<h6 id="org2bcfb25">開始</h6>
+<div class="outline-text-6" id="text-org2bcfb25">
 <div class="org-src-container">
 <pre class="src src-shell">R --save
 </pre>
@@ -364,9 +364,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org866651f" class="outline-6">
-<h6 id="org866651f">R はインタープリタ</h6>
-<div class="outline-text-6" id="text-org866651f">
+<div id="outline-container-orge23877b" class="outline-6">
+<h6 id="orge23877b">R はインタープリタ</h6>
+<div class="outline-text-6" id="text-orge23877b">
 <ul class="org-ul">
 <li>ユーザがプログラムを入力し，</li>
 <li>R システムが入力プログラムを実行し，結果を表示する</li>
@@ -377,9 +377,9 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 
 
-<div id="outline-container-orgb5471ec" class="outline-6">
-<h6 id="orgb5471ec">終了</h6>
-<div class="outline-text-6" id="text-orgb5471ec">
+<div id="outline-container-orgad39887" class="outline-6">
+<h6 id="orgad39887">終了</h6>
+<div class="outline-text-6" id="text-orgad39887">
 <div class="org-src-container">
 <pre class="src src-R"># quit()
 </pre>
@@ -388,13 +388,13 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-org3412a4e" class="outline-5">
-<h5 id="org3412a4e">簡単な計算   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a> <a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a></h5>
-<div class="outline-text-5" id="text-org3412a4e">
+<div id="outline-container-org406b0e5" class="outline-5">
+<h5 id="org406b0e5">簡単な計算   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a> <a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a></h5>
+<div class="outline-text-5" id="text-org406b0e5">
 </div>
-<div id="outline-container-org756abf8" class="outline-6">
-<h6 id="org756abf8">四則演算  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h6>
-<div class="outline-text-6" id="text-org756abf8">
+<div id="outline-container-orgd1cfd61" class="outline-6">
+<h6 id="orgd1cfd61">四則演算  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/03.html">R-Source::簡単な計算 </a></h6>
+<div class="outline-text-6" id="text-orgd1cfd61">
 <div class="org-src-container">
 <pre class="src src-R">
 3+5
@@ -419,18 +419,18 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 
 
-<div id="outline-container-org879fd6e" class="outline-6">
-<h6 id="org879fd6e"><a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a> の課題をやってみましょう</h6>
+<div id="outline-container-org75c79d6" class="outline-6">
+<h6 id="org75c79d6"><a href="https://whitewell.sakura.ne.jp/R/Rintro-01.html">R解説(1)</a> の課題をやってみましょう</h6>
 </div>
 </div>
 
-<div id="outline-container-orgb89f357" class="outline-5">
-<h5 id="orgb89f357">関数   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h5>
-<div class="outline-text-5" id="text-orgb89f357">
+<div id="outline-container-org340942a" class="outline-5">
+<h5 id="org340942a">関数   <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h5>
+<div class="outline-text-5" id="text-org340942a">
 </div>
-<div id="outline-container-org2ee430c" class="outline-6">
-<h6 id="org2ee430c">平方根を求める</h6>
-<div class="outline-text-6" id="text-org2ee430c">
+<div id="outline-container-orgc02632d" class="outline-6">
+<h6 id="orgc02632d">平方根を求める</h6>
+<div class="outline-text-6" id="text-orgc02632d">
 <div class="org-src-container">
 <pre class="src src-R">
 sqrt(16) * sqrt(99) + sqrt(1)
@@ -449,9 +449,9 @@ sqrt(16) * sqrt(99) + sqrt(1)
 </div>
 </div>
 
-<div id="outline-container-orgcad50f0" class="outline-6">
-<h6 id="orgcad50f0">底が10の対数</h6>
-<div class="outline-text-6" id="text-orgcad50f0">
+<div id="outline-container-org573ece8" class="outline-6">
+<h6 id="org573ece8">底が10の対数</h6>
+<div class="outline-text-6" id="text-org573ece8">
 <div class="org-src-container">
 <pre class="src src-R">
 log(10, base=10)
@@ -474,9 +474,9 @@ log(10, base=10)
 </div>
 
 
-<div id="outline-container-org0d99970" class="outline-4">
-<h4 id="org0d99970">Rをもっとさわってみよう 1.5  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a>   - <a href="https://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a></h4>
-<div class="outline-text-4" id="text-org0d99970">
+<div id="outline-container-orgf0e6286" class="outline-4">
+<h4 id="orgf0e6286">Rをもっとさわってみよう 1.5  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a>   - <a href="https://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a></h4>
+<div class="outline-text-4" id="text-orgf0e6286">
 <div class="org-src-container">
 <pre class="src src-R">
 (height &lt;- c(173,178,180,183,182,174,179,179,174,192)) # ベクトル化
@@ -509,13 +509,13 @@ summary(height)
 </div>
 </div>
 
-<div id="outline-container-orgcff6229" class="outline-4">
-<h4 id="orgcff6229">複数の値をまとめて使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
-<div class="outline-text-4" id="text-orgcff6229">
+<div id="outline-container-org91aafe0" class="outline-4">
+<h4 id="org91aafe0">複数の値をまとめて使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source</a></h4>
+<div class="outline-text-4" id="text-org91aafe0">
 </div>
-<div id="outline-container-org078e134" class="outline-5">
-<h5 id="org078e134">10人分のデータにまとめて名前をつける  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
-<div class="outline-text-5" id="text-org078e134">
+<div id="outline-container-org05ff5be" class="outline-5">
+<h5 id="org05ff5be">10人分のデータにまとめて名前をつける  <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/12.html">R-Source::ベクトルの作成</a> <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-org05ff5be">
 <div class="org-src-container">
 <pre class="src src-R">
 (身長 &lt;- c(173,178,180,183,182,174,179,179,174,192))
@@ -542,9 +542,9 @@ summary(height)
 </div>
 </div>
 
-<div id="outline-container-org34b6b16" class="outline-5">
-<h5 id="org34b6b16">変数を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
-<div class="outline-text-5" id="text-org34b6b16">
+<div id="outline-container-orgc85962e" class="outline-5">
+<h5 id="orgc85962e">変数を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/05.html">R-Source::オブジェクトと代入</a></h5>
+<div class="outline-text-5" id="text-orgc85962e">
 <div class="org-src-container">
 <pre class="src src-R">
 身長
@@ -558,9 +558,9 @@ summary(height)
 </div>
 </div>
 
-<div id="outline-container-org0e067b5" class="outline-5">
-<h5 id="org0e067b5">行列を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a></h5>
-<div class="outline-text-5" id="text-org0e067b5">
+<div id="outline-container-orgf2dd3a0" class="outline-5">
+<h5 id="orgf2dd3a0">行列を使う <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/19.html">R-Source::行列の生成</a></h5>
+<div class="outline-text-5" id="text-orgf2dd3a0">
 <div class="org-src-container">
 <pre class="src src-R">
 (ホークス &lt;- matrix(
@@ -571,7 +571,7 @@ summary(height)
 </pre>
 </div>
 
-<pre class="example" id="org7c45120">
+<pre class="example" id="orgfb20f46">
       [,1]  [,2]
  [1,]  173 17000
  [2,]  178 14000
@@ -591,9 +591,9 @@ summary(height)
 </div>
 </div>
 
-<div id="outline-container-org3c73958" class="outline-5">
-<h5 id="org3c73958">外部データファイルを読み込む</h5>
-<div class="outline-text-5" id="text-org3c73958">
+<div id="outline-container-org1b4878a" class="outline-5">
+<h5 id="org1b4878a">外部データファイルを読み込む</h5>
+<div class="outline-text-5" id="text-org1b4878a">
 <p>
 <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/40.html">R-Source::ファイルからデータを読み込む</a>
 </p>
@@ -648,13 +648,13 @@ file(file, "rt") で:
 
 
 
-<div id="outline-container-orgf7c7d93" class="outline-4">
-<h4 id="orgf7c7d93">関数を作ってみよう     <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
-<div class="outline-text-4" id="text-orgf7c7d93">
+<div id="outline-container-org11e0e3d" class="outline-4">
+<h4 id="org11e0e3d">関数を作ってみよう     <a href="https://cse.naro.affrc.go.jp/takezawa/r-tips/r/27.html">R-Source::関数事始</a></h4>
+<div class="outline-text-4" id="text-org11e0e3d">
 </div>
-<div id="outline-container-org0e423b4" class="outline-5">
-<h5 id="org0e423b4">標本分散を計算する関数を作る</h5>
-<div class="outline-text-5" id="text-org0e423b4">
+<div id="outline-container-org08d893b" class="outline-5">
+<h5 id="org08d893b">標本分散を計算する関数を作る</h5>
+<div class="outline-text-5" id="text-org08d893b">
 <p>
 Rの var() 関数は，不偏分散を計算する関数なので，
 標本分散を計算する関数を定義してみる:
@@ -694,9 +694,9 @@ varp(x)
 </div>
 
 
-<div id="outline-container-org2650f36" class="outline-5">
-<h5 id="org2650f36">プログラムを読み込む</h5>
-<div class="outline-text-5" id="text-org2650f36">
+<div id="outline-container-orgee34c6f" class="outline-5">
+<h5 id="orgee34c6f">プログラムを読み込む</h5>
+<div class="outline-text-5" id="text-orgee34c6f">
 <div class="org-src-container">
 <pre class="src src-R">
 setwd("~/COMM/Lects/R/mylib/")
@@ -723,13 +723,13 @@ $visible
 </div>
 </div>
 </div>
-<div id="outline-container-orgc0a5ccc" class="outline-2">
-<h2 id="orgc0a5ccc">Rで一変数の記述統計</h2>
-<div class="outline-text-2" id="text-orgc0a5ccc">
+<div id="outline-container-org881b31b" class="outline-2">
+<h2 id="org881b31b">Rで一変数の記述統計</h2>
+<div class="outline-text-2" id="text-org881b31b">
 </div>
-<div id="outline-container-org441ae99" class="outline-3">
-<h3 id="org441ae99">目標</h3>
-<div class="outline-text-3" id="text-org441ae99">
+<div id="outline-container-org90fcc1c" class="outline-3">
+<h3 id="org90fcc1c">目標</h3>
+<div class="outline-text-3" id="text-org90fcc1c">
 <p>
 R で書かれたコードを読めるようになりましょう。
 </p>
@@ -741,40 +741,71 @@ R で書かれたコードを読めるようになりましょう。
 </div>
 </div>
 
-<div id="outline-container-orge33d756" class="outline-3">
-<h3 id="orge33d756">1つの変数の記述統計 ーー 教科書2章</h3>
-<div class="outline-text-3" id="text-orge33d756">
+<div id="outline-container-orgbe35550" class="outline-3">
+<h3 id="orgbe35550">1つの変数の記述統計 ーー 教科書2章</h3>
+<div class="outline-text-3" id="text-orgbe35550">
 </div>
-<div id="outline-container-org517a212" class="outline-4">
-<h4 id="org517a212">Rに組込まれたデータセット iris</h4>
-<div class="outline-text-4" id="text-org517a212">
-<ul class="org-ul">
-<li><a href="https://bioinfo-dojo.net/2016/01/19/dataset_iris/">R 使い方 組込みデータセット iris データフレーム</a></li>
-<li>petal: はなびら</li>
-<li>sepal: がく</li>
-</ul>
+<div id="outline-container-org7886f9a" class="outline-4">
+<h4 id="org7886f9a">Rに組込まれたデータセット iris</h4>
+<div class="outline-text-4" id="text-org7886f9a">
+<p>
+教科書の代りに，<a href="https://bioinfo-dojo.net/2016/01/19/dataset_iris/">R 使い方 組込みデータセット iris データフレーム</a> を
+参考にします。
+</p>
+
+<p>
+目的は，データセット，ベクトルを使った計算を理解することです。
+</p>
 </div>
 
-<div id="outline-container-org3257492" class="outline-5">
-<h5 id="org3257492">iris データセット</h5>
-<div class="outline-text-5" id="text-org3257492">
+<div id="outline-container-org00bcc2e" class="outline-5">
+<h5 id="org00bcc2e">iris データセット</h5>
+<div class="outline-text-5" id="text-org00bcc2e">
+<p>
+150個の菖蒲のデータ:
+</p>
+
+<ul class="org-ul">
+<li>petal: はなびら
+<ul class="org-ul">
+<li>.length</li>
+<li>.width</li>
+</ul></li>
+<li>sepal: がく
+<ul class="org-ul">
+<li>.length</li>
+<li>.width</li>
+</ul></li>
+</ul>
+
+<p>
+ヘルプで調べます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
-help("iris")
+help(iris)
 
 </pre>
 </div>
+</div>
+</div>
 
+<div id="outline-container-org93a9276" class="outline-5">
+<h5 id="org93a9276">irisデータセットのなかみ</h5>
+<div class="outline-text-5" id="text-org93a9276">
+<p>
+中身のデータを見てみましょう:
+</p>
 
 <div class="org-src-container">
-<pre class="src src-R">data(iris)
+<pre class="src src-R">
 iris
-(hoge &lt;- iris[,1])
 
 </pre>
 </div>
 
-<pre class="example" id="org26a5873">
+<pre class="example" id="orgdd661b8">
     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 1            5.1         3.5          1.4         0.2     setosa
 2            4.9         3.0          1.4         0.2     setosa
@@ -926,22 +957,17 @@ iris
 148          6.5         3.0          5.2         2.0  virginica
 149          6.2         3.4          5.4         2.3  virginica
 150          5.9         3.0          5.1         1.8  virginica
-  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
- [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
- [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
- [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
- [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
- [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
-[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
-[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
-[145] 6.7 6.7 6.3 6.5 6.2 5.9
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org0da4c65" class="outline-5">
-<h5 id="org0da4c65">iris の型</h5>
-<div class="outline-text-5" id="text-org0da4c65">
+<div id="outline-container-org31b19e5" class="outline-5">
+<h5 id="org31b19e5">データ型を調べる</h5>
+<div class="outline-text-5" id="text-org31b19e5">
+<p>
+iris 変数の中身のデータ型を調べます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 class(iris)
@@ -952,12 +978,18 @@ class(iris)
 <pre class="example">
 [1] "data.frame"
 </pre>
+
+
+<p>
+データフレーム型ですね。いわゆる表 (見出し付きの表，テーブル)です
+ね。
+</p>
 </div>
 </div>
 
-<div id="outline-container-org652a87c" class="outline-5">
-<h5 id="org652a87c">iris を文字列化</h5>
-<div class="outline-text-5" id="text-org652a87c">
+<div id="outline-container-org8dcd2db" class="outline-5">
+<h5 id="org8dcd2db">iris を文字列化</h5>
+<div class="outline-text-5" id="text-org8dcd2db">
 <p>
 -str- は構造をもつ (structual) データを文字列化 (serial) する
 </p>
@@ -968,40 +1000,16 @@ str(iris)
 
 </pre>
 </div>
-
-<pre class="example">
-'data.frame':	150 obs. of  5 variables:
- $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
- $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
- $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
- $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
- $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
-</pre>
+</div>
+</div>
 
 
+<div id="outline-container-orga09f714" class="outline-5">
+<h5 id="orga09f714">花弁の長さの列を取り出す</h5>
+<div class="outline-text-5" id="text-orga09f714">
 <div class="org-src-container">
 <pre class="src src-R">
 iris[,"Sepal.Length"]
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-R">
-iris$Sepal.Length
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-R">
-iris[1,]
-
-</pre>
-</div>
-<div class="org-src-container">
-<pre class="src src-R">
-iris[,1]
 
 </pre>
 </div>
@@ -1017,39 +1025,117 @@ iris[,1]
 [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 [145] 6.7 6.7 6.3 6.5 6.2 5.9
 </pre>
-</div>
-</div>
 
-<div id="outline-container-org595892a" class="outline-5">
-<h5 id="org595892a">ベクトル</h5>
-<div class="outline-text-5" id="text-org595892a">
+
+<p>
+別のやりかたでも取り出せます:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
-iris[,"Sepal.Length"]
-
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgc912651" class="outline-6">
-<h6 id="orgc912651">ベクトル</h6>
-<div class="outline-text-6" id="text-orgc912651">
-<div class="org-src-container">
-<pre class="src src-R">
-class(iris[,"Sepal.Length"])
+iris$Sepal.Length
 
 </pre>
 </div>
 
 <pre class="example">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+</pre>
+
+
+<p>
+データフレームの1行目を取り出して，そのデータ型を調べます:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+iris[1,]
+class(iris[1,])
+
+</pre>
+</div>
+
+<pre class="example">
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+[1] "data.frame"
+</pre>
+
+
+<p>
+なんと，見出しも付随したデータフレームになります。
+(解説ページの内容とは異なります)。
+</p>
+
+<p>
+1列目を取り出すとどうでしょう：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">iris[,1]
+class(iris[,1])
+
+</pre>
+</div>
+
+<pre class="example" id="org57a5335">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
 [1] "numeric"
 </pre>
+
+<p>
+これは，見出しのつかない，ただの，ベクトルとなります。
+</p>
 </div>
 </div>
 
-<div id="outline-container-org57bf286" class="outline-6">
-<h6 id="org57bf286">リスト</h6>
-<div class="outline-text-6" id="text-org57bf286">
+<div id="outline-container-org93741a6" class="outline-5">
+<h5 id="org93741a6">ベクトル</h5>
+<div class="outline-text-5" id="text-org93741a6">
+<p>
+-iris[,1]- と同じ意味ですが:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+iris[,"Sepal.Length"]
+class(iris[,"Sepal.Length"])
+</pre>
+</div>
+
+<pre class="example" id="org50fe83e">
+  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
+ [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
+ [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
+ [55] 6.5 5.7 6.3 4.9 6.6 5.2 5.0 5.9 6.0 6.1 5.6 6.7 5.6 5.8 6.2 5.6 5.9 6.1
+ [73] 6.3 6.1 6.4 6.6 6.8 6.7 6.0 5.7 5.5 5.5 5.8 6.0 5.4 6.0 6.7 6.3 5.6 5.5
+ [91] 5.5 6.1 5.8 5.0 5.6 5.7 5.7 6.2 5.1 5.7 6.3 5.8 7.1 6.3 6.5 7.6 4.9 7.3
+[109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
+[127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
+[145] 6.7 6.7 6.3 6.5 6.2 5.9
+[1] "numeric"
+</pre>
+</div>
+
+<div id="outline-container-orgf8eed0a" class="outline-6">
+<h6 id="orgf8eed0a">データフレーム</h6>
+<div class="outline-text-6" id="text-orgf8eed0a">
 <div class="org-src-container">
 <pre class="src src-R">
 class(iris[1,])
@@ -1063,15 +1149,14 @@ class(iris[1,])
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org8abef0c" class="outline-4">
-<h4 id="org8abef0c">データセットの特徴</h4>
-<div class="outline-text-4" id="text-org8abef0c">
+<div id="outline-container-org8f51201" class="outline-5">
+<h5 id="org8f51201">データセットの特徴</h5>
+<div class="outline-text-5" id="text-org8f51201">
 </div>
-<div id="outline-container-orgd5e7fdd" class="outline-5">
-<h5 id="orgd5e7fdd">次元</h5>
-<div class="outline-text-5" id="text-orgd5e7fdd">
+<div id="outline-container-org52a72e8" class="outline-6">
+<h6 id="org52a72e8">次元</h6>
+<div class="outline-text-6" id="text-org52a72e8">
 <div class="org-src-container">
 <pre class="src src-R">
 dim(iris)
@@ -1085,9 +1170,9 @@ dim(iris)
 </div>
 </div>
 
-<div id="outline-container-orgfeb28dd" class="outline-5">
-<h5 id="orgfeb28dd">行数</h5>
-<div class="outline-text-5" id="text-orgfeb28dd">
+<div id="outline-container-orge1982a3" class="outline-6">
+<h6 id="orge1982a3">行数</h6>
+<div class="outline-text-6" id="text-orge1982a3">
 <div class="org-src-container">
 <pre class="src src-R">
 nrow(iris)
@@ -1097,9 +1182,9 @@ nrow(iris)
 </div>
 </div>
 
-<div id="outline-container-org9e4f57f" class="outline-5">
-<h5 id="org9e4f57f">列数</h5>
-<div class="outline-text-5" id="text-org9e4f57f">
+<div id="outline-container-org9d45712" class="outline-6">
+<h6 id="org9d45712">列数</h6>
+<div class="outline-text-6" id="text-org9d45712">
 <div class="org-src-container">
 <pre class="src src-R">
 ncolumn(iris)
@@ -1110,9 +1195,9 @@ ncolumn(iris)
 </div>
 
 
-<div id="outline-container-org1782fc0" class="outline-5">
-<h5 id="org1782fc0">要約統計量</h5>
-<div class="outline-text-5" id="text-org1782fc0">
+<div id="outline-container-org36e24ca" class="outline-6">
+<h6 id="org36e24ca">要約統計量</h6>
+<div class="outline-text-6" id="text-org36e24ca">
 <div class="org-src-container">
 <pre class="src src-R">
 summary(iris)
@@ -1120,7 +1205,7 @@ summary(iris)
 </pre>
 </div>
 
-<pre class="example" id="org2a8b887">
+<pre class="example" id="orgc2bca13">
  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -1148,9 +1233,9 @@ summary(iris$Sepal.Length)
 </div>
 </div>
 
-<div id="outline-container-org51de209" class="outline-5">
-<h5 id="org51de209">度数 (頻度) 分布表 &#x2013; ヒストグラム</h5>
-<div class="outline-text-5" id="text-org51de209">
+<div id="outline-container-orge60e761" class="outline-6">
+<h6 id="orge60e761">度数 (頻度) 分布表 &#x2013; ヒストグラム</h6>
+<div class="outline-text-6" id="text-orge60e761">
 <div class="org-src-container">
 <pre class="src src-R">
 hist(iris$Sepal.Length,breaks=100)
@@ -1160,14 +1245,23 @@ hist(iris$Sepal.Length,breaks=100)
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgc74c252" class="outline-4">
-<h4 id="orgc74c252">平均 (教科書2.5)</h4>
-<div class="outline-text-4" id="text-orgc74c252">
 </div>
-<div id="outline-container-orgf963fce" class="outline-5">
-<h5 id="orgf963fce">データの代表値</h5>
-<div class="outline-text-5" id="text-orgf963fce">
+
+<div id="outline-container-org237f538" class="outline-4">
+<h4 id="org237f538">平均 (教科書2.5)</h4>
+<div class="outline-text-4" id="text-org237f538">
+<p>
+ここから教科書2.5の内容になります。
+</p>
+</div>
+
+<div id="outline-container-org37bdec3" class="outline-5">
+<h5 id="org37bdec3">データの代表値</h5>
+<div class="outline-text-5" id="text-org37bdec3">
+<p>
+与えられたデータの特徴を捕える統計量は下記のものがある:
+</p>
+
 <dl class="org-dl">
 <dt>Min.</dt><dd>最小値</dd>
 <dt>1st Qu.</dt><dd>第一四分位数 (下から1/4点)</dd>
@@ -1179,11 +1273,17 @@ hist(iris$Sepal.Length,breaks=100)
 </div>
 </div>
 
-<div id="outline-container-orge1746aa" class="outline-5">
-<h5 id="orge1746aa">平均 (mean)</h5>
-<div class="outline-text-5" id="text-orge1746aa">
+<div id="outline-container-org60588c0" class="outline-5">
+<h5 id="org60588c0">平均 (mean)</h5>
+<div class="outline-text-5" id="text-org60588c0">
+<p>
+平均を R で定義すると下記の関数 -my.mean- となる。
+-mean- は Rに組込まれた平均を求めるための関数。
+</p>
+
 <div class="org-src-container">
-<pre class="src src-R">my.mean &lt;- function (v) {
+<pre class="src src-R">
+my.mean &lt;- function (v) {
   sum(v)/length(v)
 }
 
@@ -1197,12 +1297,17 @@ mean(iris$Sepal.Length)
 [1] 5.843333
 [1] 5.843333
 </pre>
+
+
+<p>
+-sum- はベクトルの総和，-legth- はベクトル長を求める関数。
+</p>
 </div>
 </div>
 
-<div id="outline-container-org3419d7b" class="outline-5">
-<h5 id="org3419d7b">中央値 (median)</h5>
-<div class="outline-text-5" id="text-org3419d7b">
+<div id="outline-container-org94be0f4" class="outline-5">
+<h5 id="org94be0f4">中央値 (median)</h5>
+<div class="outline-text-5" id="text-org94be0f4">
 <div class="org-src-container">
 <pre class="src src-R">
 median(iris$Sepal.Length)
@@ -1216,9 +1321,9 @@ median(iris$Sepal.Length)
 </div>
 </div>
 
-<div id="outline-container-org5f4b4c3" class="outline-5">
-<h5 id="org5f4b4c3">最頻値 (median)</h5>
-<div class="outline-text-5" id="text-org5f4b4c3">
+<div id="outline-container-org8c7a1b0" class="outline-5">
+<h5 id="org8c7a1b0">最頻値 (median)</h5>
+<div class="outline-text-5" id="text-org8c7a1b0">
 <div class="org-src-container">
 <pre class="src src-R">
 table(iris$Sepal.Length)
@@ -1235,6 +1340,13 @@ table(iris$Sepal.Length)
 </pre>
 
 
+<p>
+irisデータフレームのSepal.Lengthの各値に対し，出現頻度を求めている。
+</p>
+
+<p>
+下記のように，ヒストグラムを描くこともできる:
+</p>
 
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1246,9 +1358,9 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 </div>
 
-<div id="outline-container-org05535d0" class="outline-4">
-<h4 id="org05535d0">散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
-<div class="outline-text-4" id="text-org05535d0">
+<div id="outline-container-org0c5679b" class="outline-4">
+<h4 id="org0c5679b">散布度， 分散，標準偏差 &#x2013; 教科書 2.7~2.8</h4>
+<div class="outline-text-4" id="text-org0c5679b">
 <dl class="org-dl">
 <dt>代表値</dt><dd>分布の中心的位置を示す</dd>
 <dt>散布度</dt><dd>分布の，中心からの，散らばり，ばらつき
@@ -1256,9 +1368,9 @@ hist(iris$Sepal.Length, breaks=100)
 </dl>
 </div>
 
-<div id="outline-container-orgc130d1d" class="outline-5">
-<h5 id="orgc130d1d">データ</h5>
-<div class="outline-text-5" id="text-orgc130d1d">
+<div id="outline-container-org454de55" class="outline-5">
+<h5 id="org454de55">ベクトル・データの準備</h5>
+<div class="outline-text-5" id="text-org454de55">
 <div class="org-src-container">
 <pre class="src src-R">
 (テストa &lt;- c(10, 13, 8, 15, 8))
@@ -1272,9 +1384,13 @@ hist(iris$Sepal.Length, breaks=100)
 </div>
 </div>
 
-<div id="outline-container-orgd7c17bf" class="outline-5">
-<h5 id="orgd7c17bf">平均</h5>
-<div class="outline-text-5" id="text-orgd7c17bf">
+<div id="outline-container-org6c1f9e6" class="outline-5">
+<h5 id="org6c1f9e6">平均</h5>
+<div class="outline-text-5" id="text-org6c1f9e6">
+<p>
+まずは，各値を加えてみる:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 10+13+8+15+8
@@ -1290,6 +1406,10 @@ sum(テストa) # ベクトルの要素の和
 </pre>
 
 
+<p>
+ベクトルの総和を使う:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 sum(テストa) /length(テストa)
@@ -1301,6 +1421,10 @@ sum(テストa) /length(テストa)
 [1] 10.8
 </pre>
 
+
+<p>
+Rシステムの平 -mean- を使ってみる:
+</p>
 
 <div class="org-src-container">
 <pre class="src src-R">
@@ -1315,9 +1439,14 @@ sum(テストa) /length(テストa)
 </div>
 </div>
 
-<div id="outline-container-orgfdadb2e" class="outline-5">
-<h5 id="orgfdadb2e">平均からの偏差</h5>
-<div class="outline-text-5" id="text-orgfdadb2e">
+<div id="outline-container-orgbc4a887" class="outline-5">
+<h5 id="orgbc4a887">平均からの偏差</h5>
+<div class="outline-text-5" id="text-orgbc4a887">
+<p>
+ベクトルの各要素から，平均値を引くことで，平均からの偏差ベクトル
+が求まる:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差 &lt;- テストa - テストaの平均) # (ベクトル - 数値) の結果はベクトル!
@@ -1331,9 +1460,14 @@ sum(テストa) /length(テストa)
 </div>
 </div>
 
-<div id="outline-container-org15cca1e" class="outline-5">
-<h5 id="org15cca1e">平均からの偏差の二乗</h5>
-<div class="outline-text-5" id="text-org15cca1e">
+<div id="outline-container-orgc1516ff" class="outline-5">
+<h5 id="orgc1516ff">平均からの偏差の二乗</h5>
+<div class="outline-text-5" id="text-orgc1516ff">
+<p>
+平均からの偏差ベクトルを2乗すると，各要素を2乗したベクトルが求ま
+る：
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差の二乗 &lt;- 平均からの偏差^2) # (べくとる)^2 は要素の2乗のベクトル!
@@ -1347,9 +1481,13 @@ sum(テストa) /length(テストa)
 </div>
 </div>
 
-<div id="outline-container-org3c58b8d" class="outline-5">
-<h5 id="org3c58b8d">データ数</h5>
-<div class="outline-text-5" id="text-org3c58b8d">
+<div id="outline-container-orgeeaf131" class="outline-5">
+<h5 id="orgeeaf131">データ数</h5>
+<div class="outline-text-5" id="text-orgeeaf131">
+<p>
+データ数は，ベクトルの長さそのもの:
+</p>
+
 <div class="org-src-container">
 <pre class="src src-R">
 (データ数 &lt;- length(テストa))
@@ -1360,24 +1498,12 @@ sum(テストa) /length(テストa)
 <pre class="example">
 [1] 5
 </pre>
-
-
-<div class="org-src-container">
-<pre class="src src-R">
-(平均からの偏差の二乗 &lt;- 平均からの偏差^2) # (べくとる)^2 は要素の2乗のベクトル!
-
-</pre>
-</div>
-
-<pre class="example">
-[1]  0.64  4.84  7.84 17.64  7.84
-</pre>
 </div>
 </div>
 
-<div id="outline-container-org3418589" class="outline-5">
-<h5 id="org3418589">平均からの偏差の二乗和</h5>
-<div class="outline-text-5" id="text-org3418589">
+<div id="outline-container-org3f08968" class="outline-5">
+<h5 id="org3f08968">平均からの偏差の二乗和</h5>
+<div class="outline-text-5" id="text-org3f08968">
 <div class="org-src-container">
 <pre class="src src-R">
 (平均からの偏差の二乗和 &lt;- sum(平均からの偏差の二乗))
@@ -1391,9 +1517,9 @@ sum(テストa) /length(テストa)
 </div>
 </div>
 
-<div id="outline-container-org5e91f3b" class="outline-5">
-<h5 id="org5e91f3b">分散</h5>
-<div class="outline-text-5" id="text-org5e91f3b">
+<div id="outline-container-org6b1189a" class="outline-5">
+<h5 id="org6b1189a">分散</h5>
+<div class="outline-text-5" id="text-org6b1189a">
 <div class="org-src-container">
 <pre class="src src-R">
 (分散 &lt;- 平均からの偏差の二乗和/データ数)
@@ -1410,10 +1536,12 @@ sum(テストa) /length(テストa)
 これまでの操作を関数にまとめると，
 </p>
 
-
 <div class="org-src-container">
-<pre class="src src-R">my.分散 &lt;- function(v){
+<pre class="src src-R">
+my.分散 &lt;- function(v){
+
   sum((v - mean(v))^2)/length(v)
+
 }
 
 (分散 &lt;- my.分散(テストa))
@@ -1428,9 +1556,9 @@ sum(テストa) /length(テストa)
 </div>
 
 
-<div id="outline-container-org8ec10fd" class="outline-5">
-<h5 id="org8ec10fd">標準偏差</h5>
-<div class="outline-text-5" id="text-org8ec10fd">
+<div id="outline-container-org0e5e1de" class="outline-5">
+<h5 id="org0e5e1de">標準偏差</h5>
+<div class="outline-text-5" id="text-org0e5e1de">
 <p>
 標準偏差は，各データの平均からの距離の平均です。
 $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
@@ -1451,9 +1579,10 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </div>
 </div>
 
-<div id="outline-container-orgca00afc" class="outline-4">
-<h4 id="orgca00afc">標準化</h4>
-<div class="outline-text-4" id="text-orgca00afc">
+
+<div id="outline-container-orgf2a8fb5" class="outline-4">
+<h4 id="orgf2a8fb5">標準化</h4>
+<div class="outline-text-4" id="text-orgf2a8fb5">
 <p>
 平均が \(\mu\), 標準偏差が \(\sigma\) である分布を，
 平均が \(0\), 標準偏差が \(1\) である分布に(変数)変換するのが，
@@ -1466,7 +1595,7 @@ $\mbox{準偏差} &sigma; = \sqrt{\sigma^2}$です。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp</p>
-<p class="date">Created: 2021-05-26 水 09:12</p>
+<p class="date">Created: 2021-10-17 日 20:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
