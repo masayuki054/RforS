@@ -1,10 +1,11 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
+#+title: RforS (データ解析)
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 10/18 02回目の講義記録
+* 10/18 02回目の講義内容
 
 ** 関連
 

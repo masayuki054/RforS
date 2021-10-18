@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 月 09:29 -->
+<!-- 2021-10-18 月 10:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>RforS (データ解析)</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="鈴木正幸，非常勤講師" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -229,13 +229,238 @@
 </head>
 <body>
 <div id="content">
+<h1 class="title">RforS (データ解析)</h1>
+
+<div id="outline-container-org58d49db" class="outline-2">
+<h2 id="org58d49db">10/18 02回目の講義記録</h2>
+<div class="outline-text-2" id="text-org58d49db">
+</div>
+<div id="outline-container-org2e47a55" class="outline-3">
+<h3 id="org2e47a55">関連</h3>
+<div class="outline-text-3" id="text-org2e47a55">
+</div>
+<div id="outline-container-org1486264" class="outline-4">
+<h4 id="org1486264">このページ</h4>
+<div class="outline-text-4" id="text-org1486264">
+<p>
+<a href="https://github.com/masayuki054/RforS/blob/main/today.org">RforS/today.org at main · masayuki054/RforS · GitHub</a>
+</p>
+
 <ul class="org-ul">
-<li>確率変数と確率分布</li>
+<li>今日のオンライン講義の説明の流れです。</li>
+<li>Emacs org-mode で書いています。
+<ul class="org-ul">
+<li><a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r">org-modeのコードブロック(Babel)の使い方 | Misohena Blog</a></li>
+</ul></li>
+<li>github からダウンロード可能です。</li>
+<li>~suzuki/public_html/stat2 からもアクセスできます。</li>
 </ul>
 </div>
+</div>
+
+<div id="outline-container-org8e0f772" class="outline-4">
+<h4 id="org8e0f772"><span class="done Done">Done</span> 講義ノート</h4>
+<div class="outline-text-4" id="text-org8e0f772">
+<p>
+<a href="https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M">note - Google ドライブ</a>
+</p>
+<ul class="org-ul">
+<li>板書用の手書きノート</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org744797e" class="outline-4">
+<h4 id="org744797e">Rに関すること</h4>
+<div class="outline-text-4" id="text-org744797e">
+<ul class="org-ul">
+<li><a href="./org/R-info.html">./org/R-info.html</a></li>
+<li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf">R-Tips - r-tips.pdf</a></li>
+<li><a href="http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7">Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3f18352" class="outline-4">
+<h4 id="org3f18352">参考書</h4>
+<div class="outline-text-4" id="text-org3f18352">
+<ul class="org-ul">
+<li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a> 
+<ul class="org-ul">
+<li>中京大 白井先生, Rによるやさしい統計学</li>
+</ul></li>
+
+<li><a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山大学)
+<ul class="org-ul">
+<li>Rによるやさしい統計学の動画による解説</li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li><a href="https://www.ohmsha.co.jp/book/9784274227387/">入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha</a>
+<ul class="org-ul">
+<li>絵が豊富</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org68ba711" class="outline-4">
+<h4 id="org68ba711">2冊の教科書と進行</h4>
+<div class="outline-text-4" id="text-org68ba711">
+<p>
+確率と統計
+</p>
+<ul class="org-ul">
+<li>K: 進行 K-7, K-5, K-8, K-10, K-11, K-12</li>
+</ul>
+
+<p>
+Rによるやさしい統計学
+</p>
+<ul class="org-ul">
+<li>R: (R-4, R-5, R-6, R-7)， (R-8, R-9)</li>
+</ul>
+
+<p>
+対応
+</p>
+<ul class="org-ul">
+<li>標本と統計的推測 K-7:R-4</li>
+<li>大数の法則と中心極限定理 K-5:R-4</li>
+<li>点推定 K-8: (R-4, R-5)</li>
+<li>区間推定 K-10:R-4</li>
+<li>検定 K-11, R-5</li>
+<li>いろいろな検定 K-12:(R-6, R-7)</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org85b5e64" class="outline-4">
+<h4 id="org85b5e64">気をつけること</h4>
+<div class="outline-text-4" id="text-org85b5e64">
+<ul class="org-ul">
+<li>講義ノート・教科書を読んでもらってから，説明すること</li>
+
+<li>プログラムは説明してから，入力の時間をとり，その後説明しながら実行
+すること</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org249ac05" class="outline-4">
+<h4 id="org249ac05">分布表</h4>
+<div class="outline-text-4" id="text-org249ac05">
+<p>
+R が使えないときに，確率計算に使ってください。
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf">標準正規分布配布用 - z.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf">t分布 - t.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf">CHISQ-TABLE.docx - chisq.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf">Fs - F.pdf</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc8770aa" class="outline-3">
+<h3 id="orgc8770aa">今日 (10/18) の流れ</h3>
+<div class="outline-text-3" id="text-orgc8770aa">
+</div>
+<div id="outline-container-org4015adf" class="outline-4">
+<h4 id="org4015adf"><span class="todo Doing">Doing</span> Rの環境</h4>
+<div class="outline-text-4" id="text-org4015adf">
+</div>
+<div id="outline-container-org91e6286" class="outline-5">
+<h5 id="org91e6286"><span class="todo Todo">Todo</span> Rの実行環境</h5>
+<div class="outline-text-5" id="text-org91e6286">
+<ul class="org-ul">
+<li>Rstudio がいいかもしれません</li>
+
+<li><p>
+作業用のフォルダを準備し，スクリプトやデータの読み込み，保存がで
+きること
+</p>
+
+<p>
+： ~/stat2/R Rの実行フォルダと想定します。
+： ~/stat2/R/data の下にデータがあると想定します。
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga7a761a" class="outline-5">
+<h5 id="orga7a761a"><span class="done Done">Done</span> データの準備</h5>
+<div class="outline-text-5" id="text-orga7a761a">
+<ul class="org-ul">
+<li><p>
+<a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山大学) からデータをダウンロードしてください。
+漢字コードの違う二つの圧縮ファイルがあります，utf-8 のものを
+ダウンロードしてください。
+</p>
+
+<p>
+： ~/stat2/R/data とかに配置してください。
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3289730" class="outline-5">
+<h5 id="org3289730"><span class="todo Todo">Todo</span> R markdown</h5>
+<div class="outline-text-5" id="text-org3289730">
+<p>
+文書とRスクリプトを共存させることができるはずです。
+</p>
+
+<p>
+参考サイト: <a href="https://kazutan.github.io/kazutanR/Rmd_intro.html">R Markdown入門</a>, <a href="https://qiita.com/tomotagwork/items/c92fb40a76f56ea16aa4">R Markdownによるレポート生成 - Qiita</a>
+</p>
+<ul class="org-ul">
+<li>コースの計算機には，pandoc がインストールされていない。</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf24a732" class="outline-4">
+<h4 id="orgf24a732">標本と統計的推測</h4>
+<div class="outline-text-4" id="text-orgf24a732">
+<p>
+今日は，RforS の4章を <a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> で解説してみます。
+</p>
+
+<ul class="org-ul">
+<li>先週参考にした，<a href="http://whitewell.sakura.ne.jp/R/Rstatistics-03.html">Rで統計学を学ぶ(3)</a> も同じ内容です。見比べてみて
+ください。</li>
+
+<li>教科書では，主に7章，5章になります。</li>
+<li>昨年の講義ノート <a href="https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D">lect-note - Google ドライブ</a>  の7章，5章も関係し
+ます。</li>
+
+<li></li>
+
+
+<li>前期の内容では，
+<ul class="org-ul">
+<li>確率変数と確率分布</li>
+<li>確率変数の和の平均と分散</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
-<p class="author">Author: 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-10-18 月 09:29</p>
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-10-18 月 10:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
