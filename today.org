@@ -9,7 +9,7 @@
 
 ** 関連
 
-*** このページ
+*** Doing このページ
 
     [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
 
@@ -24,12 +24,12 @@
     [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
     - 板書用の手書きノート 
 
-*** Rに関すること
+*** Done Rに関すること
     - [[./org/R-info.org]]
     - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
-*** 参考書
+*** Done 参考書
     - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
       - 中京大 白井先生, Rによるやさしい統計学
 
@@ -57,14 +57,14 @@
     
 
     
-*** 気をつけること
+*** Done 気をつけること
 
    - 講義ノート・教科書を読んでもらってから，説明すること
 
    - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
      すること
 
-*** 分布表
+*** Done 分布表
 
     R が使えないときに，確率計算に使ってください。
    
@@ -75,6 +75,10 @@
    
 
 ** 今日 (10/18) の流れ
+*** 講師のRノート
+
+    - [[./org/RforS-II-index.org]]    
+
    
 *** Doing Rの環境
     
@@ -105,29 +109,19 @@
      - コースの計算機には，pandoc がインストールされていない。
 
      
-*** 標本と統計的推測
+*** Doing 標本と統計的推測
 
-    今日は，RforS の4章を [[./org/RforS-II-04.org]] で解説してみます。
-    
-    - 先週参考にした，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] も同じ内容です。見比べてみて
-      ください。
+   先週も参照した，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] です
 
+    - 講師の R 実行環境 は，[[./org/RforS-II-04.org]] です。
     - 教科書では，主に7章，5章になります。
     - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章も関係し
       ます。
 
-    - 
+    - 前期の内容では，下記内容が関係します：
 
-    - 前期の内容では，
       - 確率変数と確率分布
       - 確率変数の和の平均と分散
-
-
-    
-
-    
-      
-    
 
 
      
