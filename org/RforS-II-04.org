@@ -4,47 +4,33 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-
 * Rによるやさしい統計学
-#+begin_src R :session t :results output :exports both
-
-system("dir")
-system("mkdir graphs")
-#+end_src
-
-#+RESULTS:
-: Codes		   RforS-0.org	 RforS-II.org	dist_func.org  ltximg
-: Rakefile	   RforS-1.html  RforS-II.org~	graphs	       sample-error.org
-: Rakefile.org	   RforS-1.org	 RforS.html	index.html     sample-error.org~
-: Rakefile.setup.rb  RforS-2.html  RforS.org	index.org
-: RforS-0.html	   RforS-2.org	 RforS.org~	info
-: mkdir: ディレクトリ `graphs' を作成できません: ファイルが存在します
-
-
-
-
-  
-** 目標
-
-   R で書かれたコードを読めるようになりましょう。
-
-   
-** 関連サイト
-   [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)   
 
 ** 4章 母集団と標本
 
 *** 4.1 母集団と標本
 
-    - 母集団 ::
-    - 標本  ::
-    - 母数 (パラメーター) :: 
-    - 標本抽出 ::
+    重要な用語
 
+    - 母集団 ::
+        対象のデータ全体　　　　　　
+    - 標本  ::
+        母集団から一部のデータを取り出した(抽出した)もの。
+	標本数を標本の大きさという。
+    - 標本抽出 ::
+        母集団から一部のデータを取り出すこと
+    - 母数 (パラメーター) ::
+        母集団の性質をあらわす統計的指数（比率、平均、分散、相関係数など） 
+      
 *** 4.2 推測統計の分類
+    推測統計とは， *標本から母集団の性質を推し測ること*
+    
 **** 推定
+     
 ***** 点推定
+      標本から母数の値を求める
 ***** 区間推定
+      標本から母数の値の範囲を求める
 **** 検定
      - 母集団について述べた二つの異なる主張(仮説)
      - どちらを採択するかを決める
@@ -56,11 +42,14 @@ system("mkdir graphs")
 	*標本のサイズ* \( n \)
      2. 標本を用いて，母平均の推定値を計算する
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session t :results output :exports both :tangle RforS-Codes/04-03.R
+## file RforS-Codes/04-03.R
 
+## 標本
 身長 <- c(165.2, 175.9, 161.7, 174.2, 172.1, 163.3, 170.9, 170.6, 168.4, 171.3)
-
+## 標本平均
 mean(身長)
+## 標本不偏分散 (後出)
 var(身長)
 
 #+end_src
@@ -84,8 +73,6 @@ var(身長)
      [[https://www.intage.co.jp/glossary/041/][標本誤差とは｜市場調査ならインテージ]]
 
      - 推定値と母数の誤差
-
-
      
 *** 4.4 推定値がどれくらいあてになるのかを調べる方法
 
@@ -97,7 +84,7 @@ var(身長)
        
     3. 確率変数がどのような値をとるのかを示す確率分布
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session t :results output :exports both :file Code/0403.R
 
 (サイコロ6 <- ceiling(runif(n=6,min=0,max=6 )))
 table(サイコロ6)

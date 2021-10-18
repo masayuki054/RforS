@@ -8,6 +8,8 @@
    - 確率
    - RforS の解説
 
+   [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-3][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]     
+
 ** Rの説明
     
 *** Biostat R入門
@@ -45,48 +47,6 @@ ls()
 #+RESULTS:
 : [1] "科目"   "好意度" "人"
 : [1] "科目"   "好意度" "人"
-
-** R グラフの埋め込み
-
-#+NAME: age-score-table
-| Age | Score |
-|-----+-------|
-|  10 |    82 |
-|  15 |   100 |
-|   8 |    52 |
-|  13 |    75 |
-|  12 |    38 |
-|   9 |    80 |
-|  13 |    92 |
-|  11 |    65 |
-|  15 |    85 |
-|  18 |    98 |
-|   3 |    20 |
-|  15 |    92 |
-|  14 |    78 |
-|  12 |    53 |
-
-Age 	Score
-
-
-#+BEGIN_SRC R :var table=age-score-table :results output graphics :file graphs/r-plot.png :width 320 :height 320 :cache yes
-
-plot(table)
-
-abline(lm(table$Score ~ table$Age), col="red")
-#+END_SRC
-
-#+RESULTS[939ce4b5757853928f88a4a4f825fdbc96662a2b]:
-
-
-[[./r-plot.png]]
-
-#+BEGIN_SRC R :results output graphics :file r-plot.png :width 320 :height 320 :cache yes
-
-plot(table)
-
-abline(lm(table$Score ~ table$Age), col="red")
-#+END_SRC
 
 
 ** データフレームの扱い

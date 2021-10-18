@@ -1,0 +1,26 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
+
+* Rによるやさしい統計学 (データ解析の一部として)
+
+** 教科書のまとめ
+   
+   - [[./RforS-II-04.org]]
+   - [[./RforS-II-05.org]]
+   - [[./RforS-II-06.org]]          
+   - [[./RforS-II-07.org]]     
+ 
+** data/
+   - データ処理のコードです: [[./RforS-II-data.org]]
+   - データ置き場です: [[./data/]]
+   
+** R-コード
+   節ごとにまとまっています: [[./RforS-Codes/]]
+
+** グラフなど
+   - [[./RforS-graphs]]
+
+

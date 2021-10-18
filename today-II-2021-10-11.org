@@ -1,5 +1,5 @@
-#+setupfile: info/index-bigblow-header.setup
-#+include: info/common-header.org
+#+setupfile: org/info/index-bigblow-header.setup
+#+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
@@ -22,7 +22,7 @@
     - 板書用の手書きノート 
 
 *** Rに関すること
-    - [[.org/R.org]]
+    - [[./org/R-info.org]]
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
 *** 参考書
@@ -73,7 +73,6 @@
 ** 今日の流れ
    
 *** Rの環境
-
     
 **** Rの実行環境
      

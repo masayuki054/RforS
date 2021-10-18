@@ -8,8 +8,6 @@
    - 確率
    - RforS の解説
 
-   [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-3][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]     
-
 ** Rの説明
     
 *** Biostat R入門
@@ -24,6 +22,7 @@
     
      [[http://www.mi.u-tokyo.ac.jp/teaching_material.html][数理・データサイエンス関連教材 | 東京大学 数理・情報教育研究センター]]
      - Rstudio による R入門， 動画
+
 ** graphics
 
    [[http://www.f.waseda.jp/sakas/R/Rgraphics17.html][R:グラフィックス]] 早稲田のよくまとまった説明
@@ -96,4 +95,8 @@ abline(lm(table$Score ~ table$Age), col="red")
    RforS-package.org
    RforS-data.org
 
+* R言語について   
    
+** ローカル変数，グローバル変数，自由変数，永続代入
+
+   [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/32.html][R-Source]]

@@ -5,10 +5,14 @@ EXCLUDES = [
 ]
 
 ORGS = [
-  "index.org",
-  "RforS-0.org",
-  "RforS-1.org",
-  "RforS-2.org",
+  "RforS-II-index.org",
+  "RforS-II-04.org",
+  "RforS-II-05.org",
+  "RforS-II-06.org",
+  "RforS-II-07.org",
+  "RforS-II-data.org",
+  "RforS-II-common.org",
+  "RforS-II-emacs.org",
 ]
 
 SUBDIRS = [

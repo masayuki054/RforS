@@ -11,5 +11,5 @@ graph R {
 #+END_SRC
 
 #+RESULTS[ef8a761e66b74d69acc71b03010404f5bae816ee]:
-[[file:variation.png]]
+[[file:variationi.png]]
 

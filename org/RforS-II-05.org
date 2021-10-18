@@ -90,7 +90,7 @@ dev.off()
 : X11cairo 
 :        2
 
-[[./graphs/fig-05-01-population_and_samples.png]]
+[[./graphs/fig-05-01-population_and_samples.png]]<>
 
 #+begin_src R :session t :results output :exports both
 
@@ -181,7 +181,8 @@ this.alpha <- 0.05
 #+end_src
 
 #+RESULTS:
-: [1] -2.828427
+:  norm_stat(心理学テスト) でエラー: 
+:    関数 "norm_stat" を見つけることができませんでした
 
 **** 帰無仮説の棄却 or 採択の決定
 
@@ -197,7 +198,6 @@ if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 **** 棄却域の描画
      
 #+begin_src R :session t :results output :exports both
-dev.off()
 png("graphs/fig-05-02.png", width=400, height=300)
 curve(dnorm(x), -3, 3)
 z.lower <- qnorm(this.alpha/2)
@@ -210,10 +210,21 @@ dev.off()
 #+end_src
 
 #+RESULTS:
-: null device 
-:           1
-: null device 
-:           1
+#+begin_example
+ qnorm(this.alpha/2) でエラー:  オブジェクト 'this.alpha' がありません
+ qnorm(1 - this.alpha/2) でエラー: 
+   オブジェクト 'this.alpha' がありません
+ int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
+   オブジェクト 'z.lower' がありません
+ int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
+   オブジェクト 'z.upper' がありません
+ curve(x - x - 0.01, xlim = c(-3, z.lower), col = "green", lwd = 10,  でエラー: 
+   オブジェクト 'z.lower' がありません
+ curve(x - x - 0.01, xlim = c(z.upper, 3), col = "green", lwd = 10,  でエラー: 
+   オブジェクト 'z.upper' がありません
+null device 
+          1
+#+end_example
 
 [[graphs/fig-05-02.png]]
      

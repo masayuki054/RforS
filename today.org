@@ -4,25 +4,28 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 10/11 01回目の講義記録
+* 10/18 02回目の講義記録
 
 ** 関連
 
-   
 *** このページ
 
     [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
+
     - 今日のオンライン講義の説明の流れです。
     - Emacs org-mode で書いています。
+      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
     - github からダウンロード可能です。
-    - ~suzuki/public_html/stat2 
+    - ~suzuki/public_html/stat2 からもアクセスできます。
 
-*** 講義ノート
+*** Done 講義ノート
+    CLOSED: [2021-10-18 月 09:45]
     [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
     - 板書用の手書きノート 
 
 *** Rに関すること
     - [[./org/R-info.org]]
+    - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
 *** 参考書
@@ -70,39 +73,62 @@
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
    
 
-** 今日の流れ
+** 今日 (10/18) の流れ
    
-*** Rの環境
+*** Doing Rの環境
     
-**** Rの実行環境
+**** Todo Rの実行環境 
      
-     - R(コンソール)，Rcmdr, RStudio, どれを使うか自分きめて
-       ください。
-
-     - [[https://heavywatal.github.io/rstats/config.html][R環境設定 - Heavy Watal]]
-     - [[https://oku.edu.mie-u.ac.jp/~okumura/stat/first.html][Rの初歩]]
-     - [[https://repun-app.fish.hokudai.ac.jp/course/view.php?id=395#section-2][コース: 統計解析入門 & 統計解析フリーソフトウェアRの使い方]]
+     - Rstudio がいいかもしれません
 
      - 作業用のフォルダを準備し，スクリプトやデータの読み込み，保存がで
        きること
 
-       ： ~/stat2/R とか
+       ： ~/stat2/R Rの実行フォルダと想定します。
+       ： ~/stat2/R/data の下にデータがあると想定します。
 
-**** データの準備
+**** Done データの準備
      
      - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学) からデータをダウンロードしてください。
        漢字コードの違う二つの圧縮ファイルがあります，utf-8 のものを
        ダウンロードしてください。
 
-       ： ~/stat2/R/data とかに
+       ： ~/stat2/R/data とかに配置してください。
+       
+**** Todo R markdown
+     SCHEDULED: <2021-10-18 月>
 
+     文書とRスクリプトを共存させることができるはずです。
+
+     参考サイト: [[https://kazutan.github.io/kazutanR/Rmd_intro.html][R Markdown入門]], [[https://qiita.com/tomotagwork/items/c92fb40a76f56ea16aa4][R Markdownによるレポート生成 - Qiita]]
+     - コースの計算機には，pandoc がインストールされていない。
+
+     
 *** 標本と統計的推測
 
-    [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]]
-    - RforS の4章になります。
-    - 教科書は，主に7章になります。
+    今日は，RforS の4章を [[./org/RforS-II-04.org]] で解説してみます。
+    
+    - 先週参考にした，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] も同じ内容です。見比べてみて
+      ください。
+
+    - 教科書では，主に7章，5章になります。
+    - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章も関係し
+      ます。
+
+    - 
+
+    - 前期の内容では，
+      - 確率変数と確率分布
+      - 確率変数の和の平均と分散
+
+
+    
+
+    
       
     
 
 
      
+
+    
