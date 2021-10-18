@@ -1,3 +1,9 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: RforS あれこれ (データ解析) 
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
 ** 関連サイト
 
    [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)
