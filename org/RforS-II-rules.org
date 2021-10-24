@@ -1,0 +1,56 @@
+RforS-II prefixed org-file
+- RforS-II-04.org
+- RforS-II-04.org  
+
+RforS-codes/
+
+RforS-graphs/
+
+Codes
+Figs
+Makefile
+Rakefile
+Rakefile.org
+Rakefile.setup.rb
+
+R-info.org
+R-learning.org
+
+** 確率統計での R
+   - index.org
+   - RforS.org
+   - RforS-0.org
+   - RforS-1.org
+   - RforS-2.org
+
+ * データ解析
+
+RforS-II-04.org
+RforS-II-05.org
+RforS-II-06.org
+RforS-II-07-data.org
+RforS-II-07.org
+
+
+RforS-II-common.org
+RforS-II-data.org
+RforS-II-emacs.org
+RforS-II-index.org
+RforS-II-package.org
+RforS-common.org
+
+Rplots.pdf
+Rplots1.pdf
+Rplots2.pdf
+Rplots3.pdf
+S-info.org
+data
+graphics.org
+graphs
+
+info
+lib
+ltximg
+misc
+test-math.org
+test.org

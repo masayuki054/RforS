@@ -1,0 +1,50 @@
+* 確率統計一般
+
+** [[https://www.jstat.or.jp/openstatistics/][データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition” - 日本統計協会]]
+
+   [[http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf][2021-3-3Open(S).pdf]]
+   
+** [[http://www3.u-toyama.ac.jp/kkarato/2016/statistics/][統計学--2016--富山大学経済学部--唐渡広志]]
+   ppt よくできている
+
+
+* Rによる統計学講義
+
+** 「Rによるやさしい統計学」
+
+***  [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
+    中京大 白井先生
+
+*** [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学)
+    - Rによるやさしい統計学の動画による解説
+
+** 生物統計学 (東大，農工大)
+   R コードの参考に
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/distribution.html][生物統計学１（10.9）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex1.html][演習１（10.9）]]
+      [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ans1.html][解答１]]
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/hytest.html][生物統計学２（10.23）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex2.html][演習２（10.23）]]
+**** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html][生物統計学３（10.30）]]
+***** [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex3.html][演習３（10.30）]]
+
+** [[https://htsuda.net/stats/][Rによる統計入門]] 津田裕之氏
+   - google colaboratory で R を使う
+   - colabo note 例  [[https://colab.research.google.com/drive/1cPOGoBin8sQAJqJtnmS0H8mAqzyI9CzY][R_tutorial.ipynb - Colaboratory]]
+
+* Rを使った統計学トピック的解説
+
+** 医療職からデータサイエンティストへ blog
+
+   - わかりやすく簡単な説明
+   - R のコード
+  
+   - [[https://www.medi-08-data-06.work/archive/category/%E7%B5%B1%E8%A8%88%E5%AD%A6][統計学 カテゴリーの記事一覧 - 医療職からデータサイエンティストへ]]
+   - [[https://www.medi-08-data-06.work/entry/2018/12/18/232204][R の 確率密度関数 ( rnorm, pnorm, qnorm, dnorm ) とは何なのか]]
+   - [[https://www.medi-08-data-06.work/entry/kernel-estimate2][カーネル密度推定~グラフィカルにまとめてみる~]]
+   - [[https://www.medi-08-data-06.work/entry/distribution][脱統計初学者！確率分布まとめ~ベルヌーイ分布・二項分布・ポワソン分布・指数分布~]]
+   - [[https://www.medi-08-data-06.work/entry/normal_tdist][脱統計初学者！確率分布まとめ~正規分布・t分布とは~]]
+   - [[https://www.medi-08-data-06.work/entry/entral_limit_theorem][中心極限定理って結局何なのさ - 医療職からデータサイエンティストへ]]
+   - [[https://www.medi-08-data-06.work/entry/staticapower][有意水準と検出力をグラフィカルにシミュレーションで理解する]]
+
+   

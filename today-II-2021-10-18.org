@@ -1,16 +1,15 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 10/25 RforS (データ解析) 
+#+title: 10/18 RforS (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 10/25 03回目の講義内容
+* 10/18 02回目の講義内容
 
-** Done 関連
+** 関連
 
 *** Done このページ
-    CLOSED: [2021-10-24 日 21:38]
 
     [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
 
@@ -40,6 +39,23 @@
    - [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
      - 絵が豊富
   
+*** 2冊の教科書と進行
+
+    確率と統計
+    - K: 進行 K-7, K-5, K-8, K-10, K-11, K-12
+
+    Rによるやさしい統計学
+    - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
+
+    対応
+    - 標本と統計的推測 K-7:R-4
+    - 大数の法則と中心極限定理 K-5:R-4
+    - 点推定 K-8: (R-4, R-5)
+    - 区間推定 K-10:R-4
+    - 検定 K-11, R-5
+    - いろいろな検定 K-12:(R-6, R-7)
+    
+
     
 *** Done 気をつけること
 
@@ -58,40 +74,15 @@
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
    
 
-** 2冊の教科書と進行
+** 今日 (10/18) の流れ
 
-    確率と統計
-    - K: 進行 K-7, K-5, K-8, K-10, K-11, K-12
-
-    Rによるやさしい統計学
-    - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
-
-*** 対応 [0/6]
-    - [-] 標本と統計的推測 K-7:R-4
-    - [ ] 大数の法則と中心極限定理 K-5:R-4
-    - [-] 点推定 K-8: (R-4, R-5)
-    - [ ] 区間推定 K-10:R-4
-    - [ ] 検定 K-11, R-5
-    - [ ] いろいろな検定 K-12:(R-6, R-7)
-    
-*** 進行
-    
-**** Doing 標本と統計的推測 K-7:R-4
-   
-**** Todo 大数の法則と中心極限定理 K-5:R-4
-     
-**** Doing 点推定 K-8: (R-4, R-5)
-
-    
-** 今日 (10/25) の流れ
 *** 講師のRノート
 
     - [[./org/RforS-II-index.org]]    
-
    
-*** Doing Rの環境
+*** Done Rの環境
     
-**** Todo Rの実行環境 
+**** Done Rの実行環境 
      
      - Rstudio がいいかもしれません
 
@@ -109,8 +100,7 @@
 
        ： ~/stat2/R/data とかに配置してください。
        
-**** Todo R markdown
-     SCHEDULED: <2021-10-18 月>
+**** Done R markdown
 
      文書とRスクリプトを共存させることができるはずです。
 
@@ -120,12 +110,10 @@
      
 *** Doing 標本と統計的推測
 
-    今日は，[[./org/RforS-II-04.org]] の 4.3~4.6節を説明します。
+   先週も参照した，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] です
 
-    - RforS の4章3節からになります。
-    
-    - 先週参照した，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。
-
+    - 講師の R 実行環境 は，[[./org/RforS-II-04.org]] です。
+    - 教科書では，主に7章，5章になります。
     - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章も関係し
       ます。
 
@@ -134,7 +122,64 @@
       - 確率変数と確率分布
       - 確率変数の和の平均と分散
 
+**** 重要な点
+     - 母集団と標本
+     - 標本から母集団の性質を推し測ること
+     - 標本と標本平均
 
-     
+     - 無作為標本について考えられること
+
+     #+property: header-arg:R :session t :results output :exports both :tangle org/Codes/my-sample.R
+
+       - 母分布
+	 
+	 #+begin_src R  :session *t* :results output :tangle org/Codes/my-sample.R
+this.mean = 10
+this.sd = 3
+this.tries = 10000
+
+curve(dnorm(x, mean=this.mean, sd=this.sd), from=0, to=20)
+         #+end_src
+
+	 #+RESULTS:
+
+       - 母集団からの標本の作成
+	 
+         #+begin_src R  :session *t* :results output :tangle org/Codes/my-sample.R
+sample <- rnorm(100,mean=10,sd=3)
+summary (sample)
+         #+end_src
+
+         #+RESULTS:
+	 :    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+	 :   4.109   7.353   9.707   9.875  11.986  18.901
+
+       - 標本の平均と分散
+         #+begin_src R  :session *t* :resutls output :tangle org/Codes/my-sample.R
+
+mus = rep(this.tries,0)
+sds = rep(this.tries,0)
+
+for (i in 1:n.tries) {
+  sample <- rnorm(100,mean=10,sd=3)
+  
+  mus[i] = mean(sample)
+  sds[i] = sqrt(var(sample))
+}
+dev.new()
+hist(mus)
+dev.new()
+hist(sds)
+       #+end_src     
+
+       #+RESULTS:
+
+       #+RESULTS:
+
+       #+RESULTS:
+
+       #+RESULTS:
+
+
 
     

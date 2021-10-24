@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 月 10:30 -->
+<!-- 2021-10-24 日 21:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>RforS 4章 (データ解析)</title>
@@ -253,17 +253,22 @@
 <div id="content">
 <h1 class="title">RforS 4章 (データ解析)</h1>
 
-<div id="outline-container-org4d99917" class="outline-2">
-<h2 id="org4d99917">Rによるやさしい統計学</h2>
-<div class="outline-text-2" id="text-org4d99917">
+<div id="outline-container-orgd045605" class="outline-2">
+<h2 id="orgd045605">Rによるやさしい統計学</h2>
+<div class="outline-text-2" id="text-orgd045605">
+<div class="org-src-container">
+<pre class="src src-shell">    rm -f RforS-Codes/04-*.R
+</pre>
 </div>
-<div id="outline-container-orgbdf6b06" class="outline-3">
-<h3 id="orgbdf6b06">4章 母集団と標本</h3>
-<div class="outline-text-3" id="text-orgbdf6b06">
 </div>
-<div id="outline-container-org60c54d2" class="outline-4">
-<h4 id="org60c54d2">4.1 母集団と標本</h4>
-<div class="outline-text-4" id="text-org60c54d2">
+
+<div id="outline-container-org17340c2" class="outline-3">
+<h3 id="org17340c2">4章 母集団と標本</h3>
+<div class="outline-text-3" id="text-org17340c2">
+</div>
+<div id="outline-container-org05f53d5" class="outline-4">
+<h4 id="org05f53d5">4.1 母集団と標本</h4>
+<div class="outline-text-4" id="text-org05f53d5">
 <p>
 重要な用語
 </p>
@@ -278,38 +283,38 @@
 </div>
 </div>
 
-<div id="outline-container-org3b5d249" class="outline-4">
-<h4 id="org3b5d249">4.2 推測統計の分類</h4>
-<div class="outline-text-4" id="text-org3b5d249">
+<div id="outline-container-orga4b5c90" class="outline-4">
+<h4 id="orga4b5c90">4.2 推測統計の分類</h4>
+<div class="outline-text-4" id="text-orga4b5c90">
 <p>
 推測統計とは， <b>標本から母集団の性質を推し測ること</b>
 </p>
 </div>
 
-<div id="outline-container-org86a068f" class="outline-5">
-<h5 id="org86a068f">推定</h5>
-<div class="outline-text-5" id="text-org86a068f">
+<div id="outline-container-orgeafa54e" class="outline-5">
+<h5 id="orgeafa54e">推定</h5>
+<div class="outline-text-5" id="text-orgeafa54e">
 </div>
-<div id="outline-container-org31661ed" class="outline-6">
-<h6 id="org31661ed">点推定</h6>
-<div class="outline-text-6" id="text-org31661ed">
+<div id="outline-container-org9a1c87c" class="outline-6">
+<h6 id="org9a1c87c">点推定</h6>
+<div class="outline-text-6" id="text-org9a1c87c">
 <p>
 標本から母数の値を求める
 </p>
 </div>
 </div>
-<div id="outline-container-orgac67c82" class="outline-6">
-<h6 id="orgac67c82">区間推定</h6>
-<div class="outline-text-6" id="text-orgac67c82">
+<div id="outline-container-orgb12b919" class="outline-6">
+<h6 id="orgb12b919">区間推定</h6>
+<div class="outline-text-6" id="text-orgb12b919">
 <p>
 標本から母数の値の範囲を求める
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgdebcc81" class="outline-5">
-<h5 id="orgdebcc81">検定</h5>
-<div class="outline-text-5" id="text-orgdebcc81">
+<div id="outline-container-org742b541" class="outline-5">
+<h5 id="org742b541">検定</h5>
+<div class="outline-text-5" id="text-org742b541">
 <ul class="org-ul">
 <li>母集団について述べた二つの異なる主張(仮説)</li>
 <li>どちらを採択するかを決める</li>
@@ -318,13 +323,13 @@
 </div>
 </div>
 
-<div id="outline-container-org2932a2f" class="outline-4">
-<h4 id="org2932a2f">4.3 点推定</h4>
-<div class="outline-text-4" id="text-org2932a2f">
+<div id="outline-container-org8e950a3" class="outline-4">
+<h4 id="org8e950a3">4.3 点推定</h4>
+<div class="outline-text-4" id="text-org8e950a3">
 </div>
-<div id="outline-container-orgb8292a4" class="outline-5">
-<h5 id="orgb8292a4">手順</h5>
-<div class="outline-text-5" id="text-orgb8292a4">
+<div id="outline-container-orgd452100" class="outline-5">
+<h5 id="orgd452100">手順</h5>
+<div class="outline-text-5" id="text-orgd452100">
 <ol class="org-ol">
 <li>標本の抽出
 <b>標本のサイズ</b> \( n \)</li>
@@ -332,12 +337,13 @@
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-R"><span style="color: #99968b;">## </span><span style="color: #99968b;">file RforS-Codes/04-03.R</span>
-
+<pre class="src src-R"><span style="color: #99968b;">#### </span>
 <span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;</span>
 &#36523;&#38263; <span style="color: #e5786d;">&lt;-</span> c(165.2, 175.9, 161.7, 174.2, 172.1, 163.3, 170.9, 170.6, 168.4, 171.3)
+
 <span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#24179;&#22343;</span>
 mean(&#36523;&#38263;)
+
 <span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955; (&#24460;&#20986;)</span>
 var(&#36523;&#38263;)
 
@@ -350,9 +356,9 @@ var(&#36523;&#38263;)
 </pre>
 </div>
 
-<div id="outline-container-org58bc51b" class="outline-6">
-<h6 id="org58bc51b">意味</h6>
-<div class="outline-text-6" id="text-org58bc51b">
+<div id="outline-container-orgaaddd63" class="outline-6">
+<h6 id="orgaaddd63">意味</h6>
+<div class="outline-text-6" id="text-orgaaddd63">
 <ul class="org-ul">
 <li>記述統計の文脈では，数値要約のための代表値を求める，こと</li>
 <li>推測統計の文脈では，母平均の点推定を行う，こと</li>
@@ -361,9 +367,9 @@ var(&#36523;&#38263;)
 </div>
 </div>
 
-<div id="outline-container-org81dd44c" class="outline-5">
-<h5 id="org81dd44c">推定量と推定値</h5>
-<div class="outline-text-5" id="text-org81dd44c">
+<div id="outline-container-org9253390" class="outline-5">
+<h5 id="org9253390">推定量と推定値</h5>
+<div class="outline-text-5" id="text-org9253390">
 <dl class="org-dl">
 <dt>標本統計量</dt><dd>標本平均，標本分散，&#x2026;</dd>
 <dt>母集団の統計量</dt><dd>母平均，母分散，。。。</dd>
@@ -372,9 +378,9 @@ var(&#36523;&#38263;)
 </div>
 
 
-<div id="outline-container-org10ba7df" class="outline-5">
-<h5 id="org10ba7df">標本抽出に伴なう誤差</h5>
-<div class="outline-text-5" id="text-org10ba7df">
+<div id="outline-container-org081de99" class="outline-5">
+<h5 id="org081de99">標本抽出に伴なう誤差</h5>
+<div class="outline-text-5" id="text-org081de99">
 <p>
 <a href="https://www.intage.co.jp/glossary/041/">標本誤差とは｜市場調査ならインテージ</a>
 </p>
@@ -386,26 +392,55 @@ var(&#36523;&#38263;)
 </div>
 </div>
 
-<div id="outline-container-orgb180625" class="outline-4">
-<h4 id="orgb180625">4.4 推定値がどれくらいあてになるのかを調べる方法</h4>
-<div class="outline-text-4" id="text-orgb180625">
-<ol class="org-ol">
-<li><p>
+
+<div id="outline-container-org87fac70" class="outline-4">
+<h4 id="org87fac70">4.4 推定値がどれくらいあてになるのかを調べる方法</h4>
+<div class="outline-text-4" id="text-org87fac70">
+<p>
+rm -f RforS-Codes/04-04.R
+</p>
+</div>
+
+<div id="outline-container-orgd471674" class="outline-5">
+<h5 id="orgd471674">4.4.1 単純無作為抽出</h5>
+<div class="outline-text-5" id="text-orgd471674">
+<p>
 標本抽出の方法としての単純無作為抽出
 </p>
+</div>
+</div>
 
+<div id="outline-container-org282c364" class="outline-5">
+<h5 id="org282c364">4.4.2 確率変数</h5>
+<div class="outline-text-5" id="text-org282c364">
 <p>
-単純無作為抽出
-</p></li>
+単純無作為抽出によって得られるデータの性質としての確率変数
+</p>
+</div>
+</div>
 
-<li>単純無作為抽出によって得られるデータの性質としての確率変数</li>
+<div id="outline-container-org4b3e2a3" class="outline-5">
+<h5 id="org4b3e2a3">4.4.3 確率分布</h5>
+<div class="outline-text-5" id="text-org4b3e2a3">
+<p>
+確率変数がどのような値をとるのかを示す確率分布
+</p>
+</div>
 
-<li>確率変数がどのような値をとるのかを示す確率分布</li>
-</ol>
+<div id="outline-container-orgadcc047" class="outline-6">
+<h6 id="orgadcc047">一様分布 (unif())</h6>
+<div class="outline-text-6" id="text-orgadcc047">
+<ul class="org-ul">
+<li>サイコロ振りの実験 \( n=6 \)</li>
+</ul>
 
 <div class="org-src-container">
-<pre class="src src-R">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#19968;&#27096;&#20998;&#24067;&#12395;&#24467;&#12358;6&#20491;&#12398;&#27161;&#26412;&#12398;&#25277;&#20986;</span>
+
 (&#12469;&#12452;&#12467;&#12525;6 <span style="color: #e5786d;">&lt;-</span> ceiling(runif(n=6,min=0,max=6 )))
+
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#38971;&#24230;&#34920;&#12398;&#20316;&#25104;</span>
 table(&#12469;&#12452;&#12467;&#12525;6)
 
 </pre>
@@ -419,10 +454,16 @@ table(&#12469;&#12452;&#12467;&#12525;6)
 </pre>
 
 
+<ul class="org-ul">
+<li>サイコロ振りの実験 \( n=60000 \)</li>
+</ul>
 
 <div class="org-src-container">
 <pre class="src src-R">
-&#12469;&#12452;&#12467;&#12525;60000 <span style="color: #e5786d;">&lt;-</span> ceiling(runif(n=60000,min=0,max=6 ))
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#19968;&#27096;&#20998;&#24067;&#12395;&#24467;&#12358;6000&#20491;&#12398;&#27161;&#26412;&#12398;&#25277;&#20986;</span>
+&#12469;&#12452;&#12467;&#12525;60000 <span style="color: #e5786d;">&lt;-</span> ceiling(runif(n=60000,min=0,max=6 )
+
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#38971;&#24230;&#34920;&#12398;&#20316;&#25104;</span>
 table(&#12469;&#12452;&#12467;&#12525;60000)
 
 </pre>
@@ -433,148 +474,158 @@ table(&#12469;&#12452;&#12467;&#12525;60000)
     1     2     3     4     5     6 
 10041  9981  9961  9926 10110  9981
 </pre>
+</div>
+</div>
 
 
-
-<ol class="org-ol">
-<li><p>
+<div id="outline-container-orgfe5d53d" class="outline-6">
+<h6 id="orgfe5d53d">4.4.4 母集団分布</h6>
+<div class="outline-text-6" id="text-orgfe5d53d">
+<p>
 確率分布を用いた母集団の表現としての母集団分布
 </p>
 
-<p>
-男女比が 2:1 である母集団
-</p></li>
-</ol>
+<ul class="org-ul">
+<li><p>
+(例) 男女比が 2:1 である母集団
+</p>
 
 <div class="org-src-container">
-<pre class="src src-R">barplot(c(2/3, 1/3), names.arg=c(<span style="color: #95e454;">"&#30007;&#24615;"</span>, <span style="color: #95e454;">"&#22899;&#24615;"</span>),
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">(&#20363;) &#30007;&#22899;&#27604;&#12364; 2:1 &#12391;&#12354;&#12427;&#27597;&#38598;&#22243;</span>
+
+barplot(c(2/3, 1/3), names.arg=c(<span style="color: #95e454;">"&#30007;&#24615;"</span>, <span style="color: #95e454;">"&#22899;&#24615;"</span>),
         xlab=<span style="color: #95e454;">"&#24615;&#21029;"</span>, ylab=<span style="color: #95e454;">"&#27604;&#29575;"</span>,
         main=<span style="color: #95e454;">"&#22259;4.3 &#24615;&#21029;&#12398;&#27597;&#38598;&#22243;&#20998;&#24067;&#12398;&#20363;"</span>)
 box(lty=1)
 
-
 </pre>
+</div></li>
+</ul>
+
+
+
+<div id="orgff3dbf4" class="figure">
+<p><img src="./RforS-graphs/04-03.png" alt="04-03.png" />
+</p>
 </div>
+
 
 <p>
 <b>無作為抽出の標本は，母集団分布に従う</b>
 </p>
+</div>
+</div>
 
-<ol class="org-ol">
-<li><p>
-代表的な母集団分布である正規分布
-</p>
-
+<div id="outline-container-org61e94ef" class="outline-6">
+<h6 id="org61e94ef">4.4.5. 代表的な母集団分布である正規分布</h6>
+<div class="outline-text-6" id="text-org61e94ef">
 <div class="org-src-container">
-<pre class="src src-R">
-png(<span style="color: #95e454;">"graphs/norm_graphs.png"</span>,width=400,height=300)
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27491;&#35215;&#20998;&#24067;&#12398;&#12464;&#12521;&#12501;&#12434;&#25551;&#12367;</span>
 
-curve(dnorm(x), from=-4, to=4)
-curve(dnorm(x,sd=2), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
-curve(dnorm(x,mean=1,sd=1), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
-norm_graphs <span style="color: #e5786d;">&lt;-</span> recordPlot()
-dev.off()
-dev.new()
-replayPlot(norm_graphs) <span style="color: #99968b;">## </span><span style="color: #99968b;">&#12358;&#12414;&#12367;&#20877;&#25551;&#30011;&#12373;&#12428;&#12394;&#12356;??? </span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">png("graphs/norm_graphs.png",width=400,height=300) &#20986;&#21147;&#12434; PNG&#24418;&#24335;&#12398;&#12501;&#12449;&#12452;&#12523;&#12408;</span>
+
+curve(dnorm(x), from=-4, to=4)        <span style="color: #99968b;"># </span><span style="color: #99968b;">&#27161;&#28310;&#27491;&#35215;&#20998;&#24067;&#12398;&#12464;&#12521;&#12501;&#65292; -4 &#12363;&#12425; +4 &#12398;&#31684;&#22258;</span>
+curve(dnorm(x,sd=2), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)        <span style="color: #99968b;"># </span><span style="color: #99968b;">&#24179;&#22343;0&#65292; &#20559;&#24046;2 &#12398;&#27491;&#35215;&#20998;&#24067;&#65292;&#19978;&#25551;&#12365; </span>
+curve(dnorm(x,mean=1,sd=1), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#24179;&#22343;1&#65292; &#20559;&#24046;1 &#12398;&#27491;&#35215;&#20998;&#24067;&#65292;&#19978;&#25551;&#12365; </span>
 
 </pre>
 </div>
-
-<pre class="example">
-png 
-  2
-</pre></li>
-</ol>
-
-
-<ol class="org-ol">
-<li>Rを使って正規分布の母集団から標本を抽出する方法</li>
-</ol>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-org647656c" class="outline-5">
-<h5 id="org647656c">4.4.7 正規母集団から単純無作為抽出を行なう</h5>
-<div class="outline-text-5" id="text-org647656c">
+<div id="outline-container-org94e901b" class="outline-5">
+<h5 id="org94e901b">4.4.7 正規母集団から単純無作為抽出を行なう</h5>
+<div class="outline-text-5" id="text-org94e901b">
+<p>
+<b>Rを使って正規分布の母集団から標本を抽出する方法</b>
+</p>
+
 <p>
 例えば、平均50、標準偏差10の正規母集団からn＝5の標本を無作為抽出
 する
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">
-rnorm(n=5, mean=50, sd=10)
-rnorm(n=5, mean=50, sd=10)
-dev.new()
-png(<span style="color: #95e454;">"graphs/fig-04-07.png"</span>, width=400,height=300)
-hist(rnorm(n=5, mean=50, sd=10))
-dev.off()
-png(<span style="color: #95e454;">"graphs/fig-04-08.png"</span>, width=400,height=300)
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#24179;&#22343;50&#12289;&#27161;&#28310;&#20559;&#24046;10&#12398;&#27491;&#35215;&#27597;&#38598;&#22243;&#12363;&#12425;n&#65309;5&#12398;&#27161;&#26412;&#12434;&#28961;&#20316;&#28858;&#25277;&#20986;&#12377;&#12427;</span>
+<span style="color: #99968b;">#### </span><span style="color: #99968b;">png("graphs/fig-04-07.png", width=400,height=300)</span>
+
+rnorm(n=5, mean=50, sd=10)       <span style="color: #99968b;"># </span><span style="color: #99968b;">&#27161;&#26412;&#12398;&#25277;&#20986;</span>
+hist(rnorm(n=5, mean=50, sd=10)) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#38971;&#24230;&#34920;&#12398;&#25551;&#30011;</span>
+
+</pre>
+</div>
+
+
+<div id="org44e504f" class="figure">
+<p><img src="./RforS-graphs/04-07.png" alt="04-07.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#24179;&#22343;50&#12289;&#27161;&#28310;&#20559;&#24046;10&#12398;&#27491;&#35215;&#27597;&#38598;&#22243;&#12363;&#12425;n&#65309;1000&#12398;&#27161;&#26412;&#12434;&#28961;&#20316;&#28858;&#25277;&#20986;&#12377;&#12427;</span>
+
+<span style="color: #99968b;">#### </span><span style="color: #99968b;">png("graphs/fig-04-08.png", width=400,height=300)</span>
 hist(rnorm(n=1000, mean=50, sd=10))
-dev.off()
 
 </pre>
 </div>
 
-<pre class="example">
-[1] 66.52000 35.27322 37.61918 42.73592 58.70167
-[1] 53.47085 69.57608 52.92380 46.23520 25.29411
-X11cairo 
-       2
-X11cairo 
-       2
-</pre>
 
-
-
-<div id="org61ef49e" class="figure">
-<p><img src="./graphs/fig-04-07.png" alt="fig-04-07.png" />
+<div id="orge6d0a7c" class="figure">
+<p><img src="./RforS-graphs/04-07.png" alt="04-07.png" />
 </p>
 </div>
 
 
-
-
-<div id="org833d002" class="figure">
-<p><img src="./graphs/fig-04-08.png" alt="fig-04-08.png" />
+<div id="org835d68c" class="figure">
+<p><img src="./RforS-graphs/04-08.png" alt="04-08.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org65cbcac" class="outline-4">
-<h4 id="org65cbcac">4.5 標本分布</h4>
-<div class="outline-text-4" id="text-org65cbcac">
+<div id="outline-container-orgfb506be" class="outline-4">
+<h4 id="orgfb506be">4.5 標本分布</h4>
+<div class="outline-text-4" id="text-orgfb506be">
+<p>
+rm -f RforS-Codes/04-05.R
+</p>
+
 <dl class="org-dl">
-<dt>標本分布</dt><dd><p>
-標本統計量の確率分布のこと
-</p>
+<dt>標本分布</dt><dd>標本統計量の確率分布のこと
 
-<p>
-推定値の信頼性の判断に用いる
-</p>
+<ul class="org-ul">
+<li>推定値の信頼性の判断に用いる</li>
 
-<p>
-標本分布は標本における個々のデータの実現値を表した度数分布ではな
-く、標本統計量の確率分布であると
-</p></dd>
+<li>標本における個々のデータの実現値を表した度数分布ではなく、</li>
+
+<li>標本統計量の確率分布である</li>
+</ul></dd>
 </dl>
 </div>
 
-<div id="outline-container-org97a1a9f" class="outline-5">
-<h5 id="org97a1a9f">4.5.1 標本分布から何が分るのか</h5>
-<div class="outline-text-5" id="text-org97a1a9f">
+<div id="outline-container-orgba8d236" class="outline-5">
+<h5 id="orgba8d236">4.5.1 標本分布から何が分るのか</h5>
+<div class="outline-text-5" id="text-orgba8d236">
 <ul class="org-ul">
 <li>図4.9 標本分布の中心は、ほぼ「母数の本当の値」の
 ところに来ている</li>
 
 <li>図4.10 標本分布の中心は、「母数の本当の値」からずれている</li>
 
-<li>図4.11 標本分布の中心は、ほぼ「母数の本当の値」のところに来てい
-るが，運が良ければ母数の本当の値に非常に近いものになりますが、
-運が悪いと大きく外れてしまうことになります。つまり、当たり外れ
-が大きくて、推定値はあまりあてになるとはいえなそう</li>
+<li>図4.11
+<ul class="org-ul">
+<li>標本分布の中心は、ほぼ「母数の本当の値」のところに来てい
+るが，</li>
+<li>当たり外れが大きくて、推定値はあまりあてになるとはいえなそう</li>
+</ul></li>
 </ul>
 
 <p>
@@ -588,9 +639,9 @@ X11cairo
 </div>
 </div>
 
-<div id="outline-container-org45fe019" class="outline-5">
-<h5 id="org45fe019">標本分布を経験的に求める</h5>
-<div class="outline-text-5" id="text-org45fe019">
+<div id="outline-container-org100c60a" class="outline-5">
+<h5 id="org100c60a">4.5.2 標本分布を経験的に求める</h5>
+<div class="outline-text-5" id="text-org100c60a">
 <p>
 標本分布は次のものから数学的に求まる:
 </p>
@@ -611,21 +662,29 @@ Rを用いて，理論的ではなく，経験的の標本分布を求めるこ�
 </p>
 
 <ul class="org-ul">
-<li>サイズ $ n $ の標本を何度も繰かえし抽出し，実現量を計算し，ヒス
+<li>サイズ \( n \) の標本を何度も繰かえし抽出し，実現量を計算し，ヒス
 トグラムを作成する</li>
 </ul>
 
 <p>
-しかし，母集団分布が母数を含めてわかっていないため，「もし母集団
-分布がこのような正規分布だったら、このくらいあてになる推定値が得
-られる」ということを検討することになる。
+しかし，母集団分布が母数を含めてわかっていないため，
+</p>
+
+<ul class="org-ul">
+<li>「もし母集団分布がこのような正規分布だったら、</li>
+
+<li>このくらいあてになる推定値が得られる」</li>
+</ul>
+
+<p>
+ということを検討することになる。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd957eaa" class="outline-5">
-<h5 id="orgd957eaa">4.5.3 正規母集団の母平均の推定</h5>
-<div class="outline-text-5" id="text-orgd957eaa">
+<div id="outline-container-org34a12ea" class="outline-5">
+<h5 id="org34a12ea">4.5.3 正規母集団の母平均の推定</h5>
+<div class="outline-text-5" id="text-org34a12ea">
 <ul class="org-ul">
 <li>母集団分布 \( \sim N(50, 10^2)\)</li>
 <li>\( n = 10 \)</li>
@@ -633,96 +692,151 @@ Rを用いて，理論的ではなく，経験的の標本分布を求めるこ�
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-R">
-     &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=10, mean=50, sd=10)
-     mean(&#27161;&#26412;)
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#12469;&#12452;&#12474;10&#12398;&#27161;&#26412;&#12395;&#12424;&#12427;&#65292;&#27597;&#24179;&#22343;&#12398;&#25512;&#23450;</span>
+
+&#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=10, mean=50, sd=10)
+mean(&#27161;&#26412;)
 
 </pre>
 </div>
 
 <pre class="example">
-[1] 53.10192
+[1] 53.5175
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgf0366a8" class="outline-5">
-<h5 id="orgf0366a8">4.5.4 標本分布を求める</h5>
-<div class="outline-text-5" id="text-orgf0366a8">
+<div id="outline-container-orgd5b14b9" class="outline-5">
+<h5 id="orgd5b14b9">4.5.4 標本分布を求める</h5>
+<div class="outline-text-5" id="text-orgd5b14b9">
 <p>
 母平均の推定を10000回繰り返し
+</p>
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27597;&#24179;&#22343;&#12398;&#25512;&#23450;</span>
+<span style="color: #99968b;">### </span><span style="color: #99968b;">&#27597;&#38598;&#22243; N(50, 10^2) &#12363;&#12425;</span>
+<span style="color: #99968b;">### </span><span style="color: #99968b;">&#27161;&#26412;&#12469;&#12452;&#12474; 10&#12398;&#27161;&#26412;&#12398;&#27161;&#26412;&#24179;&#22343;</span>
+<span style="color: #99968b;">### </span><span style="color: #99968b;">10000&#20491;&#12398;&#27161;&#26412;&#24179;&#22343;&#12398;&#38971;&#24230;&#34920;&#12434;&#25551;&#12367;</span>
+this.mean <span style="color: #e5786d;">&lt;-</span> 50
+this.sd <span style="color: #e5786d;">&lt;-</span> 10
+this.sample_size <span style="color: #e5786d;">&lt;-</span> 10
+this.counts <span style="color: #e5786d;">&lt;-</span> 10000
+
+&#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=this.counts) 
+      
+<span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:this.counts) {
+
+  &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
+  &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
+}
+mean(&#27161;&#26412;&#24179;&#22343;)
+var(&#27161;&#26412;&#24179;&#22343;)
+</pre>
+</div>
+
+<pre class="example">
+[1] 49.95663
+[1] 9.891202
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+hist(&#27161;&#26412;&#24179;&#22343;)
+
+</pre>
+</div>
+
+
+<div id="org3ead2df" class="figure">
+<p><img src="./RforS-graphs/04-12.png" alt="04-12.png" />
+</p>
+</div>
+
+<p>
+母平均 (50)からのズレが5以内か否かで振り分ける
 </p>
 
 <div class="org-src-container">
 <pre class="src src-R">
-      loops = 10000
-      
-      &#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=loops)
-      
-      <span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:loops) {
-        &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=10, mean=50, sd=10)
-        &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
-      }
-      
-      hist(&#27161;&#26412;&#24179;&#22343;)
-</pre>
-</div>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27597;&#24179;&#22343; (50)&#12363;&#12425;&#12398;&#12474;&#12524;&#12364;5&#20197;&#20869;&#12363;&#21542;&#12363;&#12391;&#25391;&#12426;&#20998;&#12369;&#12427;</span>
 
-<div class="org-src-container">
-<pre class="src src-R">
 &#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979; <span style="color: #e5786d;">&lt;-</span> ifelse( abs(&#27161;&#26412;&#24179;&#22343;-50) &lt;= 5, 1, 0)
 table(&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979;)
 
 </pre>
 </div>
 
-<pre class="example">
-誤差絶対値5以下
-   0    1 
-1167 8833
-</pre>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1139</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">8861</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>88%くらいは，母平均+-5に収まっている</b>
+</p>
+
+<ul class="org-ul">
+<li>(n &rarr; inf) で \( E(\overline{X}) = \)母平均</li>
+</ul>
 
 <div class="org-src-container">
-<pre class="src src-R">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">10000&#20491;&#12398;&#27161;&#26412;&#24179;&#22343;&#12398;&#24179;&#22343;&#20516;</span>
+
 mean(&#27161;&#26412;&#24179;&#22343;)
+
+<span style="color: #99968b;">## </span><span style="color: #99968b;">10000&#20491;&#12398;&#27161;&#26412;&#24179;&#22343;&#12398;&#20998;&#25955;&#20516;</span>
+
 var(&#27161;&#26412;&#24179;&#22343;)
 
 </pre>
 </div>
 
 <pre class="example">
-[1] 50.01761
-[1] 10.06572
+[1] 49.95663
+[1] 9.891202
 </pre>
 
 
 <div class="org-src-container">
-<pre class="src src-R">png(<span style="color: #95e454;">"graphs/fig-04-13.png"</span>, width=400, height=300)
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;"># </span><span style="color: #99968b;">png("graphs/fig-04-13.png", width=400, height=300)</span>
+<span style="color: #99968b;">##</span>
 hist(&#27161;&#26412;&#24179;&#22343;,freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
-curve(dnorm(x,mean=50,sd=sqrt(10)), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
-dev.off()
+curve(dnorm(x, mean=this.mean, sd=this.sd/sqrt(this.sample_size)), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>, col=<span style="color: #95e454;">"red"</span>)
 </pre>
 </div>
 
-<pre class="example">
-png 
-  3
-</pre>
 
-
-
-<div id="org2687213" class="figure">
-<p><img src="./graphs/fig-04-13.png" alt="fig-04-13.png" />
+<div id="org7d51363" class="figure">
+<p><img src="./RforS-graphs/04-13.png" alt="04-13.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb80e6a7" class="outline-5">
-<h5 id="orgb80e6a7">4.5.5 不偏性</h5>
-<div class="outline-text-5" id="text-orgb80e6a7">
+<div id="outline-container-orgb5b424a" class="outline-5">
+<h5 id="orgb5b424a">4.5.5 不偏性</h5>
+<div class="outline-text-5" id="text-orgb5b424a">
 <p>
 推定値 (e.g. 標本平均) の平均 (e.g. 標本分布の平均) は
 母集団分布によらず，
@@ -735,41 +849,44 @@ png
 </div>
 </div>
 
-<div id="outline-container-org190b341" class="outline-5">
-<h5 id="org190b341">4.5.6 標準誤差</h5>
-<div class="outline-text-5" id="text-org190b341">
+<div id="outline-container-org5b768b0" class="outline-5">
+<h5 id="org5b768b0">4.5.6 標準誤差</h5>
+<div class="outline-text-5" id="text-org5b768b0">
 <p>
 推定量の標本分布を調べるときの2つの観点のうち「（2）標本分布が横
 に大きく広がっていないか」にかかわるのが標準誤差です。
 </p>
 
 <p>
-標準誤差は、推定量の標本分布の標準偏差として定義します。
+標準誤差は、推定量の標本分布の標準偏差と定義する
 </p>
 
 <p>
-標準誤差が小さいということは、運不運によって結果が大きく左右され
-ないということです。また、誰がいつやってもだいたい同じ結果が安定
-して得られるということもできます。
-</p>
-
-<p>
-上で見た、N(50,102)の正規母集団からn＝10の標本を抽出したときの標
-本平均の例では、
+標準誤差が小さいということ
 </p>
 <ul class="org-ul">
-<li>標本平均の標本分布はN(50,10)でしたから、</li>
-<li>標準誤差は $\sqrt{10}$となります。</li>
+<li>運不運によって結果が大きく左右されない</li>
+<li>また、誰がいつやってもだいたい同じ結果が安定
+して得られる</li>
+</ul>
+
+<p>
+上の \( N(50,10^2) \)の正規母集団から \( n=10 \) の標本を抽出した
+ときの標本平均の例では、
+</p>
+<ul class="org-ul">
+<li>標本平均の標本分布はN(50,10)だったので，</li>
+<li>標準誤差は \( \sqrt{10} \) となります。</li>
 </ul>
 
 <p>
 一般的に、
 </p>
 <ul class="org-ul">
-<li>平均μ、分散σ2の正規分布N(μ,σ2)にしたがう母集団から</li>
-<li>サンプルサイズnの標本を抽出したとき、</li>
+<li>母集団が，平均 \( \mu \)、分散\( \sigma^2 \) の正規分布で</li>
+<li>標本サイズ \( n \) の標本を抽出したとき、</li>
 <li>その標本平均の標本分布は \( N(\mu, \frac{\sigma^2}{n}) \)となる</li>
-<li>標準誤差は \( \frac{\sigma}{\sqrt{n}} \) となります。</li>
+<li>標準誤差は \( \frac{\sigma}{\sqrt{n}} \) となる。</li>
 </ul>
 
 <p>
@@ -781,83 +898,82 @@ png
 大きくなる。つまり、母分散が大きいと、そこから無作為抽出した標
 本の平均値は母平均から外れた値をとりやすくなる。</li>
 
-<li>サンプルサイズが大きいほど、標本平均の標準誤差が小さくなる。つ
-まり、サンプルサイズを大きくすれば、そこから無作為抽出した標本
+<li>標本サイズが大きいほど、標本平均の標準誤差が小さくなる。つ
+まり、標本サイズを大きくすれば、そこから無作為抽出した標本
 の平均値は母平均に近い値をとりやすくなる</li>
 </ol>
 
 <p>
-実際に、先ほどのN(50,102)という母集団からの標本抽出の例で、サンプ
-ルサイズを10倍のn＝100にしてみると
+実際に、先ほどの\( N(50,10^2) \) という母集団からの標本抽出の例で、標本サ
+イズを10倍の \( n=100 \) にしてみると
 </p>
-
-
 
 <div class="org-src-container">
 <pre class="src src-R">
-      loops = 10000
-      sample_size <span style="color: #e5786d;">&lt;-</span> 100
-      &#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=loops)
+this.sample_size <span style="color: #e5786d;">&lt;-</span> 100
+&#27161;&#26412;&#24179;&#22343; <span style="color: #e5786d;">&lt;-</span> numeric(length=this.counts)
       
-      <span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:loops) {
-        &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=sample_size, mean=50, sd=10)
-        &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
-      }
-      
-      hist(&#27161;&#26412;&#24179;&#22343;)
+<span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:this.counts) {
+  &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
+  &#27161;&#26412;&#24179;&#22343;[i] <span style="color: #e5786d;">&lt;-</span> mean(&#27161;&#26412;)
+}
 
-&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979; <span style="color: #e5786d;">&lt;-</span> ifelse( abs(&#27161;&#26412;&#24179;&#22343;-50) &lt;= 5, 1, 0)
-table(&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979;)
-
-mean(&#27161;&#26412;&#24179;&#22343;)
+mean(&#27161;&#26412;&#24179;&#22343;) <span style="color: #99968b;">## </span><span style="color: #99968b;">&#20184;&#21152;</span>
 var(&#27161;&#26412;&#24179;&#22343;)
 
-png(<span style="color: #95e454;">"graphs/fig-04-14.png"</span>, width=400, height=300)
-hist(&#27161;&#26412;&#24179;&#22343;,freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
-curve(dnorm(x,mean=50,sd=sqrt(10)), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
-dev.off()
+&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979; <span style="color: #e5786d;">&lt;-</span> ifelse( abs(&#27161;&#26412;&#24179;&#22343;-50) &lt;= 5, 1, 0) <span style="color: #99968b;">## </span><span style="color: #99968b;">&#20184;&#21152;</span>
+table(&#35492;&#24046;&#32118;&#23550;&#20516;5&#20197;&#19979;) <span style="color: #99968b;">## </span><span style="color: #99968b;">&#20184;&#21152;</span>
+
 </pre>
 </div>
 
 <pre class="example">
+[1] 50.0089
+[1] 0.9932904
 誤差絶対値5以下
     1 
 10000
-[1] 49.9936
-[1] 0.9948733
-X11cairo 
-       2
 </pre>
 
 
 
-<div id="orga546650" class="figure">
-<p><img src="./graphs/fig-04-14.png" alt="fig-04-14.png" />
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">png(RforS-graphs/04-14.png)</span>
+
+hist(&#27161;&#26412;&#24179;&#22343;,freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+curve(dnorm(x,mean=50,sd=this.sd/sqrt(this.sample_size)),col=<span style="color: #95e454;">"red"</span>,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col=<span style="color: #95e454;">"blue"</span>,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+
+</pre>
+</div>
+
+<p>
+<img src="./RforS-graphs/04-14.png" alt="04-14.png" />g
 </p>
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgec3fc8a" class="outline-4">
-<h4 id="orgec3fc8a">4.6 標本平均以外の標本分布</h4>
-<div class="outline-text-4" id="text-orgec3fc8a">
+<div id="outline-container-org1f2bd4c" class="outline-4">
+<h4 id="org1f2bd4c">4.6 標本平均以外の標本分布</h4>
+<div class="outline-text-4" id="text-org1f2bd4c">
 <p>
 あらゆる標本統計量に対して標本分布を考えることができる。
 </p>
 </div>
 
-
-<div id="outline-container-org0e88a82" class="outline-5">
-<h5 id="org0e88a82">標本分散と不偏分散の標本分布</h5>
-<div class="outline-text-5" id="text-org0e88a82">
+<div id="outline-container-orgb3fd2b5" class="outline-5">
+<h5 id="orgb3fd2b5">標本分散と不偏分散の標本分布</h5>
+<div class="outline-text-5" id="text-orgb3fd2b5">
 <ul class="org-ul">
 <li>不偏分散は，母分散の不偏推定量</li>
 <li>標本分散は，標本の散布度</li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-R">samples.no <span style="color: #e5786d;">&lt;-</span> 10000
+<pre class="src src-R">
+samples.no <span style="color: #e5786d;">&lt;-</span> 10000
 sample.size <span style="color: #e5786d;">&lt;-</span> 10
 this.mean <span style="color: #e5786d;">&lt;-</span> 50
 this.sd <span style="color: #e5786d;">&lt;-</span> 10
@@ -874,50 +990,71 @@ this.sd <span style="color: #e5786d;">&lt;-</span> 10
 c(mean(&#27161;&#26412;&#20998;&#25955;s),sd(&#27161;&#26412;&#20998;&#25955;s))
 c(mean(&#19981;&#20559;&#20998;&#25955;s),sd(&#19981;&#20559;&#20998;&#25955;s))
 
-png(<span style="color: #95e454;">"graphs/fig-04-16-1.png"</span>,width=400,height=300)
-hist(&#27161;&#26412;&#20998;&#25955;s, breaks=seq(0,500,10))
-dev.off()
-png(<span style="color: #95e454;">"graphs/fig-04-16-2.png"</span>,width=400,height=300)
-hist(&#19981;&#20559;&#20998;&#25955;s, breaks=seq(0,500,10))
-dev.off()
-
 &#27161;&#26412;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978; <span style="color: #e5786d;">&lt;-</span> ifelse(&#27161;&#26412;&#20998;&#25955;s&gt;=200,1,0)
 &#19981;&#20559;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978; <span style="color: #e5786d;">&lt;-</span> ifelse(&#19981;&#20559;&#20998;&#25955;s&gt;=200,1,0)
 
 table(&#27161;&#26412;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978;)
 table(&#19981;&#20559;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978;)
+</pre>
+</div>
 
+<pre class="example">
+[1] 90.41353 42.75330
+[1] 100.45948  47.50366
+標本分散誤差100以上
+   0    1 
+9804  196
+不偏分散誤差100以上
+   0    1 
+9627  373
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#20998;&#25955;&#12398;&#38971;&#24230;&#34920;</span>
+
+hist(&#27161;&#26412;&#20998;&#25955;s, breaks=seq(0,500,10))
 
 </pre>
 </div>
 
-<pre class="example" id="org30d230c">
-     [1] 90.26902 42.74878
-     [1] 100.29891  47.49865
-     X11cairo 
-	    2
-     X11cairo 
-	    2
-     標本分散誤差100以上
-	0    1 
-     9817  183
-     不偏分散誤差100以上
-	0    1 
-     9631  369
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955;&#12398;&#38971;&#24230;&#34920;</span>
+
+hist(&#19981;&#20559;&#20998;&#25955;s, breaks=seq(0,500,10))
+
 </pre>
+</div>
+</div>
 
+<div id="outline-container-orgc9cf2e7" class="outline-6">
+<h6 id="orgc9cf2e7">標本分散</h6>
+<div class="outline-text-6" id="text-orgc9cf2e7">
 
-
-<p>
-<img src="./graphs/fig-04-16-1.png" alt="fig-04-16-1.png" />
-<img src="./graphs/fig-04-16-2.png" alt="fig-04-16-2.png" />
+<div id="orgfe3fb1b" class="figure">
+<p><img src="./graphs/fig-04-16-1.png" alt="fig-04-16-1.png" />
 </p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgf149747" class="outline-5">
-<h5 id="orgf149747">4.6.2 中央値の標本分布</h5>
-<div class="outline-text-5" id="text-orgf149747">
+<div id="outline-container-orga1deff1" class="outline-6">
+<h6 id="orga1deff1">標本不偏分散</h6>
+<div class="outline-text-6" id="text-orga1deff1">
+
+<div id="org35244d6" class="figure">
+<p><img src="./graphs/fig-04-16-2.png" alt="fig-04-16-2.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb064d29" class="outline-5">
+<h5 id="orgb064d29">4.6.2 中央値の標本分布</h5>
+<div class="outline-text-5" id="text-orgb064d29">
 <p>
 母平均の推定量として，標本平均よりよい標本統計量はないのか？
 </p>
@@ -931,7 +1068,9 @@ table(&#19981;&#20559;&#20998;&#25955;&#35492;&#24046;100&#20197;&#19978;)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-R">samples.no <span style="color: #e5786d;">&lt;-</span> 10000
+<pre class="src src-R"><span style="color: #99968b;">## </span><span style="color: #99968b;">&#20013;&#22830;&#20516;&#12434;&#27597;&#24179;&#22343;&#12398;&#25512;&#23450;&#37327;&#12392;&#12375;&#12390;&#20351;&#12360;&#12427;&#12363;</span>
+
+samples.no <span style="color: #e5786d;">&lt;-</span> 10000
 sample.size <span style="color: #e5786d;">&lt;-</span> 10
 this.mean <span style="color: #e5786d;">&lt;-</span> 50
 this.sd <span style="color: #e5786d;">&lt;-</span> 10
@@ -963,7 +1102,7 @@ c(mean(&#27161;&#26412;&#20013;&#22830;&#20516;s), sd(&#27161;&#26412;&#20013;&#
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-10-18 月 10:30</p>
+<p class="date">Created: 2021-10-24 日 21:52</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
