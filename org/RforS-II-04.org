@@ -312,23 +312,29 @@ mean(標本)
 ### 10000個の標本平均の頻度表を描く
 this.mean <- 50
 this.sd <- 10
-this.sample_size <- 10
 this.counts <- 10000
 
-標本平均 <- numeric(length=this.counts) 
+for (this.sample_size in c(10,20,40,80,160)) {
+  標本平均 <- numeric(length=this.counts) 
       
-for(i in 1:this.counts) {
+  for(i in 1:this.counts) {
 
-  標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
-  標本平均[i] <- mean(標本)
+    標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
+    標本平均[i] <- mean(標本)
+  }
+  cat("sample_size=", this.sample_size,
+      "mean=", mean(標本平均),
+      "var=", var(標本平均),
+      "\n")
 }
-mean(標本平均)
-var(標本平均)
       #+end_src
 
       #+RESULTS:
-      : [1] 50.05078
-      : [1] 10.12649
+      : sample_size= 10 mean= 49.99527 var= 9.874837 
+      : sample_size= 20 mean= 49.99103 var= 5.096431 
+      : sample_size= 40 mean= 49.99963 var= 2.487982 
+      : sample_size= 80 mean= 49.99276 var= 1.244241 
+      : sample_size= 160 mean= 50.00354 var= 0.6206769
 
      #+begin_src R :session t :results graphics :file RforS-graphs/04-12.png :tangle RforS-Codes/04-05.R
 

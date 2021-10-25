@@ -10,18 +10,21 @@ mean(標本)
 ### 10000個の標本平均の頻度表を描く
 this.mean <- 50
 this.sd <- 10
-this.sample_size <- 10
 this.counts <- 10000
 
-標本平均 <- numeric(length=this.counts) 
+for (this.sample_size in c(10,20,40,80,160)) {
+  標本平均 <- numeric(length=this.counts) 
       
-for(i in 1:this.counts) {
+  for(i in 1:this.counts) {
 
-  標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
-  標本平均[i] <- mean(標本)
+    標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
+    標本平均[i] <- mean(標本)
+  }
+  cat("sample_size=", this.sample_size,
+      "mean=", mean(標本平均),
+      "var=", var(標本平均),
+      "\n")
 }
-mean(標本平均)
-var(標本平均)
 hist(標本平均,main="図4.12 標本抽出10,000回のときの標本平均の分布")
 ## 母平均 (50)からのズレが5以内か否かで振り分ける
 

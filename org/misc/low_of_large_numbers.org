@@ -1,9 +1,14 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: low of large numner (データ解析) 
+#+OPTIONS:
+
 * 推定量の一致性 (大数の法則)の可視化
 
 ** Rの関数
    
 [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/59.html][R-Source]]   基本統計量の算出
-
 
 推定量の一致性 (大数の法則)の可視化
 http://tomoshige-n.hatenablog.com/entry/2016/06/07/233959
@@ -48,7 +53,7 @@ for(j in 1:j.num){
          xlab="log (標本サイズ)",xaxt="n")
     axis(1, at=log(n.cand), labels=n.cand)
   }else{
-    points(log(n.cand),res[,j],type="l")
+    points(log(n.cand),res[,j],type="l") ## type="l"は折れ線, "p"は点のみ
   }
 }
 
