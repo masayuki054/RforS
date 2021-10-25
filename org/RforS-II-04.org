@@ -476,7 +476,7 @@ curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
 #+RESULTS:
 
 ***** 図4.14 標本サイズを大きくしたときの標本平均の標本分布
-       [[./RforS-graphs/04-14.png]]g
+       [[./RforS-graphs/04-14.png]]
 
 *** 4.6 標本平均以外の標本分布
 
