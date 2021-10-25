@@ -108,11 +108,10 @@ var(身長)
 
 	- サイコロ振りの実験 \( n=6 \)
 
- #+begin_src R :tangle RforS-Codes/04-04.R
+ #+begin_src R :tangle RforS-Codes/04-04.R :results output
 ##
 ## 一様分布に従う6個の標本の抽出
-
-(サイコロ6 <- ceiling(runif(n=6,min=0,max=6 )))
+(サイコロ6 <- ceiling(runif(n=6,min=0,max=6)))
 
 ## 頻度表の作成
 table(サイコロ6)
@@ -120,14 +119,14 @@ table(サイコロ6)
  #+end_src
 
  #+RESULTS:
- : [1] 2 4 2 1 5 1
+ : [1] 5 1 1 4 5 6
  : サイコロ6
- : 1 2 4 5 
- : 2 2 1 1
+ : 1 4 5 6 
+ : 2 1 2 1 
 
 	- サイコロ振りの実験 \( n=60000 \)
 
-	#+begin_src R :tangle RforS-Codes/04-04.R
+	#+begin_src R :tangle RforS-Codes/04-04.R :results output
 
 ## 一様分布に従う6000個の標本の抽出
 サイコロ60000 <- ceiling(runif(n=60000,min=0,max=6 )
@@ -138,9 +137,6 @@ table(サイコロ60000)
 	#+end_src
 
  #+RESULTS:
- : サイコロ60000
- :     1     2     3     4     5     6 
- : 10041  9981  9961  9926 10110  9981
 
       
 ***** 4.4.4 母集団分布
@@ -161,6 +157,7 @@ box(lty=1)
           #+end_src
 
 	  #+RESULTS:
+	  [[file:RforS-graphs/04-03.png]]
 
 ****** 図4.3 性別の母集団分布の例
        
@@ -184,6 +181,7 @@ curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上
 	#+end_src
 
 	#+RESULTS:
+	[[file:RforS-graphs/04-05.png]]
 	
 ****** 図4.4-4.5 正規分布 N(0,1), N(0,2), N(1,1)
 
