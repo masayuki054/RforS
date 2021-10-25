@@ -70,7 +70,7 @@ ls()
 Age 	Score
 
 
-#+BEGIN_SRC R :var table=age-score-table :results output graphics :file graphs/r-plot.png :width 320 :height 320 :cache yes
+#+BEGIN_SRC R :vr table=age-score-table :results output graphics :file graphs/r-plot.png :width 320 :height 320 :cache yes
 
 plot(table)
 
