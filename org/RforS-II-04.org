@@ -162,11 +162,12 @@ box(lty=1)
 
 	  #+RESULTS:
 
+****** 図4.3 性別の母集団分布の例
+       
+  [[./RforS-graphs/04-03.png]]
 
- [[./RforS-graphs/04-03.png]]
 
-
-	*無作為抽出の標本は，母集団分布に従う*
+	 *無作為抽出の標本は，母集団分布に従う*
        
 ***** 4.4.5. 代表的な母集団分布である正規分布
 
@@ -183,8 +184,10 @@ curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上
 	#+end_src
 
 	#+RESULTS:
+	
+****** 図4.4-4.5 正規分布 N(0,1), N(0,2), N(1,1)
 
-	[[./RforS-graphs/04-05.png]]
+	 [[./RforS-graphs/04-05.png]]
 
        
 **** 4.4.7 正規母集団から単純無作為抽出を行なう
@@ -206,7 +209,7 @@ hist(rnorm(n=5, mean=50, sd=10), main="図4.7 N(50, 10)からの n=5 の標本�
 
      #+RESULTS:
 
-***** 図 4.7
+****** 図 4.7 N(50,10)からの n=5 の標本の頻度表
       
       [[./RforS-graphs/04-07.png]]
 
@@ -221,7 +224,7 @@ hist(rnorm(n=1000, mean=50, sd=10), main="図4.8 N(50, 10)からの n=1000 の�
 
       #+RESULTS:
 
-***** 図 4.8
+****** 図 4.8 N(50,10)からの n=1000 の標本の頻度表
 
  [[./RforS-graphs/04-08.png]]
 
@@ -324,41 +327,42 @@ var(標本平均)
       #+end_src
 
       #+RESULTS:
-      : [1] 49.95663
-      : [1] 9.891202
+      : [1] 50.05078
+      : [1] 10.12649
 
      #+begin_src R :session t :results graphics :file RforS-graphs/04-12.png :tangle RforS-Codes/04-05.R
 
-hist(標本平均)
+hist(標本平均,main="図4.12 標本抽出10,000回のときの標本平均の分布")
 
       #+end_src
 
       #+RESULTS:
 
       
+***** 図4.12 標本抽出10,000回のときの標本平均の分布
 
-     [[./RforS-graphs/04-12.png]]
+      [[./RforS-graphs/04-12.png]]
 
-     母平均 (50)からのズレが5以内か否かで振り分ける
+      母平均 (50)からのズレが5以内か否かで振り分ける
      
-     #+begin_src R :session t :tangle RforS-Codes/04-05.R
+      #+begin_src R :session t :tangle RforS-Codes/04-05.R
 
 ## 母平均 (50)からのズレが5以内か否かで振り分ける
 
 誤差絶対値5以下 <- ifelse( abs(標本平均-50) <= 5, 1, 0)
 table(誤差絶対値5以下)
 
-     #+end_src
+      #+end_src
 
-     #+RESULTS:
-     | 0 | 1139 |
-     | 1 | 8861 |
+      #+RESULTS:
+      | 0 | 1190 |
+      | 1 | 8810 |
 
-     *88%くらいは，母平均+-5に収まっている*
+      *88%くらいは，母平均+-5に収まっている*
 
-     * (n \rightarrow \inf) で \( E(\overline{X}) = \)母平均
+      * (n \rightarrow \inf) で \( E(\overline{X}) = \)母平均
 
-#+begin_src R :session t :tangle RforS-Codes/04-05.R :results output
+ #+begin_src R :session t :tangle RforS-Codes/04-05.R :results output
 ##
 ## 10000個の標本平均の平均値
 
@@ -368,23 +372,26 @@ mean(標本平均)
 
 var(標本平均)
 
-#+end_src
+ #+end_src
 
-#+RESULTS:
-: [1] 49.95663
-: [1] 9.891202
+ #+RESULTS:
+ : [1] 50.05078
+ : [1] 10.12649
 
-#+begin_src R :session t :results output graphics :file RforS-graphs/04-13.png :tangle RforS-Codes/04-05.R
+ #+begin_src R :session t :results output graphics :file RforS-graphs/04-13.png :tangle RforS-Codes/04-05.R
 ##
 # png("graphs/fig-04-13.png", width=400, height=300)
 ##
-hist(標本平均,freq=FALSE)
+hist(標本平均,freq=FALSE, main="図4.13 標本平均の標本分布")
 curve(dnorm(x, mean=this.mean, sd=this.sd/sqrt(this.sample_size)), add=TRUE, col="red")
-#+end_src
+ #+end_src
 
-#+RESULTS:
+ #+RESULTS:
 
-[[./RforS-graphs/04-13.png]]
+ 
+****** 図4.13 標本平均の標本分布
+
+  [[./RforS-graphs/04-13.png]]
 
 **** 4.5.5 不偏性
 
@@ -449,8 +456,8 @@ table(誤差絶対値5以下) ## 付加
 #+end_src
 
 #+RESULTS:
-: [1] 50.0089
-: [1] 0.9932904
+: [1] 50.00903
+: [1] 0.9902751
 : 誤差絶対値5以下
 :     1 
 : 10000
@@ -460,7 +467,7 @@ table(誤差絶対値5以下) ## 付加
 ##
 ## png(RforS-graphs/04-14.png)
 
-hist(標本平均,freq=FALSE)
+hist(標本平均,freq=FALSE, main="図4.14 標本サイズを大きくしたときの標本平均の標本分布")
 curve(dnorm(x,mean=50,sd=this.sd/sqrt(this.sample_size)),col="red",add=TRUE)
 curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
 
@@ -468,7 +475,8 @@ curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
 
 #+RESULTS:
 
-[[./RforS-graphs/04-14.png]]g
+***** 図4.14 標本サイズを大きくしたときの標本平均の標本分布
+       [[./RforS-graphs/04-14.png]]g
 
 *** 4.6 標本平均以外の標本分布
 
@@ -508,40 +516,38 @@ table(不偏分散誤差100以上)
      #+end_src
 
      #+RESULTS:
-     : [1] 90.41353 42.75330
-     : [1] 100.45948  47.50366
+     : [1] 90.62349 42.51753
+     : [1] 100.6928  47.2417
      : 標本分散誤差100以上
      :    0    1 
-     : 9804  196
+     : 9810  190
      : 不偏分散誤差100以上
      :    0    1 
-     : 9627  373
+     : 9631  369
 
-     #+begin_src R :results graphics :file RforS-graphs/04-16-1.png :session t :tangle RforS-Codes/04-06,R
+     #+begin_src R :results graphics :file RforS-graphs/04-15-1.png :session t :tangle RforS-Codes/04-06.R
 ##
 ## 標本分散の頻度表
 
-hist(標本分散s, breaks=seq(0,500,10))
+hist(標本分散s, breaks=seq(0,500,10), main="標本分散の分布")
 
      #+end_src
 
 #+RESULTS:
 
-     #+begin_src R :results graphics :file RforS-graphs/04-16-2.png :session t :tangle RforS-Codes/04-06,R
+     #+begin_src R :results graphics :file RforS-graphs/04-15-2.png :session t :tangle RforS-Codes/04-06.R
 ##
 ## 標本不偏分散の頻度表
 
-hist(不偏分散s, breaks=seq(0,500,10))
+hist(不偏分散s, breaks=seq(0,500,10), main="不偏分散の分布")
 
-      #+end_src
+     #+end_src
 
 #+RESULTS:
 
-***** 標本分散
-[[./graphs/fig-04-16-1.png]]
-
-***** 標本不偏分散
-[[./graphs/fig-04-16-2.png]]
+***** 図4.15 標本分散と不偏分散の分布
+      
+[[./RforS-graphs/04-15-1.png]] [[./RforS-graphs/04-15-2.png]]
 
 **** 4.6.2 中央値の標本分布
 

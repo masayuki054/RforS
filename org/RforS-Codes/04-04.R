@@ -22,7 +22,7 @@ box(lty=1)
 
 ## png("graphs/norm_graphs.png",width=400,height=300) 出力を PNG形式のファイルへ
 
-curve(dnorm(x), from=-4, to=4)        # 標準正規分布のグラフ， -4 から +4 の範囲
+curve(dnorm(x), from=-4, to=4, main="図4.4-5 正規分布 N(0, 1), N(0,2), N(1,1)")        # 標準正規分布のグラフ， -4 から +4 の範囲
 curve(dnorm(x,sd=2), add=TRUE)        # 平均0， 偏差2 の正規分布，上描き 
 curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上描き
 ##
@@ -30,9 +30,9 @@ curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上
 #### png("graphs/fig-04-07.png", width=400,height=300)
 
 rnorm(n=5, mean=50, sd=10)       # 標本の抽出
-hist(rnorm(n=5, mean=50, sd=10)) # 頻度表の描画
+hist(rnorm(n=5, mean=50, sd=10), main="図4.7 N(50, 10)からの n=5 の標本の頻度表") # 頻度表の描画
 ##
 ## 平均50、標準偏差10の正規母集団からn＝1000の標本を無作為抽出する
 
 #### png("graphs/fig-04-08.png", width=400,height=300)
-hist(rnorm(n=1000, mean=50, sd=10))
+hist(rnorm(n=1000, mean=50, sd=10), main="図4.8 N(50, 10)からの n=1000 の標本の頻度表")
