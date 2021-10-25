@@ -170,19 +170,21 @@ box(lty=1)
        
 ***** 4.4.5. 代表的な母集団分布である正規分布
 
-	#+begin_src R :results output graphics :file RforS-graphs/04-04.png :tangle RforS-Codes/04-04.R
+	#+begin_src R :results output graphics :file RforS-graphs/04-05.png :tangle RforS-Codes/04-04.R
 ##
 ## 正規分布のグラフを描く
 
 ## png("graphs/norm_graphs.png",width=400,height=300) 出力を PNG形式のファイルへ
 
-curve(dnorm(x), from=-4, to=4)        # 標準正規分布のグラフ， -4 から +4 の範囲
+curve(dnorm(x), from=-4, to=4, main="図4.4-5 正規分布 N(0, 1), N(0,2), N(1,1)")        # 標準正規分布のグラフ， -4 から +4 の範囲
 curve(dnorm(x,sd=2), add=TRUE)        # 平均0， 偏差2 の正規分布，上描き 
 curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上描き 
 
 	#+end_src
 
 	#+RESULTS:
+
+	[[./RforS-graphs/04-05.png]]
 
        
 **** 4.4.7 正規母集団から単純無作為抽出を行なう
@@ -198,28 +200,30 @@ curve(dnorm(x,mean=1,sd=1), add=TRUE) # 平均1， 偏差1 の正規分布，上
 #### png("graphs/fig-04-07.png", width=400,height=300)
 
 rnorm(n=5, mean=50, sd=10)       # 標本の抽出
-hist(rnorm(n=5, mean=50, sd=10)) # 頻度表の描画
+hist(rnorm(n=5, mean=50, sd=10), main="図4.7 N(50, 10)からの n=5 の標本の頻度表") # 頻度表の描画
 
      #+end_src
 
      #+RESULTS:
 
-     [[./RforS-graphs/04-07.png]]
+***** 図 4.7
+      
+      [[./RforS-graphs/04-07.png]]
 
-     #+begin_src R :results graphics :file RforS-graphs/04-08.png :tangle RforS-Codes/04-04.R
+      #+begin_src R :results graphics :file RforS-graphs/04-08.png :tangle RforS-Codes/04-04.R
 ##
 ## 平均50、標準偏差10の正規母集団からn＝1000の標本を無作為抽出する
 
 #### png("graphs/fig-04-08.png", width=400,height=300)
-hist(rnorm(n=1000, mean=50, sd=10))
+hist(rnorm(n=1000, mean=50, sd=10), main="図4.8 N(50, 10)からの n=1000 の標本の頻度表")
 
-     #+end_src
+      #+end_src
 
-     #+RESULTS:
+      #+RESULTS:
 
-[[./RforS-graphs/04-07.png]]
+***** 図 4.8
 
-[[./RforS-graphs/04-08.png]]
+ [[./RforS-graphs/04-08.png]]
 
 *** 4.5 標本分布
     #+property: header-args:R  :tangle RforS-Codes/04-05.R :session t :results output
