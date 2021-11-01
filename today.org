@@ -7,7 +7,7 @@
 
 * 11/01 04回目の講義内容
   
-** お知らせ
+** Todo お知らせ   SCHEDULED: <2021-11-01 月>
 
    1回目のレポートを出題しました。Webclassを見てください。
    〆切は，いちおう，11/15日です。   
@@ -81,10 +81,11 @@
     
     
 ** 今日 (10/25) の流れ
-*** 講師のRノート
+*** 講師のノート
     - Rノート  [[./org/RforS-II-index.org]]  
     - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章
-    - [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。      
+    - [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。
+    - [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
 
 *** Doing 標本と統計的推測
     - [[./org/Stat-estimation.org]]
@@ -116,6 +117,9 @@
        - [ ] 標本分散(が従う分布)の分散
        - => 母分散の区間推定
 
+
+**** (参考) 大数の法則と中心極限定理
+     - http://www.chem.konan-u.ac.jp/applphys/web_material/GaussFromBinominal.pdf
 
 
     

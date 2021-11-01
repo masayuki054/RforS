@@ -4,8 +4,9 @@
 #+title: RforS 4章 (データ解析) 
 #+OPTIONS:
 
+
 * Rによるやさしい統計学
-  #+property: header-arg:R :session t :results output :exports both :width 400 :height 300 
+  #+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300 
 
   #+begin_src shell :exports none
     rm -f RforS-Codes/04-*.R
@@ -227,7 +228,7 @@ hist(rnorm(n=1000, mean=50, sd=10), main="図4.8 N(50, 10)からの n=1000 の�
  [[./RforS-graphs/04-08.png]]
 
 *** 4.5 標本分布
-    #+property: header-args:R  :tangle RforS-Codes/04-05.R :session t :results output
+    #+property: header-args:R  :tangle RforS-Codes/04-05.R :session *rfors* :results output
     #+begin shell :exports none
     rm -f RforS-Codes/04-05.R
     #+end
@@ -287,7 +288,7 @@ hist(rnorm(n=1000, mean=50, sd=10), main="図4.8 N(50, 10)からの n=1000 の�
      - \( n = 10 \)
      - 母平均の推定量は，標本平均 \( \overline{X} \)
 
-     #+begin_src R :session t :tangle RforS-Codes/04-05.R
+     #+begin_src R :session *rfors* :tangle RforS-Codes/04-05.R
 ##
 ## 標本サイズ10の標本による，母平均の推定
 
@@ -297,12 +298,12 @@ mean(標本)
      #+end_src
 
      #+RESULTS:
-     : [1] 53.5175
+     : 44.9971134002593
 
 **** 4.5.4 標本分布を求める
 
      母平均の推定を10000回繰り返し
-     #+begin_src R :session t :results output :tangle RforS-Codes/04-05.R
+     #+begin_src R :session *rfors* :results output :tangle RforS-Codes/04-05.R
 ##
 ## 母平均の推定
 ### 母集団 N(50, 10^2) から
@@ -316,7 +317,7 @@ for (this.sample_size in c(10,20,40,80,160)) {
   標本平均 <- numeric(length=this.counts) 
       
   for(i in 1:this.counts) {
-
+1
     標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
     標本平均[i] <- mean(標本)
   }
@@ -328,13 +329,13 @@ for (this.sample_size in c(10,20,40,80,160)) {
       #+end_src
 
       #+RESULTS:
-      : sample_size= 10 mean= 49.99527 var= 9.874837 
-      : sample_size= 20 mean= 49.99103 var= 5.096431 
-      : sample_size= 40 mean= 49.99963 var= 2.487982 
-      : sample_size= 80 mean= 49.99276 var= 1.244241 
-      : sample_size= 160 mean= 50.00354 var= 0.6206769
+      : sample_size= 10 mean= 50.00768 var= 9.70614 
+      : sample_size= 20 mean= 49.97293 var= 4.901012 
+      : sample_size= 40 mean= 49.97277 var= 2.490787 
+      : sample_size= 80 mean= 49.99391 var= 1.249024 
+      : sample_size= 160 mean= 50.00111 var= 0.6388567
 
-     #+begin_src R :session t :results graphics :file RforS-graphs/04-12.png :tangle RforS-Codes/04-05.R
+     #+begin_src R :session *rfors* :results graphics :file RforS-graphs/04-12.png :tangle RforS-Codes/04-05.R
 
 hist(標本平均,main="図4.12 標本抽出10,000回のときの標本平均の分布")
 
@@ -349,7 +350,7 @@ hist(標本平均,main="図4.12 標本抽出10,000回のときの標本平均の
 
       母平均 (50)からのズレが5以内か否かで振り分ける
      
-      #+begin_src R :session t :tangle RforS-Codes/04-05.R
+      #+begin_src R :session *rfors* :tangle RforS-Codes/04-05.R
 
 ## 母平均 (50)からのズレが5以内か否かで振り分ける
 
@@ -366,7 +367,7 @@ table(誤差絶対値5以下)
 
       * (n \rightarrow \inf) で \( E(\overline{X}) = \)母平均
 
- #+begin_src R :session t :tangle RforS-Codes/04-05.R :results output
+ #+begin_src R :session *rfors* :tangle RforS-Codes/04-05.R :results output
 ##
 ## 10000個の標本平均の平均値
 
@@ -379,10 +380,10 @@ var(標本平均)
  #+end_src
 
  #+RESULTS:
- : [1] 50.05078
- : [1] 10.12649
+ : [1] 50.00111
+ : [1] 0.6388567
 
- #+begin_src R :session t :results output graphics :file RforS-graphs/04-13.png :tangle RforS-Codes/04-05.R
+ #+begin_src R :session *rfors* :results output graphics :file RforS-graphs/04-13.png :tangle RforS-Codes/04-05.R
 ##
 # png("graphs/fig-04-13.png", width=400, height=300)
 ##
@@ -441,7 +442,7 @@ curve(dnorm(x, mean=this.mean, sd=this.sd/sqrt(this.sample_size)), add=TRUE, col
      実際に、先ほどの\( N(50,10^2) \) という母集団からの標本抽出の例で、標本サ
      イズを10倍の \( n=100 \) にしてみると
 
-     #+begin_src R :tangle RforS-Codes/04-05.R :session t :results output 
+     #+begin_src R :tangle RforS-Codes/04-05.R :session *rfors* :results output 
 
 this.sample_size <- 100
 標本平均 <- numeric(length=this.counts)
@@ -460,14 +461,14 @@ table(誤差絶対値5以下) ## 付加
 #+end_src
 
 #+RESULTS:
-: [1] 50.00903
-: [1] 0.9902751
+: [1] 50.01269
+: [1] 1.010955
 : 誤差絶対値5以下
 :     1 
 : 10000
 
 
-     #+begin_src R :tangle RforS-Codes/04-05.R :session t :results graphics :file RforS-graphs/04-14.png
+     #+begin_src R :tangle RforS-Codes/04-05.R :session *rfors* :results graphics :file RforS-graphs/04-14.png
 ##
 ## png(RforS-graphs/04-14.png)
 
@@ -493,7 +494,7 @@ curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
      - 不偏分散は，母分散の不偏推定量
      - 標本分散は，標本の散布度
 
-     #+begin_src R :tangle RforS-Codes/04-06.R :results output :session t
+     #+begin_src R :tangle RforS-Codes/04-06.R :results output :session *rfors*
 
 samples.no <- 10000
 sample.size <- 10
@@ -520,16 +521,16 @@ table(不偏分散誤差100以上)
      #+end_src
 
      #+RESULTS:
-     : [1] 90.62349 42.51753
-     : [1] 100.6928  47.2417
+     : [1] 89.91501 42.93979
+     : [1] 99.90557 47.71088
      : 標本分散誤差100以上
      :    0    1 
-     : 9810  190
+     : 9819  181
      : 不偏分散誤差100以上
      :    0    1 
-     : 9631  369
+     : 9644  356
 
-     #+begin_src R :results graphics :file RforS-graphs/04-15-1.png :session t :tangle RforS-Codes/04-06.R
+     #+begin_src R :results graphics :file RforS-graphs/04-15-1.png :session *rfors* :tangle RforS-Codes/04-06.R
 ##
 ## 標本分散の頻度表
 
@@ -539,7 +540,7 @@ hist(標本分散s, breaks=seq(0,500,10), main="標本分散の分布")
 
 #+RESULTS:
 
-     #+begin_src R :results graphics :file RforS-graphs/04-15-2.png :session t :tangle RforS-Codes/04-06.R
+     #+begin_src R :results graphics :file RforS-graphs/04-15-2.png :session *rfors* :tangle RforS-Codes/04-06.R
 ##
 ## 標本不偏分散の頻度表
 

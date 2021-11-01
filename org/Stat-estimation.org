@@ -191,6 +191,7 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 \( \frac{(n-1) S^2}{\sigma^2} = (Y_2/\sigma)^2 + (Y_3/\sigma)^2 +
 \cdots (Y_n/\sigma)^2) \) である。
 
+
 \( Y_{i=2:n} \sim N(0, \sigma^2) \) なので，
 
 \( Y_{i=2:n}/\sigma \sim N(0, 1) \).
