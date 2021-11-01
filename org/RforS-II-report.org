@@ -1,0 +1,33 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: RforS レポート
+
+#+OPTIONS:
+
+* Rによるやさしい統計学のレポート
+  #+property: header-arg:R :session t :results output :exports both :width 400 :height 300 
+
+** 1回目のR-レポート (4章 母集団と標本)
+
+   - 〆切 :: 11/13
+   - 提出方法 :: Webclass のレポート提出
+     下記のものをアップロードしてください：
+     - Rのスクリプトと実行結果
+     - 描画 (.png, .pdf)
+   
+*** 問題4.1 母集団と標本
+    RforS 4章p.107の練習問題(1)
+*** 問題4.2
+    RforS 4章p.107の練習問題(2)
+*** 問題4.3 
+
+    最小値0、最大値100の一様分布からn=20の標本抽出を5,000回繰り返すこ
+    とにより、標本平均の経験的な標本分布を求めよ。
+
+    中心極限定理からこれは正規分布に近づくはずである。
+
+    そこでこのヒストグラムに、標本平均データの平均と標準偏差による正規
+    分布のグラフを重ねせて表示せよ(注意: 経験的な標本分布のヒストグラ
+    ムを書くとき、freq=FALSEを指定すること)
+

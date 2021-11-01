@@ -5,12 +5,7 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 11/01 04回目の講義内容
-  
-** お知らせ
-
-   1回目のレポートを出題しました。Webclassを見てください。
-   〆切は，いちおう，11/15日です。   
+* 10/25 03回目の講義内容
 
 ** Done 関連
 
@@ -73,52 +68,70 @@
 
 *** 対応 [0/6]
     - [-] 標本と統計的推測 K-7:R-4
-    - [-] 大数の法則と中心極限定理 K-5:R-4
+    - [ ] 大数の法則と中心極限定理 K-5:R-4
     - [-] 点推定 K-8: (R-4, R-5)
     - [ ] 区間推定 K-10:R-4
     - [ ] 検定 K-11, R-5
     - [ ] いろいろな検定 K-12:(R-6, R-7)
     
+*** 進行
+    
+**** Doing 標本と統計的推測 K-7:R-4
+   
+**** Todo 大数の法則と中心極限定理 K-5:R-4
+     
+**** Doing 点推定 K-8: (R-4, R-5)
+
     
 ** 今日 (10/25) の流れ
 *** 講師のRノート
-    - Rノート  [[./org/RforS-II-index.org]]  
-    - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章
-    - [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。      
 
+    - [[./org/RforS-II-index.org]]    
+
+*** Doing Rの環境
+    
+**** Todo Rの実行環境 
+     
+     - Rstudio がいいかもしれません
+
+     - 作業用のフォルダを準備し，スクリプトやデータの読み込み，保存がで
+       きること
+
+       ： ~/stat2/R Rの実行フォルダと想定します。
+       ： ~/stat2/R/data の下にデータがあると想定します。
+
+**** Done データの準備
+     
+     - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学) からデータをダウンロードしてください。
+       漢字コードの違う二つの圧縮ファイルがあります，utf-8 のものを
+       ダウンロードしてください。
+
+       ： ~/stat2/R/data とかに配置してください。
+       
+**** Todo R markdown
+     SCHEDULED: <2021-10-18 月>
+
+     文書とRスクリプトを共存させることができるはずです。
+
+     参考サイト: [[https://kazutan.github.io/kazutanR/Rmd_intro.html][R Markdown入門]], [[https://qiita.com/tomotagwork/items/c92fb40a76f56ea16aa4][R Markdownによるレポート生成 - Qiita]]
+     - コースの計算機には，pandoc がインストールされていない。
+
+     
 *** Doing 標本と統計的推測
-    - [[./org/Stat-estimation.org]]
+
+    今日は，[[./org/RforS-II-04.org]] の 4.3~4.6節を説明します。
+
+    - RforS の4章3節からになります。
+    
+    - 先週参照した，[[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。
+
+    - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章も関係し
+      ます。
 
     - 前期の内容では，下記内容が関係します：
 
       - 確率変数と確率分布
       - 確率変数の和の平均と分散
-
-*** 進行チェック
-    
-**** Doing 標本と統計的推測 [0/3]
-     - [ ] R-4
-       以下は，K-7 の説明の後
-       - 不偏性，標本誤差
-       - 標本平均以外の標本平均
-
-     - [ ] 標本平均  K-7 (教科書7章，5章と講師の講義ノート) [0/5]
-       - [ ] 標本平均の確率収束値
-       - [ ] 標本平均が従う分布
-       - [ ] 標本平均の期待値
-       - [ ] 標本平均の分散
-       - [ ] 標本誤差 (=> 母平均の区間推定)
-
-     - [ ] 標本不偏分散 K-7 (教科書7章，5章と講師の講義ノート) [0/4]
-       - [ ] 標本分散の確率収束値
-       - [ ] 標本分散が従う分布
-       - [ ] 標本分散(が従う分布)の期待値
-       - [ ] 標本分散(が従う分布)の分散
-       - => 母分散の区間推定
-
-
-
-    
 
 
      

@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-01 月 10:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>確率と統計 7.標本と統計的推測</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">確率と統計 7.標本と統計的推測</h1>
+
+<div id="outline-container-orge0dad8a" class="outline-2">
+<h2 id="orge0dad8a">標本平均の性質</h2>
+<div class="outline-text-2" id="text-orge0dad8a">
+</div>
+<div id="outline-container-org4319732" class="outline-3">
+<h3 id="org4319732">標本平均</h3>
+<div class="outline-text-3" id="text-org4319732">
+<dl class="org-dl">
+<dt>記法</dt><dd>\( \overline{X_{(n)}} \), \( (n) \)は標本サイズを表わすこの文書での 記法</dd>
+
+<dt>意味</dt><dd>\( \overline{X_{(n)}} = \Sigma_{1}^{n} X_i/n \), \( X_{i=1:n}  \) は <b>母集団</b> \( X \) からの <b>標本</b></dd>
+
+<dt>関連</dt><dd>確率変数の和の，平均，分散，確率分布</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org8007f15" class="outline-3">
+<h3 id="org8007f15">標本平均は \( \mu \) に <a href="#orga0bf8e2">確率収束</a> する &#x2013; 一致性，大数の法則</h3>
+<div class="outline-text-3" id="text-org8007f15">
+<p>
+\( \overline{X_{(n)}} \stackrel{P}{\longrightarrow}  \mu\)    \( (n \longrightarrow \infty) \)
+</p>
+
+<p>
+<b>標本平均</b> は, <b>母平均</b> \( \mu \) に <a href="#orga0bf8e2">確率収束</a> する
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgdba2b9d" class="outline-3">
+<h3 id="orgdba2b9d">標本平均の期待値は \( \mu \) &#x2013; 不偏性</h3>
+<div class="outline-text-3" id="text-orgdba2b9d">
+<p>
+確率変数の和の平均の期待値の公式より，
+</p>
+
+<p>
+\( \rm{E}(\overline{X_{(n)}}) = \mu \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf7dfc0f" class="outline-3">
+<h3 id="orgf7dfc0f">標本平均の分散</h3>
+<div class="outline-text-3" id="text-orgf7dfc0f">
+<p>
+(確率変数の和)の分散の期待値の公式より，
+</p>
+
+<p>
+\( \rm{E}(S^{2}_{(n)}) = \sigma^2 / \sqrt{n} \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1fc1dc7" class="outline-3">
+<h3 id="org1fc1dc7">標本平均が従がう分布は</h3>
+<div class="outline-text-3" id="text-org1fc1dc7">
+<p>
+\( \rm{N}(\mu, \sigma^2/\sqrt{n}) \)
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6f4e6d7" class="outline-2">
+<h2 id="org6f4e6d7">標本不偏分散の性質</h2>
+<div class="outline-text-2" id="text-org6f4e6d7">
+</div>
+<div id="outline-container-orge5f00af" class="outline-3">
+<h3 id="orge5f00af">標本不偏分散</h3>
+<div class="outline-text-3" id="text-orge5f00af">
+<p>
+標本不偏分散 \( S_{n}^2  = \Sigma_{i=1}^{n} (X_i - \bar{X_{n}})^2 /
+   (n-1) \)
+</p>
+
+<p>
+(分散の) 推定量 の計算式中に，
+別 (平均)の推定量を含んでいる。
+</p>
+
+<p>
+この計算式(標本不偏分散)は，独立な，(n-1)変数の関数になる。この個数
+を <b>自由度</b> と呼ぶ。
+</p>
+
+<p>
+\( \overline{X_{(n)}} = \Sigma_{1}^{n} X_i/n \) が制限として加わることにな
+る。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0241687" class="outline-3">
+<h3 id="org0241687">一致性</h3>
+<div class="outline-text-3" id="text-org0241687">
+<p>
+\( S_{n}^2  \longrightarrow \sigma^2\)    \( (n \longrightarrow \infty) \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org31c0d25" class="outline-3">
+<h3 id="org31c0d25">不偏性</h3>
+<div class="outline-text-3" id="text-org31c0d25">
+<p>
+\( \rm{E}(S_{n}^{2}) = \sigma^{2} \)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org92d9624" class="outline-3">
+<h3 id="org92d9624">標本不偏分散が従う標本分布</h3>
+<div class="outline-text-3" id="text-org92d9624">
+<p>
+\( (n-1) S_{n}^2 / \sigma^2 \sim \chi^{2} \)
+</p>
+
+<ul class="org-ul">
+<li><p>
+理由
+</p>
+\begin{eqnarray}
+(n-1) S_{n}^{2} & = & \Sigma_{i=1}^{n} (X_i^2 - \bar{X}_n)^2) \\
+& = & \Sigma_{i=1}^{n}X_i^2 - n \bar{X}_n^2 \\
+& = & \vec{X}^t \vec{X} - n \vec{\bar{X}_n}^t \vec{\bar{X}_n} \\
+& = & {X}^2 - n {\bar{X}_n}^2 \\
+\end{eqnarray}</li>
+</ul>
+
+<p>
+次節の説明より， 自由度 \( (n-1) \)のカイ二乗分布に従う。
+</p>
+
+<p>
+\[ \frac{(n-1) S_{n}^{2}}{\sigma^2} \sim \chi^2_{n-1} \]
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org2ba8736" class="outline-2">
+<h2 id="org2ba8736">標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布</h2>
+<div class="outline-text-2" id="text-org2ba8736">
+</div>
+<div id="outline-container-org1362718" class="outline-4">
+<h4 id="org1362718">変数変換行列 \(A\)</h4>
+<div class="outline-text-4" id="text-org1362718">
+<p>
+次の変数変換を考える: (標本平均を独立変数として見るため)
+</p>
+
+\begin{eqnarray}
+Y_1 & = &  \sqrt{n} \overline{X_{(n)}} = \Sigma_{i=1}^n X_i /\sqrt{n}\\
+Y_2 & = & (X_1- X_2)/\sqrt{2} \\
+Y_3 & = & (X_1 + X_2 - 2 X_3)/\sqrt{2\cdot3} \\
+\cdots  & = &  \cdots \\
+Y_n & = & (\Sigma_{i=1}^{n-1}X_i - (n-1) X_n)/\sqrt{n\cdot(n-1)}
+\end{eqnarray}
+
+
+<p>
+上記の変換を，変換行列 \( A \)で記述する:
+</p>
+
+<p>
+\( \vec{Y} = A \vec{X} \)
+</p>
+
+   \begin{eqnarray}
+   \vec{X} & = & (X_1, X_2, \cdots, X_n)^t \\
+   \vec{Y} & = & (Y_1, Y_2, \cdots, Y_n)^t \\
+%%   \vec{j} & = & (1, 1, \cdots, 1)^t  \\
+%%   \vec{a} & = & \vec{j}/\sqrt{n} \\
+%%           & = & (1/\sqrt{n} , \cdots, 1/\sqrt{n})^t \\
+   \end{eqnarray}
+
+
+\begin{equation}
+A = \left(
+\begin{array}{ccccc}
+1/\sqrt{n} & 1/\sqrt{n} & 1/\sqrt{n} & \cdots & 1/\sqrt{n}   \\ 
+1/\sqrt{2} & -1/\sqrt{2} & 0 & \cdots & 0 \\
+1/\sqrt{6} & 1/\sqrt{6} & -2/\sqrt{6} & \cdots & 0 \\
+\vdots & \vdots & \vdots & \ddots & 0 \\
+\frac{1}{\sqrt{n\cdot(n-1)}} &
+\frac{1}{\sqrt{n\cdot(n-1)}} &
+\frac{1}{\sqrt{n\cdot(n-1)}} &
+\cdots &  - \frac{(n-1)}{\sqrt{n\cdot(n-1)}}
+\end{array}
+\right)
+\end{equation}
+</div>
+
+<div id="outline-container-orge26de69" class="outline-5">
+<h5 id="orge26de69">変換A, A^t は直交変換</h5>
+<div class="outline-text-5" id="text-orge26de69">
+<p>
+\( A^t A = A, A^t = E \)は容易に確かめられる。
+すると，\(A^t=A^{-1}\)となる。
+</p>
+
+<p>
+このような性質を持つ行列は，直交行列と呼ばれる。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd3d27aa" class="outline-4">
+<h4 id="orgd3d27aa">逆変数変換 \( \vec{Y} = A^t \vec{X} \)</h4>
+<div class="outline-text-4" id="text-orgd3d27aa">
+<p>
+\( \vec{Y} = A \vec{X} \), \( \vec{X} = (X_1, X_2, \cdots, X_n) \) のとき，
+</p>
+
+<p>
+\(A^{-1} = A^t \)なので，\( \vec{Y} = A^t \vec{X} \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54a78ba" class="outline-4">
+<h4 id="org54a78ba">\( Y_1 \) と \( Y_{i=2:n} \) は独立</h4>
+<div class="outline-text-4" id="text-org54a78ba">
+<p>
+\( A_{i=1:n} \) を，行列 \( A \) の i 行目の横ベクトルとする。
+</p>
+
+\begin{equation}
+A = \left(
+\begin{array}{c}
+\vec{A_1}\\
+\vec{A_2}\\
+\cdots\\
+\vec{A_n}\\
+\end{array}
+\right)
+\end{equation}
+
+<p>
+行列\( A^t \)を横ベクトルを縦に並べたものと解釈するということ。
+</p>
+
+\begin{eqnarray}
+    \vec{A^t_1} \vec{A_1}^t & = & 1 \\
+    \vec{A^t_1} A_{i=2:n}^t & = & 0 \\
+    \vec{A^t_{i=2:n}} \vec{A_{j=2:n}} & = & \delta_{ij} \\
+\end{eqnarray}
+
+<p>
+つまり，\(A\) の基底ベクトルは全て直交し長さ1，\(A\)の階数は\(n\)で，線形独立な \( \vec{X} \) は，
+互いに独立な，ベクトル \( \vec{Y} = (Y_1, \cdots. Y_n)^t  \) に変換される。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2f5bfb" class="outline-4">
+<h4 id="orgb2f5bfb">\( (\vec{X}^t \vec{X} - n \overline{X_{(n)}}^2) \sim \chi^2(n-1) \)</h4>
+<div class="outline-text-4" id="text-orgb2f5bfb">
+<p>
+\[ Y_1 = \vec{A^t_1} \vec{X} = \Sigma_{i=1}^{n} X_i /\sqrt{n} \]
+</p>
+
+
+\begin{eqnarray}
+Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
+       & = &  (\Sigma_{i=1}^{n} X_i /\sqrt{n})^2 \\
+       & = & n \overline{X_{(n)}}^2 \\
+\end{eqnarray}
+
+\begin{eqnarray}
+\vec{X}^t \vec{X} - n \overline{X_{(n)}}^2  & = & (A^{t}Y)^t A^{t}Y - Y_1^2 \\
+ & = & Y_2^2 + \cdots + Y_n^2 \\
+\end{eqnarray}
+
+<p>
+\[
+    Y_{i=2:n} \sim N(0, \sigma^2) なので  Y_{i=2:n}/\sigma \sim N(0,1) \]
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org05cb797" class="outline-4">
+<h4 id="org05cb797">標本分散の標本分布</h4>
+<div class="outline-text-4" id="text-org05cb797">
+<p>
+\( (n-1) S^2 = Y_2^2 + Y_3^2 + \cdots + Y_n^2 \) であるので，
+</p>
+
+<p>
+\( \frac{(n-1) S^2}{\sigma^2} = (Y_2/\sigma)^2 + (Y_3/\sigma)^2 +
+\cdots (Y_n/\sigma)^2) \) である。
+</p>
+
+<p>
+\( Y_{i=2:n} \sim N(0, \sigma^2) \) なので，
+</p>
+
+<p>
+\( Y_{i=2:n}/\sigma \sim N(0, 1) \).
+</p>
+
+<p>
+なので，\( \frac{(n-1) S^2}{\sigma^2} \) は 自由度 \( n-1 \) のカイ二乗分布にしたがう。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org092e8b7" class="outline-2">
+<h2 id="org092e8b7">大数の法則と中心極限定理</h2>
+<div class="outline-text-2" id="text-org092e8b7">
+</div>
+<div id="outline-container-orga0bf8e2" class="outline-3">
+<h3 id="orga0bf8e2">確率収束</h3>
+<div class="outline-text-3" id="text-orga0bf8e2">
+<p>
+確率変数 \(X_n\) が 確率変数 \(X\)に確率収束する
+</p>
+
+<dl class="org-dl">
+<dt>記法</dt><dd>\( X_n \stackrel{P}{\longrightarrow} X \)</dd>
+
+<dt>意味</dt><dd>\( \forall \epsilon \lim_{n \rightarrow \infty} P(|X_n - X| > \epsilon) = 0 \)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgf007992" class="outline-3">
+<h3 id="orgf007992">大数の法則</h3>
+<div class="outline-text-3" id="text-orgf007992">
+<p>
+標本数が大きくなると，統計値は一定の値に近づく (確率収束)
+</p>
+
+<p>
+\( \overline{X_{(n)}} \stackrel{P}{\longrightarrow} \mu \)
+</p>
+
+<p>
+\(\overline{S^2_{(n)}} \stackrel{P}{\longrightarrow} \sigma^2 \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org642ebb1" class="outline-3">
+<h3 id="org642ebb1">中心極限定理</h3>
+<div class="outline-text-3" id="text-org642ebb1">
+<p>
+確率変数の和の分布は，変数の数が多くなると，正規分布に近づく (分布
+収束)
+</p>
+
+<p>
+\( \lim_{n\rightarrow\infty} \overline{X_{(n)}} \sim N(\mu,
+   \sigma^2/n) \)
+</p>
+
+<p>
+\( B(n,p) \stackrel{P}{\longrightarrow} N(np, np(1-p)) \) \( (n\rightarrow \infty) \)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15c8864" class="outline-2">
+<h2 id="org15c8864">標準化とスチューデント化</h2>
+<div class="outline-text-2" id="text-org15c8864">
+<p>
+確率変数 \( X \sim N(\mu, \sigma^2)\) の標準化   \( Z = \frac{X-\mu}{\sigma}
+  \sim N(0,1)  \)
+</p>
+</div>
+
+<div id="outline-container-org2e28dfb" class="outline-3">
+<h3 id="org2e28dfb">\( \overline{X_{(n)}}\) の標準化</h3>
+<div class="outline-text-3" id="text-org2e28dfb">
+<p>
+母分散既知の場合の母平均の推定に用いる:
+</p>
+
+<p>
+\(Z_n =  \frac{\overline{X_{(n)}}-\mu}{\sigma/\sqrt{n}}   \sim N(0,1/\sqrt{n})  \)
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0d549f5" class="outline-3">
+<h3 id="org0d549f5">\( \overline{X_{(n)}}\) のスチューデン化</h3>
+<div class="outline-text-3" id="text-org0d549f5">
+<p>
+母分散が未知の場合の母平均の推定に用いる:
+</p>
+
+<p>
+\(T_n =
+  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}} ~ \sim t_{n-1}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0ac31b4" class="outline-3">
+<h3 id="org0ac31b4">確率分布 <b>t-分布</b>  \( t_{n-1} \)</h3>
+<div class="outline-text-3" id="text-org0ac31b4">
+<p>
+t-分布は，\( n\rightarrow\infty \) で， 標準正規分布に， <b>分布収束</b>
+する。
+</p>
+
+<p>
+\( t_{n-1} \stackrel{d}{\longrightarrow} N(0,1) \) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7f5dbec" class="outline-3">
+<h3 id="org7f5dbec">母分布が未知の場合</h3>
+<div class="outline-text-3" id="text-org7f5dbec">
+<p>
+大標本であれば，
+</p>
+
+<p>
+\( t_{n-1} \stackrel{d}{\longrightarrow} N(0,1) \) をもちいて，
+</p>
+
+<p>
+\(T_n =
+  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}} ~ \sim N(0,1)\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-11-01 月 10:28</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

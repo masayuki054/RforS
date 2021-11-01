@@ -1,8 +1,11 @@
 * データ解析 2021 後期
 
 ** 今日の講義
-
    - [[./today.org]] 
+     - [[./org/Stat-estimation.org]] 統計的推測
+     - [[./org/RforS-II-04.org]] のこり
+
+   - [[./today-II-2021-10-25.org]] 
      - [[./org/RforS-II-04.org]] 4.3 から 4.6まで
 
    - [[./today-II-2021-10-18.org]]
