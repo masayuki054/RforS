@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-01 月 10:28 -->
+<!-- 2021-11-01 月 14:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>確率と統計 7.標本と統計的推測</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: auto;
+    overflow: visible;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -205,26 +192,50 @@
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -253,13 +264,13 @@
 <div id="content">
 <h1 class="title">確率と統計 7.標本と統計的推測</h1>
 
-<div id="outline-container-orge0dad8a" class="outline-2">
-<h2 id="orge0dad8a">標本平均の性質</h2>
-<div class="outline-text-2" id="text-orge0dad8a">
+<div id="outline-container-org0607a0c" class="outline-2">
+<h2 id="org0607a0c">標本平均の性質</h2>
+<div class="outline-text-2" id="text-org0607a0c">
 </div>
-<div id="outline-container-org4319732" class="outline-3">
-<h3 id="org4319732">標本平均</h3>
-<div class="outline-text-3" id="text-org4319732">
+<div id="outline-container-orgff72e86" class="outline-3">
+<h3 id="orgff72e86">標本平均</h3>
+<div class="outline-text-3" id="text-orgff72e86">
 <dl class="org-dl">
 <dt>記法</dt><dd>\( \overline{X_{(n)}} \), \( (n) \)は標本サイズを表わすこの文書での 記法</dd>
 
@@ -270,23 +281,23 @@
 </div>
 </div>
 
-<div id="outline-container-org8007f15" class="outline-3">
-<h3 id="org8007f15">標本平均は \( \mu \) に <a href="#orga0bf8e2">確率収束</a> する &#x2013; 一致性，大数の法則</h3>
-<div class="outline-text-3" id="text-org8007f15">
+<div id="outline-container-org88c8513" class="outline-3">
+<h3 id="org88c8513">標本平均は \( \mu \) に <a href="#org1f00755">確率収束</a> する &#x2013; 一致性，大数の法則</h3>
+<div class="outline-text-3" id="text-org88c8513">
 <p>
 \( \overline{X_{(n)}} \stackrel{P}{\longrightarrow}  \mu\)    \( (n \longrightarrow \infty) \)
 </p>
 
 <p>
-<b>標本平均</b> は, <b>母平均</b> \( \mu \) に <a href="#orga0bf8e2">確率収束</a> する
+<b>標本平均</b> は, <b>母平均</b> \( \mu \) に <a href="#org1f00755">確率収束</a> する
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-orgdba2b9d" class="outline-3">
-<h3 id="orgdba2b9d">標本平均の期待値は \( \mu \) &#x2013; 不偏性</h3>
-<div class="outline-text-3" id="text-orgdba2b9d">
+<div id="outline-container-orgbc708ee" class="outline-3">
+<h3 id="orgbc708ee">標本平均の期待値は \( \mu \) &#x2013; 不偏性</h3>
+<div class="outline-text-3" id="text-orgbc708ee">
 <p>
 確率変数の和の平均の期待値の公式より，
 </p>
@@ -297,9 +308,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf7dfc0f" class="outline-3">
-<h3 id="orgf7dfc0f">標本平均の分散</h3>
-<div class="outline-text-3" id="text-orgf7dfc0f">
+<div id="outline-container-orgd8c1c26" class="outline-3">
+<h3 id="orgd8c1c26">標本平均の分散</h3>
+<div class="outline-text-3" id="text-orgd8c1c26">
 <p>
 (確率変数の和)の分散の期待値の公式より，
 </p>
@@ -310,24 +321,24 @@
 </div>
 </div>
 
-<div id="outline-container-org1fc1dc7" class="outline-3">
-<h3 id="org1fc1dc7">標本平均が従がう分布は</h3>
-<div class="outline-text-3" id="text-org1fc1dc7">
+<div id="outline-container-org7b9add3" class="outline-3">
+<h3 id="org7b9add3">標本平均が従がう分布は</h3>
+<div class="outline-text-3" id="text-org7b9add3">
 <p>
-\( \rm{N}(\mu, \sigma^2/\sqrt{n}) \)
+\( \rm{N}(\mu, \sigma^2/n) \)
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org6f4e6d7" class="outline-2">
-<h2 id="org6f4e6d7">標本不偏分散の性質</h2>
-<div class="outline-text-2" id="text-org6f4e6d7">
+<div id="outline-container-org381e8ca" class="outline-2">
+<h2 id="org381e8ca">標本不偏分散の性質</h2>
+<div class="outline-text-2" id="text-org381e8ca">
 </div>
-<div id="outline-container-orge5f00af" class="outline-3">
-<h3 id="orge5f00af">標本不偏分散</h3>
-<div class="outline-text-3" id="text-orge5f00af">
+<div id="outline-container-orgd2a0cd2" class="outline-3">
+<h3 id="orgd2a0cd2">標本不偏分散</h3>
+<div class="outline-text-3" id="text-orgd2a0cd2">
 <p>
 標本不偏分散 \( S_{n}^2  = \Sigma_{i=1}^{n} (X_i - \bar{X_{n}})^2 /
    (n-1) \)
@@ -350,28 +361,28 @@
 </div>
 </div>
 
-<div id="outline-container-org0241687" class="outline-3">
-<h3 id="org0241687">一致性</h3>
-<div class="outline-text-3" id="text-org0241687">
+<div id="outline-container-org6e9bab6" class="outline-3">
+<h3 id="org6e9bab6">一致性</h3>
+<div class="outline-text-3" id="text-org6e9bab6">
 <p>
 \( S_{n}^2  \longrightarrow \sigma^2\)    \( (n \longrightarrow \infty) \)
 </p>
 </div>
 </div>
 
-<div id="outline-container-org31c0d25" class="outline-3">
-<h3 id="org31c0d25">不偏性</h3>
-<div class="outline-text-3" id="text-org31c0d25">
+<div id="outline-container-orged333d6" class="outline-3">
+<h3 id="orged333d6">不偏性</h3>
+<div class="outline-text-3" id="text-orged333d6">
 <p>
-\( \rm{E}(S_{n}^{2}) = \sigma^{2} \)
+\( \rm{E}[S_{n}^{2}] = \sigma^{2} \)
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org92d9624" class="outline-3">
-<h3 id="org92d9624">標本不偏分散が従う標本分布</h3>
-<div class="outline-text-3" id="text-org92d9624">
+<div id="outline-container-org9964e1e" class="outline-3">
+<h3 id="org9964e1e">標本不偏分散が従う標本分布</h3>
+<div class="outline-text-3" id="text-org9964e1e">
 <p>
 \( (n-1) S_{n}^2 / \sigma^2 \sim \chi^{2} \)
 </p>
@@ -401,13 +412,13 @@
 
 
 
-<div id="outline-container-org2ba8736" class="outline-2">
-<h2 id="org2ba8736">標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布</h2>
-<div class="outline-text-2" id="text-org2ba8736">
+<div id="outline-container-org13a3ac9" class="outline-2">
+<h2 id="org13a3ac9">標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布</h2>
+<div class="outline-text-2" id="text-org13a3ac9">
 </div>
-<div id="outline-container-org1362718" class="outline-4">
-<h4 id="org1362718">変数変換行列 \(A\)</h4>
-<div class="outline-text-4" id="text-org1362718">
+<div id="outline-container-org686733f" class="outline-4">
+<h4 id="org686733f">変数変換行列 \(A\)</h4>
+<div class="outline-text-4" id="text-org686733f">
 <p>
 次の変数変換を考える: (標本平均を独立変数として見るため)
 </p>
@@ -454,11 +465,11 @@ A = \left(
 \end{equation}
 </div>
 
-<div id="outline-container-orge26de69" class="outline-5">
-<h5 id="orge26de69">変換A, A^t は直交変換</h5>
-<div class="outline-text-5" id="text-orge26de69">
+<div id="outline-container-orgf52ac3e" class="outline-5">
+<h5 id="orgf52ac3e">変換A, A^t は直交変換</h5>
+<div class="outline-text-5" id="text-orgf52ac3e">
 <p>
-\( A^t A = A, A^t = E \)は容易に確かめられる。
+\( A^t A = A A^t = E \)は容易に確かめられる。
 すると，\(A^t=A^{-1}\)となる。
 </p>
 
@@ -469,9 +480,9 @@ A = \left(
 </div>
 </div>
 
-<div id="outline-container-orgd3d27aa" class="outline-4">
-<h4 id="orgd3d27aa">逆変数変換 \( \vec{Y} = A^t \vec{X} \)</h4>
-<div class="outline-text-4" id="text-orgd3d27aa">
+<div id="outline-container-orgcb797df" class="outline-4">
+<h4 id="orgcb797df">逆変数変換 \( \vec{Y} = A^t \vec{X} \)</h4>
+<div class="outline-text-4" id="text-orgcb797df">
 <p>
 \( \vec{Y} = A \vec{X} \), \( \vec{X} = (X_1, X_2, \cdots, X_n) \) のとき，
 </p>
@@ -482,9 +493,9 @@ A = \left(
 </div>
 </div>
 
-<div id="outline-container-org54a78ba" class="outline-4">
-<h4 id="org54a78ba">\( Y_1 \) と \( Y_{i=2:n} \) は独立</h4>
-<div class="outline-text-4" id="text-org54a78ba">
+<div id="outline-container-org05f0e34" class="outline-4">
+<h4 id="org05f0e34">\( Y_1 \) と \( Y_{i=2:n} \) は独立</h4>
+<div class="outline-text-4" id="text-org05f0e34">
 <p>
 \( A_{i=1:n} \) を，行列 \( A \) の i 行目の横ベクトルとする。
 </p>
@@ -517,9 +528,9 @@ A = \left(
 </div>
 </div>
 
-<div id="outline-container-orgb2f5bfb" class="outline-4">
-<h4 id="orgb2f5bfb">\( (\vec{X}^t \vec{X} - n \overline{X_{(n)}}^2) \sim \chi^2(n-1) \)</h4>
-<div class="outline-text-4" id="text-orgb2f5bfb">
+<div id="outline-container-org77f98f1" class="outline-4">
+<h4 id="org77f98f1">\( (\vec{X}^t \vec{X} - n \overline{X_{(n)}}^2) \sim \chi^2(n-1) \)</h4>
+<div class="outline-text-4" id="text-org77f98f1">
 <p>
 \[ Y_1 = \vec{A^t_1} \vec{X} = \Sigma_{i=1}^{n} X_i /\sqrt{n} \]
 </p>
@@ -544,9 +555,9 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 
 
-<div id="outline-container-org05cb797" class="outline-4">
-<h4 id="org05cb797">標本分散の標本分布</h4>
-<div class="outline-text-4" id="text-org05cb797">
+<div id="outline-container-org099d2ec" class="outline-4">
+<h4 id="org099d2ec">標本分散の標本分布</h4>
+<div class="outline-text-4" id="text-org099d2ec">
 <p>
 \( (n-1) S^2 = Y_2^2 + Y_3^2 + \cdots + Y_n^2 \) であるので，
 </p>
@@ -555,6 +566,7 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 \( \frac{(n-1) S^2}{\sigma^2} = (Y_2/\sigma)^2 + (Y_3/\sigma)^2 +
 \cdots (Y_n/\sigma)^2) \) である。
 </p>
+
 
 <p>
 \( Y_{i=2:n} \sim N(0, \sigma^2) \) なので，
@@ -571,13 +583,13 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 </div>
 
-<div id="outline-container-org092e8b7" class="outline-2">
-<h2 id="org092e8b7">大数の法則と中心極限定理</h2>
-<div class="outline-text-2" id="text-org092e8b7">
+<div id="outline-container-org5220bf4" class="outline-2">
+<h2 id="org5220bf4">大数の法則と中心極限定理</h2>
+<div class="outline-text-2" id="text-org5220bf4">
 </div>
-<div id="outline-container-orga0bf8e2" class="outline-3">
-<h3 id="orga0bf8e2">確率収束</h3>
-<div class="outline-text-3" id="text-orga0bf8e2">
+<div id="outline-container-org1f00755" class="outline-3">
+<h3 id="org1f00755">確率収束</h3>
+<div class="outline-text-3" id="text-org1f00755">
 <p>
 確率変数 \(X_n\) が 確率変数 \(X\)に確率収束する
 </p>
@@ -590,9 +602,9 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 </div>
 
-<div id="outline-container-orgf007992" class="outline-3">
-<h3 id="orgf007992">大数の法則</h3>
-<div class="outline-text-3" id="text-orgf007992">
+<div id="outline-container-org1b97bcc" class="outline-3">
+<h3 id="org1b97bcc">大数の法則</h3>
+<div class="outline-text-3" id="text-org1b97bcc">
 <p>
 標本数が大きくなると，統計値は一定の値に近づく (確率収束)
 </p>
@@ -607,9 +619,9 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 </div>
 
-<div id="outline-container-org642ebb1" class="outline-3">
-<h3 id="org642ebb1">中心極限定理</h3>
-<div class="outline-text-3" id="text-org642ebb1">
+<div id="outline-container-org15e079c" class="outline-3">
+<h3 id="org15e079c">中心極限定理</h3>
+<div class="outline-text-3" id="text-org15e079c">
 <p>
 確率変数の和の分布は，変数の数が多くなると，正規分布に近づく (分布
 収束)
@@ -627,18 +639,18 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 </div>
 
-<div id="outline-container-org15c8864" class="outline-2">
-<h2 id="org15c8864">標準化とスチューデント化</h2>
-<div class="outline-text-2" id="text-org15c8864">
+<div id="outline-container-org51259e2" class="outline-2">
+<h2 id="org51259e2">標準化とスチューデント化</h2>
+<div class="outline-text-2" id="text-org51259e2">
 <p>
 確率変数 \( X \sim N(\mu, \sigma^2)\) の標準化   \( Z = \frac{X-\mu}{\sigma}
   \sim N(0,1)  \)
 </p>
 </div>
 
-<div id="outline-container-org2e28dfb" class="outline-3">
-<h3 id="org2e28dfb">\( \overline{X_{(n)}}\) の標準化</h3>
-<div class="outline-text-3" id="text-org2e28dfb">
+<div id="outline-container-orgfe41a9a" class="outline-3">
+<h3 id="orgfe41a9a">\( \overline{X_{(n)}}\) の標準化</h3>
+<div class="outline-text-3" id="text-orgfe41a9a">
 <p>
 母分散既知の場合の母平均の推定に用いる:
 </p>
@@ -651,9 +663,9 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 
 
 
-<div id="outline-container-org0d549f5" class="outline-3">
-<h3 id="org0d549f5">\( \overline{X_{(n)}}\) のスチューデン化</h3>
-<div class="outline-text-3" id="text-org0d549f5">
+<div id="outline-container-orgc10c2c8" class="outline-3">
+<h3 id="orgc10c2c8">\( \overline{X_{(n)}}\) のスチューデン化</h3>
+<div class="outline-text-3" id="text-orgc10c2c8">
 <p>
 母分散が未知の場合の母平均の推定に用いる:
 </p>
@@ -665,9 +677,9 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 </div>
 </div>
 
-<div id="outline-container-org0ac31b4" class="outline-3">
-<h3 id="org0ac31b4">確率分布 <b>t-分布</b>  \( t_{n-1} \)</h3>
-<div class="outline-text-3" id="text-org0ac31b4">
+<div id="outline-container-orga900f7c" class="outline-3">
+<h3 id="orga900f7c">確率分布 <b>t-分布</b>  \( t_{n-1} \)</h3>
+<div class="outline-text-3" id="text-orga900f7c">
 <p>
 t-分布は，\( n\rightarrow\infty \) で， 標準正規分布に， <b>分布収束</b>
 する。
@@ -679,9 +691,9 @@ t-分布は，\( n\rightarrow\infty \) で， 標準正規分布に， <b>分布
 </div>
 </div>
 
-<div id="outline-container-org7f5dbec" class="outline-3">
-<h3 id="org7f5dbec">母分布が未知の場合</h3>
-<div class="outline-text-3" id="text-org7f5dbec">
+<div id="outline-container-org3d93989" class="outline-3">
+<h3 id="org3d93989">母分布が未知の場合</h3>
+<div class="outline-text-3" id="text-org3d93989">
 <p>
 大標本であれば，
 </p>
@@ -700,8 +712,8 @@ t-分布は，\( n\rightarrow\infty \) で， 標準正規分布に， <b>分布
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-11-01 月 10:28</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-11-01 月 14:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

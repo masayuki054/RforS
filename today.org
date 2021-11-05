@@ -6,6 +6,8 @@
 #+property: header-arg:R :session t :results output :exports both
 
 * 11/01 04回目の講義内容
+
+http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   
 ** Todo お知らせ   SCHEDULED: <2021-11-01 月>
 
@@ -80,7 +82,7 @@
     - [ ] いろいろな検定 K-12:(R-6, R-7)
     
     
-** 今日 (10/25) の流れ
+** 今日 (11/01) の流れ
 *** 講師のノート
     - Rノート  [[./org/RforS-II-index.org]]  
     - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章
@@ -91,6 +93,7 @@
     - [[./org/Stat-estimation.org]]
 
     - 前期の内容では，下記内容が関係します：
+
 
       - 確率変数と確率分布
       - 確率変数の和の平均と分散
