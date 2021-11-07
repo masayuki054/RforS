@@ -5,17 +5,15 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 11/08 05回目の講義内容
+* 11/01 04回目の講義内容
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   
-** Doing お知らせ   SCHEDULED: <2021-11-01 月>
+** Done お知らせ   SCHEDULED: <2021-11-01 月>
+   CLOSED: [2021-11-05 金 16:43]
 
-*** 1回目のレポートを出題しました。
-
-    Webclassを見てください。
-
-    〆切は，いちおう，11/15日です。   
+   1回目のレポートを出題しました。Webclassを見てください。
+   〆切は，いちおう，11/15日です。   
 
 ** Done 関連
 
@@ -84,30 +82,22 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
     - [ ] 検定 K-11, R-5
     - [ ] いろいろな検定 K-12:(R-6, R-7)
     
-
-** 講師のノート
-   - Rノート  [[./org/RforS-II-index.org]]
-     
-   - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の 8章，7章，5章
-   - 昨年の板書  [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
-
     
-** 今日 (11/08) の流れ
-*** Doing 標本と統計的推測 [1/4]
+** 今日 (11/01) の流れ
+*** 講師のノート
+    - Rノート  [[./org/RforS-II-index.org]]  
+    - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の7章，5章
+    - [[http://whitewell.sakura.ne.jp/R/Rstatistics-03.html][Rで統計学を学ぶ(3)]] を参考にしてください。
+    - [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
+
+*** Doing 標本と統計的推測 [1/2]
     - [ ] [[./org/Stat-estimation.org]]
-      前回ほぼ終了，標準化の前まで
-
-    - [ ] [[./org/RforS-II-04.org]]
-      - 前回，のこりの4.6を終らせる
-
-    - [ ] [[./org/Stat-estimation-2.org]]
-      教科書8章，今日はこれを終らせたいが。。。
+      ほぼ終了 標準化の前まで
       
     - [X] 前期の内容では，下記内容が関係します：
       - 確率変数と確率分布
       - 確率変数の和の平均と分散
-      - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
-	
+
 *** 進行チェック
     
 **** Doing 標本と統計的推測 [2/3]

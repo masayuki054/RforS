@@ -1,0 +1,175 @@
+#+setupfile: ../info/index-bigblow-header.setup
+#+include: ../info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: RforS 補足
+#+OPTIONS: 
+#+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300
+
+* optimizeによる最尤推定 (1変数)
+  
+* optim による最尤推定 (2変数)
+
+   [[https://stats.biopapyrus.jp/stats/optim.html][汎用最適化関数 optim | R の optim 関数で準ニュートン法や共役勾配法
+   などによるパラメーター推定]]
+
+   [[http://www.okadajp.org/RWiki/?%E9%96%A2%E6%95%B0%E3%81%AE%E6%9C%80%E5%A4%A7%E3%83%BB%E6%9C%80%E5%B0%8F%E5%8C%96][関数の最大・最小化 - RjpWiki]] optim の使用法
+   
+#+begin_src R :session *rfors* :results output :exports both
+##
+## misc/mle.org
+## 正規分布パラメーターの最尤推定
+##
+Y <- rnorm(1000, mean=10, sd=4)
+
+norm_log_likelyhood <- function(x, y) {
+  -sum(1/2*(y-x[1])^2/x[2] + 1/2*log(x[2]))
+}
+
+norm_log_likelyhood(c(10,2),Y)
+
+optim(c(10,2), norm_log_likelyhood, y=Y, control=list(fnscale=-1))
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[1] -4249.008
+$par
+[1]  9.998992 15.613368
+
+$value
+[1] -1873.947
+
+$counts
+function gradient 
+      57       NA 
+
+$convergence
+[1] 0
+
+$message
+NULL
+#+end_example
+
+
+
+* 教科書 8.5.3 血液型の最尤推定
+
+#+begin_src R :session *rfors* :results output :exports both
+##
+## 教科書 8.5.3 血液型の最尤推定
+##
+log_likelyhood <- function (x, y) {
+pa <- x[1]^2 + 2*x[1]*x[3]
+pb <- x[2]^2 + 2*x[2]*x[3]
+pab <- 2*x[1]*x[2]
+po <- x[3]^2
+
+y[1]*log(pa)+y[2]*log(pb)+y[3]*log(pab)+y[4]*log(po)
+
+# +log(gamma(101)/gamma(y[1])/gamma(y[2]+1)/gamma(y[3]+1)/gamma(y[4]+1)) 
+
+}
+
+Y <- c(43, 12, 6, 39)
+
+log_likelyhood(c(1/2,1/10,2/5),Y)
+
+optim(c(1/3,1/10,1/2), log_likelyhood, y=Y)
+optim(c(1/3,1/10,1/2), log_likelyhood, y=Y, control=(fnscale=-1))
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[1] -132.7052
+$par
+[1]  3.091373e-01  3.176396e-01 -4.789464e-27
+
+$value
+[1] -4865.315
+
+$counts
+function gradient 
+     501       NA 
+
+$convergence
+[1] 1
+
+$message
+NULL
+
+ 警告メッセージ: 
+1:  log(pa) で:   計算結果が NaN になりました 
+2:  log(pb) で:   計算結果が NaN になりました 
+3:  log(pa) で:   計算結果が NaN になりました
+$par
+[1]  3.091373e-01  3.176396e-01 -4.789464e-27
+
+$value
+[1] -4865.315
+
+$counts
+function gradient 
+     501       NA 
+
+$convergence
+[1] 1
+
+$message
+NULL
+
+ 警告メッセージ: 
+1:  log(pa) で:   計算結果が NaN になりました 
+2:  log(pb) で:   計算結果が NaN になりました 
+3:  log(pa) で:   計算結果が NaN になりました
+#+end_example
+
+#+begin_src R :session *rfors* :results output :exports both
+round(qf(0.2,5,3),3)
+fact(2)
+fac(2)
+2!
+#+end_src
+
+#+RESULTS:
+: [1] 0.444
+:  fact(2) でエラー:  関数 "fact" を見つけることができませんでした
+:  fac(2) でエラー:  関数 "fac" を見つけることができませんでした
+:  エラー:  予想外の '!' です  in "2!"
+
+階乗
+
+#+RESULTS:
+:  fact(2) でエラー:  関数 "fact" を見つけることができませんでした
+:  fac(2) でエラー:  関数 "fac" を見つけることができませんでした
+:  エラー:  予想外の '!' です  in "2!"
+
+
+#+begin_src R :session *rfors* :results output :exports both
+##
+## 教科書 8.5.3 血液型の最尤推定
+##
+
+log_likelyhood <- function (x) {
+y <- c(43, 12, 6, 39)
+pa <- x[1]^2 + 2*x[1]*x[3]
+pb <- x[2]^2 + 2*x[2]*x[3]
+pab <- 2*x[1]*x[2]
+po <- x[3]^2
+y[1]*log(pa)+y[2]*log(pb)+y[3]*log(pab)+y[4]*log(po)
+# +log(gamma(101)/gamma(y[1])/gamma(y[2]+1)/gamma(y[3]+1)/gamma(y[4]+1))
+}
+
+log_likelyhood(c(1/2,1/10,2/5))
+
+nlm(log_likelyhood,c(1/3,1/10,1/2))
+
+
+#+end_src
+
+#+RESULTS:
+: [1] -132.7052
+:  nlm(log_likelyhood, c(1/3, 1/10, 1/2)) でエラー: 
+:    'nlm' により有限でない値が与えられました 
+:  追加情報:  50 件以上の警告がありました (最初の 50 個の警告を見るには warnings() を使って下さい)

@@ -2,11 +2,11 @@
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+title: RforS 4章 (データ解析) 
-#+OPTIONS:
-
+#+OPTIONS: 
+#+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300
 
 * Rによるやさしい統計学
-  #+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300 
++property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300 
 
   #+begin_src shell :exports none
     rm -f RforS-Codes/04-*.R
@@ -483,6 +483,7 @@ curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
 ***** 図4.14 標本サイズを大きくしたときの標本平均の標本分布
        [[./RforS-graphs/04-14.png]]
 
+
 *** 4.6 標本平均以外の標本分布
 
     #+property: header-args:R :tangle RforS-Codes/04-06.R
@@ -495,60 +496,70 @@ curve(dnorm(x,mean=50,sd=this.sd/sqrt(10)),col="blue",add=TRUE)
      - 標本分散は，標本の散布度
 
      #+begin_src R :tangle RforS-Codes/04-06.R :results output :session *rfors*
+##
+## 4.6 標本平均以外の標本分布
+##
 
-samples.no <- 10000
-sample.size <- 10
-this.mean <- 50
-this.sd <- 10
+samples.no <- 10000   # いくつ標本を用いるか
+sample.size <- 10     # ひとつの標本の中のデータの個数
 
-標本分散s <- numeric(samples.no)
-不偏分散s <- numeric(samples.no)
+this.mean <- 50       # 分布の平均
+this.sd <- 10         # 分布の標準偏差
+
+標本分散s <- numeric(samples.no) # 各々の標本の分散値の保存場所
+不偏分散s <- numeric(samples.no) # 各々の標本の不偏分散値の保存場所
 
 for (i in 1:samples.no) {
-  標本 <- rnorm(n=sample.size,mean=this.mean,sd=this.sd)
-  標本分散s[i] <- mean((標本-mean(標本))^2)
+  標本 <- rnorm(n=sample.size, mean=this.mean, sd=this.sd) # ひとつの標本の生成
+  標本分散s[i] <- mean((標本-mean(標本))^2) 
   不偏分散s[i] <- var(標本)
 }
 
-c(mean(標本分散s),sd(標本分散s))
-c(mean(不偏分散s),sd(不偏分散s))
+c(mean(標本分散s),sd(標本分散s))  # 標本分散達の平均と分散
+c(mean(不偏分散s),sd(不偏分散s))  # 標本不偏分散達の平均と分散
+#+end_src
 
-標本分散誤差100以上 <- ifelse(標本分散s>=200,1,0)
-不偏分散誤差100以上 <- ifelse(不偏分散s>=200,1,0)
+#+RESULTS:
+: [1] 90.28262 42.15390
+: [1] 100.31402  46.83766
 
+     #+begin_src R :tangle RforS-Codes/04-06.R :results output :session *rfors*
+
+標本分散誤差100以上 <- ifelse(標本分散s>=100,1,0)
+不偏分散誤差100以上 <- ifelse(不偏分散s>=100,1,0)
 table(標本分散誤差100以上)
 table(不偏分散誤差100以上)
+
      #+end_src
 
      #+RESULTS:
-     : [1] 89.91501 42.93979
-     : [1] 99.90557 47.71088
      : 標本分散誤差100以上
      :    0    1 
-     : 9819  181
+     : 6512 3488
      : 不偏分散誤差100以上
      :    0    1 
-     : 9644  356
+     : 5585 4415
 
-     #+begin_src R :results graphics :file RforS-graphs/04-15-1.png :session *rfors* :tangle RforS-Codes/04-06.R
+     #+begin_src R :results output graphics :file RforS-graphs/04-15-1.png :tangle RforS-Codes/04-06.R :session *rfors*
 ##
 ## 標本分散の頻度表
-
+##
 hist(標本分散s, breaks=seq(0,500,10), main="標本分散の分布")
 
      #+end_src
 
-#+RESULTS:
+     #+RESULTS:
 
-     #+begin_src R :results graphics :file RforS-graphs/04-15-2.png :session *rfors* :tangle RforS-Codes/04-06.R
+     #+begin_src R :results output graphics :file RforS-graphs/04-15-2.png :tangle RforS-Codes/04-06.R :session *rfors*
 ##
 ## 標本不偏分散の頻度表
-
+##
 hist(不偏分散s, breaks=seq(0,500,10), main="不偏分散の分布")
 
      #+end_src
 
-#+RESULTS:
+
+     #+RESULTS:
 
 ***** 図4.15 標本分散と不偏分散の分布
       
@@ -562,9 +573,10 @@ hist(不偏分散s, breaks=seq(0,500,10), main="不偏分散の分布")
 
      中央値を母平均の推定量として使えるか
 
-     #+begin_src R :tangle RforS-Codes/04-06.R
-## 中央値を母平均の推定量として使えるか
-
+     #+begin_src R :tangle RforS-Codes/04-06.R :session *rfors* :results output
+##
+## 4.6.2 中央値を母平均の推定量として使えるか
+##
 samples.no <- 10000
 sample.size <- 10
 this.mean <- 50
@@ -585,7 +597,29 @@ c(mean(標本中央値s), sd(標本中央値s))
 #+end_src
 
 #+RESULTS:
-: [1] 49.956336  3.207652
-: [1] 49.964114  3.734581
+: [1] 50.002369  3.183515
+: [1] 50.012799  3.748797
 
 
+     #+begin_src R :results output graphics :file RforS-graphs/04-16-1.png :tangle RforS-Codes/04-06.R :session *rfors*
+##
+## 標本分散の頻度表
+##
+hist(標本平均s, breaks=seq(30,70,1), main="標本平均の分布")
+
+     #+end_src
+
+     #+RESULTS:
+
+     #+begin_src R :results output graphics :file RforS-graphs/04-16-2.png :tangle RforS-Codes/04-06.R :session *rfors*
+##
+## 標本中央値の頻度表
+##
+hist(標本中央値s, breaks=seq(30,70,1), main="標本中央値の分布")
+
+     #+end_src
+
+
+     #+RESULTS:
+
+[[./RforS-graphs/04-16-1.png]]     [[./RforS-graphs/04-16-2.png]]     

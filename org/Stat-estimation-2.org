@@ -1,0 +1,180 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 確率と統計 8.点推定
+#+OPTIONS: tex:t
+#+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300
+
+* 8.1 推定量 \( T(\vec{X}) \)
+
+  - 推定量 \( T(\vec{X}) \) :: 母集団のパラメーターを推定するための，統計量
+   (確率変数の計算式)
+
+  - 点推定 :: \( T(\vec{X}) \) の標本値 \( T(\vec{x}) \)を計算し， 母集団のパラメーター
+    を推定すること
+
+  - \( \hat{\theta} \) :: パラメーター \( \theta \) の点推定値
+
+    
+** 不偏性
+
+   - \( E[T(\vec{X})] = \theta \) :: 推定量の平均が母パラメーターにな
+     ること
+
+     
+** 一致性
+
+   - \( E[T(\vec{X})] \stackrel{P}{\longrightarrow} \theta \) :: 標本
+     サイズが大きければ，推定量は母パラメーターに確率収束すること
+
+* 8.2 推定量の作り方 (モーメント法)
+  
+** \( \mu  = E[X] \) の推定
+
+   \( \hat{\mu} = \overline{X} = \frac{1}{n}\Sigma_1^{n} X_i \)
+
+   - 不偏であり，一致である
+
+** \( \tau  = E[X^2] \) の推定
+   
+   \( \hat{\tau} = \overline{X^2} = \frac{1}{n}\Sigma_1^{n} X_i^2 \)
+
+   - 不偏であり，一致である
+	
+** \( \sigma^2 = E[(X-\mu)^2] \) の推定
+
+   \( \mu \) が既知ならば \( \hat{\sigma}^2 = \frac{1}{n}\Sigma_1^{n}    (X_i-\mu) ^2 \)
+
+   \( \mu \) が未知ならば, \( \mu \) の推定量 \( \overline{X} \) を使
+   い，
+   \( \hat{\sigma}^2 = \frac{1}{n}\Sigma_1^{n}    (X_i- \overline{X})
+   ^2 \)
+
+   これは不偏推定量ではないため，
+   
+   \( \hat{\sigma}^2 = \frac{1}{(n-1)}\Sigma_1^{n}    (X_i- \overline{X})
+   ^2 = S^2 \)
+
+   - 不偏であり，一致である
+   
+** \( \sigma_{xy} = E[(X-\mu_x)(Y-\mu_y)] \) の推定
+
+   \( \hat{\sigma}_{xy} = \frac{1}{(n-1)} \Sigma_1^n (X_i-\overline{X})
+   (Y_i - \overline{Y}) = S_{xy} \)
+
+   - 不偏であり一致である
+   
+** 相関係数 \( \rho_{xy} = \sigma_{xy} /\sqrt{\sigma^2_x \sigma^2_y} \) の推定
+
+   \( \rho_{xy} = S_{xy} /\sqrt{S^2_x \S^2_y} \) を用いる。
+
+   - 一致であるが不偏ではない
+   
+* 8.3 推定量の良さ (平均2乗誤差の小ささ)
+
+  - パラメータ \( \theta \) の推定量 \( T = T(\vec{X}) \)
+
+  - 平均2乗誤差 ::  \( \theta \) と \( T \) の乖離を \(E[(\theta-T)^2]
+    \) で測る
+
+    平均2乗誤差が小さいほど良い。
+
+  - 平均2乗誤差 = 分散 + バイアス
+
+    \begin{eqnarray}
+    E[(\theta-T)^2] & = & E[{(T-E[T])+(E[T]-\theta)}^2] \\
+    & = & E[{(T-E[T])^2+(E[T]-\theta)^2+2(T-E[T])(E[T]-\theta)}]\\
+    & = & E[{(T-E[T])^2] + (E[T]-\theta)^2\\
+    & = & V[T] + (E[T]-\theta)^2\\
+    \end{eqnarray}
+
+    
+
+* 8.4 最尤推定
+
+  パラメータ \(\vec{\theta}\) を含む，確率密度関数を，\(f(\vec{x};
+  \vec{\theta})\) と書くことにする。
+  
+** 尤度
+
+   \(\vec{x}\) の値を\(\vec{w}\)とする。(確率変数 \( \vec{X} \) の標本
+   値が \(\vec{w}\))
+
+   \( f(\vec{w}; \theta) \) を尤度または尤度関数と呼ぶ
+
+   \( f(\vec{X}; \theta) \) も尤度または尤度関数と呼ぶ
+   
+** 最尤推定
+   
+*** 離散型
+
+    \( P(\vec{X} = \vec{x} ) = f(\vec{x}, \theta) = L(\theta; \vec{x})
+    \)
+
+    \(\vec{x}\)は標本値。その値の時の同時確率密度関数値つまり尤度が最
+    大だったため，\(\vec{x}\)が観測されたのだ，と考える。
+
+    \( \hat{\theta} = \hat{\theta}(\vec{x}) = \rm{argmax}_{\theta}f(\vec{x},
+    \theta) = \rm{argmax}_{\theta}L(\theta; \vec{x})\)
+
+    - f の 最大値を与える，\( \theta \) 探すということ
+    - [[https://ja.wikipedia.org/wiki/Arg_max][arg max - Wikipedia]]
+
+*** 対数尤度
+
+    - 対数尤度 :: \( L(\theta;\vec{x}) \) の対数
+
+      \( l(\theta; \vec{x}) = \log L(\theta; \vec{x}) = \log f(\theta;
+    \vec{x}) \)
+
+      - log を取っても関数の増減傾向は同じ，
+      - 積を和の形にし，微分し易くする
+
+      - 対数尤度関数の \(\theta\) に関する最大値を探す
+
+	- 尤度方程式 \( \rm{d} l(\theta; \vec{x})/ \rm{d}\theta = 0\) で
+          極値を探す
+
+      - 無作為標本 \( X_{i=1:n} \) であれば，
+
+	- \( f(\vec{x}, \theta)  = \Pi_{i=1}^{n} f_i(x_i; \theta) \) で
+          あるので，
+
+	- \( \hat{\theta } = \rm{argmax}_{\theta} \Sigma_{i=1}^{n}
+          l(\theta; x_i) \) となり，微分し易くなる
+	  
+** 例
+   
+*** ベルヌーイ分布
+
+*** ポアソン分布
+
+*** 正規分布
+
+    - 対数尤度関数を，\( \mu \) と \( \sigma^2 \) の二つのパラメーターに
+      かんする最大値を求める
+
+      - \( \mu \) に関しては，\( \overline{x} = \mu \) で，最大がわか
+        る
+
+      - \( \sigma^2 \) に関しては，\( -\frac{n}{2} \log \sigma^2
+        -\frac{1}{2\sigma^2}\Sigma(x_i-\overline{x})^2 \)
+	を \( \sigma^2 \) で微分し，
+
+	\( \frac{-1}{\sigma^2}\left(n -
+        \frac{1}{\sigma^2}\Sigma(x_i-\overline{x}) \right) = 0 \) ，
+
+	\(\sigma^2 = \frac{1}{n}\Sigma(x_i-\overline{x})^2 \)となる。
+
+	標本不偏分散ではなく，標本分散となる。
+
+
+
+
+* 8.5 例
+
+  手書ノートで説明します。
+
+  
+* Rによる最尤法の計算例
+  [[file:misc/mle.org::*optim による最尤推定 (2変数)][optim による最尤推定 (2変数)]]

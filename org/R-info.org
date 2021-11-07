@@ -97,3 +97,137 @@
 
    [[https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/persp][persp function | R Documentation]]   3次元描画関数  
 
+* search
+  
+
+** 積率母関数
+
+  [[http://www.hino.meisei-u.ac.jp/ge/tsukada/lecture/prob/][meisei-u.ac.jpの確率論]] 
+  - [[http://www.hino.meisei-u.ac.jp/ge/tsukada/lecture/prob/04-6.pdf][積率母関数]]
+
+
+** 確率収束 例
+   
+
+   [[https://kriver-1.hatenablog.com/entry/2018/05/14/204137][確率変数の収束についてまとめる - ブログ村]]
+
+   pas
+
+** Doing 標準偏差と標準誤差はどこが違うのか
+   
+   標準偏差と標準誤差はどこが違うのか  
+
+** 平均
+   [[https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9D%87#%E8%AA%BF%E5%92%8C%E5%B9%B3%E5%9D%87][平均 - Wikipedia]]
+   調和平均 並列 [[https://www.omoshiro-suugaku.com/entry/tyouwa-heikinn][調和平均とは何か - いぬおさんのおもしろ数学実験室]]
+
+**  [[https://bellcurve.jp/statistics/course/#step1][統計学の時間 | 統計WEB]]
+ - 独立性の検定 [[https://bellcurve.jp/statistics/course/9496.html][25-5. 独立性の検定 | 統計学の時間 | 統計WEB]]
+ - 母集団相関係数 検定 [[https://bellcurve.jp/statistics/course/9591.html][26-3. 相関係数 | 統計学の時間 | 統計WEB]]
+   
+** 信頼区間
+
+   [[https://ja.wolframalpha.com/examples/mathematics/statistics/][Wolfram|Alpha Examples: 統計]]
+
+   [[https://bellcurve.jp/statistics/course/8891.html][19-3. 95％信頼区間のもつ意味 | 統計学の時間 | 統計WEB]] (わかりやすい)
+
+   [[https://oku.edu.mie-u.ac.jp/~okumura/stat/what_is_CI.html][信頼区間って何？]] () = 標本統計値 +ー 信頼水準点 * 標準誤差
+
+
+  
+** excel シートを別々のCSV
+
+   [[https://qiita.com/hisabo/items/abdd558e4dd0785eaf92][LibreOffice Calc でVBAマクロを使う（始め方） - Qiita]]
+
+   [[https://moripro.net/vba-createfile/][【ExcelVBA】エクセルブックの全シートからCSV(テキスト)ファイルを一括出力する｜もりさんのプログラミング手帳]]
+  
+** R 移動平均 荷重平均
+
+lamda<-2^(-1/250)
+wgt.exp<-rep(0:nrow(x)-1)
+wgt.exp<-(1-lamda)*lamda^wgt.exp 
+  
+** R と Excel 関数の対応
+
+   [[https://datumstudio.jp/blog/r%E3%81%A7excel%EF%BC%88xlsx%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%EF%BC%89%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80/][【Rで使える小技】RでExcel（xlsxファイル）を読み込む方法 | DATUM
+   STUDIO株式会社]]
+   install.packages("openxlsx")
+  
+** R markdown
+
+   [[https://kazutan.github.io/kazutanR/Rmd_intro.html][R Markdown入門]] [[https://qiita.com/tomotagwork/items/c92fb40a76f56ea16aa4][R Markdownによるレポート生成 - Qiita]]
+
+** R read.csv セパレータ
+[[https://www.cyberer.net/2020/05/r-read-files.html][CYBERer.NET: R - 実践編 1 ファイルの読み込み、データフレームの加工]]
+   
+** R ヒストグラム分析
+   
+** RStudio 使い方
+
+   Rstudio エクセルデータのコピペ
+
+   [[https://datasciencehenomiti.com/post-986/][コピペでRにデータ取り込み]]
+
+*** [[https://kazutan.github.io/JSSP2018_spring/intro_rstudio.html][R/RStudio入門]] CC-BY
+    これいいかも。データ処理の解説もあり。
+   
+   
+** R グラフ 日本語
+   SCHEDULED: <2021-10-22 金>
+
+   [[https://qiita.com/purple_jp/items/6626ec1ea4e34c7d45b1][MacOSのR/RStudioでplot関数で作図する際に、日本語の文字化けを治す方法 - Qiita]]
+   - .Rprofile で書く方法，これでmacでは成功
+
+   [[https://ill-identified.hatenablog.com/entry/2020/10/03/200618][おまえはもうRのグラフの日本語表示に悩まない (各OS対応) - ill-identified diary]]
+
+** R plot type
+
+   - [[https://www.kkaneko.jp/data/r/rplot.html][R システムの plot を用いた種々の散布図と折れ線グラフ]]
+   - [[https://data-science.gr.jp/implementation/ida_r_histogram.html][Rによるヒストグラムの描画]]
+
+*** R plot 重ね書き
+    - [[https://bioinfo-dojo.net/r-plot-overlay][R plot 重ねる方法３パターン サンプルでわかるRの使い方]]
+      - 散布図の詳しい解説あり
+
+** R read.csv タブ 区切り
+   
+   [[https://yokazaki.hatenablog.com/entry/2017/12/20/122605][Rでのtsv読み込み、pdf書き出し - yokaのblog]]
+  
+** R data.frame 行列 変換
+
+   [[https://qiita.com/seinosuke/items/e8d762a08a331541de10][【R】データフレームをただの行列に変換したい - Qiita]]
+    matrix(as.matrix(df), nrow(df), ncol(df))
+
+    ma <-unname(as.matrix(df))
+    
+  
+** R 標準化 z
+
+   関数はなさそう
+  
+** R 尖度 歪度
+
+   [[https://toukeier.hatenablog.com/entry/%3Fp%3D1072][統計ソフトRでデータを集計値・指標で眺めてみるには？ - 統計ER]]
+   - install.packages("e1071")
+     library(e1071)
+     skewness(x) # 歪度
+     kurtosis(x) # 尖度
+     
+
+** R 最尤推定
+   
+   [[https://rpubs.com/aishida/MLE][RPubs - MLEを実感する]]
+   [[https://rpubs.com/aishida][RPubs]] aishida
+
+*** R optim, optimize
+
+    [[https://stats.biopapyrus.jp/stats/optim.html][汎用最適化関数 optim | R の optim 関数で準ニュートン法や共役勾配法
+    などによるパラメーター推定]]
+    - 正規分布のパラメーター推定 
+
+*** R nlm
+
+   [[https://stats.biopapyrus.jp/stats/nlm.html][最適化関数 nlm | R の nlm 関数でニュートン法によるパラメーター推定]]
+   
+
+  

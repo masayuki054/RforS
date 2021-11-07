@@ -5,11 +5,9 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* Rによるやさしい統計学 (データ解析の一部として)
+* Rによるやさしい統計学 (RforS: データ解析のRの教科書)
   
-  [[./RforS-II-index.org]]
-  
-** 教科書のまとめ
+** RforS のまとめ
    
    - [[./RforS-II-04.org]]
    - [[./RforS-II-05.org]]
@@ -27,4 +25,14 @@
 ** グラフなど
    - [[./RforS-graphs]]
    - [[./graphs]]
+
+* 確率と統計 (データ解析の数理の教科書)
+  
+** 教科書のまとめ
+
+   - 7章 [[./Stat-estimation.org]]
+   - 8章 [[./Stat-estimation-2.org]]     
+
+*** R-コード
+*** グラフなど
 

@@ -16,7 +16,7 @@ for (this.sample_size in c(10,20,40,80,160)) {
   標本平均 <- numeric(length=this.counts) 
       
   for(i in 1:this.counts) {
-
+1
     標本 <- rnorm(n=this.sample_size, mean=this.mean, sd=this.sd)
     標本平均[i] <- mean(標本)
   }
