@@ -5,7 +5,7 @@
 #+OPTIONS: 
 #+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300
 
-* optimizeによる最尤推定 (1変数)
+## * optimizeによる最尤推定 (1変数)
   
 * optim による最尤推定 (2変数)
 
@@ -13,6 +13,8 @@
    などによるパラメーター推定]]
 
    [[http://www.okadajp.org/RWiki/?%E9%96%A2%E6%95%B0%E3%81%AE%E6%9C%80%E5%A4%A7%E3%83%BB%E6%9C%80%E5%B0%8F%E5%8C%96][関数の最大・最小化 - RjpWiki]] optim の使用法
+
+** 正規分布パラメーターの最尤推定
    
 #+begin_src R :session *rfors* :results output :exports both
 ##
@@ -52,8 +54,12 @@ NULL
 #+end_example
 
 
+* 教科書 8.5.3 血液型の最尤推定 
 
-* 教科書 8.5.3 血液型の最尤推定
+  未完です。
+  - 教科書の結果と違っています。
+  - どこが違っているかまだわかっていません。
+  - 3変数に対して optim が使えるのかわかっていません。
 
 #+begin_src R :session *rfors* :results output :exports both
 ##

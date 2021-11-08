@@ -214,6 +214,8 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 
    \(\overline{S^2_{(n)}} \stackrel{P}{\longrightarrow} \sigma^2 \)
 
+   - [[./misc/low_of_large_numbers.png]] ([[./misc/low_of_large_numbers.org]])
+
 ** 中心極限定理
 
    確率変数の和の分布は，変数の数が多くなると，正規分布に近づく (分布
@@ -261,7 +263,17 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
   \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}} ~ \sim N(0,1)\)
 
 
+* 標本が従う分布
+  
+** \(\chi^2\)-分布 標本不偏分散
+
+   [[https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83][カイ二乗分布 - Wikipedia]]
    
+** t-分布 チューデント化
 
+   [[https://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83][t分布 - Wikipedia]]   
+   
+** F-分布 標本不偏分散の比
 
+   [[https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83][F分布 - Wikipedia]]
   

@@ -1,19 +1,16 @@
-#+setupfile: info/index-bigblow-header.setup
-#+include: info/common-header.org
+#+setupfile: ../info/index-bigblow-header.setup
+#+include: ../info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+title: low of large numner (データ解析) 
 #+OPTIONS:
 
 * 推定量の一致性 (大数の法則)の可視化
 
-** Rの関数
-   
-[[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/59.html][R-Source]]   基本統計量の算出
 
-推定量の一致性 (大数の法則)の可視化
-http://tomoshige-n.hatenablog.com/entry/2016/06/07/233959
+出展:  http://tomoshige-n.hatenablog.com/entry/2016/06/07/233959
+
   
-#+begin_src R :session t :results output
+#+begin_src R :session t :results output graphics :file ./low_of_large_numbers.png
 # set.seed(20211025)
 
 # 真の偏差
@@ -64,6 +61,7 @@ abline(h=true**2,col=2)
 
 #+RESULTS:
 
+[[./low_of_large_numbers.png]]
 
 
 #+begin_src R :session t :results output
