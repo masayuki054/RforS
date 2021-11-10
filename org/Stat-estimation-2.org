@@ -14,7 +14,6 @@
     を推定すること
 
   - \( \hat{\theta} \) :: パラメーター \( \theta \) の点推定値
-
     
 ** 不偏性
 
@@ -66,7 +65,7 @@
    
 ** 相関係数 \( \rho_{xy} = \sigma_{xy} /\sqrt{\sigma^2_x \sigma^2_y} \) の推定
 
-   \( \rho_{xy} = S_{xy} /\sqrt{S^2_x \S^2_y} \) を用いる。
+   \( \rho_{xy} = S_{xy} /\sqrt{S^2_x / S^2_y} \) を用いる。
 
    - 一致であるが不偏ではない
    
@@ -82,7 +81,7 @@
   - 平均2乗誤差 = 分散 + バイアス
 
     \begin{eqnarray}
-    E[(\theta-T)^2] & = & E[{(T-E[T])+(E[T]-\theta)}^2] \\
+    E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
     & = & E[{(T-E[T])^2+(E[T]-\theta)^2+2(T-E[T])(E[T]-\theta)}]\\
     & = & E[{(T-E[T])^2] + (E[T]-\theta)^2\\
     & = & V[T] + (E[T]-\theta)^2\\
@@ -124,8 +123,7 @@
 
     - 対数尤度 :: \( L(\theta;\vec{x}) \) の対数
 
-      \( l(\theta; \vec{x}) = \log L(\theta; \vec{x}) = \log f(\theta;
-    \vec{x}) \)
+      \( l(\theta; \vec{x}) = \log L(\theta; \vec{x}) = \log f(\theta;    \vec{x}) \)
 
       - log を取っても関数の増減傾向は同じ，
       - 積を和の形にし，微分し易くする
