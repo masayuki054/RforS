@@ -3,9 +3,13 @@
 ** 今日の講義
    - [[./today.org]]
 
+   - [[./today-II-2021-11-08.org]]
+     - [[./org/Stat-estimation-2.org]] 点推定)
+
    - [[./today-II-2021-11-01.org]]      
      - [[./org/Stat-estimation.org]] 統計的推測
      - [[./org/RforS-II-04.org]] のこり
+
 
    - [[./today-II-2021-10-25.org]] 
      - [[./org/RforS-II-04.org]] 4.3 から 4.6まで

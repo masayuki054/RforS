@@ -235,7 +235,7 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 
    母分散既知の場合の母平均の推定に用いる:
 
-   \(Z_n =  \frac{\overline{X_{(n)}}-\mu}{\sigma/\sqrt{n}}   \sim N(0,1/\sqrt{n})  \)
+   \(Z_n =  \frac{\overline{X_{(n)}}-\mu}{\sigma/\sqrt{n}}   \sim N(0,1)  \)
 
   
   

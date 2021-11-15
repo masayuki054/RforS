@@ -3,10 +3,9 @@
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+title: RforS 4章 (データ解析) 
 #+OPTIONS: 
-#+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300
+#+property: header-args:R :session *rfors* :results output :exports both :width 400 :height 300
 
 * Rによるやさしい統計学
-+property: header-arg:R :session *rfors* :results output :exports both :width 400 :height 300 
 
   #+begin_src shell :exports none
     rm -f RforS-Codes/04-*.R
@@ -520,8 +519,8 @@ c(mean(不偏分散s),sd(不偏分散s))  # 標本不偏分散達の平均と分
 #+end_src
 
 #+RESULTS:
-: [1] 90.28262 42.15390
-: [1] 100.31402  46.83766
+: [1] 90.10345 42.49519
+: [1] 100.11495  47.21688
 
      #+begin_src R :tangle RforS-Codes/04-06.R :results output :session *rfors*
 
@@ -545,7 +544,6 @@ table(不偏分散誤差100以上)
 ## 標本分散の頻度表
 ##
 hist(標本分散s, breaks=seq(0,500,10), main="標本分散の分布")
-
      #+end_src
 
      #+RESULTS:
@@ -564,6 +562,32 @@ hist(不偏分散s, breaks=seq(0,500,10), main="不偏分散の分布")
 ***** 図4.15 標本分散と不偏分散の分布
       
 [[./RforS-graphs/04-15-1.png]] [[./RforS-graphs/04-15-2.png]]
+
+     #+begin_src R :results output graphics :file RforS-graphs/04-15-3.png :tangle RforS-Codes/04-06.R :session *rfors*
+##
+## 標本分散の頻度表
+##
+hist(標本分散s/100*10, freq=FALSE, breaks=seq(0,50,1), main="標本分散/母分散の分布と自由度9のカイ二乗分布")
+curve(dchisq(x,9), add=TRUE, col="red")
+     #+end_src
+
+     #+RESULTS:
+     
+     #+begin_src R :results output graphics :file RforS-graphs/04-15-4.png :tangle RforS-Codes/04-06.R :session *rfors*
+##
+## 標本不偏分散の頻度表
+##
+hist((不偏分散s/100)*9, freq=FALSE, breaks=seq(0,50,1), main="不偏分散/母分散の分布と自由度9のカイ二乗分布")
+curve(dchisq(x,9), add=TRUE, col="red")
+     #+end_src
+
+     #+RESULTS:
+
+     
+      
+[[./RforS-graphs/04-15-1.png]] [[./RforS-graphs/04-15-2.png]]
+      
+[[./RforS-graphs/04-15-3.png]] [[./RforS-graphs/04-15-4.png]]
 
 **** 4.6.2 中央値の標本分布
 

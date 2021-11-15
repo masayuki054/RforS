@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-15 月 08:13 -->
+<!-- 2021-11-15 月 09:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -215,6 +215,28 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -222,185 +244,105 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9fdf55c">1. データ解析 2021 後期</a>
+<li><a href="#orgd96d17b">1. 標本誤差とは https://www.intage.co.jp/glossary/041/</a>
 <ul>
-<li><a href="#orgbab14b5">1.1. 今日の講義</a></li>
-</ul>
-</li>
-<li><a href="#org01f0ed2">2. オンライン講義 2021 前期</a></li>
-<li><a href="#orga1990bc">3. 「Rによるやさしい統計学」の演習</a>
-<ul>
-<li><a href="#org8db9214">3.1. 教科書</a></li>
-<li><a href="#org5aeb708">3.2. 演習用コンテンツ</a></li>
-<li><a href="#org1e89c6e">3.3. 関連ページ</a></li>
-<li><a href="#org76de6d1">3.4. ブログ</a></li>
-<li><a href="#org1e63a25">3.5. ドライブ</a></li>
-<li><a href="#org17d794d">3.6. 参考サイト  Introduction to Programming Language R</a></li>
-<li><a href="#org6c956ea">3.7. 参考サイト</a></li>
+<li><a href="#org59a2209">1.1. 標本誤差はデータ利用者にとっての保証</a></li>
+<li><a href="#org00eebac">1.2. 平均値の標準誤差</a></li>
+<li><a href="#org627aa90">1.3. 比率の標準誤差</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9fdf55c" class="outline-2">
-<h2 id="org9fdf55c"><span class="section-number-2">1</span> データ解析 2021 後期</h2>
+<div id="outline-container-orgd96d17b" class="outline-2">
+<h2 id="orgd96d17b"><span class="section-number-2">1</span> 標本誤差とは <a href="https://www.intage.co.jp/glossary/041/">https://www.intage.co.jp/glossary/041/</a></h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>標本値と母集団値との差がどの範囲の大きさで生じるかは、確率論に基づい
+て一定の式で計算することができます。</li>
+
+<li>標本誤差は抽出数を多くするほど小さくなり、また母集団内での個別データ
+のバラツキが小さいほど小さくなります。</li>
+</ul>
 </div>
-<div id="outline-container-orgbab14b5" class="outline-3">
-<h3 id="orgbab14b5"><span class="section-number-3">1.1</span> 今日の講義</h3>
+
+<div id="outline-container-org59a2209" class="outline-3">
+<h3 id="org59a2209"><span class="section-number-3">1.1</span> 標本誤差はデータ利用者にとっての保証</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li><a href="./today.html">./today.html</a></li>
+<li>調査結果の数字はふつう平均値や比率（パーセント）で表されます。</li>
 
-<li><a href="./today-II-2021-11-08.html">./today-II-2021-11-08.html</a>
-<ul class="org-ul">
-<li><a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a> 点推定)</li>
-</ul></li>
-
-<li><a href="./today-II-2021-11-01.html">./today-II-2021-11-01.html</a>      
-<ul class="org-ul">
-<li><a href="./org/Stat-estimation.html">./org/Stat-estimation.html</a> 統計的推測</li>
-<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> のこり</li>
-</ul></li>
-</ul>
-
-
-<ul class="org-ul">
-<li><a href="./today-II-2021-10-25.html">./today-II-2021-10-25.html</a> 
-<ul class="org-ul">
-<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> 4.3 から 4.6まで</li>
-</ul></li>
-
-<li><a href="./today-II-2021-10-18.html">./today-II-2021-10-18.html</a>
-<ul class="org-ul">
-<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> 4.3まで</li>
-</ul></li>
-
-<li><a href="./today-II-2021-10-11.html">./today-II-2021-10-11.html</a>
-<ul class="org-ul">
-<li>ほとんどガイダンス</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org01f0ed2" class="outline-2">
-<h2 id="org01f0ed2"><span class="section-number-2">2</span> オンライン講義 2021 前期</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./today-2021-06-02.html">./today-2021-06-02.html</a></li>
-<li><a href="./today=2021-06-16.html">./today=2021-06-16.html</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-orga1990bc" class="outline-2">
-<h2 id="orga1990bc"><span class="section-number-2">3</span> 「Rによるやさしい統計学」の演習</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org8db9214" class="outline-3">
-<h3 id="org8db9214"><span class="section-number-3">3.1</span> 教科書</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-<a href="https://www.ohmsha.co.jp/book/9784274067105/">Rによるやさしい統計学 | Ohmsha</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-org5aeb708" class="outline-3">
-<h3 id="org5aeb708"><span class="section-number-3">3.2</span> 演習用コンテンツ</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-教科書のまとめ
+<li><p>
+したがって、標本値を調査から得られた平均値や比率とすると、それらが母
+集団値とどれだけ食い違っているかは
 </p>
 
-<ul class="org-ul">
-<li>Emacs org-mode版
-<ol class="org-ol">
-<li><a href="./org/RforS-0.html">./org/RforS-0.html</a> (5.26)</li>
-<li><a href="./org/RforS-1.html">./org/RforS-1.html</a> (5.19)</li>
-<li><a href="./org/RforS-2.html">./org/RforS-2.html</a> (5.26)</li>
-</ol></li>
-
-<li>HTML版 <a href="https://masayuki054.github.io/RforS">https://masayuki054.github.io/RforS</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org1e89c6e" class="outline-3">
-<h3 id="org1e89c6e"><span class="section-number-3">3.3</span> 関連ページ</h3>
-<div class="outline-text-3" id="text-3-3">
-<ul class="org-ul">
-<li><a href="https://masayuki054.github.io/RforS">https://masayuki054.github.io/RforS</a></li>
-<li><a href="https://github.com/masayuki054/RforS">https://github.com/masayuki054/RforS</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org76de6d1" class="outline-3">
-<h3 id="org76de6d1"><span class="section-number-3">3.4</span> ブログ</h3>
-<div class="outline-text-3" id="text-3-4">
-<ul class="org-ul">
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/192843">確率統計学 2021 - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/202703">講義の進行 確率統計2021 - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/28/083025">レポートと試験のこと 確率統計2021 - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/190718">Rに関すること - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/193244">講義予定 確率統計学 2021 - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/213400">演習問題 確率統計 2021 - masayuki054's diary</a></li>
-<li><a href="http://masayuki054.hatenablog.com/entry/2021/03/14/163010">授業アンケートへの解答 データ解析 2020 - masayuki054's diary</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org1e63a25" class="outline-3">
-<h3 id="org1e63a25"><span class="section-number-3">3.5</span> ドライブ</h3>
-<div class="outline-text-3" id="text-3-5">
-<ul class="org-ul">
-<li><a href="https://drive.google.com/drive/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w">アンケート - Google ドライブ</a></li>
-<li><a href="https://drive.google.com/drive/folders/1E3kil-he8dK0iGxrEpB4GIsxiJ1N7LKd">2021 - Google ドライブ</a></li>
-<li><a href="https://drive.google.com/drive/u/0/folders/1deXv6LjZU3KXXCjeTJfR2YfB6KEsOtKy">黒板 - Google ドライブ</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org17d794d" class="outline-3">
-<h3 id="org17d794d"><span class="section-number-3">3.6</span> 参考サイト  <a href="http://whitewell.sakura.ne.jp/R/contents.html">Introduction to Programming Language R</a></h3>
-<div class="outline-text-3" id="text-3-6">
 <p>
-<a href="http://whitewell.sakura.ne.jp/R/Rintro-01.html">- R解説(1)</a> 課題をやってみましょう
+「標本誤差」＝「標本値」-「母集団値」
 </p>
-<ul class="org-ul">
-<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a> 課題をやってみましょう</li>
-<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-03.html">R解説(3)</a> 課題をやってみましょう</li>
-<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-04.html">R解説(4)</a></li>
+
+<p>
+として定義されます。
+</p></li>
+
+<li>しかし母集団値は未知であり、標本値も抽出される標本によって左右される
+ため、標本誤差の大きさそのものを示す式とはなりません。</li>
+
+<li>個々の標本誤差はわかりませんが、その範囲は「標準誤差」という統計値を用
+いて確率的に記述できます。</li>
+
+<li>それがデータの利用者にとって調査結果の信頼性の保証となり、平均値なり
+比率なりを安心して使える限界を知らせてくれることになるのです。</li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-org6c956ea" class="outline-3">
-<h3 id="org6c956ea"><span class="section-number-3">3.7</span> 参考サイト</h3>
-<div class="outline-text-3" id="text-3-7">
+<div id="outline-container-org00eebac" class="outline-3">
+<h3 id="org00eebac"><span class="section-number-3">1.2</span> 平均値の標準誤差</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li><a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a>    <a href="https://www.ohmsha.co.jp/book/9784274067105/">Rによるやさしい統計学 | Ohmsha</a> の解説動画とデータ</li>
+<li><p>
+単純な無作為抽出法では、平均値mの標準誤差を次式で計算できます。（σm
+は平均値の標準誤差、nは調査対象数、σは母集団の個別データの標準偏差
+（調査データから推定））
+</p>
 
-<li><a href="https://htsuda.net/stats/">Rによる統計入門</a> 津田裕之氏
+<p>
+\[
+   \sigma_m = \frac {\sigma} {\sqrt{n}}
+   \]
+</p></li>
+
+<li>この値を用いて「標本平均の前後に標準誤差の1.96倍の幅をとると、母集団
+平均がその中に入る確率は95％である」と言い切ることができます。</li>
+
+<li>この範囲のことを <b>信頼区間</b> と呼び、その中に入る確率を <b>信頼係数</b> と
+呼びます。</li>
+
+<li>また、標準誤差の2.58倍の幅をとれば、信頼区間を99%にすることができま
+す。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org627aa90" class="outline-3">
+<h3 id="org627aa90"><span class="section-number-3">1.3</span> 比率の標準誤差</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>google colaboratory で R を使うについても書かれている</li>
-</ul></li>
+<li><p>
+比率 p の標準誤差は次式で計算できます。（母集団における比率Pは不明
+なので標本値pで代用します（nがある程度大きいとき））
+</p>
 
-<li><a href="http://www.okadajp.org/RWiki/">RjpWiki - RjpWiki</a></li>
+<p>
+\[
+     \sigma_p = \sqrt{ \frac {p (1-p)} { n } }
+     \]
+</p></li>
 
-<li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html">R-Tips</a></li>
-
-<li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a>
-<ul class="org-ul">
-<li>教科書に基づいた確率統計の講義サイト</li>
-</ul></li>
+<li>もし調査対象者数が400人でその中の20％がある製品の使用者であったと
+すると、使用率の標準誤差は2％と計算することができ、母集団における
+使用率が区間16～24％内にあることが確率95％で保証されます。</li>
 </ul>
 </div>
 </div>
@@ -408,7 +350,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Masayuki Suzuki</p>
-<p class="date">Created: 2021-11-15 月 08:13</p>
+<p class="date">Created: 2021-11-15 月 09:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

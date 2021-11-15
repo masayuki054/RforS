@@ -5,13 +5,11 @@
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
-* 11/15 06回目の講義内容
+* 11/08 05回目の講義内容
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   
 ** Doing お知らせ   SCHEDULED: <2021-11-01 月>
-   
-*** 来週 11/22 は休講です。
 
 *** 1回目のレポートを出題しました。
 
@@ -78,11 +76,11 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
     Rによるやさしい統計学
     - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
 
-*** 対応 [3/6]
+*** 対応 [2/6]
     - [X] 標本と統計的推測 K-7:R-4
     - [X] 大数の法則と中心極限定理 K-5:R-4
-    - [X] 点推定 K-8: (R-4, R-5)
-    - [-] 区間推定 K-10:R-4
+    - [-] 点推定 K-8: (R-4, R-5)
+    - [ ] 区間推定 K-10:R-4
     - [ ] 検定 K-11, R-5
     - [ ] いろいろな検定 K-12:(R-6, R-7)
     
@@ -94,39 +92,49 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
    - 昨年の板書  [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
 
     
-** 今日 (11/15) の流れ
-*** Doing 標本と統計的推測 [1/4]
+** 今日 (11/08) の流れ
+*** Doing 標本と統計的推測 [3/4]
+    - [X] [[./org/Stat-estimation.org]]
+      前回ほぼ終了，標準化の前まで
+
+    - [X] [[./org/RforS-II-04.org]]
+      - 前回，のこりの4.6を終らせる
+
     - [-] [[./org/Stat-estimation-2.org]]
-      教科書8章5節の例を説明します。
+      教科書8章，今日はこれを終らせたいが。。。
+      8.5 の例を
 
-    - [-] [[./org/RforS-II-04.org]]
-      - 標本不偏分散の一致性
-      - 標本不偏分散の正規化は，カイ二乗分布に従う
-
+      
     - [X] 前期の内容では，下記内容が関係します：
-      - 確率変数の和の平均と分散，畳み込み
+      - 確率変数と確率分布
+      - 確率変数の和の平均と分散
       - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
-
-    - [ ] [[./org/Stat-interval-estimation.org]]
-      教科書10章，今日から始まります
-
+	
 *** 進行チェック
     
-**** Doing 標本と統計的推測 [1/2]
+**** Doing 標本と統計的推測 [3/3]
      - [X] R-4
-       - 標本不偏分散は母分散の不偏，一致推定量
-       - 正規化した標本不偏分散は，カイ二乗分布する
+       以下は，K-7 の説明の後
+       - 不偏性，標本誤差
+       - 標本平均以外の標本平均
 
-***** Done 点推定 (K7, K8, R4)
-      - 不偏性
-      - 一致性
-      - 最尤法
-      - 最小二乗誤差
-***** Todo 区間推定 (K10)
-      - 母平均の区間推定
-	- 標準化，スチューデント化による統計量
-	- 統計量が従う分布
-      - 信頼度，標本誤差，信頼区間
+     - [X] 標本平均  K-7 (教科書7章，5章と講師の講義ノート) [5/5]
+       - [X] 標本平均の確率収束値
+       - [X] 標本平均が従う分布
+       - [X] 標本平均の期待値
+       - [X] 標本平均の分散
+       - [X] 標本誤差 (=> 母平均の区間推定)
+
+     - [X] 標本不偏分散 K-7 (教科書7章，5章と講師の講義ノート) [4/4]
+       - [X] 標本分散の確率収束値
+       - [X] 標本分散が従う分布
+       - [X] 標本分散(が従う分布)の期待値
+       - [X] 標本分散(が従う分布)の分散
+       - => 母分散の区間推定
+
+**** Done (参考) 大数の法則と中心極限定理
+     CLOSED: [2021-11-08 月]
+     - http://www.chem.konan-u.ac.jp/applphys/web_material/GaussFromBinominal.pdf
 
 
     

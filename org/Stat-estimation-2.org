@@ -83,7 +83,7 @@
     \begin{eqnarray}
     E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
     & = & E[{(T-E[T])^2+(E[T]-\theta)^2+2(T-E[T])(E[T]-\theta)}]\\
-    & = & E[{(T-E[T])^2] + (E[T]-\theta)^2\\
+    & = & E[(T-E[T])^2] + (E[T]-\theta)^2\\
     & = & V[T] + (E[T]-\theta)^2\\
     \end{eqnarray}
 
@@ -172,7 +172,181 @@
 * 8.5 例
 
   手書ノートで説明します。
-
   
-* Rによる最尤法の計算例
-  [[file:misc/mle.org::*optim による最尤推定 (2変数)][optim による最尤推定 (2変数)]]
+** 8.5.1 職場環境満足度アンケート
+
+   個人の満足度を知られないアンケートの実施方法
+
+   - サイコロを振り，1と2の目がでた時は，本当の気持を答え
+   - それ以外の目の時は，反対の気持を答える
+     
+*** 設定
+
+    - \( X \) : 1が満足，0が不満
+    - \( Y \) : 1が1と2の出目，0がそれ以外
+    - \( Z \) : 1が満足と答える， 0 が不満と答える
+      
+    - 満足度のパラメータ \( \theta = P (X=1) \)
+    - \( P(Y=1) = 1/3 = \alpha \)
+    - \( X \)と \( Y \) は，独立
+      
+    - \( Z_{i=1:n} \)，\( \overline{Z_{(n)}} \) は \( \theta \) の妥当
+      な推定量ではない
+
+*** 「満足」と答える確率 \( \eta = P(Z=1) \)
+
+    |------------+-----------------------+---------------------|
+    |            | \( Y=1 \), 本当を言う | \( Y=0 \), 嘘を言う |
+    | \( X= 1 \) | \(Z = 1 \)            | \( Z = 0 \)         |
+    | \( X= 0 \) | \(Z = 0 \)            | \( Z = 1 \)         |
+    |------------+-----------------------+---------------------|
+
+    \( \eta = P(Z=1) \) = \( P(X=1, Y=1) + P(X=0, Y=0) \)
+
+    \( = P(X=1) P(Y=1) + P(X=0) P(Y=0) \)
+
+    \( = \theta \alpha + (1-\theta)(1-\alpha) \)
+
+    \( = (2\alpha -1)\theta + (1-\alpha) \)
+
+    \( \overline{Z_{(n)}} \) は \( \eta \) の妥当な推定量。
+
+    なので，\(\hat{\eta} = \overline{Z_{(n)}} =  (2\alpha -1)\theta + (1-\alpha) \)
+
+    \( \hat{\theta} = \frac{\overline{Z_{(n)}}}{2\alpha-1}\)
+
+
+    #+begin_src R :session *stext* :results output :exports both
+##
+## 教科書 8.5.1 アンケート
+##
+est_theta <- function (enq, alpha) {
+  (mean(enq)-(1-alpha))/(2*alpha-1)
+}
+
+size <- 1000
+honest_p <- 1/3
+satisfied_p <- 6/10
+
+honest <- rep(0,size)
+honest [(runif(size,0,1))>(1-honest_p)] <- 1
+table(dice)
+
+satisfied <- rep(0,size)
+satisfied [(runif(size,0,1))>(1-satisfied_p)] <- 1
+
+table(satisfied)
+enq <- rep(0,size)
+for (i in 1:size) {
+    res <- 0
+    if (honest[i]==satisfied[i]) { res <- 1 }
+    enq[i] <- res
+}
+
+mean(honest)
+mean(satisfied)
+mean(enq)
+est_theta(enq, honest_p)
+    #+end_src
+
+    #+RESULTS:
+    #+begin_example
+    dice
+      0   1 
+    354 646
+    satisfied
+      0   1 
+    439 561
+    [1] 0.309
+    [1] 0.561
+    [1] 0.514
+    [1] 0.458
+    #+end_example
+
+
+** 8.5.2 どちらの面積推定が優れているか
+   
+*** 長方形の面積を測る問題
+
+    - \( \mu_{x, y} \) :: 縦と横の長さ
+    - \( S = \mu_x \mu_y \) :: 面積の計算
+    - \( (X_i, Y_i)_{i=1:n} \) :: 計測
+
+    - A案 :: \( S_A = \Sigma_{1}^{n} X_i Y_i / n \)
+    - B案 :: \( S_B = \overline{X} \times \overline{Y} \)
+      
+*** 二つの案の比較のための設定
+    - 縦横の長さの母集団 \( (X, Y) \)
+    - \( X \sim (\mu_x, \sigma_x^2) \), \( Y \sim (\mu_y, \sigma_y^2)
+      \)
+    - \( (X_i, Y_i)_{i=1:n} \) は無作為標本
+    - \( S_A \), \( S_B \) を平均二乗誤差で測る
+      
+*** \( Z = X Y \) 
+
+**** 期待値
+
+      \( E[Z] = E[XY] = E[X] E[Y] = \mu_x \mu_y = S\)
+
+      \( S_A = \frac{1}{n}\Sigma_{1}^{n} X_i Y_i =
+      \frac{1}{n}\Sigma_{1}^{n} Z_i =  \overline{Z} \)
+
+      従って，\( S_A \) は面積 \( S = E[Z] \) の不偏推定量
+
+**** \( Z = X Y \) の分散
+
+     \begin{eqnarray}
+     V[Z] & = & E[(Z-S)^2] \\
+     & = & E[Z^2] - S^2 \\
+     & = & E[X^2Y^2] - \mu_x^2 \mu_y^2 \\
+     & = & E[X^2]E[Y^2] - \mu_x^2 \mu_y^2 \\
+     & = & (\mu_x^2+\sigma_x^2)(\mu_y^2+\sigma_y^2) - \mu_x^2 \mu_y^2
+     \\
+     & = & \mu_x^2\sigma_x^2 + \mu_y^2\sigma_y^2 + \sigma_x^2 \sigma_y^2
+     \\
+     \end{eqnarray}
+    \( S_A \) の平均二乗誤差は，
+
+    \begin{eqnarray}
+    E[(S_A-S)^2] &= & E[(\overline{Z}-E[Z])^2] \\
+    & = & \frac{1}{n} V[Z] \\
+    & = & \frac{1}{n} (\mu_x^2\sigma_y^2 + \mu_y^2\sigma_x^2 +
+    \sigma_x^2 \sigma_y^2) \\
+    \end{eqnarray}
+     
+     
+     
+*** \(Z^* = \overline{X} \overline{Y} \)
+
+    \( S_B = Z^* \) となる
+    
+**** 期待値
+
+     \( E[S_B] = E[Z^*] = E[\overline{X} \overline{Y}] =
+     E[\overline{X}]E[\overline{Y}] = \mu_x \mu_y = S
+     \)
+
+
+**** 分散
+     
+     \( \overline{X} \) の分散は \( \sigma_x^2/n \),
+     \( \overline{Y} \) の分散は \( \sigma_y^2/n \)
+     
+     \( S_B \) の平均二乗誤差
+
+     \begin{eqnarray}
+     E[(S_B-S)^2] &= & E[(Z^*-E[Z^*])^2] \\
+     & = & V[Z^*] \\
+     & = & \mu_x^2\frac{\sigma_y^2}{n} + \mu_y^2 \frac{\sigma_x^2}{n} +
+     \frac{\sigma_x^2}{n}\frac{\sigma_y^2}{n} \\
+     & = & \frac{1}{n} (\mu_x^2\sigma_y^2 + \mu_y^2\sigma_x^2 + \frac{1}{n}
+     \sigma_x^2 \sigma_y^2) \\
+     \end{eqnarray}
+     
+*** 結論
+
+    \( E[(S_A - S)^2] - E[(S_B - S)^2] = \frac{n-1}{n} \sigma_x^2
+    \sigma_y^2  \geq 0 \)
+    
+** 8.5.3 Rによる最尤法の計算例
+   [[file:misc/mle.org::*optim による最尤推定 (2変数)][optim による最尤推定 (2変数)]]

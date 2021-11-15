@@ -32,6 +32,16 @@ hist(標本分散s, breaks=seq(0,500,10), main="標本分散の分布")
 ##
 hist(不偏分散s, breaks=seq(0,500,10), main="不偏分散の分布")
 ##
+## 標本分散の頻度表
+##
+hist(標本分散s/100*10, freq=FALSE, breaks=seq(0,50,1), main="標本分散/母分散の分布と自由度9のカイ二乗分布")
+curve(dchisq(x,9), add=TRUE, col="red")
+##
+## 標本不偏分散の頻度表
+##
+hist((不偏分散s/100)*9, freq=FALSE, breaks=seq(0,50,1), main="不偏分散/母分散の分布と自由度9のカイ二乗分布")
+curve(dchisq(x,9), add=TRUE, col="red")
+##
 ## 4.6.2 中央値を母平均の推定量として使えるか
 ##
 samples.no <- 10000
@@ -53,8 +63,8 @@ c(mean(標本中央値s), sd(標本中央値s))
 ##
 ## 標本分散の頻度表
 ##
-hist(標本平均s, breaks=seq(0,500,10), main="標本平均の分布")
+hist(標本平均s, breaks=seq(30,70,1), main="標本平均の分布")
 ##
 ## 標本中央値の頻度表
 ##
-hist(標本中央値s, breaks=seq(0,500,10), main="標本中央値の分布")
+hist(標本中央値s, breaks=seq(30,70,1), main="標本中央値の分布")
