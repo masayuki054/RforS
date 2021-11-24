@@ -1,3 +1,4 @@
+[[https://www.kobiwa.jp/2017/02/18/post-240/][[R]グラフの一部を塗りつぶす]]
 ** 正規分布グラフの区間を塗り潰す
 
    [[https://www.kobiwa.jp/2017/02/18/post-240/][[R]グラフの一部を塗りつぶす]]
@@ -46,3 +47,48 @@ dev.off()
 :        2
 
 [[./graphs/norm-partially-painted.png]]
+** chisq分布グラフの区間を塗り潰す
+   
+#+begin_src R :session t :results output :exports both
+
+## png("graphs/chisq-partially-painted.png", width=400, height=300)
+
+n=4
+alpha=0.05
+# 塗りつぶす範囲(.025n ～ +.975n)
+min <- qchisq(alpha/2, df=n)
+max <- qchisq(1-alpha/2, df=n)
+
+i <- 200 #分割数(細かくするほどきれいになる)
+
+# まずは正規分布(μ=0、σ=1)の確率密度関数
+
+curve(dchisq(x, df=n), 0, 4*n,  col="black", xlab="x", ylab="Probability density")
+
+# Polygon作図用のデータ作成
+
+## 関数部分
+xx <- seq(min, max, length=i) #min～maxまでをi等分したデータを作成
+yy <- dchisq(xx, df=n) 
+
+#下限・上限を付加
+xx<- c(min, xx, max, min)
+yy<- c(0, yy, 0, 0)
+
+# Polygonで作図
+polygon(xx, yy, col="gray")
+
+#積分範囲を示す線
+lines(c(min, min), c(0, dchisq(min, df=n)+0.05), col="red")
+lines(c(max, max), c(0, dchisq(max, df=n)+0.05), col="red")
+
+#積分範囲を示す文字(srt=90:90度回転、adj=0:アライメント左揃え(0.5中央揃え、1:右揃え))
+text(min, dchisq(min, df=n)+0.05, paste(round(min,2)), srt=90, adj=0)
+text(max, dchisq(max, df=n)+0.05, paste(round(max,2)), srt=90, adj=0)
+text(4, dchisq(10, df=n)+0.05, paste(95,'%'), adj=0)
+
+#+end_src
+
+#+RESULTS:
+
+

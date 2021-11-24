@@ -108,10 +108,7 @@
 
 ** 確率収束 例
    
-
    [[https://kriver-1.hatenablog.com/entry/2018/05/14/204137][確率変数の収束についてまとめる - ブログ村]]
-
-   pas
 
 ** Doing 標準偏差と標準誤差はどこが違うのか
    
@@ -121,7 +118,7 @@
    [[https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9D%87#%E8%AA%BF%E5%92%8C%E5%B9%B3%E5%9D%87][平均 - Wikipedia]]
    調和平均 並列 [[https://www.omoshiro-suugaku.com/entry/tyouwa-heikinn][調和平均とは何か - いぬおさんのおもしろ数学実験室]]
 
-**  [[https://bellcurve.jp/statistics/course/#step1][統計学の時間 | 統計WEB]]
+** [[https://bellcurve.jp/statistics/course/#step1][統計学の時間 | 統計WEB]]
  - 独立性の検定 [[https://bellcurve.jp/statistics/course/9496.html][25-5. 独立性の検定 | 統計学の時間 | 統計WEB]]
  - 母集団相関係数 検定 [[https://bellcurve.jp/statistics/course/9591.html][26-3. 相関係数 | 統計学の時間 | 統計WEB]]
    

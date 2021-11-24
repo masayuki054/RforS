@@ -32,7 +32,7 @@
 
    (確率変数の和)の分散の期待値の公式より，
 
-   \( \rm{E}(S^{2}_{(n)}) = \sigma^2 / \sqrt{n} \)
+   \( \rm{E}(S^{2}_{(n)}) = \sigma^2 / {n} \)
 
 ** 標本平均が従がう分布は
 
@@ -277,3 +277,4 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
 
    [[https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83][F分布 - Wikipedia]]
   
+
