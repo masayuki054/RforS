@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-15 月 11:48 -->
+<!-- 2021-11-29 月 11:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>確率と統計 8.点推定</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
@@ -204,28 +204,6 @@
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -246,16 +224,15 @@
              }
 });
 </script>
-<script type="text/javascript"
-        src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">確率と統計 8.点推定</h1>
 
-<div id="outline-container-org1d287cb" class="outline-2">
-<h2 id="org1d287cb">8.1 推定量 \( T(\vec{X}) \)</h2>
-<div class="outline-text-2" id="text-org1d287cb">
+<div id="outline-container-org501ff51" class="outline-2">
+<h2 id="org501ff51">8.1 推定量 \( T(\vec{X}) \)</h2>
+<div class="outline-text-2" id="text-org501ff51">
 <dl class="org-dl">
 <dt>推定量 \( T(\vec{X}) \)</dt><dd>母集団のパラメーターを推定するための，統計量
 (確率変数の計算式)</dd>
@@ -267,9 +244,9 @@
 </dl>
 </div>
 
-<div id="outline-container-orga8c7c09" class="outline-3">
-<h3 id="orga8c7c09">不偏性</h3>
-<div class="outline-text-3" id="text-orga8c7c09">
+<div id="outline-container-orgafe7fa2" class="outline-3">
+<h3 id="orgafe7fa2">不偏性</h3>
+<div class="outline-text-3" id="text-orgafe7fa2">
 <dl class="org-dl">
 <dt>\( E[T(\vec{X})] = \theta \)</dt><dd>推定量の平均が母パラメーターにな
 ること</dd>
@@ -278,9 +255,9 @@
 </div>
 
 
-<div id="outline-container-org478716d" class="outline-3">
-<h3 id="org478716d">一致性</h3>
-<div class="outline-text-3" id="text-org478716d">
+<div id="outline-container-org2b8e40c" class="outline-3">
+<h3 id="org2b8e40c">一致性</h3>
+<div class="outline-text-3" id="text-org2b8e40c">
 <dl class="org-dl">
 <dt>\( T(\vec{X}) \stackrel{P}{\longrightarrow} \theta \)</dt><dd>標本
 サイズが大きければ，推定量は母パラメーターに確率収束すること</dd>
@@ -289,13 +266,14 @@
 </div>
 </div>
 
-<div id="outline-container-org5337978" class="outline-2">
-<h2 id="org5337978">8.2 推定量の作り方 (モーメント法)</h2>
-<div class="outline-text-2" id="text-org5337978">
+
+<div id="outline-container-org8b08c75" class="outline-2">
+<h2 id="org8b08c75">8.2 推定量の作り方 (モーメント法)</h2>
+<div class="outline-text-2" id="text-org8b08c75">
 </div>
-<div id="outline-container-org01c677c" class="outline-3">
-<h3 id="org01c677c">\( \mu  = E[X] \) の推定</h3>
-<div class="outline-text-3" id="text-org01c677c">
+<div id="outline-container-org5a7d1dc" class="outline-3">
+<h3 id="org5a7d1dc">\( \mu  = E[X] \) の推定</h3>
+<div class="outline-text-3" id="text-org5a7d1dc">
 <p>
 \( \hat{\mu} = \overline{X} = \frac{1}{n}\Sigma_1^{n} X_i \)
 </p>
@@ -306,9 +284,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf5fe86f" class="outline-3">
-<h3 id="orgf5fe86f">\( \tau  = E[X^2] \) の推定</h3>
-<div class="outline-text-3" id="text-orgf5fe86f">
+<div id="outline-container-org4eb675c" class="outline-3">
+<h3 id="org4eb675c">\( \tau  = E[X^2] \) の推定</h3>
+<div class="outline-text-3" id="text-org4eb675c">
 <p>
 \( \hat{\tau} = \overline{X^2} = \frac{1}{n}\Sigma_1^{n} X_i^2 \)
 </p>
@@ -319,9 +297,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgb650407" class="outline-3">
-<h3 id="orgb650407">\( \sigma^2 = E[(X-\mu)^2] \) の推定</h3>
-<div class="outline-text-3" id="text-orgb650407">
+<div id="outline-container-org581cad5" class="outline-3">
+<h3 id="org581cad5">\( \sigma^2 = E[(X-\mu)^2] \) の推定</h3>
+<div class="outline-text-3" id="text-org581cad5">
 <p>
 \( \mu \) が既知ならば \( \hat{\sigma}^2 = \frac{1}{n}\Sigma_1^{n}    (X_i-\mu) ^2 \)
 </p>
@@ -348,9 +326,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5399241" class="outline-3">
-<h3 id="org5399241">\( \sigma_{xy} = E[(X-\mu_x)(Y-\mu_y)] \) の推定</h3>
-<div class="outline-text-3" id="text-org5399241">
+<div id="outline-container-orgd403989" class="outline-3">
+<h3 id="orgd403989">\( \sigma_{xy} = E[(X-\mu_x)(Y-\mu_y)] \) の推定</h3>
+<div class="outline-text-3" id="text-orgd403989">
 <p>
 \( \hat{\sigma}_{xy} = \frac{1}{(n-1)} \Sigma_1^n (X_i-\overline{X})
    (Y_i - \overline{Y}) = S_{xy} \)
@@ -362,9 +340,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgee4cab5" class="outline-3">
-<h3 id="orgee4cab5">相関係数 \( \rho_{xy} = \sigma_{xy} /\sqrt{\sigma^2_x \sigma^2_y} \) の推定</h3>
-<div class="outline-text-3" id="text-orgee4cab5">
+<div id="outline-container-org1d93d69" class="outline-3">
+<h3 id="org1d93d69">相関係数 \( \rho_{xy} = \sigma_{xy} /\sqrt{\sigma^2_x \sigma^2_y} \) の推定</h3>
+<div class="outline-text-3" id="text-org1d93d69">
 <p>
 \( \rho_{xy} = S_{xy} /\sqrt{S^2_x / S^2_y} \) を用いる。
 </p>
@@ -376,9 +354,9 @@
 </div>
 </div>
 
-<div id="outline-container-org5c9b5a9" class="outline-2">
-<h2 id="org5c9b5a9">8.3 推定量の良さ (平均2乗誤差の小ささ)</h2>
-<div class="outline-text-2" id="text-org5c9b5a9">
+<div id="outline-container-orga46b092" class="outline-2">
+<h2 id="orga46b092">8.3 推定量の良さ (平均2乗誤差の小ささ)</h2>
+<div class="outline-text-2" id="text-orga46b092">
 <ul class="org-ul">
 <li>パラメータ \( \theta \) の推定量 \( T = T(\vec{X}) \)</li>
 
@@ -407,18 +385,18 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 
 
 
-<div id="outline-container-org89eae47" class="outline-2">
-<h2 id="org89eae47">8.4 最尤推定</h2>
-<div class="outline-text-2" id="text-org89eae47">
+<div id="outline-container-orgeb96053" class="outline-2">
+<h2 id="orgeb96053">8.4 最尤推定</h2>
+<div class="outline-text-2" id="text-orgeb96053">
 <p>
 パラメータ \(\vec{\theta}\) を含む，確率密度関数を，\(f(\vec{x};
   \vec{\theta})\) と書くことにする。
 </p>
 </div>
 
-<div id="outline-container-org88a6d63" class="outline-3">
-<h3 id="org88a6d63">尤度</h3>
-<div class="outline-text-3" id="text-org88a6d63">
+<div id="outline-container-org7fd7d39" class="outline-3">
+<h3 id="org7fd7d39">尤度</h3>
+<div class="outline-text-3" id="text-org7fd7d39">
 <p>
 \(\vec{x}\) の値を\(\vec{w}\)とする。(確率変数 \( \vec{X} \) の標本
 値が \(\vec{w}\))
@@ -434,13 +412,13 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 </div>
 </div>
 
-<div id="outline-container-org5aeecfb" class="outline-3">
-<h3 id="org5aeecfb">最尤推定</h3>
-<div class="outline-text-3" id="text-org5aeecfb">
+<div id="outline-container-org38ea597" class="outline-3">
+<h3 id="org38ea597">最尤推定</h3>
+<div class="outline-text-3" id="text-org38ea597">
 </div>
-<div id="outline-container-orga30f54e" class="outline-4">
-<h4 id="orga30f54e">離散型</h4>
-<div class="outline-text-4" id="text-orga30f54e">
+<div id="outline-container-orgc5868b2" class="outline-4">
+<h4 id="orgc5868b2">離散型</h4>
+<div class="outline-text-4" id="text-orgc5868b2">
 <p>
 \( P(\vec{X} = \vec{x} ) = f(\vec{x}, \theta) = L(\theta; \vec{x})
     \)
@@ -463,9 +441,9 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 </div>
 </div>
 
-<div id="outline-container-orgef435cd" class="outline-4">
-<h4 id="orgef435cd">対数尤度</h4>
-<div class="outline-text-4" id="text-orgef435cd">
+<div id="outline-container-orgb231e67" class="outline-4">
+<h4 id="orgb231e67">対数尤度</h4>
+<div class="outline-text-4" id="text-orgb231e67">
 <dl class="org-dl">
 <dt>対数尤度</dt><dd><p>
 \( L(\theta;\vec{x}) \) の対数
@@ -501,21 +479,21 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 </div>
 </div>
 
-<div id="outline-container-org707a4eb" class="outline-3">
-<h3 id="org707a4eb">例</h3>
-<div class="outline-text-3" id="text-org707a4eb">
+<div id="outline-container-orgce8fb17" class="outline-3">
+<h3 id="orgce8fb17">例</h3>
+<div class="outline-text-3" id="text-orgce8fb17">
 </div>
-<div id="outline-container-orgb1de0bd" class="outline-4">
-<h4 id="orgb1de0bd">ベルヌーイ分布</h4>
-</div>
-
-<div id="outline-container-orgcd4ae2d" class="outline-4">
-<h4 id="orgcd4ae2d">ポアソン分布</h4>
+<div id="outline-container-orge120b7d" class="outline-4">
+<h4 id="orge120b7d">ベルヌーイ分布</h4>
 </div>
 
-<div id="outline-container-org9d49d18" class="outline-4">
-<h4 id="org9d49d18">正規分布</h4>
-<div class="outline-text-4" id="text-org9d49d18">
+<div id="outline-container-org8040549" class="outline-4">
+<h4 id="org8040549">ポアソン分布</h4>
+</div>
+
+<div id="outline-container-orgbc7f3ad" class="outline-4">
+<h4 id="orgbc7f3ad">正規分布</h4>
+<div class="outline-text-4" id="text-orgbc7f3ad">
 <ul class="org-ul">
 <li>対数尤度関数を，\( \mu \) と \( \sigma^2 \) の二つのパラメーターに
 かんする最大値を求める
@@ -552,17 +530,17 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 
 
 
-<div id="outline-container-orgf01543d" class="outline-2">
-<h2 id="orgf01543d">8.5 例</h2>
-<div class="outline-text-2" id="text-orgf01543d">
+<div id="outline-container-org66859c3" class="outline-2">
+<h2 id="org66859c3">8.5 例</h2>
+<div class="outline-text-2" id="text-org66859c3">
 <p>
 手書ノートで説明します。
 </p>
 </div>
 
-<div id="outline-container-org86617ff" class="outline-3">
-<h3 id="org86617ff">8.5.1 職場環境満足度アンケート</h3>
-<div class="outline-text-3" id="text-org86617ff">
+<div id="outline-container-org9898136" class="outline-3">
+<h3 id="org9898136">8.5.1 職場環境満足度アンケート</h3>
+<div class="outline-text-3" id="text-org9898136">
 <p>
 個人の満足度を知られないアンケートの実施方法
 </p>
@@ -573,9 +551,9 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 </ul>
 </div>
 
-<div id="outline-container-org4174b1c" class="outline-4">
-<h4 id="org4174b1c">設定</h4>
-<div class="outline-text-4" id="text-org4174b1c">
+<div id="outline-container-orgef8a931" class="outline-4">
+<h4 id="orgef8a931">設定</h4>
+<div class="outline-text-4" id="text-orgef8a931">
 <ul class="org-ul">
 <li>\( X \) : 1が満足，0が不満</li>
 <li>\( Y \) : 1が1と2の出目，0がそれ以外</li>
@@ -591,9 +569,9 @@ E[(\theta-T)^2] & = & E[\{(T-E[T])+(E[T]-\theta)\}^2] \\
 </div>
 </div>
 
-<div id="outline-container-org0fb5b3d" class="outline-4">
-<h4 id="org0fb5b3d">「満足」と答える確率 \( \eta = P(Z=1) \)</h4>
-<div class="outline-text-4" id="text-org0fb5b3d">
+<div id="outline-container-org9b813dc" class="outline-4">
+<h4 id="org9b813dc">「満足」と答える確率 \( \eta = P(Z=1) \)</h4>
+<div class="outline-text-4" id="text-org9b813dc">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -688,7 +666,7 @@ est_theta(enq, honest_p)
 </pre>
 </div>
 
-<pre class="example" id="org3df4ab8">
+<pre class="example" id="orgb006dd2">
     dice
       0   1 
     354 646
@@ -705,13 +683,13 @@ est_theta(enq, honest_p)
 </div>
 
 
-<div id="outline-container-org9f71fdf" class="outline-3">
-<h3 id="org9f71fdf">8.5.2 どちらの面積推定が優れているか</h3>
-<div class="outline-text-3" id="text-org9f71fdf">
+<div id="outline-container-org626d1ae" class="outline-3">
+<h3 id="org626d1ae">8.5.2 どちらの面積推定が優れているか</h3>
+<div class="outline-text-3" id="text-org626d1ae">
 </div>
-<div id="outline-container-org8f2570e" class="outline-4">
-<h4 id="org8f2570e">長方形の面積を測る問題</h4>
-<div class="outline-text-4" id="text-org8f2570e">
+<div id="outline-container-org4c4ab33" class="outline-4">
+<h4 id="org4c4ab33">長方形の面積を測る問題</h4>
+<div class="outline-text-4" id="text-org4c4ab33">
 <dl class="org-dl">
 <dt>\( \mu_{x, y} \)</dt><dd>縦と横の長さ</dd>
 <dt>\( S = \mu_x \mu_y \)</dt><dd>面積の計算</dd>
@@ -723,9 +701,9 @@ est_theta(enq, honest_p)
 </div>
 </div>
 
-<div id="outline-container-orgdd57dec" class="outline-4">
-<h4 id="orgdd57dec">二つの案の比較のための設定</h4>
-<div class="outline-text-4" id="text-orgdd57dec">
+<div id="outline-container-org4ebde62" class="outline-4">
+<h4 id="org4ebde62">二つの案の比較のための設定</h4>
+<div class="outline-text-4" id="text-org4ebde62">
 <ul class="org-ul">
 <li>縦横の長さの母集団 \( (X, Y) \)</li>
 <li>\( X \sim (\mu_x, \sigma_x^2) \), \( Y \sim (\mu_y, \sigma_y^2)
@@ -736,13 +714,13 @@ est_theta(enq, honest_p)
 </div>
 </div>
 
-<div id="outline-container-orgbf79c13" class="outline-4">
-<h4 id="orgbf79c13">\( Z = X Y \)</h4>
-<div class="outline-text-4" id="text-orgbf79c13">
+<div id="outline-container-orge03fb1b" class="outline-4">
+<h4 id="orge03fb1b">\( Z = X Y \)</h4>
+<div class="outline-text-4" id="text-orge03fb1b">
 </div>
-<div id="outline-container-org63e47de" class="outline-5">
-<h5 id="org63e47de">期待値</h5>
-<div class="outline-text-5" id="text-org63e47de">
+<div id="outline-container-org532f25b" class="outline-5">
+<h5 id="org532f25b">期待値</h5>
+<div class="outline-text-5" id="text-org532f25b">
 <p>
 \( E[Z] = E[XY] = E[X] E[Y] = \mu_x \mu_y = S\)
 </p>
@@ -758,9 +736,9 @@ est_theta(enq, honest_p)
 </div>
 </div>
 
-<div id="outline-container-orgebfa8c2" class="outline-5">
-<h5 id="orgebfa8c2">\( Z = X Y \) の分散</h5>
-<div class="outline-text-5" id="text-orgebfa8c2">
+<div id="outline-container-org3666e50" class="outline-5">
+<h5 id="org3666e50">\( Z = X Y \) の分散</h5>
+<div class="outline-text-5" id="text-org3666e50">
 \begin{eqnarray}
 V[Z] & = & E[(Z-S)^2] \\
 & = & E[Z^2] - S^2 \\
@@ -787,17 +765,17 @@ E[(S_A-S)^2] &= & E[(\overline{Z}-E[Z])^2] \\
 
 
 
-<div id="outline-container-org3338d9a" class="outline-4">
-<h4 id="org3338d9a">\(Z^* = \overline{X} \overline{Y} \)</h4>
-<div class="outline-text-4" id="text-org3338d9a">
+<div id="outline-container-org62e352e" class="outline-4">
+<h4 id="org62e352e">\(Z^* = \overline{X} \overline{Y} \)</h4>
+<div class="outline-text-4" id="text-org62e352e">
 <p>
 \( S_B = Z^* \) となる
 </p>
 </div>
 
-<div id="outline-container-orgf580cd7" class="outline-5">
-<h5 id="orgf580cd7">期待値</h5>
-<div class="outline-text-5" id="text-orgf580cd7">
+<div id="outline-container-org30f0083" class="outline-5">
+<h5 id="org30f0083">期待値</h5>
+<div class="outline-text-5" id="text-org30f0083">
 <p>
 \( E[S_B] = E[Z^*] = E[\overline{X} \overline{Y}] =
      E[\overline{X}]E[\overline{Y}] = \mu_x \mu_y = S
@@ -807,9 +785,9 @@ E[(S_A-S)^2] &= & E[(\overline{Z}-E[Z])^2] \\
 </div>
 
 
-<div id="outline-container-org6d1318b" class="outline-5">
-<h5 id="org6d1318b">分散</h5>
-<div class="outline-text-5" id="text-org6d1318b">
+<div id="outline-container-org4291512" class="outline-5">
+<h5 id="org4291512">分散</h5>
+<div class="outline-text-5" id="text-org4291512">
 <p>
 \( \overline{X} \) の分散は \( \sigma_x^2/n \),
 \( \overline{Y} \) の分散は \( \sigma_y^2/n \)
@@ -831,9 +809,9 @@ E[(S_B-S)^2] &= & E[(Z^*-E[Z^*])^2] \\
 </div>
 </div>
 
-<div id="outline-container-org7c6c270" class="outline-4">
-<h4 id="org7c6c270">結論</h4>
-<div class="outline-text-4" id="text-org7c6c270">
+<div id="outline-container-org39b7ba7" class="outline-4">
+<h4 id="org39b7ba7">結論</h4>
+<div class="outline-text-4" id="text-org39b7ba7">
 <p>
 \( E[(S_A - S)^2] - E[(S_B - S)^2] = \frac{n-1}{n} \sigma_x^2
     \sigma_y^2  \geq 0 \)
@@ -842,9 +820,9 @@ E[(S_B-S)^2] &= & E[(Z^*-E[Z^*])^2] \\
 </div>
 </div>
 
-<div id="outline-container-org55597a7" class="outline-3">
-<h3 id="org55597a7">8.5.3 Rによる最尤法の計算例</h3>
-<div class="outline-text-3" id="text-org55597a7">
+<div id="outline-container-org9f53223" class="outline-3">
+<h3 id="org9f53223">8.5.3 Rによる最尤法の計算例</h3>
+<div class="outline-text-3" id="text-org9f53223">
 <p>
 <a href="misc/mle.html#MissingReference">optim による最尤推定 (2変数)</a>
 </p>
@@ -854,7 +832,7 @@ E[(S_B-S)^2] &= & E[(Z^*-E[Z^*])^2] \\
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-11-15 月 11:48</p>
+<p class="date">Created: 2021-11-29 月 11:02</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

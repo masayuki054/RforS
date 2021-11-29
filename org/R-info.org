@@ -9,6 +9,8 @@
  - [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
 
  - [[https://www.r-project.org/][R: The R Project for Statistical Computing]]
+
+ - [[https://cran.ism.ac.jp/doc/contrib/manuals-jp/Mase-Rstatman.pdf][Mase-Rstatman.pdf]]   基本統計関数マニュアル
    
 * R と Rコマンダーのインストール方法
 

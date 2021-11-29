@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-25 木 07:18 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>10/25 RforS (データ解析)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">10/25 RforS (データ解析)</h1>
+
+<div id="outline-container-orgcb3a06b" class="outline-2">
+<h2 id="orgcb3a06b">11/01 04回目の講義内容</h2>
+<div class="outline-text-2" id="text-orgcb3a06b">
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html">http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html</a>
+</p>
+</div>
+
+<div id="outline-container-orgbc2ddf4" class="outline-3">
+<h3 id="orgbc2ddf4"><span class="done Done">Done</span> お知らせ   SCHEDULED: <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-01 月&gt;</span></span></h3>
+<div class="outline-text-3" id="text-orgbc2ddf4">
+<p>
+1回目のレポートを出題しました。Webclassを見てください。
+〆切は，いちおう，11/15日です。   
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e62277" class="outline-3">
+<h3 id="org4e62277"><span class="done Done">Done</span> 関連</h3>
+<div class="outline-text-3" id="text-org4e62277">
+</div>
+<div id="outline-container-org6880701" class="outline-4">
+<h4 id="org6880701"><span class="done Done">Done</span> このページ</h4>
+<div class="outline-text-4" id="text-org6880701">
+<p>
+<a href="https://github.com/masayuki054/RforS/blob/main/today.org">RforS/today.org at main · masayuki054/RforS · GitHub</a>
+</p>
+
+<ul class="org-ul">
+<li>今日のオンライン講義の説明の流れです。</li>
+<li>Emacs org-mode で書いています。
+<ul class="org-ul">
+<li><a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r">org-modeのコードブロック(Babel)の使い方 | Misohena Blog</a></li>
+</ul></li>
+<li>github からダウンロード可能です。</li>
+<li>~suzuki/public_html/stat2 からもアクセスできます。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbe8d808" class="outline-4">
+<h4 id="orgbe8d808"><span class="done Done">Done</span> 講義ノート</h4>
+<div class="outline-text-4" id="text-orgbe8d808">
+<p>
+<a href="https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M">note - Google ドライブ</a>
+</p>
+<ul class="org-ul">
+<li>板書用の手書きノート</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b5ad36" class="outline-4">
+<h4 id="org7b5ad36"><span class="done Done">Done</span> Rに関すること</h4>
+<div class="outline-text-4" id="text-org7b5ad36">
+<ul class="org-ul">
+<li><a href="./org/R-info.html">./org/R-info.html</a></li>
+<li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf">R-Tips - r-tips.pdf</a></li>
+<li><a href="http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7">Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e28198" class="outline-4">
+<h4 id="org2e28198"><span class="done Done">Done</span> 参考書</h4>
+<div class="outline-text-4" id="text-org2e28198">
+<ul class="org-ul">
+<li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a> 
+<ul class="org-ul">
+<li>中京大 白井先生, Rによるやさしい統計学</li>
+</ul></li>
+
+<li><a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山大学)
+<ul class="org-ul">
+<li>Rによるやさしい統計学の動画による解説</li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li><a href="https://www.ohmsha.co.jp/book/9784274227387/">入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha</a>
+<ul class="org-ul">
+<li>絵が豊富</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org95e97fa" class="outline-4">
+<h4 id="org95e97fa"><span class="done Done">Done</span> 気をつけること</h4>
+<div class="outline-text-4" id="text-org95e97fa">
+<ul class="org-ul">
+<li>講義ノート・教科書を読んでもらってから，説明すること</li>
+
+<li>プログラムは説明してから，入力の時間をとり，その後説明しながら実行
+すること</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org20ff547" class="outline-4">
+<h4 id="org20ff547"><span class="done Done">Done</span> 分布表</h4>
+<div class="outline-text-4" id="text-org20ff547">
+<p>
+R が使えないときに，確率計算に使ってください。
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf">標準正規分布配布用 - z.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf">t分布 - t.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf">CHISQ-TABLE.docx - chisq.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf">Fs - F.pdf</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf8adb3d" class="outline-3">
+<h3 id="orgf8adb3d">2冊の教科書と進行</h3>
+<div class="outline-text-3" id="text-orgf8adb3d">
+<p>
+確率と統計
+</p>
+<ul class="org-ul">
+<li>K: 進行 K-7, K-5, K-8, K-10, K-11, K-12</li>
+</ul>
+
+<p>
+Rによるやさしい統計学
+</p>
+<ul class="org-ul">
+<li>R: (R-4, R-5, R-6, R-7)， (R-8, R-9)</li>
+</ul>
+</div>
+
+<div id="outline-container-org008ddfa" class="outline-4">
+<h4 id="org008ddfa">対応 <code>[2/6]</code></h4>
+<div class="outline-text-4" id="text-org008ddfa">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 標本と統計的推測 K-7:R-4</li>
+<li class="on"><code>[X]</code> 大数の法則と中心極限定理 K-5:R-4</li>
+<li class="trans"><code>[-]</code> 点推定 K-8: (R-4, R-5)</li>
+<li class="off"><code>[&#xa0;]</code> 区間推定 K-10:R-4</li>
+<li class="off"><code>[&#xa0;]</code> 検定 K-11, R-5</li>
+<li class="off"><code>[&#xa0;]</code> いろいろな検定 K-12:(R-6, R-7)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org66f8cd2" class="outline-3">
+<h3 id="org66f8cd2">今日 (11/01) の流れ</h3>
+<div class="outline-text-3" id="text-org66f8cd2">
+</div>
+<div id="outline-container-orgab55916" class="outline-4">
+<h4 id="orgab55916">講師のノート</h4>
+<div class="outline-text-4" id="text-orgab55916">
+<ul class="org-ul">
+<li>Rノート  <a href="./org/RforS-II-index.html">./org/RforS-II-index.html</a></li>
+<li>昨年の講義ノート <a href="https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D">lect-note - Google ドライブ</a>  の7章，5章</li>
+<li><a href="http://whitewell.sakura.ne.jp/R/Rstatistics-03.html">Rで統計学を学ぶ(3)</a> を参考にしてください。</li>
+<li><a href="https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI">board-2020 - Google ドライブ</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org91f49c6" class="outline-4">
+<h4 id="org91f49c6"><span class="todo Doing">Doing</span> 標本と統計的推測 <code>[1/2]</code></h4>
+<div class="outline-text-4" id="text-org91f49c6">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-estimation.html">./org/Stat-estimation.html</a>
+ほぼ終了 標準化の前まで</li>
+
+<li class="on"><code>[X]</code> 前期の内容では，下記内容が関係します：
+<ul class="org-ul">
+<li>確率変数と確率分布</li>
+<li>確率変数の和の平均と分散</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgccaeab9" class="outline-4">
+<h4 id="orgccaeab9">進行チェック</h4>
+<div class="outline-text-4" id="text-orgccaeab9">
+</div>
+<div id="outline-container-org63cbcea" class="outline-5">
+<h5 id="org63cbcea"><span class="todo Doing">Doing</span> 標本と統計的推測 <code>[2/3]</code></h5>
+<div class="outline-text-5" id="text-org63cbcea">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> R-4
+以下は，K-7 の説明の後
+<ul class="org-ul">
+<li>不偏性，標本誤差</li>
+<li>標本平均以外の標本平均</li>
+</ul></li>
+
+<li class="on"><code>[X]</code> 標本平均  K-7 (教科書7章，5章と講師の講義ノート) <code>[5/5]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 標本平均の確率収束値</li>
+<li class="on"><code>[X]</code> 標本平均が従う分布</li>
+<li class="on"><code>[X]</code> 標本平均の期待値</li>
+<li class="on"><code>[X]</code> 標本平均の分散</li>
+<li class="on"><code>[X]</code> 標本誤差 (=&gt; 母平均の区間推定)</li>
+</ul></li>
+
+<li class="on"><code>[X]</code> 標本不偏分散 K-7 (教科書7章，5章と講師の講義ノート) <code>[4/4]</code>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 標本分散の確率収束値</li>
+<li class="on"><code>[X]</code> 標本分散が従う分布</li>
+<li class="on"><code>[X]</code> 標本分散(が従う分布)の期待値</li>
+<li class="on"><code>[X]</code> 標本分散(が従う分布)の分散</li>
+<li>=&gt; 母分散の区間推定</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf59b0f5" class="outline-5">
+<h5 id="orgf59b0f5">(参考) 大数の法則と中心極限定理</h5>
+<div class="outline-text-5" id="text-orgf59b0f5">
+<ul class="org-ul">
+<li><a href="http://www.chem.konan-u.ac.jp/applphys/web_material/GaussFromBinominal.pdf">http://www.chem.konan-u.ac.jp/applphys/web_material/GaussFromBinominal.pdf</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-11-25 木 07:18</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

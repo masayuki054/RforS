@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-15 月 09:48 -->
+<!-- 2021-11-29 月 11:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>10/25 RforS (データ解析)</title>
-<meta name="generator" content="Org mode" />
+<title>11/29 RforS 07 (データ解析)</title>
 <meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
@@ -204,70 +204,184 @@
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">10/25 RforS (データ解析)</h1>
-
-<div id="outline-container-org308b1fc" class="outline-2">
-<h2 id="org308b1fc">11/15 06回目の講義内容</h2>
-<div class="outline-text-2" id="text-org308b1fc">
+<div id="content" class="content">
+<h1 class="title">11/29 RforS 07 (データ解析)</h1>
 <p>
 <a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html">http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html</a>
 </p>
-</div>
 
-<div id="outline-container-org50777d1" class="outline-3">
-<h3 id="org50777d1"><span class="todo Doing">Doing</span> お知らせ   SCHEDULED: <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-01 月&gt;</span></span></h3>
-<div class="outline-text-3" id="text-org50777d1">
+<div id="outline-container-orgabb1763" class="outline-2">
+<h2 id="orgabb1763"><span class="todo Doing">Doing</span> お知らせ   SCHEDULED: <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-01 月&gt;</span></span></h2>
+<div class="outline-text-2" id="text-orgabb1763">
 </div>
-<div id="outline-container-org43af134" class="outline-4">
-<h4 id="org43af134">来週 11/22 は休講です。</h4>
-</div>
-
-<div id="outline-container-org7b3d6b1" class="outline-4">
-<h4 id="org7b3d6b1">1回目のレポートを出題しました。</h4>
-<div class="outline-text-4" id="text-org7b3d6b1">
+<div id="outline-container-org0a0708b" class="outline-3">
+<h3 id="org0a0708b"><span class="timestamp-wrapper"><span class="timestamp">[2021-11-29 月] </span></span> 2回目のレポート提出を予定しています。</h3>
+<div class="outline-text-3" id="text-org0a0708b">
 <p>
-Webclassを見てください。
-</p>
-
-<p>
-〆切は，いちおう，11/15日です。   
+<a href="./reports.html">./reports.html</a>
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4b7dc23" class="outline-3">
-<h3 id="org4b7dc23"><span class="done Done">Done</span> 関連</h3>
-<div class="outline-text-3" id="text-org4b7dc23">
+<div id="outline-container-orgfe8d242" class="outline-2">
+<h2 id="orgfe8d242">2冊の教科書と進行</h2>
+<div class="outline-text-2" id="text-orgfe8d242">
+<p>
+確率と統計
+</p>
+<ul class="org-ul">
+<li>K: 進行 K-7, K-5, K-8, K-10, K-11, K-12</li>
+</ul>
+
+<p>
+Rによるやさしい統計学
+</p>
+<ul class="org-ul">
+<li>R: (R-4, R-5, R-6, R-7)， (R-8, R-9)</li>
+</ul>
 </div>
-<div id="outline-container-orgabd88b5" class="outline-4">
-<h4 id="orgabd88b5"><span class="done Done">Done</span> このページ</h4>
-<div class="outline-text-4" id="text-orgabd88b5">
+
+<div id="outline-container-org0694580" class="outline-3">
+<h3 id="org0694580">対応 <code>[3/6]</code></h3>
+<div class="outline-text-3" id="text-org0694580">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 標本と統計的推測 K-7:R-4</li>
+<li class="on"><code>[X]</code> 大数の法則と中心極限定理 K-5:R-4</li>
+<li class="on"><code>[X]</code> 点推定 K-8: (R-4, R-5)</li>
+<li class="trans"><code>[-]</code> 区間推定 K-10:R-4</li>
+<li class="off"><code>[&#xa0;]</code> 検定 K-11, R-5</li>
+<li class="off"><code>[&#xa0;]</code> いろいろな検定 K-12:(R-6, R-7)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4d6d4ff" class="outline-2">
+<h2 id="org4d6d4ff">講師のノート</h2>
+<div class="outline-text-2" id="text-org4d6d4ff">
+<ul class="org-ul">
+<li>Rノート  <a href="./org/RforS-II-index.html">./org/RforS-II-index.html</a></li>
+<li>昨年の講義ノート <a href="https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D">lect-note - Google ドライブ</a>  の 8章，7章，5章</li>
+<li>昨年の板書  <a href="https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI">board-2020 - Google ドライブ</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3638d32" class="outline-2">
+<h2 id="org3638d32">今日 (11/29) の流れ</h2>
+<div class="outline-text-2" id="text-org3638d32">
+</div>
+<div id="outline-container-org42757e5" class="outline-3">
+<h3 id="org42757e5"><span class="todo Todo">Todo</span> 区間推定</h3>
+<div class="outline-text-3" id="text-org42757e5">
+<p>
+教科書10章，今日から始まります
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html">./org/Stat-interval-estimation.html</a> <code>[/]</code>
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.1 母平均の区間推定 (分散既知)</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.2 母平均の区間推定 (分散未知)</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.3 母平均の区間推定 (母分布未知)</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.5 例: 内閣支持率調査アンケート</a>
+
+<ul class="org-ul">
+<li>標準化，スチューデント化による統計量</li>
+<li>統計量が従う分布</li>
+<li>信頼度，標本誤差，信頼区間</li>
+</ul></li>
+
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.7 二つの母集団の平均の差の区間推定</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.8 分散パラメータの区間推定</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org151842b" class="outline-3">
+<h3 id="org151842b">進行チェック (作成中)</h3>
+<div class="outline-text-3" id="text-org151842b">
+</div>
+<div id="outline-container-org1339623" class="outline-4">
+<h4 id="org1339623"><span class="done Done">Done</span> 標本と統計的推測 <code>[3/3]</code></h4>
+<div class="outline-text-4" id="text-org1339623">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 前期の内容では，下記内容が関係します：
+<ul class="org-ul">
+<li>確率変数の和の平均と分散，畳み込み</li>
+<li><a href="https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&amp;authuser=msyk054%40gmail.com&amp;usp=drive_fs">期待値に関する公式</a></li>
+</ul></li>
+
+<li class="on"><code>[X]</code> R-4 <a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a>
+<ul class="org-ul">
+<li><a href="./org/RforS-II-04.html#MissingReference">4.4 推定値がどれくらいあてになるのかを調べる方法</a></li>
+<li><a href="./org/RforS-II-04.html#MissingReference">4.5 標本分布</a></li>
+<li><a href="./org/RforS-II-04.html#MissingReference">4.6 標本平均以外の標本分布</a></li>
+
+<li>標本不偏分散は母分散の不偏，一致推定量</li>
+<li>正規化した標本不偏分散は，カイ二乗分布する</li>
+</ul></li>
+
+<li class="on"><code>[X]</code> <a href="./org/Stat-estimation.html">./org/Stat-estimation.html</a>      
+<ul class="org-ul">
+<li>標本不偏分散の一致性</li>
+<li>標本不偏分散の正規化は，カイ二乗分布に従う</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org1cec975" class="outline-5">
+<h5 id="org1cec975"><span class="done Done">Done</span> 点推定 (K7, K8, R4)</h5>
+<div class="outline-text-5" id="text-org1cec975">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> <a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a>
+<ul class="org-ul">
+<li>不偏性</li>
+<li>一致性</li>
+<li>最尤法</li>
+<li>最小二乗誤差</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf13fff0" class="outline-4">
+<h4 id="orgf13fff0">未整理</h4>
+<div class="outline-text-4" id="text-orgf13fff0">
+<ul class="org-ul">
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本平均の性質</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K5 大数の法則と中心極限定理</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本が従う分布</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.1 推定量</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.2 推定量の作り方 (モーメント法)</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.3 推定量の良さ (平均2乗誤差の小ささ)</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.4 最尤推定</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.5 例</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.1 母平均の区間推定 (分散既知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.2 母平均の区間推定 (分散未知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.3 母平均の区間推定 (母分布未知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.5 例: 内閣支持率調査アンケート</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.7 二つの母集団の平均の差の区間推定</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.8 分散パラメータの区間推定</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org10193c8" class="outline-2">
+<h2 id="org10193c8"><span class="done Done">Done</span> このページ</h2>
+<div class="outline-text-2" id="text-org10193c8">
 <p>
 <a href="https://github.com/masayuki054/RforS/blob/main/today.org">RforS/today.org at main · masayuki054/RforS · GitHub</a>
 </p>
@@ -284,9 +398,9 @@ Webclassを見てください。
 </div>
 </div>
 
-<div id="outline-container-orgea1e371" class="outline-4">
-<h4 id="orgea1e371"><span class="done Done">Done</span> 講義ノート</h4>
-<div class="outline-text-4" id="text-orgea1e371">
+<div id="outline-container-orgcebf5ba" class="outline-2">
+<h2 id="orgcebf5ba"><span class="done Done">Done</span> 講義ノート</h2>
+<div class="outline-text-2" id="text-orgcebf5ba">
 <p>
 <a href="https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M">note - Google ドライブ</a>
 </p>
@@ -296,9 +410,9 @@ Webclassを見てください。
 </div>
 </div>
 
-<div id="outline-container-org842a48d" class="outline-4">
-<h4 id="org842a48d"><span class="done Done">Done</span> Rに関すること</h4>
-<div class="outline-text-4" id="text-org842a48d">
+<div id="outline-container-org4f2321b" class="outline-2">
+<h2 id="org4f2321b"><span class="done Done">Done</span> Rに関すること</h2>
+<div class="outline-text-2" id="text-org4f2321b">
 <ul class="org-ul">
 <li><a href="./org/R-info.html">./org/R-info.html</a></li>
 <li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf">R-Tips - r-tips.pdf</a></li>
@@ -307,9 +421,9 @@ Webclassを見てください。
 </div>
 </div>
 
-<div id="outline-container-orgb001126" class="outline-4">
-<h4 id="orgb001126"><span class="done Done">Done</span> 参考書</h4>
-<div class="outline-text-4" id="text-orgb001126">
+<div id="outline-container-org8eaae5b" class="outline-2">
+<h2 id="org8eaae5b"><span class="done Done">Done</span> 参考書</h2>
+<div class="outline-text-2" id="text-org8eaae5b">
 <ul class="org-ul">
 <li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a> 
 <ul class="org-ul">
@@ -320,8 +434,7 @@ Webclassを見てください。
 <ul class="org-ul">
 <li>Rによるやさしい統計学の動画による解説</li>
 </ul></li>
-</ul>
-<ul class="org-ul">
+
 <li><a href="https://www.ohmsha.co.jp/book/9784274227387/">入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha</a>
 <ul class="org-ul">
 <li>絵が豊富</li>
@@ -330,10 +443,9 @@ Webclassを見てください。
 </div>
 </div>
 
-
-<div id="outline-container-org62f3775" class="outline-4">
-<h4 id="org62f3775"><span class="done Done">Done</span> 気をつけること</h4>
-<div class="outline-text-4" id="text-org62f3775">
+<div id="outline-container-org9e93025" class="outline-2">
+<h2 id="org9e93025"><span class="done Done">Done</span> 気をつけること</h2>
+<div class="outline-text-2" id="text-org9e93025">
 <ul class="org-ul">
 <li>講義ノート・教科書を読んでもらってから，説明すること</li>
 
@@ -343,9 +455,9 @@ Webclassを見てください。
 </div>
 </div>
 
-<div id="outline-container-org0ca81cd" class="outline-4">
-<h4 id="org0ca81cd"><span class="done Done">Done</span> 分布表</h4>
-<div class="outline-text-4" id="text-org0ca81cd">
+<div id="outline-container-org6cf0bd9" class="outline-2">
+<h2 id="org6cf0bd9"><span class="done Done">Done</span> 分布表</h2>
+<div class="outline-text-2" id="text-org6cf0bd9">
 <p>
 R が使えないときに，確率計算に使ってください。
 </p>
@@ -359,132 +471,9 @@ R が使えないときに，確率計算に使ってください。
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-orgf25597d" class="outline-3">
-<h3 id="orgf25597d">2冊の教科書と進行</h3>
-<div class="outline-text-3" id="text-orgf25597d">
-<p>
-確率と統計
-</p>
-<ul class="org-ul">
-<li>K: 進行 K-7, K-5, K-8, K-10, K-11, K-12</li>
-</ul>
-
-<p>
-Rによるやさしい統計学
-</p>
-<ul class="org-ul">
-<li>R: (R-4, R-5, R-6, R-7)， (R-8, R-9)</li>
-</ul>
-</div>
-
-<div id="outline-container-orge6e116e" class="outline-4">
-<h4 id="orge6e116e">対応 <code>[3/6]</code></h4>
-<div class="outline-text-4" id="text-orge6e116e">
-<ul class="org-ul">
-<li class="on"><code>[X]</code> 標本と統計的推測 K-7:R-4</li>
-<li class="on"><code>[X]</code> 大数の法則と中心極限定理 K-5:R-4</li>
-<li class="on"><code>[X]</code> 点推定 K-8: (R-4, R-5)</li>
-<li class="trans"><code>[-]</code> 区間推定 K-10:R-4</li>
-<li class="off"><code>[&#xa0;]</code> 検定 K-11, R-5</li>
-<li class="off"><code>[&#xa0;]</code> いろいろな検定 K-12:(R-6, R-7)</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org9ee3882" class="outline-3">
-<h3 id="org9ee3882">講師のノート</h3>
-<div class="outline-text-3" id="text-org9ee3882">
-<ul class="org-ul">
-<li>Rノート  <a href="./org/RforS-II-index.html">./org/RforS-II-index.html</a></li>
-
-<li>昨年の講義ノート <a href="https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D">lect-note - Google ドライブ</a>  の 8章，7章，5章</li>
-<li>昨年の板書  <a href="https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI">board-2020 - Google ドライブ</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-orgc96d74d" class="outline-3">
-<h3 id="orgc96d74d">今日 (11/15) の流れ</h3>
-<div class="outline-text-3" id="text-orgc96d74d">
-</div>
-<div id="outline-container-org047b87e" class="outline-4">
-<h4 id="org047b87e"><span class="todo Doing">Doing</span> 標本と統計的推測 <code>[1/4]</code></h4>
-<div class="outline-text-4" id="text-org047b87e">
-<ul class="org-ul">
-<li class="trans"><code>[-]</code> <a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a>
-教科書8章5節の例を説明します。</li>
-
-<li class="trans"><code>[-]</code> <a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a>
-<ul class="org-ul">
-<li>標本不偏分散の一致性</li>
-<li>標本不偏分散の正規化は，カイ二乗分布に従う</li>
-</ul></li>
-
-<li class="on"><code>[X]</code> 前期の内容では，下記内容が関係します：
-<ul class="org-ul">
-<li>確率変数の和の平均と分散，畳み込み</li>
-<li><a href="https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&amp;authuser=msyk054%40gmail.com&amp;usp=drive_fs">期待値に関する公式</a></li>
-</ul></li>
-
-<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html">./org/Stat-interval-estimation.html</a>
-教科書10章，今日から始まります</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org7e2cf7f" class="outline-4">
-<h4 id="org7e2cf7f">進行チェック</h4>
-<div class="outline-text-4" id="text-org7e2cf7f">
-</div>
-<div id="outline-container-org3116959" class="outline-5">
-<h5 id="org3116959"><span class="todo Doing">Doing</span> 標本と統計的推測 <code>[1/2]</code></h5>
-<div class="outline-text-5" id="text-org3116959">
-<ul class="org-ul">
-<li class="on"><code>[X]</code> R-4
-<ul class="org-ul">
-<li>標本不偏分散は母分散の不偏，一致推定量</li>
-<li>正規化した標本不偏分散は，カイ二乗分布する</li>
-</ul></li>
-</ul>
-</div>
-
-<div id="outline-container-orgf32e039" class="outline-6">
-<h6 id="orgf32e039"><span class="done Done">Done</span> 点推定 (K7, K8, R4)</h6>
-<div class="outline-text-6" id="text-orgf32e039">
-<ul class="org-ul">
-<li>不偏性</li>
-<li>一致性</li>
-<li>最尤法</li>
-<li>最小二乗誤差</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd68aafc" class="outline-6">
-<h6 id="orgd68aafc"><span class="todo Todo">Todo</span> 区間推定 (K10)</h6>
-<div class="outline-text-6" id="text-orgd68aafc">
-<ul class="org-ul">
-<li>母平均の区間推定
-<ul class="org-ul">
-<li>標準化，スチューデント化による統計量</li>
-<li>統計量が従う分布</li>
-</ul></li>
-<li>信頼度，標本誤差，信頼区間</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-11-15 月 09:48</p>
+<p class="date">Created: 2021-11-29 月 11:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -6,7 +6,7 @@
 #+property: header-args:R :session *stext* :results output :exports both :width 400 :height 300
 
 
-* 本章での想定
+* 10章での想定
 
    - \( X \): 母集団 \( \sim N(\mu, \sigma^2) \) とする
 
@@ -19,7 +19,7 @@
   「薬の投与により，血中のあるある物質の濃度が上昇し，健康状態が改善され
   る」という。
 
-  20人の患者への投与により，増加の程度 (%) の標本値が得らた:
+  20人の患者への投与により，増加の程度 (%) の標本値が得られた:
 
 #+begin_src R :results output :session *stext* 
 ##
@@ -33,9 +33,9 @@
 #+end_src
 
 #+RESULTS:
-:  [1] 29.26114 29.35022 30.98864 28.61105 29.52598 30.32363 29.52287 28.78283
-:  [9] 29.77956 29.60103 29.93772 29.43573 28.41715 27.98047 27.94568 28.81546
-: [17] 28.47134 30.37318 30.68485 29.76198
+:  [1] 30.54355 28.58138 29.51810 28.16354 28.54363 29.41633 28.52214 28.46580
+:  [9] 28.43617 30.32315 27.74855 30.41414 29.59607 27.57476 29.56284 27.20942
+: [17] 28.42388 28.37821 30.52173 28.39462
 
 * 10.1 母平均の区間推定 (分散既知)
 
@@ -61,7 +61,7 @@
      \( P(\theta_{l} \leq \theta \leq \theta_{h}) = 1 - \alpha \) とな
      る区間  \( [\theta_{l}, \theta_{h}] \) を, *信頼区間* と呼ぶ。
 
-
+     
 ** 標本のの標本平均が入る区間を求める
 
    [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]] 確率分布と乱数参照
@@ -112,13 +112,13 @@ pnorm(zs)  ## [-\infty, zs]となる確率
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
 
-     \begin{eqnarray}
+     \( 1-\alpha & = & P (|Z_n| \leq z^{*}) \)
 
-     1-\alpha & = & P (|Z_n| \leq z^{*}) \\
-     & = & P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq     z^{*}) \\
-     & = & P( {|\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \\
-     & = & P ( \overline{X_{(n)}}-z^{*} \sqrt{\sigma^2/n} \leq \mu \leq  \overline{X_{(n)}} + z^{*} \sqrt{\sigma^2/n}) \\
-     \end{eqnarray}
+     \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq     z^{*})\)
+
+     \( =  P( {|\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \)
+
+     \( =  P ( \overline{X_{(n)}}-z^{*} \sqrt{\sigma^2/n} \leq \mu \leq  \overline{X_{(n)}} + z^{*} \sqrt{\sigma^2/n}) \)
 
 
 ***  平均パラメータの区間推定の問題 (分散既知)
@@ -255,32 +255,28 @@ pt(tns, df=degree_of_free)  ## [-\infty, zs]となる確率
 
 **** 信頼度 0.95/0.99 の信頼区間は，
 
-     \( z^* \) に 1.96 を代入した:
+     \( t^* \) に 2.09 を代入した:
 
-     \( \left[ \overline{X_{(n)}} - 1.96 \sqrt{\sigma^2/n}, \,\,\,
-     \overline{X_{(n)}} + 1.96 \sqrt{\sigma^2/n} \right]\)
+     \( \left[ \overline{X_{(n)}} - 2.09 \sqrt{\sigma^2/n}, \,\,\,
+     \overline{X_{(n)}} + 2.09 \sqrt{\sigma^2/n} \right]\)
 
-     \( z^* \) に 2.58 を代入した:
+     \( t^* \) に 2.86 を代入した:
 
-     \( \left[ \overline{X_{(n)}} - 2.58 \sqrt{\sigma^2/n}, \,\,\,
-     \overline{X_{(n)}} + 2.58 \sqrt{\sigma^2/n} \right]\)
+     \( \left[ \overline{X_{(n)}} - 2.86 \sqrt{\sigma^2/n}, \,\,\,
+     \overline{X_{(n)}} + 2.86 \sqrt{\sigma^2/n} \right]\)
 
-     #+begin_src R :tangle RforS/code/10.R
-
-
-
-n <- length(sample)
-
-
-     #+end_src
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
     
-     \begin{eqnarray}
-     1-\alpha & = & P (|T_n| \leq t^{*}_{n-1}) \\
-     & = & P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq  t^{*}_{n-1}) \\
-     & = & P( {|\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n}) \\
-     & = & P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \\
+     \( 1-\alpha  =  P (|T_n| \leq t^{*}_{n-1}) \)
+     
+     \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq
+     t^{*}_{n-1}) \)
+     
+     \( =  P( {|\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
+     \)
+     
+     \( =  P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \)
 
      \end{eqnarray}
 
@@ -291,7 +287,7 @@ n <- length(sample)
 
     20人の患者への投与により，増加の程度 (%) の標本値が得らた:
 
-**** lt_{n-1}分布で信頼度(1-alpha)の信頼区間 (上記の説明通り)求める
+**** t_{n-1}分布で信頼度(1-alpha)の信頼区間 (上記の説明通り)求める
 
       #+begin_src R :results output :session *stext* 
 ## 
@@ -321,10 +317,9 @@ est_t_conf_interval(0.05, sample)
       #+end_src
 
       #+RESULTS:
-      : [1] 0.7330411
+      : [1] 1.011997
       : [1]  2.093024 -2.093024
-      : [1] 28.97782 29.77923
-
+      : [1] 28.44609 29.38771
 
 
 * 10.3 母平均の区間推定 (母分布未知)
@@ -369,12 +364,16 @@ est_t_conf_interval(0.05, sample)
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
     
-     \begin{eqnarray}
-     1-\alpha & = & P (|T_n| \leq z^{*}) \\
-     & = & P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq  z^{*}_) \\
-     & = & P( {|\overline{X_{(n)}}-\mu| \leq z^{*}_\sqrt{S^2/n}) \\
-     & = & P \left( \overline{X_{(n)}}-z^{*} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + z^{*}\sqrt{S^2/n} \right) \\
-     \end{eqnarray}
+     \( 1-\alpha  =  P (|T_n| \leq z^{*}) \)
+     
+     \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq
+     z^{*}) \)
+     
+     \( =  P( {|\overline{X_{(n)}}-\mu|} \leq z^{*}\sqrt{S^2/n} ) \)
+     
+     \( =  P \left( \overline{X_{(n)}}-z^{*} \sqrt{S^2/n} \leq \mu
+     \leq  \overline{X_{(n)}} + z^{*}\sqrt{S^2/n} \right) \)
+     
 
      #+begin_src R :session *stext* :results output :exports both :tangle Rtext/code/01.R
 
@@ -424,12 +423,6 @@ est_tz_conf_interval(0.05, sample)
    - \( a \)% にどの程度誤差を見積もるか？
   
 
-  
-     
-
-
-
-
 ** 問題整理
 
    - 確率変数: \( X = 1 \) で支持，\( X = 0 \)で支持しない。
@@ -438,8 +431,8 @@ est_tz_conf_interval(0.05, sample)
 
 ** 誤差を見積る
 
-   - \( \mu = \theta \) :: 推定量 \( \overline{X_{(n)} \)
-   - \( \sigma^2 = \theta (1-\theta) \)  ::  推定量 \(\overline{X_{(n)}} (1 - \overline{X_{(n)}) \)
+   - \( \mu = \theta \) :: 推定量 \( \overline{X_{(n)}} \)
+   - \( \sigma^2 = \theta (1-\theta) \)  ::  推定量 \(\overline{X_{(n)}} (1 - \overline{X_{(n)}}) \)
 
    \( \theta \) の信頼区間は，  \(\overline{X_{(n)}} \pm z^*_{\alpha} \sqrt{\overline{X_{(n)}} (1 - \overline{X_{(n)}})/n} \)
    
@@ -448,12 +441,10 @@ est_tz_conf_interval(0.05, sample)
 
     信頼度 \( 1-\alpha = 0.95 \) で，n=100, n=1000 での信頼区間は:
 
-    | \( n=100 \) | \( 0.3 \pm 1.96 \sqrt{0.3(1-0.3)/100} \approx 0.3 \pm 0.090 | 
-    | \( n=1000 \) | \( 0.3 \pm 1.96 \sqrt{0.3(1-0.3)/1000} \approx 0.3 \pm 0.028 | 
+    | \( n=100 \)  | \( 0.3 \pm 1.96 \sqrt{0.3(1-0.3)/100} \approx 0.3 \pm 0.090  |
+    | \( n=1000 \) | \( 0.3 \pm 1.96 \sqrt{0.3(1-0.3)/1000} \approx 0.3 \pm 0.028 |
 
-
-   
-*** 誤差と標本サイズ
+** 誤差と標本サイズ
 
     誤差を \( \pm 1% \) 程度にしたい。
     そのために必要な標本サイズはいくつか？
@@ -478,14 +469,13 @@ est_tz_conf_interval(0.05, sample)
     \end{eqnarray}
     
 * 10.7 二つの母集団の平均の差の区間推定
-
   
 ** 薬と血中濃度の問題
 
-   - Aグループ :: 新薬と投与し， \( \overline{X_{(n)}} = 3.56 \)
-   - Bグループ :: 新薬と投与し， \( \overline{Y_{(m)}} = 1.27 \)
+   - Aグループ :: 新薬を投与し， \( \overline{X_{(n)}} = 3.56 \)
+   - Bグループ :: 新薬を投与し， \( \overline{Y_{(m)}} = 1.27 \)
 
-  平均的には，\( \( \overline{X_{(n)}} - \overline{Y_{(m)}} = 1.27 \)
+  平均的には，\( \( \overline{X_{(n)}} - \overline{Y_{(m)}} = 2.29 \)
   だが，その誤差の見積りは？
 
   
@@ -519,10 +509,6 @@ est_tz_conf_interval(0.05, sample)
     \( (\overline{X}-\overline{Y}) \pm z^* \sqrt{\sigma_x^2/n + \sigma_y^2/m} \)
     
 
-    
-
-     
-
 ** 分散未知の場合
 
 *** \( \sigma_x^2 = \sigma_y^2 = \sigma^2 \) の場合
@@ -531,8 +517,7 @@ est_tz_conf_interval(0.05, sample)
 
      \( S_*^2 = \frac{1}{n+m-2}\left\{\Sigma_1^n (X_i -
      \overline{X_{(n)}})^2+ \Sigma_1^m (Y_i - \overline{Y_{(m)}})^2
-     \right\
-     } \)
+     \right\} \)
 
      - \( S_*^2 \) は \( \sigma^2 \) の不偏推定量
 
@@ -582,6 +567,7 @@ est_tz_conf_interval(0.05, sample)
 
     \( (\overline{X}-\overline{Y}) \pm z^*\sqrt{S_x^2/n + S_y^2/m} \) 
     
+
 * 10.8 分散パラメータの区間推定
 
 ** 前提
@@ -604,4 +590,39 @@ est_tz_conf_interval(0.05, sample)
 
    \( \left[((n-1) S^2/v, (n-1) S^2/u ) \right]\) 
      
-    
+** 95% 信頼区間の両端点
+
+#+begin_src R :results output :session *stext* 
+###
+### 
+###
+for (d in c(4,8,16,32,64)) {
+  print(c(d), qchisq(0.025,df=d), qchisq(0.975,df=d)))
+}
+#+end_src
+
+#+RESULTS:
+: [1]  4.0000000  0.4844186 11.1432868
+: [1]  8.000000  2.179731 17.534546
+: [1] 16.000000  6.907664 28.845351
+: [1] 32.00000 18.29076 49.48044
+: [1] 64.00000 43.77595 88.00405
+
+
+** 90% 信頼区間の両端点
+
+#+begin_src R :results output :session *stext* 
+###
+### 
+###
+for (d in c(4,8,16,32,64)) {
+  print(c(d, qchisq(0.05,df=d), qchisq(0.95,df=d)))
+}
+#+end_src
+
+#+RESULTS:
+: [1] 4.000000 0.710723 9.487729
+: [1]  8.000000  2.732637 15.507313
+: [1] 16.000000  7.961646 26.296228
+: [1] 32.00000 20.07191 46.19426
+: [1] 64.00000 46.59491 83.67526

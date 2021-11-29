@@ -1,0 +1,36 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title:  確率と統計 II index (データ解析) 
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
+
+
+* 確率と統計 (データ解析の数理の教科書)
+   - 7章 [[./Stat-estimation.org]]
+   - 8章 [[./Stat-estimation-2.org]]
+   - 10章 [[./Stat-interval-estimation.org]]
+
+*** R-コード
+*** グラフなど
+  
+* RforS のまとめ
+   
+   - [[./RforS-II-04.org]]
+   - [[./RforS-II-05.org]]
+   - [[./RforS-II-06.org]]          
+   - [[./RforS-II-07.org]]     
+ 
+** data/
+   - データ処理のコードです: [[./RforS-II-data.org]]
+   - データ置き場です: [[./data/]]
+   
+** R-コード
+   節ごとにまとまっています: [[./RforS-Codes/]],
+   講義で使った [[./Codes/]]
+
+** グラフなど
+   - [[./RforS-graphs]]
+   - [[./graphs]]
+
+
