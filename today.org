@@ -75,7 +75,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
       - 標本不偏分散の一致性
       - 標本不偏分散の正規化は，カイ二乗分布に従う
 
-**** Done 点推定 (K7, K8, R4)
+*** Done 点推定 (K7, K8, R4)
 
      - [X] [[./org/Stat-estimation-2.org]]
        - 不偏性

@@ -290,7 +290,6 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
    [[https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83][F分布 - Wikipedia]]
   
 
-
 * \( \chi^2 \) 分布
 
   工場で製造される製品の容量のバラツキは？
