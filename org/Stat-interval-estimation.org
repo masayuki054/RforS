@@ -1,3 +1,4 @@
+
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
@@ -16,8 +17,8 @@
 
 * 平均パラメータの区間推定の問題
 
-  「薬の投与により，血中のあるある物質の濃度が上昇し，健康状態が改善され
-  る」という。
+  「薬の投与により，血中のある物質の濃度が上昇し，健康状態が改善される」
+  という。
 
   20人の患者への投与により，増加の程度 (%) の標本値が得られた:
 
@@ -25,7 +26,7 @@
 ##
 ## 正規分布からの標本
 ##
-### サイズ 20, 平均=29.2, 分散l=1
+### サイズ 20, 平均=29.2, 分散=1
 ###
 
 (sample <- rnorm(20, mean=29.2, sd=1))
@@ -33,9 +34,9 @@
 #+end_src
 
 #+RESULTS:
-:  [1] 30.54355 28.58138 29.51810 28.16354 28.54363 29.41633 28.52214 28.46580
-:  [9] 28.43617 30.32315 27.74855 30.41414 29.59607 27.57476 29.56284 27.20942
-: [17] 28.42388 28.37821 30.52173 28.39462
+:  [1] 27.94484 29.83686 27.79953 28.04755 28.75391 29.71464 28.29472 26.32046
+:  [9] 30.47457 29.69439 28.47219 29.96765 29.69294 29.05225 30.87160 30.46751
+: [17] 28.09111 29.15670 28.50214 27.93843
 
 * 10.1 母平均の区間推定 (分散既知)
 
@@ -205,7 +206,6 @@ est_conf_interval_2(0.05, sample, 1)
 
      
      
-     
 * 10.2 母平均の区間推定 (分散未知)  
 
   分散未知の場合は，スチューデント化を用いる。
@@ -219,7 +219,7 @@ est_conf_interval_2(0.05, sample, 1)
 
 ** \( \overline{X_{(n)}}\) のスチューデント化
 
-   \(T_n =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{\S^2/n}}   \sim    t_{n-1}  \)
+   \(T_n =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}}   \sim    t_{n-1}  \)
    
 ** 危険度・信頼度と信頼区間
 
@@ -257,13 +257,13 @@ pt(tns, df=degree_of_free)  ## [-\infty, zs]となる確率
 
      \( t^* \) に 2.09 を代入した:
 
-     \( \left[ \overline{X_{(n)}} - 2.09 \sqrt{\sigma^2/n}, \,\,\,
-     \overline{X_{(n)}} + 2.09 \sqrt{\sigma^2/n} \right]\)
+     \( \left[ \overline{X_{(n)}} - 2.09 \sqrt{S^2/n}, \,\,\,
+     \overline{X_{(n)}} + 2.09 \sqrt{\S^2/n} \right]\)
 
      \( t^* \) に 2.86 を代入した:
 
-     \( \left[ \overline{X_{(n)}} - 2.86 \sqrt{\sigma^2/n}, \,\,\,
-     \overline{X_{(n)}} + 2.86 \sqrt{\sigma^2/n} \right]\)
+     \( \left[ \overline{X_{(n)}} - 2.86 \sqrt{S^2/n}, \,\,\,
+     \overline{X_{(n)}} + 2.86 \sqrt{S^2/n} \right]\)
 
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
@@ -278,14 +278,13 @@ pt(tns, df=degree_of_free)  ## [-\infty, zs]となる確率
      
      \( =  P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \)
 
-     \end{eqnarray}
 
 ***  平均パラメータの区間推定の問題 (分散未知)
 
     「薬の投与により，血中のあるある物質の濃度が上昇し，健康状態が改善され
     る」という。
 
-    20人の患者への投与により，増加の程度 (%) の標本値が得らた:
+    20人の患者への投与により，増加の程度 (%) の標本値が得られた:
 
 **** t_{n-1}分布で信頼度(1-alpha)の信頼区間 (上記の説明通り)求める
 
@@ -297,7 +296,7 @@ t_interval <- function (alpha, sample) {
   c(qt(1-alpha/2,length(sample)-1), qt(alpha/2, length(sample)-1))
   }
 
-## 母平均の区間推定，分散既知
+## 母平均の区間推定，分散未知
 ### alpha : 危険度， (1-alpha): 信頼度
 ### sample : 標本
 est_t_conf_interval <- function (alpha, sample) {
@@ -309,7 +308,7 @@ est_t_conf_interval <- function (alpha, sample) {
   
   c(xbar - sigma*ts[1]/sqrt(n), xbar + sigma*ts[1]/sqrt(n))
 }
-
+mean(sample)
 var(sample)
 t_interval(0.05, sample)
 est_t_conf_interval(0.05, sample)
@@ -317,9 +316,10 @@ est_t_conf_interval(0.05, sample)
       #+end_src
 
       #+RESULTS:
-      : [1] 1.011997
+      : [1] 28.9547
+      : [1] 1.295045
       : [1]  2.093024 -2.093024
-      : [1] 28.44609 29.38771
+      : [1] 28.4221 29.4873
 
 
 * 10.3 母平均の区間推定 (母分布未知)
@@ -468,6 +468,7 @@ est_tz_conf_interval(0.05, sample)
       & = & 9604
     \end{eqnarray}
     
+
 * 10.7 二つの母集団の平均の差の区間推定
   
 ** 薬と血中濃度の問題

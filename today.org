@@ -40,12 +40,12 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
  
 ** Todo 区間推定 
    教科書10章，今日から始まります
-   - [ ] [[./org/Stat-interval-estimation.org]] [/]
+   - [-] [[./org/Stat-interval-estimation.org]] [4/6]
 
-        - [ ] [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
-        - [ ] [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
-        - [ ] [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
-        - [ ] [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
 
           - 標準化，スチューデント化による統計量
           - 統計量が従う分布
