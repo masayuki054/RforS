@@ -63,13 +63,11 @@
     \]
 
      
-     
 *** 例題
 
     統計テスト1の得点の平均値に男女で有意な差があるでしょうか？
     有意水準5%，両側検定してください。
 
-     
 **** データの準備
 
     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r

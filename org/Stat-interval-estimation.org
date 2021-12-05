@@ -1,11 +1,9 @@
-
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+title: 確率と統計 10. 区間推定
 #+OPTIONS: tex:t
 #+property: header-args:R :session *stext* :results output :exports both :width 400 :height 300
-
 
 * 10章での想定
 
@@ -63,10 +61,8 @@
      る区間  \( [\theta_{l}, \theta_{h}] \) を, *信頼区間* と呼ぶ。
 
      
-** 標本のの標本平均が入る区間を求める
+** 標本の標本平均が入る区間を求める
 
-   [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]] 確率分布と乱数参照
-   
 *** 危険度・信頼度に対する \( z^* \) を求める
 
     \( z^* \) は標準正規分布で危険度・信頼度に対応する座標。
@@ -113,7 +109,7 @@ pnorm(zs)  ## [-\infty, zs]となる確率
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
 
-     \( 1-\alpha & = & P (|Z_n| \leq z^{*}) \)
+     \( 1-\alpha  =  P (|Z_n| \leq z^{*}) \)
 
      \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq     z^{*})\)
 
@@ -227,8 +223,6 @@ est_conf_interval_2(0.05, sample, 1)
 
 ** 標本のの標本平均が入る区間を求める
 
-   [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]] 確率分布と乱数参照
-   
 *** 危険度・信頼度に対する \( t^* \) を求める
 
     \( P(|T_n|) \leq t^{*}_{n-1}) = 1-\alpha \) となる \( t^{*}_{n-1} \)
@@ -273,7 +267,7 @@ pt(tns, df=degree_of_free)  ## [-\infty, zs]となる確率
      \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq
      t^{*}_{n-1}) \)
      
-     \( =  P( {|\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
+     \( =  P( |\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
      \)
      
      \( =  P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \)
@@ -337,15 +331,10 @@ est_t_conf_interval(0.05, sample)
     - 支持率 : \( \theta \)
     - 母分布 : ベルヌーイ分布
       
-
   分散未知の場合は，スチューデント化を用いる。
 
-  標本平均 \( \overline{X_{(n)}}\) の従う分布は，
-  自由度 \( (n-1) \) の t-分布になる。
-
-  \( \sigma^2 \) の代わりに標本不偏分散 \( S^2 \) を用いる。
-  
-  それ以外は，分散既知の場合と同じになる。
+  *大数の法則と中心極限定理により*，
+  *スチューデント化変数 \(T_n\) は標準正規分布に分布収束する* 。
 
 ** 母分布未知 での\( \overline{X_{(n)}}\) のスチューデント化
 
@@ -551,7 +540,7 @@ est_tz_conf_interval(0.05, sample)
      \( S_x^2 = \frac{1}{n-1}\Sigma_1^n (X_i -\overline{X_{(n)}})^2
      \longrightarrow  \sigma_x^2\)
 
-     \( S_y^2 = \frac{1}{m-1}\Sigma_1^m (Y_i -\overline{Y_{(n)}})^2      \longrightarrow  \sigma_y^2\)\)
+     \( S_y^2 = \frac{1}{m-1}\Sigma_1^m (Y_i -\overline{Y_{(n)}})^2      \longrightarrow  \sigma_y^2\)
 
 
 **** スチューデント化変数 T

@@ -1,0 +1,55 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 確率と統計 11. 検定
+#+OPTIONS: tex:t
+#+property: header-args:R :session *stext* :results output :exports both :width 400 :height 300
+
+ある牛乳会社は，自分達の作っている牛乳の乳脂肪分は，平均的に3%であると
+主張している。20本を調べ，平均乳脂肪分の標本平均値が 2.92% だった。会
+社の主張は？
+
+* 11.1 検定の基本的考え方
+
+20本の標本
+
+#+begin_src R :results output :session *stext* 
+##
+## 正規分布からの標本
+##
+### サイズ 20, 平均=29.2, 分散=1
+###
+
+(sample <- rnorm(20, mean=2.90, sd=1))
+mean(sample)
+var(sample)
+
+#+end_src
+
+#+RESULTS:
+:  [1] 2.786817 1.723156 3.646788 1.206401 3.308731 1.270683 3.486205 3.193498
+:  [9] 1.409495 2.507634 2.837911 2.607277 3.285794 2.987940 1.337368 4.608557
+: [17] 2.818673 2.482748 4.432305 2.965888
+: [1] 2.745193
+: [1] 0.9532431
+
+
+\( \mu \) ： 母集団の乳脂肪平均値
+\( \mu_0 \) : 会社の主張値
+\( \overline{x} \) : 標本平均
+
+\( |\overline{X} - \mu_0| = | 2.74 - 3.0 | = 0.26 \) は十分大きな差か？
+
+会社の主張 \( H : \mu = \mu_0 ( = 3) \).
+
+帰無仮説 (null hypothesis)
+- 真であることが示されても，当り前である仮説
+
+検証方法:
+ある値 \( c \) を定めて，\( |\overline{X}-\mu_0| > c \Rightarrow \) 帰無仮説 H を棄
+却する
+
+棄却域 (reject region): \( W = \{ \vec{X}=(X_1, \cdots ,
+X_n): |\overline{X}-\mu_0| \ge c \} \)
+
+

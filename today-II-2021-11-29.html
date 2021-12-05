@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-29 月 20:12 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>11/29 RforS 07 (データ解析)</title>
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">11/29 RforS 07 (データ解析)</h1>
+<p>
+<a href="http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html">http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html</a>
+</p>
+
+<div id="outline-container-orgaa2c30d" class="outline-2">
+<h2 id="orgaa2c30d"><span class="todo Doing">Doing</span> お知らせ   SCHEDULED: <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-11-01 月&gt;</span></span></h2>
+<div class="outline-text-2" id="text-orgaa2c30d">
+</div>
+<div id="outline-container-org94e203f" class="outline-3">
+<h3 id="org94e203f"><span class="timestamp-wrapper"><span class="timestamp">[2021-11-29 月] </span></span> 2回目のレポート提出を予定しています。</h3>
+<div class="outline-text-3" id="text-org94e203f">
+<p>
+<a href="./reports.html">./reports.html</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b666d5" class="outline-2">
+<h2 id="org9b666d5">2冊の教科書と進行</h2>
+<div class="outline-text-2" id="text-org9b666d5">
+<p>
+確率と統計
+</p>
+<ul class="org-ul">
+<li>K: 進行 K-7, K-5, K-8, K-10, K-11, K-12</li>
+</ul>
+
+<p>
+Rによるやさしい統計学
+</p>
+<ul class="org-ul">
+<li>R: (R-4, R-5, R-6, R-7)， (R-8, R-9)</li>
+</ul>
+</div>
+
+<div id="outline-container-org1dcc2c5" class="outline-3">
+<h3 id="org1dcc2c5">対応 <code>[3/6]</code></h3>
+<div class="outline-text-3" id="text-org1dcc2c5">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 標本と統計的推測 K-7:R-4</li>
+<li class="on"><code>[X]</code> 大数の法則と中心極限定理 K-5:R-4</li>
+<li class="on"><code>[X]</code> 点推定 K-8: (R-4, R-5)</li>
+<li class="trans"><code>[-]</code> 区間推定 K-10:R-4</li>
+<li class="off"><code>[&#xa0;]</code> 検定 K-11, R-5</li>
+<li class="off"><code>[&#xa0;]</code> いろいろな検定 K-12:(R-6, R-7)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4afa6f1" class="outline-2">
+<h2 id="org4afa6f1">講師のノート</h2>
+<div class="outline-text-2" id="text-org4afa6f1">
+<ul class="org-ul">
+<li>Rノート  <a href="./org/RforS-II-index.html">./org/RforS-II-index.html</a></li>
+<li>昨年の講義ノート <a href="https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D">lect-note - Google ドライブ</a>  の 8章，7章，5章</li>
+<li>昨年の板書  <a href="https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI">board-2020 - Google ドライブ</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf153441" class="outline-2">
+<h2 id="orgf153441">今日 (11/29) の流れ</h2>
+<div class="outline-text-2" id="text-orgf153441">
+</div>
+<div id="outline-container-orgae7257c" class="outline-3">
+<h3 id="orgae7257c"><span class="todo Todo">Todo</span> 区間推定</h3>
+<div class="outline-text-3" id="text-orgae7257c">
+<p>
+教科書10章，今日から始まります
+</p>
+<ul class="org-ul">
+<li class="trans"><code>[-]</code> <a href="./org/Stat-interval-estimation.html">./org/Stat-interval-estimation.html</a> <code>[4/6]</code>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.1 母平均の区間推定 (分散既知)</a></li>
+<li class="on"><code>[X]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.2 母平均の区間推定 (分散未知)</a></li>
+<li class="on"><code>[X]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.3 母平均の区間推定 (母分布未知)</a></li>
+<li class="on"><code>[X]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.5 例: 内閣支持率調査アンケート</a>
+
+<ul class="org-ul">
+<li>標準化，スチューデント化による統計量</li>
+<li>統計量が従う分布</li>
+<li>信頼度，標本誤差，信頼区間</li>
+</ul></li>
+
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.7 二つの母集団の平均の差の区間推定</a></li>
+<li class="off"><code>[&#xa0;]</code> <a href="./org/Stat-interval-estimation.html#MissingReference">10.8 分散パラメータの区間推定</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf517b45" class="outline-3">
+<h3 id="orgf517b45">進行チェック (作成中)</h3>
+<div class="outline-text-3" id="text-orgf517b45">
+</div>
+<div id="outline-container-orgbbfbba3" class="outline-4">
+<h4 id="orgbbfbba3"><span class="done Done">Done</span> 標本と統計的推測 <code>[3/3]</code></h4>
+<div class="outline-text-4" id="text-orgbbfbba3">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 前期の内容では，下記内容が関係します：
+<ul class="org-ul">
+<li>確率変数の和の平均と分散，畳み込み</li>
+<li><a href="https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&amp;authuser=msyk054%40gmail.com&amp;usp=drive_fs">期待値に関する公式</a></li>
+</ul></li>
+
+<li class="on"><code>[X]</code> R-4 <a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a>
+<ul class="org-ul">
+<li><a href="./org/RforS-II-04.html#MissingReference">4.4 推定値がどれくらいあてになるのかを調べる方法</a></li>
+<li><a href="./org/RforS-II-04.html#MissingReference">4.5 標本分布</a></li>
+<li><a href="./org/RforS-II-04.html#MissingReference">4.6 標本平均以外の標本分布</a></li>
+
+<li>標本不偏分散は母分散の不偏，一致推定量</li>
+<li>正規化した標本不偏分散は，カイ二乗分布する</li>
+</ul></li>
+
+<li class="on"><code>[X]</code> <a href="./org/Stat-estimation.html">./org/Stat-estimation.html</a>      
+<ul class="org-ul">
+<li>標本不偏分散の一致性</li>
+<li>標本不偏分散の正規化は，カイ二乗分布に従う</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb4ca483" class="outline-4">
+<h4 id="orgb4ca483"><span class="done Done">Done</span> 点推定 (K7, K8, R4)</h4>
+<div class="outline-text-4" id="text-orgb4ca483">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> <a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a>
+<ul class="org-ul">
+<li>不偏性</li>
+<li>一致性</li>
+<li>最尤法</li>
+<li>最小二乗誤差</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org99b6e89" class="outline-4">
+<h4 id="org99b6e89">未整理</h4>
+<div class="outline-text-4" id="text-org99b6e89">
+<ul class="org-ul">
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本平均の性質</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K5 大数の法則と中心極限定理</a></li>
+<li><a href="./org/Stat-estimation.html#MissingReference">K7 標本が従う分布</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.1 推定量</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.2 推定量の作り方 (モーメント法)</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.3 推定量の良さ (平均2乗誤差の小ささ)</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.4 最尤推定</a></li>
+<li><a href="./org/Stat-estimation-2.html#MissingReference">8.5 例</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.1 母平均の区間推定 (分散既知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.2 母平均の区間推定 (分散未知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.3 母平均の区間推定 (母分布未知)</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.5 例: 内閣支持率調査アンケート</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.7 二つの母集団の平均の差の区間推定</a></li>
+<li><a href="./org/Stat-interval-estimation.html#MissingReference">10.8 分散パラメータの区間推定</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4b80d27" class="outline-2">
+<h2 id="org4b80d27"><span class="done Done">Done</span> このページ</h2>
+<div class="outline-text-2" id="text-org4b80d27">
+<p>
+<a href="https://github.com/masayuki054/RforS/blob/main/today.org">RforS/today.org at main · masayuki054/RforS · GitHub</a>
+</p>
+
+<ul class="org-ul">
+<li>今日のオンライン講義の説明の流れです。</li>
+<li>Emacs org-mode で書いています。
+<ul class="org-ul">
+<li><a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r">org-modeのコードブロック(Babel)の使い方 | Misohena Blog</a></li>
+</ul></li>
+<li>github からダウンロード可能です。</li>
+<li>~suzuki/public_html/stat2 からもアクセスできます。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgecbef4e" class="outline-2">
+<h2 id="orgecbef4e"><span class="done Done">Done</span> 講義ノート</h2>
+<div class="outline-text-2" id="text-orgecbef4e">
+<p>
+<a href="https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M">note - Google ドライブ</a>
+</p>
+<ul class="org-ul">
+<li>板書用の手書きノート</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0e2ddd3" class="outline-2">
+<h2 id="org0e2ddd3"><span class="done Done">Done</span> Rに関すること</h2>
+<div class="outline-text-2" id="text-org0e2ddd3">
+<ul class="org-ul">
+<li><a href="./org/R-info.html">./org/R-info.html</a></li>
+<li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf">R-Tips - r-tips.pdf</a></li>
+<li><a href="http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7">Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0aebc36" class="outline-2">
+<h2 id="org0aebc36"><span class="done Done">Done</span> 参考書</h2>
+<div class="outline-text-2" id="text-org0aebc36">
+<ul class="org-ul">
+<li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a> 
+<ul class="org-ul">
+<li>中京大 白井先生, Rによるやさしい統計学</li>
+</ul></li>
+
+<li><a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山大学)
+<ul class="org-ul">
+<li>Rによるやさしい統計学の動画による解説</li>
+</ul></li>
+
+<li><a href="https://www.ohmsha.co.jp/book/9784274227387/">入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha</a>
+<ul class="org-ul">
+<li>絵が豊富</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfefa1f5" class="outline-2">
+<h2 id="orgfefa1f5"><span class="done Done">Done</span> 気をつけること</h2>
+<div class="outline-text-2" id="text-orgfefa1f5">
+<ul class="org-ul">
+<li>講義ノート・教科書を読んでもらってから，説明すること</li>
+
+<li>プログラムは説明してから，入力の時間をとり，その後説明しながら実行
+すること</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1719bed" class="outline-2">
+<h2 id="org1719bed"><span class="done Done">Done</span> 分布表</h2>
+<div class="outline-text-2" id="text-org1719bed">
+<p>
+R が使えないときに，確率計算に使ってください。
+</p>
+
+<ul class="org-ul">
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf">標準正規分布配布用 - z.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf">t分布 - t.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf">CHISQ-TABLE.docx - chisq.pdf</a></li>
+<li><a href="http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf">Fs - F.pdf</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-11-29 月 20:12</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

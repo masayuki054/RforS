@@ -1,70 +1,51 @@
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
+#+title: Rによるやさしい統計学 5章
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
 
-* Rによるやさしい統計学 5章
-  
-** Rの説明
-    
-*** Biostat R入門
-     
-    - [[http://chianti.ucsd.edu/~rsaito/ENTRY1/WEB_RS3/PDF/JPN/Texts/R_Stats2.pdf][初心者用 - R_Stats2.pdf]]
-    
-    - [[https://so-zou.jp/robot/tech/numerical-analysis/r/][R プログラミング解説]]
+* 5章 統計的仮説検定
 
-*** その他
+統計的仮説検定は、推測統計の中でも利用頻度の高い重要なもの。
 
-     [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r/59.html][R-Source]] (基本統計量)
-    
-     [[http://www.mi.u-tokyo.ac.jp/teaching_material.html][数理・データサイエンス関連教材 | 東京大学 数理・情報教育研究センター]]
-     - Rstudio による R入門， 動画
-** graphics
+以後，代表的な統計的仮説検定の方法について説明する:
 
-   [[http://www.f.waseda.jp/sakas/R/Rgraphics17.html][R:グラフィックス]] 早稲田のよくまとまった説明
-
-   [[https://data-science.gr.jp/implementation/ida_r_barplot.html][Rによる棒グラフの描画]] [[https://data-science.gr.jp/implementation.html#ida][データ科学便覧 実装関連事項]] データ科学便覧
-
-   [[https://www.kobiwa.jp/2017/02/18/post-240/][[R]グラフの一部を塗りつぶす]] ** [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/graphics.org::*正規分布グラフの区間を塗り潰す][正規分布グラフの区間を塗り潰す]] (R)
-
-** Rの環境
+- 統計的仮説検定の手順と様々な用語の説明
+- 標準正規分布を使った検定、
+- t分布を使った検定、
+- 無相関検定、
+- カイ二乗検定
    
-#+begin_src R :session t :results output :exports both
+** 5.1 統計的仮説検定の必要性
 
-system("dir")
-system("mkdir graphs")
-#+end_src
+- 「日本人大学生の自尊感情とソーシャルスキルの間に相関関係がある」と主張
+  するために，
 
-** 関連サイト
-   [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)   
+- 50人の無作為標本から相関係数を推測し，0.5 であった。そこから，「自尊
+  感情とソーシャルスキルの間に相関関係がある」と結論した。
 
-** データフレームの扱い
-   [[file:~/COMM/Lects/R/Rintro/Rintro-3.org][file:~/COMM/Lects/R/Rintro/Rintro-3.org]]
-   
-   
-** 5章 統計的仮説検定
+- 反論: 母集団には相関関係がないのに，相関関係が見られる標本を抽出した
+  だけでは？
 
-   統計的仮説検定は、推測統計の中でも利用頻度の高い重要なものです。
+- 母集団全てを調べることなく，反論するには，
 
-   ここではまず、統計的仮説検定の手順と様々な用語を説明します。
-   その後、
-   - 標準正規分布を使った検定、
-   - t分布を使った検定、
-   - 無相関検定、
-   - カイ二乗検定
+  無相関の母集団からの無作為標本に相関関係が見られる確率が非常に少ない
+  ことを示す。
 
-   
-   などの代表的な統計的仮説検定の方法について説明していきます。
+言い代えると：
 
-*** 5.1　統計的仮説検定の必要性
+- 母集団の全データを調べることなく，
 
-    - 母集団の全データを調べることなく，
-    - 標本統計量だけを用いて計算し，
-    - 仮説が現実的に起こる確率が非常に低いことを示すことで，
-    - 仮説を棄却する
+- 標本統計量だけを用いて計算し，
 
+- 仮説が現実的に起こる確率が非常に低いことを示すことで，
+
+- 仮説を棄却する
+
+
+      
 #+begin_src R :session t :results output :exports both :tangle babel/05-01.R
 sample.size <- 50
 A <- rnorm(sample.size)
@@ -113,27 +94,29 @@ cor(自尊感情s, ソーシャルスキルs)
 : [1] 0.5348279
 
     
-*** 5.2　統計的仮説検定の手順と用語
+** 5.2　統計的仮説検定の手順と用語
     - 母集団に関する帰無仮説と対立仮説を設定する
     - 検定統計量を選ぶ
     - 有意水準 \( \alpha \) を決める
     - 検定統計量の実現値を求める
     - 帰無仮説の棄却，対立仮説の採択
-**** 5.2.1 帰無仮説と対立仮説
-**** 5.2.2 検定統計量
-**** 5.2.3 有意水準と棄却域
-**** 5.2.4 統計的仮説検定の結果の報告
-**** 5.2.5 p 値
-**** 5.2.6 第1 種の誤りと第2 種の誤り
-**** 5.2.7 検定力
 
-*** 5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）
+*** 5.2.1 帰無仮説と対立仮説
+
+*** 5.2.2 検定統計量
+*** 5.2.3 有意水準と棄却域
+*** 5.2.4 統計的仮説検定の結果の報告
+*** 5.2.5 p 値
+*** 5.2.6 第1 種の誤りと第2 種の誤り
+*** 5.2.7 検定力
+
+** 5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）
 
     - \( N(\mu, \sigma^2) \) からの標本による標本の
     - 標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)
     - 標準化  \( Z = \frac{\bar(X) -\mu} {\sigma \sqrt{n}} \)
 
-**** 標本
+*** 標本
      
      #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
 
@@ -145,7 +128,7 @@ cor(自尊感情s, ソーシャルスキルs)
      #+RESULTS:
      :  [1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
      
-**** 統計検定量の選択
+*** 統計検定量の選択
 
      母集団が N(12, 10)なので
      
@@ -162,11 +145,11 @@ norm_stat <- function (X) {
 
 #+RESULTS:
      
-**** 帰無仮説と対立仮説の設定
+*** 帰無仮説と対立仮説の設定
      - 帰無仮説 :: \( \mu = 12\)
      - 対立仮説 :: \( \mu \neq 12 \)
 
-**** 有意水準の決定
+*** 有意水準の決定
 
 #+begin_src R :session t :results output :exports both
 
@@ -176,7 +159,7 @@ this.alpha <- 0.05
 
 #+RESULTS:
 
-**** 検定統計量の実現値を求める
+*** 検定統計量の実現値を求める
      
 #+begin_src R :session t :results output :exports both
 (z <- norm_stat(心理学テスト))
@@ -187,7 +170,7 @@ this.alpha <- 0.05
 :  norm_stat(心理学テスト) でエラー: 
 :    関数 "norm_stat" を見つけることができませんでした
 
-**** 帰無仮説の棄却 or 採択の決定
+*** 帰無仮説の棄却 or 採択の決定
 
 #+begin_src R :session t :results output :exports both
 
@@ -198,7 +181,7 @@ if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 #+RESULTS:
 : [1] "mu/=12"
 
-**** 棄却域の描画
+*** 棄却域の描画
      
 #+begin_src R :session t :results output :exports both
 png("graphs/fig-05-02.png", width=400, height=300)
@@ -232,7 +215,7 @@ null device
 [[graphs/fig-05-02.png]]
      
 
-*** 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+** 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
 
     - 分散未知の \( N(\mu, \sigma^2) \) からの標本，
     - 標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)
@@ -240,7 +223,7 @@ null device
       \sqrt{n}} \),
       \( \Hat{\sigma} \)は，不偏分散の正の平方根
 
-**** t-分布
+*** t-分布
 
      - 自由度1，2，4，8，16 の t-分布のグラフ
      - 標準正規分布のグラフ (緑)
@@ -274,7 +257,7 @@ replayPlot(fig)
 [[./graphs/fig-05-03.png]]
 
 
-**** 標本
+*** 標本
      
      #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
 
@@ -287,12 +270,12 @@ replayPlot(fig)
      :  [1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
 
 
-**** 帰無仮説と対立仮説の設定
+*** 帰無仮説と対立仮説の設定
      - 帰無仮説 :: \( \mu = 12\)
      - 対立仮説 :: \( \mu \neq 12 \)
 
 
-**** 統計検定量の選択
+*** 統計検定量の選択
 
      母分散が未知なので，標本不偏分散を用いる。
 
@@ -306,7 +289,7 @@ t_stat <- function (X) {
 
 #+RESULTS:
      
-**** 有意水準の決定
+*** 有意水準の決定
 
 #+begin_src R :session t :results output :exports both
 this.mean <-12
@@ -316,7 +299,7 @@ this.alpha <- 0.05
 
 #+RESULTS:
 
-**** 検定統計量の実現値を求める
+*** 検定統計量の実現値を求める
      
 #+begin_src R :session t :results output :exports both
 (t <- t_stat(心理学テスト))
@@ -326,7 +309,7 @@ this.alpha <- 0.05
 #+RESULTS:
 : [1] -2.616648
 
-**** 帰無仮説の棄却 or 採択の決定
+*** 帰無仮説の棄却 or 採択の決定
 
 #+begin_src R :session t :results output :exports both
 
@@ -337,7 +320,7 @@ if ( pt(t,19)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 #+RESULTS:
 : [1] "mu/=12"
 
-**** 棄却域の描画
+*** 棄却域の描画
      
 #+begin_src R :session t :results output :exports both
 dev.off()
@@ -358,7 +341,7 @@ curve(x-x-0.01, xlim=c(t.upper,3), col='green',lwd=20,add=TRUE)
 
 [[graphs/fig-05-02.png]]
 
-**** t-test
+*** t-test
 #+begin_src R :session t :results output :exports both
 
 t.test(心理学テスト, mu=12)
@@ -402,7 +385,7 @@ mean of x
        10
 #+end_example
 
-*** 5.5 相関係数の検定 (無相関検定)
+** 5.5 相関係数の検定 (無相関検定)
     帰無仮説として，「母集団において相関が0である」と設定
 
     - 母集団相関係数 (母相関)に関する検定を行なうとき
@@ -416,14 +399,14 @@ mean of x
     - すると，t は自由度 n-2 の t-分布にしたがう
       
 
-**** 例題
+*** 例題
 
      指導法データについて，統計テスト1と統計テスト2の得点の相関係数の
      検定を行ってください。
 
      有意水準5%の両側検定とします。
 
-***** 標本
+**** 標本
 
     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
 
@@ -437,7 +420,7 @@ mean of x
      :  [1]  6 10  6 10  5  3  5  9  3  3 11  6 11  9  7  5  8  7  7  9
      :  [1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
     
-***** 統計検定量
+**** 統計検定量
 #+begin_src R :session t :results output :exports both
 this.alpha =0.05
 this.pho = 0
@@ -455,7 +438,7 @@ pho_stat(統計テスト1,統計テスト2)
 : [1] 4.805707
       
       
-***** 帰無仮説と対立仮説の設定
+**** 帰無仮説と対立仮説の設定
 
 #+begin_src R :session t :results output :exports both
 
@@ -466,7 +449,7 @@ if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 #+RESULTS:
 : [1] "pho/=0"
 
-***** cor.test()
+**** cor.test()
 #+begin_src R :session t :results output :exports both
 
 cor.test(統計テスト1, 統計テスト2)
@@ -489,14 +472,14 @@ sample estimates:
 #+end_example
       
       
-*** 5.6 独立性の検定（カイ二乗検定）
+** 5.6 独立性の検定（カイ二乗検定）
 
     - 独立性の検定 :: 二つの質的変数が独立か
 
     3.5節の数学と統計の好き嫌いの間の *連関* を考える
     
 
-**** クロス集計表
+*** クロス集計表
      #+begin_src R :session t :results output :exports both
 
      指導法データ <- read.csv("data/shidouhouU8.csv")
@@ -525,11 +508,11 @@ sample estimates:
 
 #+end_src
      
-**** 問題
+*** 問題
      数学と統計の好き嫌いの間に有意な連関があると言えるでしょうか？
      有意水準 5% で検定してください。
      
-**** カイ二乗検定
+*** カイ二乗検定
 
      - \( O_i \) :: 観測度数
      - \( E_i \) :: 期待度数 (あらかじめ期待される，または，理論的に求
@@ -563,7 +546,7 @@ dev.off()
 - 非対称分布
 - 自由度が大きくなると，正規分布に近づく
   
-**** 統計検定量
+*** 統計検定量
 
 #+begin_src R :session t :results output :exports both
 
@@ -637,11 +620,11 @@ sum(chi2)
 :   好き 0.7111111 1.0666667
 : [1] 2.539683
   
-**** p 値
+*** p 値
      
 
 
-**** chisq.test
+*** chisq.test
 
      nxm のクロス集計表のカイ二乗検定の自由度は，
      (n-1)x(m-1)
@@ -663,13 +646,13 @@ chisq.test(クロス集計表)
 :  警告メッセージ: 
 :  chisq.test(クロス集計表) で:   カイ自乗近似は不正確かもしれません
      
-*** 5.7 サンプルサイズの検定結果への影響について
+** 5.7 サンプルサイズの検定結果への影響について
 
 
     
-**** サンプル数が異なる二つのクロス集計表の順位
+*** サンプル数が異なる二つのクロス集計表の順位
 
-***** 履修A     
+**** 履修A     
     #+begin_src R :session t :results output :exports both
     library(vcd)
     (履修A <- matrix(c(16,12,4,8), 2, 2))
@@ -687,7 +670,7 @@ chisq.test(クロス集計表)
     : 理系       12          8
 
       
-***** 履修B
+**** 履修B
       #+begin_src R :session t :results output :exports both
       (履修B <- matrix(c(160,120,40,80), 2, 2))
       rownames(履修B) <- c("文系", "理系")
@@ -703,7 +686,7 @@ chisq.test(クロス集計表)
       : 文系      160         40
       : 理系      120         80
   
-**** カイ二乗検定  
+*** カイ二乗検定  
 
      #+begin_src R :session t :results output :exports both
 
@@ -732,7 +715,7 @@ chisq.test(履修B, correct=FALSE)
      : data:  履修B
      : X-squared = 19.048, df = 1, p-value = 1.275e-05
 
-**** サンプル数の違い
+*** サンプル数の違い
      
       帰無仮説、帰無分布、棄却域は全く同じものとなります。
 

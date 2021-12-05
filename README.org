@@ -3,8 +3,14 @@
 ** 今日の講義
    - [[./today.org]]
 
+   - [[./today-II-2021-11-29.org]]
+     - [[./org/Stat-interval-estimation.org]] 区間推定
+
+   - [[./today-II-2021-11-15.org]]
+     - [[./org/Stat-estimation-2.org]] 点推定
+
    - [[./today-II-2021-11-08.org]]
-     - [[./org/Stat-estimation-2.org]] 点推定)
+     - [[./org/Stat-estimation-2.org]] 点推定
 
    - [[./today-II-2021-11-01.org]]      
      - [[./org/Stat-estimation.org]] 統計的推測
