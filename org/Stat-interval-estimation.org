@@ -63,7 +63,7 @@
      る区間  \( [\theta_{l}, \theta_{h}] \) を, *信頼区間* と呼ぶ。
 
      
-** 標本のの標本平均が入る区間を求める
+** 標本の標本平均が入る区間を求める
 
    [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]] 確率分布と乱数参照
    
@@ -113,11 +113,12 @@ pnorm(zs)  ## [-\infty, zs]となる確率
 
 *** \( \mu \) の信頼区間 (を求める公式) を求める
 
-     \( 1-\alpha & = & P (|Z_n| \leq z^{*}) \)
+     \( 1-\alpha = P (|Z_n| \leq z^{*}) \)
 
-     \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq     z^{*})\)
+     \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq
+     z^{*}) \)
 
-     \( =  P( {|\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \)
+     \( =  P( |\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \)
 
      \( =  P ( \overline{X_{(n)}}-z^{*} \sqrt{\sigma^2/n} \leq \mu \leq  \overline{X_{(n)}} + z^{*} \sqrt{\sigma^2/n}) \)
 
@@ -140,8 +141,13 @@ pnorm(zs)  ## [-\infty, zs]となる確率
 
 #+end_src
 
+#+RESULTS:
+:  [1] 29.31947 30.47684 29.67857 29.52015 27.38703 30.23326 30.68479 28.25724
+:  [9] 28.58880 29.20905 28.86141 29.37965 28.40622 30.30516 29.04846 30.06109
+: [17] 27.49247 29.89291 30.40207 28.31730
+
   
-**** 標準正規分布で信頼度(1-\alpha)の信頼区間 (上記の説明通り)求める
+*** 標準正規分布で信頼度(1-\alpha)の信頼区間 (上記の説明通り)求める
 
       #+begin_src R :results output :session *stext* 
 ## 
@@ -175,7 +181,7 @@ est_conf_interval(0.05, sample, 1)
       : [1] 28.94026 29.81679
 
      
-**** \( N\left(\overline{X}, \frac{\sigma^2}{n} \right) \) で信頼度(1-\alpha)の信頼区間を求める
+*** \( N\left(\overline{X}, \frac{\sigma^2}{n} \right) \) で信頼度(1-\alpha)の信頼区間を求める
 
  Rを用いれば，N(標本平均，sigma^2) の分布上での上下限座標を求めるのは簡
  単なので，標準化を行なわず，標本平均の正規分布上で直接計算でき:
@@ -225,7 +231,7 @@ est_conf_interval_2(0.05, sample, 1)
 
    分散既知の場合と同じ
 
-** 標本のの標本平均が入る区間を求める
+** 標本の標本平均が入る区間を求める
 
    [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]] 確率分布と乱数参照
    
@@ -273,7 +279,7 @@ pt(tns, df=degree_of_free)  ## [-\infty, zs]となる確率
      \( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{S^2/n}} \leq
      t^{*}_{n-1}) \)
      
-     \( =  P( {|\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
+     \( =  P( |\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
      \)
      
      \( =  P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \)
@@ -324,28 +330,9 @@ est_t_conf_interval(0.05, sample)
 
 * 10.3 母平均の区間推定 (母分布未知)
 
-** アンケートの問題
-
-   「内閣を支持しますか，しませんか？」のアンケートに結果，
-   支持率 34% だった。
-
-   このときの誤差を見積もりたい。
-
-*** 問題整理
-
-    - 確率変数: \( X = 1 \) で支持，\( X = 0 \)で支持しない。
-    - 支持率 : \( \theta \)
-    - 母分布 : ベルヌーイ分布
-      
-
-  分散未知の場合は，スチューデント化を用いる。
-
-  標本平均 \( \overline{X_{(n)}}\) の従う分布は，
-  自由度 \( (n-1) \) の t-分布になる。
-
+  分散未知の場合は，スチューデント化を用い,
   \( \sigma^2 \) の代わりに標本不偏分散 \( S^2 \) を用いる。
-  
-  それ以外は，分散既知の場合と同じになる。
+  標本平均のスチューデント化の従う分布は，標準正規分布になる。
 
 ** 母分布未知 での\( \overline{X_{(n)}}\) のスチューデント化
 
@@ -362,7 +349,7 @@ est_t_conf_interval(0.05, sample)
 
    なので，   \(T_n \stackrel{d}{\longrightarrow} N(0, 1) \)  
 
-*** \( \mu \) の信頼区間 (を求める公式) を求める
+** \( \mu \) の信頼区間 (を求める公式) を求める
     
      \( 1-\alpha  =  P (|T_n| \leq z^{*}) \)
      

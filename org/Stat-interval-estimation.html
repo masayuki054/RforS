@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-29 月 13:54 -->
+<!-- 2021-12-02 木 13:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>確率と統計 10. 区間推定</title>
@@ -265,9 +265,9 @@ for the JavaScript code in this tag.
 <h1 class="title">確率と統計 10. 区間推定</h1>
 
 
-<div id="outline-container-orgf29c6eb" class="outline-2">
-<h2 id="orgf29c6eb">10章での想定</h2>
-<div class="outline-text-2" id="text-orgf29c6eb">
+<div id="outline-container-org7917ee7" class="outline-2">
+<h2 id="org7917ee7">10章での想定</h2>
+<div class="outline-text-2" id="text-org7917ee7">
 <ul class="org-ul">
 <li>\( X \): 母集団 \( \sim N(\mu, \sigma^2) \) とする</li>
 
@@ -278,12 +278,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgfb18078" class="outline-2">
-<h2 id="orgfb18078">平均パラメータの区間推定の問題</h2>
-<div class="outline-text-2" id="text-orgfb18078">
+<div id="outline-container-org07bbd4c" class="outline-2">
+<h2 id="org07bbd4c">平均パラメータの区間推定の問題</h2>
+<div class="outline-text-2" id="text-org07bbd4c">
 <p>
-「薬の投与により，血中のあるある物質の濃度が上昇し，健康状態が改善され
-る」という。
+「薬の投与により，血中のある物質の濃度が上昇し，健康状態が改善される」
+という。
 </p>
 
 <p>
@@ -294,7 +294,7 @@ for the JavaScript code in this tag.
 <pre class="src src-R"><span style="color: #99968b;">##</span>
 <span style="color: #99968b;">## </span><span style="color: #99968b;">&#27491;&#35215;&#20998;&#24067;&#12363;&#12425;&#12398;&#27161;&#26412;</span>
 <span style="color: #99968b;">##</span>
-<span style="color: #99968b;">### </span><span style="color: #99968b;">&#12469;&#12452;&#12474; 20, &#24179;&#22343;=29.2, &#20998;&#25955;l=1</span>
+<span style="color: #99968b;">### </span><span style="color: #99968b;">&#12469;&#12452;&#12474; 20, &#24179;&#22343;=29.2, &#20998;&#25955;=1</span>
 <span style="color: #99968b;">###</span>
 
 (sample <span style="color: #e5786d;">&lt;-</span> rnorm(20, mean=29.2, sd=1))
@@ -303,21 +303,21 @@ for the JavaScript code in this tag.
 </div>
 
 <pre class="example">
- [1] 30.54355 28.58138 29.51810 28.16354 28.54363 29.41633 28.52214 28.46580
- [9] 28.43617 30.32315 27.74855 30.41414 29.59607 27.57476 29.56284 27.20942
-[17] 28.42388 28.37821 30.52173 28.39462
+ [1] 27.94484 29.83686 27.79953 28.04755 28.75391 29.71464 28.29472 26.32046
+ [9] 30.47457 29.69439 28.47219 29.96765 29.69294 29.05225 30.87160 30.46751
+[17] 28.09111 29.15670 28.50214 27.93843
 
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgba223e0" class="outline-2">
-<h2 id="orgba223e0">10.1 母平均の区間推定 (分散既知)</h2>
-<div class="outline-text-2" id="text-orgba223e0">
+<div id="outline-container-org67a0519" class="outline-2">
+<h2 id="org67a0519">10.1 母平均の区間推定 (分散既知)</h2>
+<div class="outline-text-2" id="text-org67a0519">
 </div>
-<div id="outline-container-orgd3b108d" class="outline-3">
-<h3 id="orgd3b108d">\( \overline{X_{(n)}}\) の標準化</h3>
-<div class="outline-text-3" id="text-orgd3b108d">
+<div id="outline-container-org4778b39" class="outline-3">
+<h3 id="org4778b39">\( \overline{X_{(n)}}\) の標準化</h3>
+<div class="outline-text-3" id="text-org4778b39">
 <p>
 \(Z_n =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{\sigma^2/n}}   \sim
    N(0,1)  \)
@@ -325,9 +325,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbd0fdf9" class="outline-3">
-<h3 id="orgbd0fdf9">危険度・信頼度と信頼区間</h3>
-<div class="outline-text-3" id="text-orgbd0fdf9">
+<div id="outline-container-org0f4919e" class="outline-3">
+<h3 id="org0f4919e">危険度・信頼度と信頼区間</h3>
+<div class="outline-text-3" id="text-org0f4919e">
 <p>
 \( P(\theta_{l} \leq \theta \leq \theta_{h}) \) という主張
 </p>
@@ -359,17 +359,17 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgb99c6fa" class="outline-3">
-<h3 id="orgb99c6fa">標本のの標本平均が入る区間を求める</h3>
-<div class="outline-text-3" id="text-orgb99c6fa">
+<div id="outline-container-org48a0fc4" class="outline-3">
+<h3 id="org48a0fc4">標本の標本平均が入る区間を求める</h3>
+<div class="outline-text-3" id="text-org48a0fc4">
 <p>
 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html">R-Tips</a> 確率分布と乱数参照
 </p>
 </div>
 
-<div id="outline-container-org3631beb" class="outline-4">
-<h4 id="org3631beb">危険度・信頼度に対する \( z^* \) を求める</h4>
-<div class="outline-text-4" id="text-org3631beb">
+<div id="outline-container-org9bbfae1" class="outline-4">
+<h4 id="org9bbfae1">危険度・信頼度に対する \( z^* \) を求める</h4>
+<div class="outline-text-4" id="text-org9bbfae1">
 <p>
 \( z^* \) は標準正規分布で危険度・信頼度に対応する座標。
 </p>
@@ -379,9 +379,9 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-orgba1f218" class="outline-5">
-<h5 id="orgba1f218">危険度0.05, 信頼度0.95となる \(z^*\)</h5>
-<div class="outline-text-5" id="text-orgba1f218">
+<div id="outline-container-org613f30f" class="outline-5">
+<h5 id="org613f30f">危険度0.05, 信頼度0.95となる \(z^*\)</h5>
+<div class="outline-text-5" id="text-org613f30f">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #99968b;">##</span>
 <span style="color: #99968b;">##  </span><span style="color: #99968b;">&#21361;&#38522;&#24230;&#12539;&#20449;&#38972;&#24230;&#12395;&#23550;&#12377;&#12427; z^* &#12434;&#27714;&#12417;&#12427;</span>
@@ -406,18 +406,18 @@ pnorm(zs)  <span style="color: #99968b;">## </span><span style="color: #99968b;"
 </div>
 </div>
 
-<div id="outline-container-org280fad8" class="outline-5">
-<h5 id="org280fad8">信頼度 \( 1-\alpha\) の信頼区間は，</h5>
-<div class="outline-text-5" id="text-org280fad8">
+<div id="outline-container-orgceab420" class="outline-5">
+<h5 id="orgceab420">信頼度 \( 1-\alpha\) の信頼区間は，</h5>
+<div class="outline-text-5" id="text-orgceab420">
 <p>
 \( \left[ \overline{X_{(n)}}-z^{*} \sqrt{\sigma^2/n}, \,\,\,
       \overline{X_{(n)}} + z^{*} \sqrt{\sigma^2/n} \right]\)
 </p>
 </div>
 
-<div id="outline-container-orgf4582dd" class="outline-6">
-<h6 id="orgf4582dd">信頼度 0.95/0.99 の信頼区間は，</h6>
-<div class="outline-text-6" id="text-orgf4582dd">
+<div id="outline-container-org3607d41" class="outline-6">
+<h6 id="org3607d41">信頼度 0.95/0.99 の信頼区間は，</h6>
+<div class="outline-text-6" id="text-org3607d41">
 <p>
 \( z^* \) に 1.96 を代入した:
 </p>
@@ -440,19 +440,20 @@ pnorm(zs)  <span style="color: #99968b;">## </span><span style="color: #99968b;"
 </div>
 </div>
 
-<div id="outline-container-org7a384ca" class="outline-4">
-<h4 id="org7a384ca">\( \mu \) の信頼区間 (を求める公式) を求める</h4>
-<div class="outline-text-4" id="text-org7a384ca">
+<div id="outline-container-orgad2712c" class="outline-4">
+<h4 id="orgad2712c">\( \mu \) の信頼区間 (を求める公式) を求める</h4>
+<div class="outline-text-4" id="text-orgad2712c">
 <p>
-\( 1-\alpha & = & P (|Z_n| \leq z^{*}) \)
+\( 1-\alpha = P (|Z_n| \leq z^{*}) \)
 </p>
 
 <p>
-\( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq     z^{*})\)
+\( =  P( \frac{|\overline{X_{(n)}}-\mu|}{\sqrt{\sigma^2/n}} \leq
+     z^{*}) \)
 </p>
 
 <p>
-\( =  P( {|\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \)
+\( =  P( |\overline{X_{(n)}}-\mu| \leq z^{*} \sqrt{\sigma^2/n}) \)
 </p>
 
 <p>
@@ -462,9 +463,9 @@ pnorm(zs)  <span style="color: #99968b;">## </span><span style="color: #99968b;"
 </div>
 
 
-<div id="outline-container-org37463e9" class="outline-4">
-<h4 id="org37463e9">平均パラメータの区間推定の問題 (分散既知)</h4>
-<div class="outline-text-4" id="text-org37463e9">
+<div id="outline-container-org9cddf9f" class="outline-4">
+<h4 id="org9cddf9f">平均パラメータの区間推定の問題 (分散既知)</h4>
+<div class="outline-text-4" id="text-org9cddf9f">
 <p>
 「薬の投与により，血中のある物質の濃度が上昇し，健康状態が改善され
 る」という。
@@ -476,9 +477,9 @@ pnorm(zs)  <span style="color: #99968b;">## </span><span style="color: #99968b;"
 </div>
 </div>
 
-<div id="outline-container-orge8003d9" class="outline-4">
-<h4 id="orge8003d9">標本生成</h4>
-<div class="outline-text-4" id="text-orge8003d9">
+<div id="outline-container-org12464cb" class="outline-4">
+<h4 id="org12464cb">標本生成</h4>
+<div class="outline-text-4" id="text-org12464cb">
 <p>
 母平均 29.2, 母分散 1 の正規分布からの20個のデータからなる標本を作
 る:
@@ -490,12 +491,20 @@ pnorm(zs)  <span style="color: #99968b;">## </span><span style="color: #99968b;"
 
 </pre>
 </div>
+
+<pre class="example">
+ [1] 29.31947 30.47684 29.67857 29.52015 27.38703 30.23326 30.68479 28.25724
+ [9] 28.58880 29.20905 28.86141 29.37965 28.40622 30.30516 29.04846 30.06109
+[17] 27.49247 29.89291 30.40207 28.31730
+
+</pre>
+</div>
 </div>
 
 
-<div id="outline-container-org95669f3" class="outline-5">
-<h5 id="org95669f3">標準正規分布で信頼度(1-&alpha;)の信頼区間 (上記の説明通り)求める</h5>
-<div class="outline-text-5" id="text-org95669f3">
+<div id="outline-container-org67b8d28" class="outline-4">
+<h4 id="org67b8d28">標準正規分布で信頼度(1-&alpha;)の信頼区間 (上記の説明通り)求める</h4>
+<div class="outline-text-4" id="text-org67b8d28">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #99968b;">## </span>
 
@@ -533,9 +542,9 @@ est_conf_interval(0.05, sample, 1)
 </div>
 
 
-<div id="outline-container-org9505fe3" class="outline-5">
-<h5 id="org9505fe3">\( N\left(\overline{X}, \frac{\sigma^2}{n} \right) \) で信頼度(1-&alpha;)の信頼区間を求める</h5>
-<div class="outline-text-5" id="text-org9505fe3">
+<div id="outline-container-org31d1d5e" class="outline-4">
+<h4 id="org31d1d5e">\( N\left(\overline{X}, \frac{\sigma^2}{n} \right) \) で信頼度(1-&alpha;)の信頼区間を求める</h4>
+<div class="outline-text-4" id="text-org31d1d5e">
 <p>
 Rを用いれば，N(標本平均，sigma^2) の分布上での上下限座標を求めるのは簡
 単なので，標準化を行なわず，標本平均の正規分布上で直接計算でき:
@@ -571,14 +580,12 @@ est_conf_interval_2(0.05, sample, 1)
 </div>
 </div>
 </div>
-</div>
 
 
 
-
-<div id="outline-container-org7efaa8f" class="outline-2">
-<h2 id="org7efaa8f">10.2 母平均の区間推定 (分散未知)</h2>
-<div class="outline-text-2" id="text-org7efaa8f">
+<div id="outline-container-org9e4f1d3" class="outline-2">
+<h2 id="org9e4f1d3">10.2 母平均の区間推定 (分散未知)</h2>
+<div class="outline-text-2" id="text-org9e4f1d3">
 <p>
 分散未知の場合は，スチューデント化を用いる。
 </p>
@@ -597,43 +604,43 @@ est_conf_interval_2(0.05, sample, 1)
 </p>
 </div>
 
-<div id="outline-container-orgb1da196" class="outline-3">
-<h3 id="orgb1da196">\( \overline{X_{(n)}}\) のスチューデント化</h3>
-<div class="outline-text-3" id="text-orgb1da196">
+<div id="outline-container-org0792ac4" class="outline-3">
+<h3 id="org0792ac4">\( \overline{X_{(n)}}\) のスチューデント化</h3>
+<div class="outline-text-3" id="text-org0792ac4">
 <p>
-\(T_n =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{\S^2/n}}   \sim    t_{n-1}  \)
+\(T_n =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}}   \sim    t_{n-1}  \)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgae5f6b5" class="outline-3">
-<h3 id="orgae5f6b5">危険度・信頼度と信頼区間</h3>
-<div class="outline-text-3" id="text-orgae5f6b5">
+<div id="outline-container-org0b0fae0" class="outline-3">
+<h3 id="org0b0fae0">危険度・信頼度と信頼区間</h3>
+<div class="outline-text-3" id="text-org0b0fae0">
 <p>
 分散既知の場合と同じ
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1f7c8b4" class="outline-3">
-<h3 id="org1f7c8b4">標本のの標本平均が入る区間を求める</h3>
-<div class="outline-text-3" id="text-org1f7c8b4">
+<div id="outline-container-org2bb80ba" class="outline-3">
+<h3 id="org2bb80ba">標本の標本平均が入る区間を求める</h3>
+<div class="outline-text-3" id="text-org2bb80ba">
 <p>
 <a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html">R-Tips</a> 確率分布と乱数参照
 </p>
 </div>
 
-<div id="outline-container-orgbb01b30" class="outline-4">
-<h4 id="orgbb01b30">危険度・信頼度に対する \( t^* \) を求める</h4>
-<div class="outline-text-4" id="text-orgbb01b30">
+<div id="outline-container-org81a4a9a" class="outline-4">
+<h4 id="org81a4a9a">危険度・信頼度に対する \( t^* \) を求める</h4>
+<div class="outline-text-4" id="text-org81a4a9a">
 <p>
 \( P(|T_n|) \leq t^{*}_{n-1}) = 1-\alpha \) となる \( t^{*}_{n-1} \)
 </p>
 </div>
 
-<div id="outline-container-org0b380a9" class="outline-5">
-<h5 id="org0b380a9">危険度0.05, 信頼度0.95となる \(t^*_{n-1}\)</h5>
-<div class="outline-text-5" id="text-org0b380a9">
+<div id="outline-container-org341d52a" class="outline-5">
+<h5 id="org341d52a">危険度0.05, 信頼度0.95となる \(t^*_{n-1}\)</h5>
+<div class="outline-text-5" id="text-org341d52a">
 <p>
 下記のRによる計算では，具体的は自由度の値が必要となる。
 </p>
@@ -659,9 +666,9 @@ pt(tns, df=degree_of_free)  <span style="color: #99968b;">## </span><span style=
 </div>
 </div>
 
-<div id="outline-container-org63c74a6" class="outline-5">
-<h5 id="org63c74a6">信頼度 0.95/0.99 の信頼区間は，</h5>
-<div class="outline-text-5" id="text-org63c74a6">
+<div id="outline-container-orgc97b1ba" class="outline-5">
+<h5 id="orgc97b1ba">信頼度 0.95/0.99 の信頼区間は，</h5>
+<div class="outline-text-5" id="text-orgc97b1ba">
 <p>
 \( t^* \) に 2.09 を代入した:
 </p>
@@ -684,9 +691,9 @@ pt(tns, df=degree_of_free)  <span style="color: #99968b;">## </span><span style=
 </div>
 
 
-<div id="outline-container-orga70cb4c" class="outline-4">
-<h4 id="orga70cb4c">\( \mu \) の信頼区間 (を求める公式) を求める</h4>
-<div class="outline-text-4" id="text-orga70cb4c">
+<div id="outline-container-org6cdabb9" class="outline-4">
+<h4 id="org6cdabb9">\( \mu \) の信頼区間 (を求める公式) を求める</h4>
+<div class="outline-text-4" id="text-org6cdabb9">
 <p>
 \( 1-\alpha  =  P (|T_n| \leq t^{*}_{n-1}) \)
 </p>
@@ -697,36 +704,33 @@ pt(tns, df=degree_of_free)  <span style="color: #99968b;">## </span><span style=
 </p>
 
 <p>
-\( =  P( {|\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
+\( =  P( |\overline{X_{(n)}}-\mu| \leq t^{*}_{n-1} \sqrt{S^2/n})
      \)
 </p>
 
 <p>
 \( =  P \left( \overline{X_{(n)}}-t^{*}_{n-1} \sqrt{S^2/n} \leq \mu \leq  \overline{X_{(n)}} + t^{*}_{n-1} \sqrt{S^2/n} \right) \)
 </p>
-
-<p>
-\end{eqnarray}
-</p>
 </div>
 </div>
 
-<div id="outline-container-org68863a6" class="outline-4">
-<h4 id="org68863a6">平均パラメータの区間推定の問題 (分散未知)</h4>
-<div class="outline-text-4" id="text-org68863a6">
+
+<div id="outline-container-orgdcfb07c" class="outline-4">
+<h4 id="orgdcfb07c">平均パラメータの区間推定の問題 (分散未知)</h4>
+<div class="outline-text-4" id="text-orgdcfb07c">
 <p>
 「薬の投与により，血中のあるある物質の濃度が上昇し，健康状態が改善され
 る」という。
 </p>
 
 <p>
-20人の患者への投与により，増加の程度 (%) の標本値が得らた:
+20人の患者への投与により，増加の程度 (%) の標本値が得られた:
 </p>
 </div>
 
-<div id="outline-container-org8581b52" class="outline-5">
-<h5 id="org8581b52">t<sub>n-1</sub>分布で信頼度(1-alpha)の信頼区間 (上記の説明通り)求める</h5>
-<div class="outline-text-5" id="text-org8581b52">
+<div id="outline-container-org0fd5283" class="outline-5">
+<h5 id="org0fd5283">t<sub>n-1</sub>分布で信頼度(1-alpha)の信頼区間 (上記の説明通り)求める</h5>
+<div class="outline-text-5" id="text-org0fd5283">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #99968b;">## </span>
 
@@ -735,7 +739,7 @@ pt(tns, df=degree_of_free)  <span style="color: #99968b;">## </span><span style=
   c(qt(1-alpha/2,length(sample)-1), qt(alpha/2, length(sample)-1))
   }
 
-<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27597;&#24179;&#22343;&#12398;&#21306;&#38291;&#25512;&#23450;&#65292;&#20998;&#25955;&#26082;&#30693;</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27597;&#24179;&#22343;&#12398;&#21306;&#38291;&#25512;&#23450;&#65292;&#20998;&#25955;&#26410;&#30693;</span>
 <span style="color: #99968b;">### </span><span style="color: #99968b;">alpha : &#21361;&#38522;&#24230;&#65292; (1-alpha): &#20449;&#38972;&#24230;</span>
 <span style="color: #99968b;">### </span><span style="color: #99968b;">sample : &#27161;&#26412;</span>
 <span style="color: #cae682;">est_t_conf_interval</span> <span style="color: #e5786d;">&lt;-</span> <span style="color: #8ac6f2; font-weight: bold;">function</span> (alpha, sample) {
@@ -747,7 +751,7 @@ pt(tns, df=degree_of_free)  <span style="color: #99968b;">## </span><span style=
   
   c(xbar - sigma*ts[1]/sqrt(n), xbar + sigma*ts[1]/sqrt(n))
 }
-
+mean(sample)
 var(sample)
 t_interval(0.05, sample)
 est_t_conf_interval(0.05, sample)
@@ -756,9 +760,10 @@ est_t_conf_interval(0.05, sample)
 </div>
 
 <pre class="example">
-[1] 1.011997
+[1] 28.9547
+[1] 1.295045
 [1]  2.093024 -2.093024
-[1] 28.44609 29.38771
+[1] 28.4221 29.4873
 
 </pre>
 </div>
@@ -768,56 +773,19 @@ est_t_conf_interval(0.05, sample)
 </div>
 
 
-<div id="outline-container-orga0d9d65" class="outline-2">
-<h2 id="orga0d9d65">10.3 母平均の区間推定 (母分布未知)</h2>
-<div class="outline-text-2" id="text-orga0d9d65">
-</div>
-<div id="outline-container-org7ceb4b2" class="outline-3">
-<h3 id="org7ceb4b2">アンケートの問題</h3>
-<div class="outline-text-3" id="text-org7ceb4b2">
+<div id="outline-container-orgcc0f191" class="outline-2">
+<h2 id="orgcc0f191">10.3 母平均の区間推定 (母分布未知)</h2>
+<div class="outline-text-2" id="text-orgcc0f191">
 <p>
-「内閣を支持しますか，しませんか？」のアンケートに結果，
-支持率 34% だった。
-</p>
-
-<p>
-このときの誤差を見積もりたい。
-</p>
-</div>
-
-<div id="outline-container-org54d5fc6" class="outline-4">
-<h4 id="org54d5fc6">問題整理</h4>
-<div class="outline-text-4" id="text-org54d5fc6">
-<ul class="org-ul">
-<li>確率変数: \( X = 1 \) で支持，\( X = 0 \)で支持しない。</li>
-<li>支持率 : \( \theta \)</li>
-<li>母分布 : ベルヌーイ分布</li>
-</ul>
-
-
-<p>
-分散未知の場合は，スチューデント化を用いる。
-</p>
-
-<p>
-標本平均 \( \overline{X_{(n)}}\) の従う分布は，
-自由度 \( (n-1) \) の t-分布になる。
-</p>
-
-<p>
+分散未知の場合は，スチューデント化を用い,
 \( \sigma^2 \) の代わりに標本不偏分散 \( S^2 \) を用いる。
-</p>
-
-<p>
-それ以外は，分散既知の場合と同じになる。
+標本平均のスチューデント化の従う分布は，標準正規分布になる。
 </p>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orgfcc63c5" class="outline-3">
-<h3 id="orgfcc63c5">母分布未知 での\( \overline{X_{(n)}}\) のスチューデント化</h3>
-<div class="outline-text-3" id="text-orgfcc63c5">
+<div id="outline-container-org546cbf2" class="outline-3">
+<h3 id="org546cbf2">母分布未知 での\( \overline{X_{(n)}}\) のスチューデント化</h3>
+<div class="outline-text-3" id="text-org546cbf2">
 \begin{eqnarray}
 T_n & = &  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}} \\
 & = &
@@ -837,10 +805,11 @@ T_n & = &  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S^2/n}} \\
 なので，   \(T_n \stackrel{d}{\longrightarrow} N(0, 1) \)  
 </p>
 </div>
+</div>
 
-<div id="outline-container-org03eb0c9" class="outline-4">
-<h4 id="org03eb0c9">\( \mu \) の信頼区間 (を求める公式) を求める</h4>
-<div class="outline-text-4" id="text-org03eb0c9">
+<div id="outline-container-orgae55ab9" class="outline-3">
+<h3 id="orgae55ab9">\( \mu \) の信頼区間 (を求める公式) を求める</h3>
+<div class="outline-text-3" id="text-orgae55ab9">
 <p>
 \( 1-\alpha  =  P (|T_n| \leq z^{*}) \)
 </p>
@@ -899,15 +868,14 @@ est_tz_conf_interval(0.05, sample)
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org8e64dc6" class="outline-2">
-<h2 id="org8e64dc6">10.5 例: 内閣支持率調査アンケート</h2>
-<div class="outline-text-2" id="text-org8e64dc6">
+<div id="outline-container-org91326f6" class="outline-2">
+<h2 id="org91326f6">10.5 例: 内閣支持率調査アンケート</h2>
+<div class="outline-text-2" id="text-org91326f6">
 </div>
-<div id="outline-container-orga197a56" class="outline-3">
-<h3 id="orga197a56">基本的な考え方</h3>
-<div class="outline-text-3" id="text-orga197a56">
+<div id="outline-container-orgef04f46" class="outline-3">
+<h3 id="orgef04f46">基本的な考え方</h3>
+<div class="outline-text-3" id="text-orgef04f46">
 <ul class="org-ul">
 <li>全国民に聞ければ全て判明</li>
 
@@ -922,9 +890,9 @@ est_tz_conf_interval(0.05, sample)
 </div>
 
 
-<div id="outline-container-org5871627" class="outline-3">
-<h3 id="org5871627">問題整理</h3>
-<div class="outline-text-3" id="text-org5871627">
+<div id="outline-container-orge239fc6" class="outline-3">
+<h3 id="orge239fc6">問題整理</h3>
+<div class="outline-text-3" id="text-orge239fc6">
 <ul class="org-ul">
 <li>確率変数: \( X = 1 \) で支持，\( X = 0 \)で支持しない。</li>
 <li>支持率 : \( \theta \)</li>
@@ -933,9 +901,9 @@ est_tz_conf_interval(0.05, sample)
 </div>
 </div>
 
-<div id="outline-container-orga22a72e" class="outline-3">
-<h3 id="orga22a72e">誤差を見積る</h3>
-<div class="outline-text-3" id="text-orga22a72e">
+<div id="outline-container-orga24c3c2" class="outline-3">
+<h3 id="orga24c3c2">誤差を見積る</h3>
+<div class="outline-text-3" id="text-orga24c3c2">
 <dl class="org-dl">
 <dt>\( \mu = \theta \)</dt><dd>推定量 \( \overline{X_{(n)}} \)</dd>
 <dt>\( \sigma^2 = \theta (1-\theta) \) </dt><dd>推定量 \(\overline{X_{(n)}} (1 - \overline{X_{(n)}}) \)</dd>
@@ -947,9 +915,9 @@ est_tz_conf_interval(0.05, sample)
 </div>
 
 
-<div id="outline-container-orgcf71545" class="outline-4">
-<h4 id="orgcf71545">標本サイズと区間推定値</h4>
-<div class="outline-text-4" id="text-orgcf71545">
+<div id="outline-container-org382551e" class="outline-4">
+<h4 id="org382551e">標本サイズと区間推定値</h4>
+<div class="outline-text-4" id="text-org382551e">
 <p>
 信頼度 \( 1-\alpha = 0.95 \) で，n=100, n=1000 での信頼区間は:
 </p>
@@ -978,9 +946,9 @@ est_tz_conf_interval(0.05, sample)
 </div>
 </div>
 
-<div id="outline-container-org94204ab" class="outline-3">
-<h3 id="org94204ab">誤差と標本サイズ</h3>
-<div class="outline-text-3" id="text-org94204ab">
+<div id="outline-container-orgcd14050" class="outline-3">
+<h3 id="orgcd14050">誤差と標本サイズ</h3>
+<div class="outline-text-3" id="text-orgcd14050">
 <p>
 誤差を \( \pm 1% \) 程度にしたい。
 そのために必要な標本サイズはいくつか？
@@ -1012,13 +980,14 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-org3ebc1b3" class="outline-2">
-<h2 id="org3ebc1b3">10.7 二つの母集団の平均の差の区間推定</h2>
-<div class="outline-text-2" id="text-org3ebc1b3">
+
+<div id="outline-container-org7a4ebf2" class="outline-2">
+<h2 id="org7a4ebf2">10.7 二つの母集団の平均の差の区間推定</h2>
+<div class="outline-text-2" id="text-org7a4ebf2">
 </div>
-<div id="outline-container-org43409b7" class="outline-3">
-<h3 id="org43409b7">薬と血中濃度の問題</h3>
-<div class="outline-text-3" id="text-org43409b7">
+<div id="outline-container-org8f85172" class="outline-3">
+<h3 id="org8f85172">薬と血中濃度の問題</h3>
+<div class="outline-text-3" id="text-org8f85172">
 <dl class="org-dl">
 <dt>Aグループ</dt><dd>新薬を投与し， \( \overline{X_{(n)}} = 3.56 \)</dd>
 <dt>Bグループ</dt><dd>新薬を投与し， \( \overline{Y_{(m)}} = 1.27 \)</dd>
@@ -1032,9 +1001,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-org86eb256" class="outline-3">
-<h3 id="org86eb256">問題設定</h3>
-<div class="outline-text-3" id="text-org86eb256">
+<div id="outline-container-org799207a" class="outline-3">
+<h3 id="org799207a">問題設定</h3>
+<div class="outline-text-3" id="text-org799207a">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1067,9 +1036,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-orgfebd055" class="outline-3">
-<h3 id="orgfebd055">分散既知の場合</h3>
-<div class="outline-text-3" id="text-orgfebd055">
+<div id="outline-container-orgdd6a208" class="outline-3">
+<h3 id="orgdd6a208">分散既知の場合</h3>
+<div class="outline-text-3" id="text-orgdd6a208">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1103,9 +1072,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-org7c77310" class="outline-4">
-<h4 id="org7c77310">標準化変数</h4>
-<div class="outline-text-4" id="text-org7c77310">
+<div id="outline-container-orgfdd0acc" class="outline-4">
+<h4 id="orgfdd0acc">標準化変数</h4>
+<div class="outline-text-4" id="text-orgfdd0acc">
 <p>
 \( \overline{Z} =
     ((\overline{X}-\overline{Y}) -(\mu_x - \mu_y)) /
@@ -1115,9 +1084,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-orgdf1c5a0" class="outline-4">
-<h4 id="orgdf1c5a0">信頼区間</h4>
-<div class="outline-text-4" id="text-orgdf1c5a0">
+<div id="outline-container-orge0b23fd" class="outline-4">
+<h4 id="orge0b23fd">信頼区間</h4>
+<div class="outline-text-4" id="text-orge0b23fd">
 <p>
 \( (\overline{X}-\overline{Y}) \pm z^* \sqrt{\sigma_x^2/n + \sigma_y^2/m} \)
 </p>
@@ -1126,17 +1095,17 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-orgde7122d" class="outline-3">
-<h3 id="orgde7122d">分散未知の場合</h3>
-<div class="outline-text-3" id="text-orgde7122d">
+<div id="outline-container-org98357cb" class="outline-3">
+<h3 id="org98357cb">分散未知の場合</h3>
+<div class="outline-text-3" id="text-org98357cb">
 </div>
-<div id="outline-container-org45398a4" class="outline-4">
-<h4 id="org45398a4">\( \sigma_x^2 = \sigma_y^2 = \sigma^2 \) の場合</h4>
-<div class="outline-text-4" id="text-org45398a4">
+<div id="outline-container-org4971628" class="outline-4">
+<h4 id="org4971628">\( \sigma_x^2 = \sigma_y^2 = \sigma^2 \) の場合</h4>
+<div class="outline-text-4" id="text-org4971628">
 </div>
-<div id="outline-container-org4c7549c" class="outline-5">
-<h5 id="org4c7549c">\( \sigma^2 \) の推定量</h5>
-<div class="outline-text-5" id="text-org4c7549c">
+<div id="outline-container-orge8f5d9a" class="outline-5">
+<h5 id="orge8f5d9a">\( \sigma^2 \) の推定量</h5>
+<div class="outline-text-5" id="text-orge8f5d9a">
 <p>
 \( S_*^2 = \frac{1}{n+m-2}\left\{\Sigma_1^n (X_i -
      \overline{X_{(n)}})^2+ \Sigma_1^m (Y_i - \overline{Y_{(m)}})^2
@@ -1152,9 +1121,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-org17fe91f" class="outline-5">
-<h5 id="org17fe91f">スチューデント化変数 T</h5>
-<div class="outline-text-5" id="text-org17fe91f">
+<div id="outline-container-org7468795" class="outline-5">
+<h5 id="org7468795">スチューデント化変数 T</h5>
+<div class="outline-text-5" id="text-org7468795">
 <p>
 \( T = \left\{(\overline{X_{(n)}} - \overline{Y_{(n)}}) - (\mu_x-\mu_y) \right\}/
      \sqrt{S_x^2(1/n + 1/m )}\)
@@ -1167,9 +1136,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-org2e3cafd" class="outline-4">
-<h4 id="org2e3cafd">信頼区間</h4>
-<div class="outline-text-4" id="text-org2e3cafd">
+<div id="outline-container-org9b8d39d" class="outline-4">
+<h4 id="org9b8d39d">信頼区間</h4>
+<div class="outline-text-4" id="text-org9b8d39d">
 <p>
 \( (\overline{X}-\overline{Y}) \pm t^*_{n+m-2} \sqrt{S_*^2(1/n + 1/m)} \)
 </p>
@@ -1182,17 +1151,17 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 
 
 
-<div id="outline-container-org396f4d5" class="outline-3">
-<h3 id="org396f4d5">分散未知の場合</h3>
-<div class="outline-text-3" id="text-org396f4d5">
+<div id="outline-container-org7f641ac" class="outline-3">
+<h3 id="org7f641ac">分散未知の場合</h3>
+<div class="outline-text-3" id="text-org7f641ac">
 </div>
-<div id="outline-container-orgb2ea8e6" class="outline-4">
-<h4 id="orgb2ea8e6">\( \sigma_x^2 \neq \sigma_y^2 \) の場合</h4>
-<div class="outline-text-4" id="text-orgb2ea8e6">
+<div id="outline-container-org2caf41d" class="outline-4">
+<h4 id="org2caf41d">\( \sigma_x^2 \neq \sigma_y^2 \) の場合</h4>
+<div class="outline-text-4" id="text-org2caf41d">
 </div>
-<div id="outline-container-org108368f" class="outline-5">
-<h5 id="org108368f">二つの標本不偏分散の推定量</h5>
-<div class="outline-text-5" id="text-org108368f">
+<div id="outline-container-orge6eb96f" class="outline-5">
+<h5 id="orge6eb96f">二つの標本不偏分散の推定量</h5>
+<div class="outline-text-5" id="text-orge6eb96f">
 <p>
 \( S_x^2 = \frac{1}{n-1}\Sigma_1^n (X_i -\overline{X_{(n)}})^2
      \longrightarrow  \sigma_x^2\)
@@ -1205,9 +1174,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-org5ccaf1e" class="outline-5">
-<h5 id="org5ccaf1e">スチューデント化変数 T</h5>
-<div class="outline-text-5" id="text-org5ccaf1e">
+<div id="outline-container-orgb78cf60" class="outline-5">
+<h5 id="orgb78cf60">スチューデント化変数 T</h5>
+<div class="outline-text-5" id="text-orgb78cf60">
 <p>
 \( T^* = \left\{(\overline{X_{(n)}} - \overline{Y_{(n)}}) - (\mu_x-\mu_y) \right\}/
      \sqrt{S_x^2/n + S_y^2/m )}\)
@@ -1215,9 +1184,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-orgb6fe6a4" class="outline-5">
-<h5 id="orgb6fe6a4">\( \lim_{n \rightarrow\infty} l\) のコンテキストで</h5>
-<div class="outline-text-5" id="text-orgb6fe6a4">
+<div id="outline-container-org4579276" class="outline-5">
+<h5 id="org4579276">\( \lim_{n \rightarrow\infty} l\) のコンテキストで</h5>
+<div class="outline-text-5" id="text-org4579276">
 <p>
 \( T^* \sim N(0,1) \)
 </p>
@@ -1225,9 +1194,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-org25ae532" class="outline-4">
-<h4 id="org25ae532">信頼区間</h4>
-<div class="outline-text-4" id="text-org25ae532">
+<div id="outline-container-org9573c14" class="outline-4">
+<h4 id="org9573c14">信頼区間</h4>
+<div class="outline-text-4" id="text-org9573c14">
 <p>
 \( (\overline{X}-\overline{Y}) \pm z^*\sqrt{S_x^2/n + S_y^2/m} \) 
 </p>
@@ -1237,13 +1206,13 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-org92b22e0" class="outline-2">
-<h2 id="org92b22e0">10.8 分散パラメータの区間推定</h2>
-<div class="outline-text-2" id="text-org92b22e0">
+<div id="outline-container-orgc0aa6ad" class="outline-2">
+<h2 id="orgc0aa6ad">10.8 分散パラメータの区間推定</h2>
+<div class="outline-text-2" id="text-orgc0aa6ad">
 </div>
-<div id="outline-container-org791153a" class="outline-3">
-<h3 id="org791153a">前提</h3>
-<div class="outline-text-3" id="text-org791153a">
+<div id="outline-container-orge6a2229" class="outline-3">
+<h3 id="orge6a2229">前提</h3>
+<div class="outline-text-3" id="text-orge6a2229">
 <ul class="org-ul">
 <li>母集団 \( \sim N(\mu, \sigma^2) \),</li>
 <li>\( \mu \), \( \sigma^2 \) は未知</li>
@@ -1251,9 +1220,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-orge98f1d2" class="outline-3">
-<h3 id="orge98f1d2">分散の推定量</h3>
-<div class="outline-text-3" id="text-orge98f1d2">
+<div id="outline-container-org589f785" class="outline-3">
+<h3 id="org589f785">分散の推定量</h3>
+<div class="outline-text-3" id="text-org589f785">
 <p>
 分散の推定量 \( S^2 \) は，
 </p>
@@ -1264,9 +1233,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-org36b4dc0" class="outline-3">
-<h3 id="org36b4dc0">信頼区間</h3>
-<div class="outline-text-3" id="text-org36b4dc0">
+<div id="outline-container-orge756e77" class="outline-3">
+<h3 id="orge756e77">信頼区間</h3>
+<div class="outline-text-3" id="text-orge756e77">
 <p>
 \( P( u \leq (n-1) S^2/\sigma^2 \leq v ) = 1 - \alpha \)
 </p>
@@ -1285,9 +1254,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 </div>
 
-<div id="outline-container-orgd41bdce" class="outline-3">
-<h3 id="orgd41bdce">95% 信頼区間の両端点</h3>
-<div class="outline-text-3" id="text-orgd41bdce">
+<div id="outline-container-orgcdf39c3" class="outline-3">
+<h3 id="orgcdf39c3">95% 信頼区間の両端点</h3>
+<div class="outline-text-3" id="text-orgcdf39c3">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #99968b;">###</span>
 <span style="color: #99968b;">### </span>
@@ -1310,9 +1279,9 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 
 
-<div id="outline-container-orga647716" class="outline-3">
-<h3 id="orga647716">90% 信頼区間の両端点</h3>
-<div class="outline-text-3" id="text-orga647716">
+<div id="outline-container-orge49723f" class="outline-3">
+<h3 id="orge49723f">90% 信頼区間の両端点</h3>
+<div class="outline-text-3" id="text-orge49723f">
 <div class="org-src-container">
 <pre class="src src-R"><span style="color: #99968b;">###</span>
 <span style="color: #99968b;">### </span>
@@ -1337,7 +1306,7 @@ n & \approx & (z^*_{(\alpha)})^2 \times 0.5 (1-0.5)/(0.01)^2 \\
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-11-29 月 13:54</p>
+<p class="date">Created: 2021-12-02 木 13:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
