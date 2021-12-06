@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-06 月 11:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>* 5章 統計的仮説検定</title>
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">* 5章 統計的仮説検定</h1>
+<p>
+統計的仮説検定は、推測統計の中でも利用頻度の高い重要なもの。
+</p>
+
+<p>
+以後，代表的な統計的仮説検定の方法について説明する:
+</p>
+
+<ul class="org-ul">
+<li>統計的仮説検定の手順と様々な用語の説明</li>
+<li>標準正規分布を使った検定、</li>
+<li>t分布を使った検定、</li>
+<li>無相関検定、</li>
+<li>カイ二乗検定</li>
+</ul>
+
+<div id="outline-container-org81d2ae0" class="outline-2">
+<h2 id="org81d2ae0">5.1 統計的仮説検定の必要性</h2>
+<div class="outline-text-2" id="text-org81d2ae0">
+<ul class="org-ul">
+<li>「日本人大学生の自尊感情とソーシャルスキルの間に相関関係がある」と主張
+するために，</li>
+
+<li>50人の無作為標本から相関係数を推測し，0.5 であった。そこから，「自尊
+感情とソーシャルスキルの間に相関関係がある」と結論した。</li>
+
+<li>反論: 母集団には相関関係がないのに，相関関係が見られる標本を抽出した
+だけでは？</li>
+
+<li><p>
+母集団全てを調べることなく，反論するには，
+</p>
+
+<p>
+無相関の母集団からの無作為標本に相関関係が見られる確率が非常に少ない
+ことを示す。
+</p></li>
+</ul>
+
+<p>
+言い代えると：
+</p>
+
+<ul class="org-ul">
+<li>母集団の全データを調べることなく，</li>
+
+<li>標本統計量だけを用いて計算し，</li>
+
+<li>仮説が現実的に起こる確率が非常に低いことを示すことで，</li>
+
+<li>仮説を棄却する</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org49d2485" class="outline-2">
+<h2 id="org49d2485">教科書の図5.1 母集団と標本</h2>
+<div class="outline-text-2" id="text-org49d2485">
+<p>
+<a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> 5.1の補足説明スライドに詳しい解説があります。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">sample.size <span style="color: #e5786d;">&lt;-</span> 1000
+A <span style="color: #e5786d;">&lt;-</span> rnorm(sample.size)
+B <span style="color: #e5786d;">&lt;-</span> rnorm(sample.size)
+C <span style="color: #e5786d;">&lt;-</span> A*0.5 + sqrt(0.75)*B
+&#33258;&#23562;&#24863;&#24773;s <span style="color: #e5786d;">&lt;-</span> 10*A + 50
+&#12477;&#12540;&#12471;&#12515;&#12523;&#12473;&#12461;&#12523;s <span style="color: #e5786d;">&lt;-</span> 10*C + 50
+
+plot(&#33258;&#23562;&#24863;&#24773;s, &#12477;&#12540;&#12471;&#12515;&#12523;&#12473;&#12461;&#12523;s,
+     xlim=c(0,100), ylim=c(0,100))
+points(50, 50, cex=45) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#27597;&#38598;&#22243;&#12434;&#22258;&#12416;&#20870;</span>
+legend(50, 10, legend=<span style="color: #95e454;">"&#25277;&#20986;&#12373;&#12428;&#12383;&#27161;&#26412;&#12395;&#21547;&#12414;&#12428;&#12427;&#12487;&#12540;&#12479;"</span>,pch=1)
+legend(10, 100, legend=<span style="color: #95e454;">"&#27597;&#38598;&#22243; (&#20870;&#12398;&#20013;&#20840;&#20307;&#12395;&#12487;&#12540;&#12479;&#12364;&#25955;&#12425;&#12400;&#12387;&#12390;&#12356;&#12390;&#30456;&#38306;&#12399;&#12476;&#12525;)"</span>)
+
+png(<span style="color: #95e454;">"graphs/fig-05-01-population_and_samples.png"</span>)
+plot(&#33258;&#23562;&#24863;&#24773;s, &#12477;&#12540;&#12471;&#12515;&#12523;&#12473;&#12461;&#12523;s,
+     xlim=c(0,100), ylim=c(0,100))
+points(50, 50, cex=45) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#27597;&#38598;&#22243;&#12434;&#22258;&#12416;&#20870;</span>
+legend(50, 10, legend=<span style="color: #95e454;">"&#25277;&#20986;&#12373;&#12428;&#12383;&#27161;&#26412;&#12395;&#21547;&#12414;&#12428;&#12427;&#12487;&#12540;&#12479;"</span>,pch=1)
+legend(10, 100, legend=<span style="color: #95e454;">"&#27597;&#38598;&#22243; (&#20870;&#12398;&#20013;&#20840;&#20307;&#12395;&#12487;&#12540;&#12479;&#12364;&#25955;&#12425;&#12400;&#12387;&#12390;&#12356;&#12390;&#30456;&#38306;&#12399;&#12476;&#12525;)"</span>)
+dev.off()
+
+</pre>
+</div>
+
+<pre class="example">
+X11cairo 
+       2
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+cor(A,B)
+cor(A-mean(A), B-mean(B))
+cor(A,C)
+cor(B,C)
+cor(&#33258;&#23562;&#24863;&#24773;s, &#12477;&#12540;&#12471;&#12515;&#12523;&#12473;&#12461;&#12523;s)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] -0.0603372
+[1] -0.0603372
+[1] 0.5348279
+[1] 0.8111516
+[1] 0.5348279
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5096233" class="outline-2">
+<h2 id="org5096233">5.2　統計的仮説検定の手順と用語</h2>
+<div class="outline-text-2" id="text-org5096233">
+<ul class="org-ul">
+<li>母集団に関する帰無仮説と対立仮説を設定する</li>
+<li>検定統計量を選ぶ</li>
+<li>有意水準 \( \alpha \) を決める</li>
+<li>検定統計量の実現値を求める</li>
+<li>帰無仮説の棄却，対立仮説の採択</li>
+</ul>
+</div>
+
+<div id="outline-container-org3671c62" class="outline-3">
+<h3 id="org3671c62">5.2.1 帰無仮説と対立仮説</h3>
+<div class="outline-text-3" id="text-org3671c62">
+<dl class="org-dl">
+<dt>帰無仮説</dt><dd><p>
+提案する手法が従来の手法と「差がない」、 提案する手法は
+「効果がない」という仮説&#x2014;本来主張したいこととは逆の仮説。 この仮説
+が棄却されることを目標として仮説検定を行う。
+</p>
+
+<p>
+具体的には、母平均μ=0 (母平均は0である), 母相関係数 ρ=0 (相関がな
+い), 母平均の差μ1 - μ2= 0 (差がない)というような仮説
+</p></dd>
+
+<dt>対立仮説</dt><dd><p>
+帰無仮説が棄却されたときに採択される仮説
+</p>
+
+<p>
+帰無仮説とは逆の仮説であり、実験などで示したい・主張したいことを表し
+たもの
+</p>
+
+<p>
+具体的には、母平均μ≠0 (母平均は0でない), 母相関係数 ρ≠0 (相関が
+ある), 母平均の差μ1 - μ2≠ 0 (差がある)というような仮説
+</p></dd>
+</dl>
+
+<p>
+対立仮説の設定により、検定は次のどちらかで行う (両側検定の方がより厳し
+い条件であり、普通は両側検定で行う):
+</p>
+
+<ul class="org-ul">
+<li>片側検定：対立仮説が、母平均μ &gt; 0 (もしくはμ &lt; 0 )、 、母相関
+係数　ρ &gt; 0 (もしくはρ &lt; 0 )、、母平均の差μ1 &gt; μ2 (もしくは
+μ1 &lt; μ2 )、の場合</li>
+
+<li><p>
+両側検定：対立仮説が、母平均μ≠0、母相関係数ρ≠0 、母平均の差
+μ1 - μ2≠ 0の場合
+</p>
+
+<p>
+両側検定では、例えば母平均μ≠0を調べるには、母平均μ &gt; 0 とμ &lt;
+0 の両方を調べなければならない
+</p></li>
+</ul>
+
+<p>
+帰無仮説が正しいものとして分析を行う。 実際に得られたデータから計算さ
+れた検定統計量の値によって採択を判断する。
+</p>
+
+<p>
+帰無仮説が正しいとしたとき、検定統計量が、ほぼ起こり得ない値(それほど
+極端な値)であれば、帰無仮説を棄却する(つまり、本来の主張を表す対立仮説
+が採択される)。
+</p>
+
+<p>
+そうでなければ, つまり，確率的に十分起こりうるような値であれば、
+帰無仮説を採択する.
+この場合は、本来主張したかった対立仮説が棄却されてしまう。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgebb3195" class="outline-3">
+<h3 id="orgebb3195">5.2.2 検定統計量</h3>
+<div class="outline-text-3" id="text-orgebb3195">
+<dl class="org-dl">
+<dt>検定統計量</dt><dd>統計的仮説検定のために用いられる標本統計量のこと。
+代表的な検定統計量の例: t, χ2、F</dd>
+
+<dt>検定統計量の実現値</dt><dd><p>
+実際のデータ（手に入った標本）を基に計算し
+てえられる具体的な値のこと
+</p>
+
+<p>
+検定統計量の実現値は、対立仮説に合うほど 0から離れた値を示す
+</p></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org0583485" class="outline-3">
+<h3 id="org0583485">5.2.3 有意水準と棄却域</h3>
+<div class="outline-text-3" id="text-org0583485">
+<dl class="org-dl">
+<dt>有意水準 \( \alpha \)</dt><dd><p>
+対立仮説を採択するか決定するときの基準。
+</p>
+
+<p>
+有意水準は5％または1％(α=0.05またはα=0.01)に設定することが多い(つ
+まり、標本が100回に5回(5%の場合)以下にしか現れないデータであった&#x2014;
+こんなことは偶然では起こりえない&#x2014;、だから帰無仮説が成り立たないと
+考えて良いのではないか、という判断基準)
+</p></dd>
+
+<dt>帰無分布</dt><dd><p>
+帰無仮説が正しいものとして考えた時の標本分布
+</p>
+
+<p>
+-帰無分布に基づいて確率計算される
+</p></dd>
+
+<dt>棄却域</dt><dd><p>
+帰無仮説のもとで、非常に生じにくい検定統計量の値の範囲
+</p>
+
+<p>
+帰無仮説が棄却される領域(だから、この範囲に入るのが『望ましい』)
+</p>
+
+<p>
+棄却域に検定統計量の実現値が入ったら、帰無仮説を棄却する. 
+</p>
+<ul class="org-ul">
+<li>本来主張したかったことが採択される *</li>
+</ul></dd>
+
+<dt>採択域</dt><dd>棄却域以外の部分&#x2014;「帰無仮説が採択される領域」</dd>
+<dt>臨界値</dt><dd>棄却域と採択域の境目の値</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-orga08728b" class="outline-3">
+<h3 id="orga08728b">5.2.4 統計的仮説検定の結果の報告</h3>
+<div class="outline-text-3" id="text-orga08728b">
+<p>
+検定統計量の実現値が棄却域に入った場合、「差がない」という帰無仮説を棄
+却し、「差がある」という対立仮説を採択する。
+</p>
+
+<p>
+「検定結果は5% (または1%)水準で有意である」または 「p &lt; .05 (または p
+ &lt; .01 )で有意差が見られた 」 と記述する。
+</p>
+
+<p>
+帰無仮説が棄却できない場合は、「検定の結果、差が有意でなかった」または
+「有意差が認められなかった」と書く。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org201c159" class="outline-3">
+<h3 id="org201c159">5.2.5 p 値</h3>
+<div class="outline-text-3" id="text-org201c159">
+<p>
+帰無分布で，検定統計量の実現値以上の領域が起る確率。
+</p>
+
+<p>
+p値が有意水準より小さいとき帰無仮説を棄却する。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6c03ff1" class="outline-3">
+<h3 id="org6c03ff1">5.2.6 第1 種の誤りと第2 種の誤り</h3>
+<div class="outline-text-3" id="text-org6c03ff1">
+<ul class="org-ul">
+<li>第1種の誤り \( \alpha \):: 「帰無仮説が真のとき，帰無仮説を棄却していまう」誤り
+のこと</li>
+
+<li>第2種の誤り \( \beta \):: 「帰無仮説が偽のとき，帰無仮説を採択していまう」誤りのこと</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org41f45bd" class="outline-3">
+<h3 id="org41f45bd">5.2.7 検定力</h3>
+<div class="outline-text-3" id="text-org41f45bd">
+<dl class="org-dl">
+<dt>検定力</dt><dd>帰無仮説が偽の場合、全体の確率1から第2種の誤りの確率(1 - β)を引いた確率</dd>
+</dl>
+<p>
+「第2種の誤りを犯さない確率」とも、つまり間違っている帰無仮説を正しく棄却できる確率のこと　
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge90d8b2" class="outline-3">
+<h3 id="orge90d8b2">「有意差がない」ということ</h3>
+<div class="outline-text-3" id="text-orge90d8b2">
+<p>
+「実験や調査で得られた「条件間の差」は，標本抽出による誤差によって，十
+分起り得る差です」ということ。
+「統計的に意味のある差ではない」ということ。
+</p>
+
+<p>
+有意差がみられなかったとしても，「同じである」ということではない。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0388982" class="outline-2">
+<h2 id="org0388982">5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）</h2>
+<div class="outline-text-2" id="text-org0388982">
+<ul class="org-ul">
+<li>\( N(\mu, \sigma^2) \) からの標本による標本の</li>
+<li>標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)</li>
+<li>標準化  \( Z = \frac{\bar(X) -\mu} {\sigma \sqrt{n}} \)</li>
+</ul>
+</div>
+
+<div id="outline-container-org841c7ca" class="outline-3">
+<h3 id="org841c7ca">標本</h3>
+<div class="outline-text-3" id="text-org841c7ca">
+<p>
+<a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a>からshidouhouU8.csv をダウンロードしてください。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+     &#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"RforS/data/shidouhouU8.csv"</span>)
+     (&#24515;&#29702;&#23398;&#12486;&#12473;&#12488; <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$psych_test)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgeb8fb7c" class="outline-3">
+<h3 id="orgeb8fb7c">統計検定量の選択</h3>
+<div class="outline-text-3" id="text-orgeb8fb7c">
+<p>
+母集団が N(12, 10)なので
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+this.mean <span style="color: #e5786d;">&lt;-</span> 12
+this.sd <span style="color: #e5786d;">&lt;-</span> sqrt(10)
+
+<span style="color: #cae682;">norm_stat</span> <span style="color: #e5786d;">&lt;-</span> <span style="color: #8ac6f2; font-weight: bold;">function</span> (X) {
+  (mean(X)-this.mean) / (this.sd/sqrt(length(X)))
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdca5960" class="outline-3">
+<h3 id="orgdca5960">帰無仮説と対立仮説の設定</h3>
+<div class="outline-text-3" id="text-orgdca5960">
+<dl class="org-dl">
+<dt>帰無仮説</dt><dd>\( \mu = 12\)</dd>
+<dt>対立仮説</dt><dd>\( \mu \neq 12 \)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org23fed2f" class="outline-3">
+<h3 id="org23fed2f">有意水準の決定</h3>
+<div class="outline-text-3" id="text-org23fed2f">
+<div class="org-src-container">
+<pre class="src src-R">
+this.alpha <span style="color: #e5786d;">&lt;-</span> 0.05
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org808fb91" class="outline-3">
+<h3 id="org808fb91">検定統計量の実現値を求める</h3>
+<div class="outline-text-3" id="text-org808fb91">
+<div class="org-src-container">
+<pre class="src src-R">(z <span style="color: #e5786d;">&lt;-</span> norm_stat(&#24515;&#29702;&#23398;&#12486;&#12473;&#12488;))
+
+</pre>
+</div>
+
+<pre class="example">
+mean(X) でエラー:  オブジェクト '心理学テスト' がありません
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc60d4f0" class="outline-3">
+<h3 id="orgc60d4f0">帰無仮説の棄却 or 採択の決定</h3>
+<div class="outline-text-3" id="text-orgc60d4f0">
+<div class="org-src-container">
+<pre class="src src-R">
+<span style="color: #8ac6f2; font-weight: bold;">if</span> ( pnorm(z)*2 &gt; this.alpha ) {  print(<span style="color: #95e454;">"mu==12"</span>)  } <span style="color: #8ac6f2; font-weight: bold;">else</span> {   print(<span style="color: #95e454;">"mu/=12"</span>) }
+
+</pre>
+</div>
+
+<pre class="example">
+[1] "mu/=12"
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4e72e9f" class="outline-3">
+<h3 id="org4e72e9f">棄却域の描画</h3>
+<div class="outline-text-3" id="text-org4e72e9f">
+<div class="org-src-container">
+<pre class="src src-R">png(<span style="color: #95e454;">"graphs/fig-05-02.png"</span>, width=400, height=300)
+curve(dnorm(x), -3, 3)
+z.lower <span style="color: #e5786d;">&lt;-</span> qnorm(this.alpha/2)
+z.upper <span style="color: #e5786d;">&lt;-</span> qnorm(1-this.alpha/2)
+abline(v=z.lower)
+abline(v=z.upper)
+curve(x-x-0.01, xlim=c(-3,z.lower), col=<span style="color: #95e454;">'green'</span>,lwd=10,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+curve(x-x-0.01, xlim=c(z.upper,3), col=<span style="color: #95e454;">'green'</span>,lwd=10,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+dev.off()
+</pre>
+</div>
+
+<pre class="example" id="orgd449bfb">
+ qnorm(this.alpha/2) でエラー:  オブジェクト 'this.alpha' がありません
+ qnorm(1 - this.alpha/2) でエラー: 
+   オブジェクト 'this.alpha' がありません
+ int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
+   オブジェクト 'z.lower' がありません
+ int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
+   オブジェクト 'z.upper' がありません
+ curve(x - x - 0.01, xlim = c(-3, z.lower), col = "green", lwd = 10,  でエラー: 
+   オブジェクト 'z.lower' がありません
+ curve(x - x - 0.01, xlim = c(z.upper, 3), col = "green", lwd = 10,  でエラー: 
+   オブジェクト 'z.upper' がありません
+null device 
+          1
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org9642650" class="outline-2">
+<h2 id="org9642650">5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）</h2>
+<div class="outline-text-2" id="text-org9642650">
+<ul class="org-ul">
+<li>分散未知の \( N(\mu, \sigma^2) \) からの標本，</li>
+<li>標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)</li>
+<li>スチューデント化  \( t = \frac{\bar(X) -\mu} {\Hat{\sigma}
+      \sqrt{n}} \),
+\( \Hat{\sigma} \)は，不偏分散の正の平方根</li>
+</ul>
+</div>
+
+<div id="outline-container-org7c01e6b" class="outline-3">
+<h3 id="org7c01e6b">t-分布</h3>
+<div class="outline-text-3" id="text-org7c01e6b">
+<ul class="org-ul">
+<li>自由度1，2，4，8，16 の t-分布のグラフ</li>
+<li>標準正規分布のグラフ (緑)</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R">
+dev.new()
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">
+png(<span style="color: #95e454;">"graphs/fig-05-03.png"</span>, width=400, height=300)
+curve(dnorm(x), -5, 5, col=<span style="color: #95e454;">"green"</span>)
+<span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:4) {
+  curve(dt(x,2^i), -5, 5, add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)  
+}
+fig <span style="color: #e5786d;">&lt;-</span> recordPlot()
+fig
+dev.off()
+dev.new()
+replayPlot(fig)
+
+</pre>
+</div>
+
+<pre class="example">
+null device 
+          1
+</pre>
+
+
+<div id="org9e96580" class="figure">
+<p><img src="./graphs/fig-05-03.png" alt="fig-05-03.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3c565e4" class="outline-3">
+<h3 id="org3c565e4">標本</h3>
+<div class="outline-text-3" id="text-org3c565e4">
+<div class="org-src-container">
+<pre class="src src-R">
+&#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)
+(&#24515;&#29702;&#23398;&#12486;&#12473;&#12488; <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$psych_test)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgedb0169" class="outline-3">
+<h3 id="orgedb0169">帰無仮説と対立仮説の設定</h3>
+<div class="outline-text-3" id="text-orgedb0169">
+<dl class="org-dl">
+<dt>帰無仮説</dt><dd>\( \mu = 12\)</dd>
+<dt>対立仮説</dt><dd>\( \mu \neq 12 \)</dd>
+</dl>
+</div>
+</div>
+
+
+<div id="outline-container-org9f4ecc9" class="outline-3">
+<h3 id="org9f4ecc9">統計検定量の選択</h3>
+<div class="outline-text-3" id="text-org9f4ecc9">
+<p>
+母分散が未知なので，標本不偏分散を用いる。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-R">
+<span style="color: #cae682;">t_stat</span> <span style="color: #e5786d;">&lt;-</span> <span style="color: #8ac6f2; font-weight: bold;">function</span> (X) {
+  (mean(X)-this.mean) / sqrt(var(X)/length(X))
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org05f626e" class="outline-3">
+<h3 id="org05f626e">有意水準の決定</h3>
+<div class="outline-text-3" id="text-org05f626e">
+<div class="org-src-container">
+<pre class="src src-R">this.mean <span style="color: #e5786d;">&lt;-</span>12
+this.alpha <span style="color: #e5786d;">&lt;-</span> 0.05
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef7bac2" class="outline-3">
+<h3 id="orgef7bac2">検定統計量の実現値を求める</h3>
+<div class="outline-text-3" id="text-orgef7bac2">
+<div class="org-src-container">
+<pre class="src src-R">(t <span style="color: #e5786d;">&lt;-</span> t_stat(&#24515;&#29702;&#23398;&#12486;&#12473;&#12488;))
+
+</pre>
+</div>
+
+<pre class="example">
+[1] -2.616648
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb0208d9" class="outline-3">
+<h3 id="orgb0208d9">帰無仮説の棄却 or 採択の決定</h3>
+<div class="outline-text-3" id="text-orgb0208d9">
+<div class="org-src-container">
+<pre class="src src-R">
+<span style="color: #8ac6f2; font-weight: bold;">if</span> ( pt(t,19)*2 &gt; this.alpha ) {  print(<span style="color: #95e454;">"mu==12"</span>)  } <span style="color: #8ac6f2; font-weight: bold;">else</span> {   print(<span style="color: #95e454;">"mu/=12"</span>) }
+
+</pre>
+</div>
+
+<pre class="example">
+[1] "mu/=12"
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3bef79d" class="outline-3">
+<h3 id="org3bef79d">棄却域の描画</h3>
+<div class="outline-text-3" id="text-org3bef79d">
+<div class="org-src-container">
+<pre class="src src-R">dev.off()
+<span style="color: #99968b;"># </span><span style="color: #99968b;">png("graphs/fig-05-02.png", width=400, height=300)</span>
+curve(dt(x,19), -3, 3)
+t.lower <span style="color: #e5786d;">&lt;-</span> qt(this.alpha/2,19)
+t.upper <span style="color: #e5786d;">&lt;-</span> qt(1-this.alpha/2,19)
+abline(v=t.lower)
+abline(v=t.upper)
+curve(x-x-0.01, xlim=c(-3,t.lower), col=<span style="color: #95e454;">'green'</span>,lwd=20,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+curve(x-x-0.01, xlim=c(t.upper,3), col=<span style="color: #95e454;">'green'</span>,lwd=20,add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+<span style="color: #99968b;"># </span><span style="color: #99968b;">dev.off()</span>
+</pre>
+</div>
+
+<pre class="example">
+null device 
+          1
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgd8a3136" class="outline-3">
+<h3 id="orgd8a3136">t-test</h3>
+<div class="outline-text-3" id="text-orgd8a3136">
+<div class="org-src-container">
+<pre class="src src-R">
+t.test(&#24515;&#29702;&#23398;&#12486;&#12473;&#12488;, mu=12)
+
+</pre>
+</div>
+
+<pre class="example" id="org7628e4b">
+
+	One Sample t-test
+
+data:  心理学テスト
+t = -2.6166, df = 19, p-value = 0.01697
+alternative hypothesis: true mean is not equal to 12
+95 percent confidence interval:
+  8.400225 11.599775
+sample estimates:
+mean of x 
+       10
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+t.test(&#24515;&#29702;&#23398;&#12486;&#12473;&#12488;, mu=11)
+
+</pre>
+</div>
+
+<pre class="example" id="org9e8064b">
+
+	One Sample t-test
+
+data:  心理学テスト
+t = -1.3083, df = 19, p-value = 0.2064
+alternative hypothesis: true mean is not equal to 11
+95 percent confidence interval:
+  8.400225 11.599775
+sample estimates:
+mean of x 
+       10
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgea5e6eb" class="outline-2">
+<h2 id="orgea5e6eb">5.5 相関係数の検定 (無相関検定)</h2>
+<div class="outline-text-2" id="text-orgea5e6eb">
+<p>
+帰無仮説として，「母集団において相関が0である」と設定
+</p>
+
+<ul class="org-ul">
+<li>母集団相関係数 (母相関)に関する検定を行なうとき</li>
+<li><p>
+標本相関係数の変換
+</p>
+
+<p>
+\[
+      t = \frac {r \sqrt(n-2)} {\sqrt( 1-r^2 )}
+      \]
+</p></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>すると，t は自由度 n-2 の t-分布にしたがう</li>
+</ul>
+</div>
+
+
+<div id="outline-container-org4ee6b09" class="outline-3">
+<h3 id="org4ee6b09">例題</h3>
+<div class="outline-text-3" id="text-org4ee6b09">
+<p>
+指導法データについて，統計テスト1と統計テスト2の得点の相関係数の
+検定を行ってください。
+</p>
+
+<p>
+有意水準5%の両側検定とします。
+</p>
+</div>
+
+<div id="outline-container-org01a1f43" class="outline-4">
+<h4 id="org01a1f43">標本</h4>
+<div class="outline-text-4" id="text-org01a1f43">
+<div class="org-src-container">
+<pre class="src src-R">
+    &#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)
+    (&#32113;&#35336;&#12486;&#12473;&#12488;1 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test1)
+    (&#32113;&#35336;&#12486;&#12473;&#12488;2 <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat_test2)
+
+</pre>
+</div>
+
+<pre class="example">
+[1]  6 10  6 10  5  3  5  9  3  3 11  6 11  9  7  5  8  7  7  9
+[1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org445686f" class="outline-4">
+<h4 id="org445686f">統計検定量</h4>
+<div class="outline-text-4" id="text-org445686f">
+<div class="org-src-container">
+<pre class="src src-R">this.alpha =0.05
+this.pho = 0
+<span style="color: #cae682;">pho_stat</span> <span style="color: #e5786d;">&lt;-</span> <span style="color: #8ac6f2; font-weight: bold;">function</span>(X1,X2) {
+  n <span style="color: #e5786d;">&lt;-</span> length(X1)
+  r <span style="color: #e5786d;">&lt;-</span> cor(X1,X2)
+  r*sqrt(n-2) / sqrt( 1-r^2)
+}
+cor(&#32113;&#35336;&#12486;&#12473;&#12488;1,&#32113;&#35336;&#12486;&#12473;&#12488;2)
+pho_stat(&#32113;&#35336;&#12486;&#12473;&#12488;1,&#32113;&#35336;&#12486;&#12473;&#12488;2)
+</pre>
+</div>
+
+<pre class="example">
+[1] 0.749659
+[1] 4.805707
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org5e26c72" class="outline-4">
+<h4 id="org5e26c72">帰無仮説と対立仮説の設定</h4>
+<div class="outline-text-4" id="text-org5e26c72">
+<div class="org-src-container">
+<pre class="src src-R">
+<span style="color: #8ac6f2; font-weight: bold;">if</span> ( pt(t,17)*2 &gt; this.alpha ) {  print(<span style="color: #95e454;">"pho==0"</span>)  } <span style="color: #8ac6f2; font-weight: bold;">else</span> {   print(<span style="color: #95e454;">"pho/=0"</span>) }
+
+</pre>
+</div>
+
+<pre class="example">
+[1] "pho/=0"
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgeebc4c3" class="outline-4">
+<h4 id="orgeebc4c3">cor.test()</h4>
+<div class="outline-text-4" id="text-orgeebc4c3">
+<div class="org-src-container">
+<pre class="src src-R">
+cor.test(&#32113;&#35336;&#12486;&#12473;&#12488;1, &#32113;&#35336;&#12486;&#12473;&#12488;2)
+
+</pre>
+</div>
+
+<pre class="example" id="org512728f">
+
+	Pearson's product-moment correlation
+
+data:  統計テスト1 and 統計テスト2
+t = 4.8057, df = 18, p-value = 0.0001416
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.4596086 0.8952048
+sample estimates:
+     cor 
+0.749659
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8295fb4" class="outline-2">
+<h2 id="org8295fb4">5.6 独立性の検定（カイ二乗検定）</h2>
+<div class="outline-text-2" id="text-org8295fb4">
+<dl class="org-dl">
+<dt>独立性の検定</dt><dd>二つの質的変数が独立か</dd>
+</dl>
+
+<p>
+3.5節の数学と統計の好き嫌いの間の <b>連関</b> を考える
+</p>
+</div>
+
+
+<div id="outline-container-org255a4df" class="outline-3">
+<h3 id="org255a4df">クロス集計表</h3>
+<div class="outline-text-3" id="text-org255a4df">
+<div class="org-src-container">
+<pre class="src src-R">
+     &#25351;&#23566;&#27861;&#12487;&#12540;&#12479; <span style="color: #e5786d;">&lt;-</span> read.csv(<span style="color: #95e454;">"data/shidouhouU8.csv"</span>)
+     (&#25968;&#23398;s <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$math)
+     (&#32113;&#35336;s <span style="color: #e5786d;">&lt;-</span> &#25351;&#23566;&#27861;&#12487;&#12540;&#12479;$stat)
+
+     <span style="color: #99968b;">#</span><span style="color: #99968b;">&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;&#12398;&#20316;&#25104;</span>
+
+     (&#12463;&#12525;&#12473;&#38598;&#35336;&#34920; <span style="color: #e5786d;">&lt;-</span> table(&#25968;&#23398;s, &#32113;&#35336;s))
+
+</pre>
+</div>
+
+<pre class="example" id="org0020efd">
+      [1] 嫌い 嫌い 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 嫌い 好き 嫌い 嫌い
+     [16] 好き 嫌い 嫌い 嫌い 嫌い
+     Levels: 嫌い 好き
+      [1] 好き 好き 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 好き 嫌い 好き
+     [16] 嫌い 嫌い 嫌い 嫌い 嫌い
+     Levels: 嫌い 好き
+	   統計s
+     数学s 嫌い 好き
+       嫌い   10    4
+       好き    2    4
+</pre>
+
+<p>
+#+end_src
+</p>
+</div>
+</div>
+
+<div id="outline-container-org639b205" class="outline-3">
+<h3 id="org639b205">問題</h3>
+<div class="outline-text-3" id="text-org639b205">
+<p>
+数学と統計の好き嫌いの間に有意な連関があると言えるでしょうか？
+有意水準 5% で検定してください。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbdbf7ea" class="outline-3">
+<h3 id="orgbdbf7ea">カイ二乗検定</h3>
+<div class="outline-text-3" id="text-orgbdbf7ea">
+<dl class="org-dl">
+<dt>\( O_i \)</dt><dd>観測度数</dd>
+<dt>\( E_i \)</dt><dd><p>
+期待度数 (あらかじめ期待される，または，理論的に求
+められる，度数)
+</p>
+
+<p>
+\[
+       \Chi^2 = \sum_1^k \frac {(O_i - E_i)^2 } { E_i}
+       \]
+</p></dd>
+</dl>
+
+
+<div class="org-src-container">
+<pre class="src src-R">curve(dchisq(x,1), 0, 20)
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> seq(2,16,2)) {
+  curve(dchisq(x,i), 0, 20, add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+  }
+png(<span style="color: #95e454;">"graphs/fig-05-06.png"</span>, width=400, height=300)
+curve(dchisq(x,1), 0, 20)
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> 2:4) {
+  curve(dchisq(x,2^i), 0, 20, add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>)
+  }
+dev.off()
+</pre>
+</div>
+
+<pre class="example">
+png 
+  2
+</pre>
+
+
+
+<div id="org0fed5c7" class="figure">
+<p><img src="./graphs/fig-05-06.png" alt="fig-05-06.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>取り得る値の下限は0</li>
+<li>非対称分布</li>
+<li>自由度が大きくなると，正規分布に近づく</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d2e8f8" class="outline-3">
+<h3 id="org0d2e8f8">統計検定量</h3>
+<div class="outline-text-3" id="text-org0d2e8f8">
+<div class="org-src-container">
+<pre class="src src-R">
+(<span style="color: #cae682;">chi2_stat</span> <span style="color: #e5786d;">&lt;-</span> <span style="color: #8ac6f2; font-weight: bold;">function</span>(Ob,Ex) {
+  sum((Ob-Ex)^2 / Ex)
+})
+
+</pre>
+</div>
+
+<pre class="example">
+function(Ob,Ex) {
+  sum((Ob-Ex)^2 / Ex)
+}
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R">sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[1,])
+sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[2,])
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 14
+[1] 6
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,1])
+sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,2])
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 12
+[1] 8
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">( total <span style="color: #e5786d;">&lt;-</span> sum(sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,1]),sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,2])) )
+
+&#26399;&#24453;&#24230;&#25968;s <span style="color: #e5786d;">&lt;-</span> matrix(nrow=2, ncol=2)
+<span style="color: #8ac6f2; font-weight: bold;">for</span>(i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:2) {
+  sc <span style="color: #e5786d;">&lt;-</span> sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[i,])
+  <span style="color: #8ac6f2; font-weight: bold;">for</span>(j <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:2) {
+    sr <span style="color: #e5786d;">&lt;-</span> sum(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;[,j])
+    &#26399;&#24453;&#24230;&#25968;s[i,j] <span style="color: #e5786d;">&lt;-</span> sc*sr/total
+  }
+}
+&#26399;&#24453;&#24230;&#25968;s
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 20
+     [,1] [,2]
+[1,]  8.4  5.6
+[2,]  3.6  2.4
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+&#35251;&#28204;&#24230;&#25968;s <span style="color: #e5786d;">&lt;-</span> &#12463;&#12525;&#12473;&#38598;&#35336;&#34920;
+
+(chi2 <span style="color: #e5786d;">&lt;-</span> (&#35251;&#28204;&#24230;&#25968;s-&#26399;&#24453;&#24230;&#25968;s)^2/&#26399;&#24453;&#24230;&#25968;s)
+
+sum(chi2)
+
+</pre>
+</div>
+
+<pre class="example">
+      統計s
+数学s      嫌い      好き
+  嫌い 0.3047619 0.4571429
+  好き 0.7111111 1.0666667
+[1] 2.539683
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org449e5f0" class="outline-3">
+<h3 id="org449e5f0">p 値</h3>
+</div>
+
+
+
+<div id="outline-container-org7add8d7" class="outline-3">
+<h3 id="org7add8d7">chisq.test</h3>
+<div class="outline-text-3" id="text-org7add8d7">
+<p>
+nxm のクロス集計表のカイ二乗検定の自由度は，
+(n-1)x(m-1)
+)
+</p>
+<div class="org-src-container">
+<pre class="src src-R">
+chisq.test(&#12463;&#12525;&#12473;&#38598;&#35336;&#34920;)
+
+
+</pre>
+</div>
+
+<pre class="example">
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  クロス集計表
+X-squared = 1.2004, df = 1, p-value = 0.2732
+
+ 警告メッセージ: 
+ chisq.test(クロス集計表) で:   カイ自乗近似は不正確かもしれません
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92e5167" class="outline-2">
+<h2 id="org92e5167">5.7 サンプルサイズの検定結果への影響について</h2>
+<div class="outline-text-2" id="text-org92e5167">
+</div>
+<div id="outline-container-org6d6f4c6" class="outline-3">
+<h3 id="org6d6f4c6">サンプル数が異なる二つのクロス集計表の順位</h3>
+<div class="outline-text-3" id="text-org6d6f4c6">
+</div>
+<div id="outline-container-org254eed2" class="outline-4">
+<h4 id="org254eed2">履修A</h4>
+<div class="outline-text-4" id="text-org254eed2">
+<div class="org-src-container">
+<pre class="src src-R">    <span style="color: #e5786d;">library</span>(vcd)
+    (&#23653;&#20462;A <span style="color: #e5786d;">&lt;-</span> matrix(c(16,12,4,8), 2, 2))
+    rownames(&#23653;&#20462;A) <span style="color: #e5786d;">&lt;-</span> c(<span style="color: #95e454;">"&#25991;&#31995;"</span>, <span style="color: #95e454;">"&#29702;&#31995;"</span>)
+    colnames(&#23653;&#20462;A) <span style="color: #e5786d;">&lt;-</span> c(<span style="color: #95e454;">"&#23653;&#20462;&#12375;&#12383;"</span>,<span style="color: #95e454;">"&#23653;&#20462;&#12375;&#12394;&#12356;"</span>)
+    &#23653;&#20462;A
+</pre>
+</div>
+
+<pre class="example">
+     [,1] [,2]
+[1,]   16    4
+[2,]   12    8
+     履修した 履修しない
+文系       16          4
+理系       12          8
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgabb5ba4" class="outline-4">
+<h4 id="orgabb5ba4">履修B</h4>
+<div class="outline-text-4" id="text-orgabb5ba4">
+<div class="org-src-container">
+<pre class="src src-R">      (&#23653;&#20462;B <span style="color: #e5786d;">&lt;-</span> matrix(c(160,120,40,80), 2, 2))
+      rownames(&#23653;&#20462;B) <span style="color: #e5786d;">&lt;-</span> c(<span style="color: #95e454;">"&#25991;&#31995;"</span>, <span style="color: #95e454;">"&#29702;&#31995;"</span>)
+      colnames(&#23653;&#20462;B) <span style="color: #e5786d;">&lt;-</span> c(<span style="color: #95e454;">"&#23653;&#20462;&#12375;&#12383;"</span>,<span style="color: #95e454;">"&#23653;&#20462;&#12375;&#12394;&#12356;"</span>)
+      &#23653;&#20462;B
+</pre>
+</div>
+
+<pre class="example">
+     [,1] [,2]
+[1,]  160   40
+[2,]  120   80
+     履修した 履修しない
+文系      160         40
+理系      120         80
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org124b367" class="outline-3">
+<h3 id="org124b367">カイ二乗検定</h3>
+<div class="outline-text-3" id="text-org124b367">
+<div class="org-src-container">
+<pre class="src src-R">
+chisq.test(&#23653;&#20462;A, correct=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+
+</pre>
+</div>
+
+<pre class="example">
+
+	Pearson's Chi-squared test
+
+data:  履修A
+X-squared = 1.9048, df = 1, p-value = 0.1675
+</pre>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+
+chisq.test(&#23653;&#20462;B, correct=<span style="color: #92a65e; font-weight: bold;">FALSE</span>)
+
+</pre>
+</div>
+
+<pre class="example">
+
+	Pearson's Chi-squared test
+
+data:  履修B
+X-squared = 19.048, df = 1, p-value = 1.275e-05
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6c6f9f2" class="outline-3">
+<h3 id="org6c6f9f2">サンプル数の違い</h3>
+<div class="outline-text-3" id="text-org6c6f9f2">
+<p>
+帰無仮説、帰無分布、棄却域は全く同じものとなります。
+</p>
+
+<p>
+違うのは検定統計量の実現値だけです。
+</p>
+
+<p>
+chisq.test関数により検定を行ってみましょう。
+</p>
+
+<p>
+カイ二乗検定量に10倍違いがあり，検定は，有意になりやすくなる。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-12-06 月 11:46</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

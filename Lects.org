@@ -1,0 +1,103 @@
+#+setupfile: org/info/index-bigblow-header.setup
+#+include: org/info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 2021講義記録
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
+
+* データ解析 2021 後期
+
+** 今日の講義
+   - [[./today.org]]
+
+   - [[./today-II-2021-11-29.org]]
+     - [[./org/Stat-interval-estimation.org]] 区間推定
+
+   - [[./today-II-2021-11-15.org]]
+     - [[./org/Stat-estimation-2.org]] 点推定
+
+   - [[./today-II-2021-11-08.org]]
+     - [[./org/Stat-estimation-2.org]] 点推定
+
+   - [[./today-II-2021-11-01.org]]      
+     - [[./org/Stat-estimation.org]] 統計的推測
+     - [[./org/RforS-II-04.org]] のこり
+
+
+   - [[./today-II-2021-10-25.org]] 
+     - [[./org/RforS-II-04.org]] 4.3 から 4.6まで
+
+   - [[./today-II-2021-10-18.org]]
+     - [[./org/RforS-II-04.org]] 4.3まで
+       
+   - [[./today-II-2021-10-11.org]]
+     - ほとんどガイダンス
+
+* オンライン講義 2021 前期
+
+  - [[./today-2021-06-02.org]]
+  - [[./today=2021-06-16.org]]  
+
+
+* 「Rによるやさしい統計学」の演習
+
+** 教科書
+
+   [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]]
+
+** 演習用コンテンツ
+
+   教科書のまとめ
+   
+   - Emacs org-mode版
+     0. [[./org/RforS-0.org]] (5.26)
+     1. [[./org/RforS-1.org]] (5.19)
+     2. [[./org/RforS-2.org]] (5.26)	
+
+   - HTML版 https://masayuki054.github.io/RforS
+
+** 関連ページ
+- https://masayuki054.github.io/RforS
+- https://github.com/masayuki054/RforS  
+
+** ブログ
+  
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/192843][確率統計学 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/202703][講義の進行 確率統計2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/28/083025][レポートと試験のこと 確率統計2021 - masayuki054's diary]]  
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/190718][Rに関すること - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/193244][講義予定 確率統計学 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/04/20/213400][演習問題 確率統計 2021 - masayuki054's diary]]
+- [[http://masayuki054.hatenablog.com/entry/2021/03/14/163010][授業アンケートへの解答 データ解析 2020 - masayuki054's diary]]
+
+
+** ドライブ
+
+- [[https://drive.google.com/drive/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w][アンケート - Google ドライブ]]   
+- [[https://drive.google.com/drive/folders/1E3kil-he8dK0iGxrEpB4GIsxiJ1N7LKd][2021 - Google ドライブ]]
+- [[https://drive.google.com/drive/u/0/folders/1deXv6LjZU3KXXCjeTJfR2YfB6KEsOtKy][黒板 - Google ドライブ]]
+     
+
+** 参考サイト  [[http://whitewell.sakura.ne.jp/R/contents.html][Introduction to Programming Language R]] 
+
+  [[http://whitewell.sakura.ne.jp/R/Rintro-01.html][- R解説(1)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-02.html][R解説(2)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-03.html][R解説(3)]] 課題をやってみましょう
+  - [[http://whitewell.sakura.ne.jp/R/Rintro-04.html][R解説(4)]]
+   
+
+** 参考サイト
+
+   - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]]    [[https://www.ohmsha.co.jp/book/9784274067105/][Rによるやさしい統計学 | Ohmsha]] の解説動画とデータ
+
+   - [[https://htsuda.net/stats/][Rによる統計入門]] 津田裕之氏
+     - google colaboratory で R を使うについても書かれている
+
+   - [[http://www.okadajp.org/RWiki/][RjpWiki - RjpWiki]]
+
+   - [[http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html][R-Tips]]
+
+   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
+     - 教科書に基づいた確率統計の講義サイト
+     
+   

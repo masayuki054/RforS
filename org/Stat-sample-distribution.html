@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-06 月 11:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>\( \chi^2 \) 分布と \( F \) 分布</title>
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">\( \chi^2 \) 分布と \( F \) 分布</h1>
+<p>
+#+beign_src R :tangle R-text/code/05.R
+#+end_src
+</p>
+
+<dl class="org-dl">
+<dt>\( \chi^2 \) 分布</dt><dd>データの平方和である統計量 \( \chi^2 \) が従う分布
+
+<ul class="org-ul">
+<li>母分散の区間推定</li>
+
+<li>独立性の検定</li>
+</ul></dd>
+
+<dt>\( F \) 分布</dt><dd>二つの \( \chi^2 \) の比が従う分布
+
+<ul class="org-ul">
+<li>等分散の検定</li>
+
+<li>分散分析</li>
+</ul></dd>
+</dl>
+
+<div id="outline-container-org1666ea2" class="outline-2">
+<h2 id="org1666ea2">5.1 \( \chi^2 \) 分布</h2>
+<div class="outline-text-2" id="text-org1666ea2">
+<p>
+工場で製造される製品の容量のバラツキは？
+</p>
+</div>
+
+<div id="outline-container-org83776a3" class="outline-3">
+<h3 id="org83776a3">データの平方和</h3>
+<div class="outline-text-3" id="text-org83776a3">
+</div>
+<div id="outline-container-orga52cbd5" class="outline-4">
+<h4 id="orga52cbd5">標準正規母集団からの無作為標本</h4>
+<div class="outline-text-4" id="text-orga52cbd5">
+<p>
+\( X_{i=1:n} \) 標準正規母集団からの無作為標本
+</p>
+
+<ul class="org-ul">
+<li>母集団が正規分布の場合は，標準化する</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgbc85dae" class="outline-4">
+<h4 id="orgbc85dae">\( \chi^2 \) 統計量</h4>
+<div class="outline-text-4" id="text-orgbc85dae">
+</div>
+<div id="outline-container-orgb111490" class="outline-5">
+<h5 id="orgb111490">標準化</h5>
+<div class="outline-text-5" id="text-orgb111490">
+<p>
+\( X \sim N(\mu, \sigma^2) \) のとき， \( Z = \frac{X-\mu}{\sigma} \) \( \sim N(0, 1) \) となる。
+</p>
+
+<p>
+\( Z^2 \) は，\(E[Z^2] = 0 \), \(V[Z^2]=2\),  \( Z^2 \sim
+     \chi^2_{(1)} \) (自由度1のカイ二乗分布) となる。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f741dd" class="outline-5">
+<h5 id="org9f741dd">標準化された平方和の分布</h5>
+<div class="outline-text-5" id="text-org9f741dd">
+<p>
+教科書等では，統計量も分布も区別せずに \( \chi^2 \) で記述していますが，
+ここでは，標本サイズ \( n \) の統計量は \(K_{(n)}^2\), 自由度\(n-1\)のカイ二乗分布を
+\( \chi^2_{n-1} \) と区別して記述します。
+</p>
+
+
+<p>
+\( K^2_{(n)}  = \Sigma_{i=1}^{n} Z_i^2 = \Sigma_{i=1}^{n}
+      (X_i-\mu)^2/\sigma^2 \)
+</p>
+
+<p>
+自由度1のカイ二乗分布の和であるので，
+</p>
+<ul class="org-ul">
+<li>\( n \) は自由度。</li>
+<li>期待値は \( n \),</li>
+<li>分散は， \( 2 n \)</li>
+<li>再生成 \( \chi^2_{(m+n)} = \chi^2_{(m)} + \chi^2_{(n)} \) がある</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7090ba7" class="outline-5">
+<h5 id="org7090ba7">\( \chi^2 \) 分布</h5>
+<div class="outline-text-5" id="text-org7090ba7">
+<ul class="org-ul">
+<li>非対称, 平均は中央にない</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-R">
+curve(dchisq(x,df=1),from=0, to=10, lty=1, col=1,main=<span style="color: #95e454;">"&#33258;&#30001;&#24230;&#12395;&#12424;&#12387;&#12390;&#24418;&#12364;&#22793;&#12427;&#12459;&#12452;&#20108;&#20055;&#20998;&#24067;"</span>)
+curve(dchisq(x,df=3),from=0, to=10, lty=1, col=2, add=T)
+curve(dchisq(x,df=10),from=0, to=10, lty=1, col=3, add=T)
+legend(2, 0.7, c(<span style="color: #95e454;">"&#33258;&#30001;&#24230;=1"</span>, <span style="color: #95e454;">"&#33258;&#30001;&#24230;=3"</span>, <span style="color: #95e454;">"&#33258;&#30001;&#24230;=10"</span>), lty=c(1,1,1), col=c(1,2,3))
+
+</pre>
+</div>
+
+
+<div id="org79b7f22" class="figure">
+<p><img src="./R-text/graph/05-chisq.png" alt="05-chisq.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2adde72" class="outline-2">
+<h2 id="org2adde72">5.2 母分散の区間推定</h2>
+<div class="outline-text-2" id="text-org2adde72">
+</div>
+<div id="outline-container-org88ea843" class="outline-3">
+<h3 id="org88ea843">前提</h3>
+<div class="outline-text-3" id="text-org88ea843">
+<ul class="org-ul">
+<li>母集団 \( \sim N(\mu, \sigma^2) \),</li>
+<li>\( \mu \), \( \sigma^2 \) は未知</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org903f890" class="outline-3">
+<h3 id="org903f890">分散の推定量 (標本不偏分散)</h3>
+<div class="outline-text-3" id="text-org903f890">
+<p>
+分散の推定量 \( S^2_{(n)} \) (以下，自明なときは標本サイズ \((n)\)を省く)は，
+</p>
+
+<p>
+\( (n-1) S^2/\sigma^2 \sim \chi^2_{n-1}   \)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3d22e7a" class="outline-3">
+<h3 id="org3d22e7a">信頼区間</h3>
+<div class="outline-text-3" id="text-org3d22e7a">
+<p>
+\( P( u \leq (n-1) S^2/\sigma^2 \leq v ) = 1 - \alpha \)
+</p>
+
+<p>
+\( 1-\alpha = P((n-1) S^2/v \leq \sigma^2 \leq (n-1) S^2/u )\) 
+</p>
+
+<p>
+なので，信頼区間は，
+</p>
+
+<p>
+\( \left[((n-1) S^2/v, (n-1) S^2/u ) \right]\) 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf64189f" class="outline-3">
+<h3 id="orgf64189f">95% 信頼区間の両端点</h3>
+<div class="outline-text-3" id="text-orgf64189f">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">###</span>
+<span style="color: #99968b;">### </span>
+<span style="color: #99968b;">###</span>
+
+print(c(<span style="color: #95e454;">"&#33258;&#30001;&#24230;"</span>, <span style="color: #95e454;">""</span>, <span style="color: #95e454;">"&#19979;&#38480;"</span>, <span style="color: #95e454;">"&#19978;&#38480;"</span>))
+
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (d <span style="color: #8ac6f2; font-weight: bold;">in</span> c(4,8,16,32,64)) {
+  print(c(d, qchisq(0.025,df=d), qchisq(0.975,df=d)))
+}
+</pre>
+</div>
+
+<pre class="example">
+[1] "自由度" "下限"   "上限"
+[1]  4.0000000  0.4844186 11.1432868
+[1]  8.000000  2.179731 17.534546
+[1] 16.000000  6.907664 28.845351
+[1] 32.00000 18.29076 49.48044
+[1] 64.00000 43.77595 88.00405
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org3552ed8" class="outline-3">
+<h3 id="org3552ed8">90% 信頼区間の両端点</h3>
+<div class="outline-text-3" id="text-org3552ed8">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">###</span>
+<span style="color: #99968b;">### </span>
+<span style="color: #99968b;">###</span>
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (d <span style="color: #8ac6f2; font-weight: bold;">in</span> c(4,8,16,32,64)) {
+  print(c(d, qchisq(0.05,df=d), qchisq(0.95,df=d)))
+}
+</pre>
+</div>
+
+<pre class="example">
+[1] 4.000000 0.710723 9.487729
+[1]  8.000000  2.732637 15.507313
+[1] 16.000000  7.961646 26.296228
+[1] 32.00000 20.07191 46.19426
+[1] 64.00000 46.59491 83.67526
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org83f765a" class="outline-3">
+<h3 id="org83f765a">例題 (入門統計学5.2-p99)</h3>
+<div class="outline-text-3" id="text-org83f765a">
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">###</span>
+<span style="color: #99968b;">### </span>
+<span style="color: #99968b;">###</span>
+
+sample <span style="color: #e5786d;">&lt;-</span>c(5, 8, 10, 11, 15)
+
+mu <span style="color: #e5786d;">&lt;-</span> mean(sample)
+s2 <span style="color: #e5786d;">&lt;-</span> var(sample)
+d <span style="color: #e5786d;">&lt;-</span> length(sample)-1
+low <span style="color: #e5786d;">&lt;-</span> qchisq(0.025, df=d)
+high <span style="color: #e5786d;">&lt;-</span> qchisq(0.975, df=d)
+
+c(d*s2/low, d*s2/high)
+
+c(sqrt(d*s2/low), sqrt(d*s2/high))
+
+chisq.test(sample)
+
+</pre>
+</div>
+
+<pre class="example">
+[1] 113.125311   4.917759
+[1] 10.636038  2.217602
+
+	Chi-squared test for given probabilities
+
+data:  sample
+X-squared = 5.5918, df = 4, p-value = 0.2318
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1d829fa" class="outline-2">
+<h2 id="org1d829fa">標本不偏分散 (\( \hat{s}^2 \))の標本分布を求める</h2>
+<div class="outline-text-2" id="text-org1d829fa">
+<ul class="org-ul">
+<li>不偏分散は，母分散の不偏推定量</li>
+<li>標本分散は，標本の散布度</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955;&#12398;&#27161;&#26412;&#20998;&#24067;</span>
+<span style="color: #99968b;">##</span>
+
+samples.no <span style="color: #e5786d;">&lt;-</span> 10000   <span style="color: #99968b;"># </span><span style="color: #99968b;">&#12356;&#12367;&#12388;&#27161;&#26412;&#12434;&#29992;&#12356;&#12427;&#12363;</span>
+sample.size <span style="color: #e5786d;">&lt;-</span> 10     <span style="color: #99968b;"># </span><span style="color: #99968b;">&#12402;&#12392;&#12388;&#12398;&#27161;&#26412;&#12398;&#20013;&#12398;&#12487;&#12540;&#12479;&#12398;&#20491;&#25968;</span>
+
+this.mean <span style="color: #e5786d;">&lt;-</span> 50       <span style="color: #99968b;"># </span><span style="color: #99968b;">&#20998;&#24067;&#12398;&#24179;&#22343;</span>
+this.sd <span style="color: #e5786d;">&lt;-</span> 10         <span style="color: #99968b;"># </span><span style="color: #99968b;">&#20998;&#24067;&#12398;&#27161;&#28310;&#20559;&#24046;</span>
+
+&#19981;&#20559;&#20998;&#25955;s <span style="color: #e5786d;">&lt;-</span> numeric(samples.no) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#21508;&#12293;&#12398;&#27161;&#26412;&#12398;&#19981;&#20559;&#20998;&#25955;&#20516;&#12398;&#20445;&#23384;&#22580;&#25152;</span>
+
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> 1:samples.no) {
+  &#27161;&#26412; <span style="color: #e5786d;">&lt;-</span> rnorm(n=sample.size, mean=this.mean, sd=this.sd) <span style="color: #99968b;"># </span><span style="color: #99968b;">&#12402;&#12392;&#12388;&#12398;&#27161;&#26412;&#12398;&#29983;&#25104;</span>
+  &#19981;&#20559;&#20998;&#25955;s[i] <span style="color: #e5786d;">&lt;-</span> var(&#27161;&#26412;)
+}
+
+c(mean(&#19981;&#20559;&#20998;&#25955;s),sd(&#19981;&#20559;&#20998;&#25955;s))  <span style="color: #99968b;"># </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955;&#36948;&#12398;&#24179;&#22343;&#12392;&#20998;&#25955;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] 99.74877 46.92062
+</pre>
+
+
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955;&#12398;&#38971;&#24230;&#34920;</span>
+<span style="color: #99968b;">##</span>
+hist(&#19981;&#20559;&#20998;&#25955;s, breaks=seq(0,500,10), main=<span style="color: #95e454;">"&#19981;&#20559;&#20998;&#25955;&#12398;&#20998;&#24067;"</span>)
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org09b9e4c" class="outline-4">
+<h4 id="org09b9e4c">不偏分散の分布</h4>
+<div class="outline-text-4" id="text-org09b9e4c">
+
+<div id="orgedb6d6c" class="figure">
+<p><img src="./R-text/graph/05-var-hist.png" alt="05-var-hist.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R"><span style="color: #99968b;">##</span>
+<span style="color: #99968b;">## </span><span style="color: #99968b;">&#27161;&#26412;&#19981;&#20559;&#20998;&#25955;&#12398;&#38971;&#24230;&#34920;</span>
+<span style="color: #99968b;">##</span>
+hist((&#19981;&#20559;&#20998;&#25955;s/100)*9, freq=<span style="color: #92a65e; font-weight: bold;">FALSE</span>, breaks=seq(0,50,1), main=<span style="color: #95e454;">"&#19981;&#20559;&#20998;&#25955;/&#27597;&#20998;&#25955;&#12398;&#20998;&#24067;&#12392;&#33258;&#30001;&#24230;9&#12398;&#12459;&#12452;&#20108;&#20055;&#20998;&#24067;"</span>)
+curve(dchisq(x,9), add=<span style="color: #92a65e; font-weight: bold;">TRUE</span>, col=<span style="color: #95e454;">"red"</span>)
+</pre>
+</div>
+
+
+<div id="org511445f" class="figure">
+<p><img src="./R-text/graph/05-chi2.png" alt="05-chi2.png" /> 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbeb1fef" class="outline-4">
+<h4 id="orgbeb1fef">\( \chi^2_{(n-1)} \sim \frac{(n-1) \hat{\sigma}^2}{\sigma^2} \)</h4>
+<div class="outline-text-4" id="text-orgbeb1fef">
+<dl class="org-dl">
+<dt>信頼係数</dt><dd>\( 1 - \alpha \),</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbb82c29" class="outline-2">
+<h2 id="orgbb82c29">F 分布</h2>
+<div class="outline-text-2" id="text-orgbb82c29">
+<p>
+二つの母集団から抽出した二種の標本からの統計量が従う分布
+</p>
+
+<p>
+等分散の検定
+</p>
+
+<p>
+F統計量 :: \( F_{(\nu_1, \nu_2)} = \frac{\chi^2_{(\nu_1)}/{\nu_1}}{\chi^2_{(\nu_2)}/{\nu_2}} \)
+</p>
+</div>
+
+<div id="outline-container-orga837c7d" class="outline-3">
+<h3 id="orga837c7d">F 分布のグラフ</h3>
+<div class="outline-text-3" id="text-orga837c7d">
+<div class="org-src-container">
+<pre class="src src-R">
+curve(df(x,1,4),from=0, to=10, lty=1, col=1,main=<span style="color: #95e454;">"&#33258;&#30001;&#24230;&#12395;&#12424;&#12387;&#12390;&#24418;&#12364;&#22793;&#12427;F&#20998;&#24067;"</span>)
+curve(df(x,5,28),from=0,to=10, lty=1, col=2, add=T)
+curve(df(x,28,6),from=0, to=10, lty=1, col=3, add=T)
+legend(2, 0.7, c(<span style="color: #95e454;">"&#33258;&#30001;&#24230;=(1,4)"</span>, <span style="color: #95e454;">"&#33258;&#30001;&#24230;=(5,28)"</span>,<span style="color: #95e454;">"&#33258;&#30001;&#24230;=(28,6"</span>), lty=c(1,1,1), col=c(1,2,3))
+
+</pre>
+</div>
+
+
+<div id="orge7bf0d0" class="figure">
+<p><img src="./R-text/graph/05-F-1.png" alt="05-F-1.png" />
+</p>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-R">
+curve(df(x,20,1),from=0, to=4, lty=1,col=1)
+<span style="color: #8ac6f2; font-weight: bold;">for</span> (i <span style="color: #8ac6f2; font-weight: bold;">in</span> seq(2,20,2)) {
+  curve(df(x,20,i),from=0, to=4, lty=1,col=1,add=T)
+}
+</pre>
+</div>
+
+
+<div id="org039bfdc" class="figure">
+<p><img src="./R-text/graph/05-F-2.png" alt="05-F-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org99726e2" class="outline-3">
+<h3 id="org99726e2">確率密度関数</h3>
+<div class="outline-text-3" id="text-org99726e2">
+<p>
+\( f(F) = \frac{\Gamma(\frac{\nu_1+\nu_2}{2})F^{\frac{\nu_1-2}{2}}}
+{\Gamma(\nu_1/2) \Gamma(\nu_2/2) (1+\nu_1/\nu_2 F)^{(\nu_1+\nu_2)/2}}
+(\nu_1/\nu_2)^{(\nu_1/2)}
+\)
+</p>
+
+
+<p>
+期待値 :: \( E(F) = \frac{\nu_2}{\nu_2-2} \), (ただし \( \nu_2 > 2 \))
+</p>
+
+<p>
+分散 :: \( V(F) = \frac
+{2 \nu_2^2 (\nu_1 + \nu_2 - 2)}
+{ \nu_1 (\nu_2-2)^2(\nu_2-4)} \),  (ただし \( \nu_2 > 2 \))
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b7bae5" class="outline-2">
+<h2 id="org9b7bae5">5.4 特別なF値</h2>
+<div class="outline-text-2" id="text-org9b7bae5">
+<p>
+F統計量 :: \( F_{(\nu_1, \nu_2)} = \frac{\chi^2_{(\nu_1)}/{\nu_1}}{\chi^2_{(\nu_2)}/{\nu_2}} \)
+</p>
+
+
+
+<p>
+標本不偏分散
+</p>
+
+<p>
+分散の推定量 \( S^2_{(n)} \) は，
+</p>
+
+<p>
+\( (n-1) S^2/\sigma^2 \sim \chi^2_{n-1}   \)
+</p>
+
+<p>
+\( F_{(\nu_1, \nu_2)} =
+\frac{\chi^2_{(\nu_1)}/{\nu_1}}{\chi^2_{(\nu_2)}/{\nu_2}} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} \)
+</p>
+
+<p>
+母分散が等しい場合は， \( F_{( \nu_1, \nu_2)} = \frac{S_1^2}{S_2^2} \)
+となる
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac96652" class="outline-2">
+<h2 id="orgac96652">F と t の関係</h2>
+<div class="outline-text-2" id="text-orgac96652">
+<p>
+標本サイズ n とし，統計量に n を明示し，
+</p>
+
+<p>
+\(T_{(n)} =  \frac{\overline{X_{(n)}}-\mu}{\sqrt{S_{(n)}^2/n}} \)
+</p>
+
+<p>
+\(T_{(n)} = \frac{
+   \frac{\overline{X_{(n)}}-\mu}{\sqrt{\sigma^2/n}}}
+   {\frac{\sqrt{S_{(n)}^2/n}}{\sqrt{\sigma^2/n}}}\)
+</p>
+
+<p>
+\(T_{(n)} = \frac{\overline{Z}_(n)} {{S_{(n)}}/{\sigma}} \)
+</p>
+
+<p>
+\(T_{(n)^2} = \frac{\overline{Z}_(n)^2} {{S_{(n)}^2}/{\sigma^2 }}
+   = \frac{\chi^2_{1}/1}{\chi^2_{n-1}/(n-1)} = F_{(1,(n-1))}   \)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-12-06 月 11:50</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

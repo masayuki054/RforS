@@ -1,0 +1,29 @@
+#+begin_src dot :results output graphics :file relation.png
+digraph mygraph {
+  node [shape=box];
+  { rank = same; "二項分布"; "ポアソン分布" ;
+  }
+  
+  "二項分布" 
+  "二項分布" -> "ポアソン分布"  [label = "大標本, 低確率"]
+  "二項分布" -> "正規分布"  [label = "大標本"]
+  "ポアソン分布" -> "正規分布" [label = "頻度が大"]
+  "正規分布" -> "Z 分布" [label = "頻度が大"]
+{
+ rank = same; "Z 分布" ; "カイ二乗分布"
+}
+  "Z 分布" -> "カイ二乗分布" [label = "平方和"]
+  "カイ二乗分布" -> "Z 分布" [label = "大標本"]
+  "Z 分布" -> "t 分布" [label = "母分散未知"]
+{
+ rank = same; "t 分布" ; "F 分布"
+}
+  "t 分布" -> "F 分布" [label = "二乗"]
+  "カイ二乗分布" -> "F 分布" [label = "大標本"]
+  label = "標本分布の関係";
+}
+#+end_src
+
+#+RESULTS:
+[[file:relation.png]]
+

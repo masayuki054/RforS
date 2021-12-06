@@ -1,0 +1,155 @@
+#+setupfile: org/info/index-bigblow-header.setup
+#+include: org/info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 12/06 RforS 08 (データ解析) 
+#+OPTIONS:
+#+property: header-arg:R :session t :results output :exports both
+
+http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
+  
+* Doing お知らせ   SCHEDULED: <2021-11-01 月>
+ 
+** [2021-11-29 月] 2回目のレポート 出題中
+
+    [[./reports.org]]
+
+* 2冊の教科書と進行
+
+    確率と統計
+    - K: 進行 K-7, K-5, K-8, K-10, K-11, K-12
+
+    Rによるやさしい統計学
+    - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
+
+** 対応 [3/6]
+    - [X] 標本と統計的推測 K-7:R-4
+    - [X] 大数の法則と中心極限定理 K-5:R-4
+    - [X] 点推定 K-8: (R-4, R-5)
+    - [-] 区間推定 K-10:R-4
+    - [ ] 検定 K-11, R-5
+    - [ ] いろいろな検定 K-12:(R-6, R-7)
+    
+
+    
+* 今日 (11/29) の流れ
+ 
+** Todo 区間推定 
+   教科書10章，今日から始まります
+   - [-] [[./org/Stat-interval-estimation.org]] [4/6]
+
+        - [X] [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
+
+          - 標準化，スチューデント化による統計量
+          - 統計量が従う分布
+          - 信頼度，標本誤差，信頼区間
+
+        - [ ] [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
+        - [ ] [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
+
+
+** 進行チェック (作成中)
+    
+*** Done 標本と統計的推測 [3/3]
+
+    - [X] 前期の内容では，下記内容が関係します：
+      - 確率変数の和の平均と分散，畳み込み
+      - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
+
+    - [X] R-4 [[./org/RforS-II-04.org]]
+      - [[./org/RforS-II-04.org::4.4 推定値がどれくらいあてになるのかを調べる方法][4.4 推定値がどれくらいあてになるのかを調べる方法]]
+      - [[./org/RforS-II-04.org::4.5 標本分布][4.5 標本分布]]
+      - [[./org/RforS-II-04.org::4.6 標本平均以外の標本分布][4.6 標本平均以外の標本分布]]
+
+      - 標本不偏分散は母分散の不偏，一致推定量
+      - 正規化した標本不偏分散は，カイ二乗分布する
+	
+    - [X] [[./org/Stat-estimation.org]]      
+      - 標本不偏分散の一致性
+      - 標本不偏分散の正規化は，カイ二乗分布に従う
+
+*** Done 点推定 (K7, K8, R4)
+
+     - [X] [[./org/Stat-estimation-2.org]]
+       - 不偏性
+       - 一致性
+       - 最尤法
+       - 最小二乗誤差
+
+*** 未整理
+- [[./org/Stat-estimation.org::* 標本平均の性質][K7 標本平均の性質]]
+- [[./org/Stat-estimation.org::* 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布][K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布]]
+- [[./org/Stat-estimation.org::* 大数の法則と中心極限定理][K5 大数の法則と中心極限定理]]
+- [[./org/Stat-estimation.org::*標本が従う分布][K7 標本が従う分布]]
+- [[./org/Stat-estimation-2.org::*8.1 推定量 \( T(\vec{X}) \)][8.1 推定量]]
+- [[./org/Stat-estimation-2.org::*8.2 推定量の作り方 (モーメント法)][8.2 推定量の作り方 (モーメント法)]]
+- [[./org/Stat-estimation-2.org::*8.3 推定量の良さ (平均2乗誤差の小ささ)][8.3 推定量の良さ (平均2乗誤差の小ささ)]]
+- [[./org/Stat-estimation-2.org::*8.4 最尤推定][8.4 最尤推定]]
+- [[./org/Stat-estimation-2.org::*8.5 例][8.5 例]]
+- [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
+- [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
+- [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
+- [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
+- [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
+- [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
+
+
+* 講師のノート
+
+   
+* Done このページ
+  CLOSED: [2021-10-24 日 21:38]
+  
+  [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
+
+    - 今日のオンライン講義の説明の流れです。
+    - Emacs org-mode で書いています。
+      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
+    - github からダウンロード可能です。
+
+    - ~suzuki/public_html/stat2 からもアクセスできます。
+
+* Done 講義ノート
+    CLOSED: [2021-10-18 月 09:45]
+    - [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]板書用の手書きノート 
+    - Rノート  [[./org/RforS-II-index.org]]
+    - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の 8章，7章，5章
+    - 昨年の板書  [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
+
+* 統計に関すること [2021-12-05 日]
+    - [[./org/S-info.org]]
+      
+* Done Rに関すること
+    - [[./org/R-info.org]]
+    - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
+    - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
+
+* Done 参考書
+    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
+      - 中京大 白井先生, Rによるやさしい統計学
+
+    - [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山大学)
+      - Rによるやさしい統計学の動画による解説
+
+    - [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
+      - 絵が豊富
+  
+* Done 気をつけること
+
+   - 講義ノート・教科書を読んでもらってから，説明すること
+
+   - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
+     すること
+
+* Done 分布表
+
+    R が使えないときに，確率計算に使ってください。
+   
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf][標準正規分布配布用 - z.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/t.pdf][t分布 - t.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf][CHISQ-TABLE.docx - chisq.pdf]]
+    - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
+   
+

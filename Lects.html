@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-06 月 11:38 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2021講義記録</title>
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">2021講義記録</h1>
+
+<div id="outline-container-orgfb04044" class="outline-2">
+<h2 id="orgfb04044">データ解析 2021 後期</h2>
+<div class="outline-text-2" id="text-orgfb04044">
+</div>
+<div id="outline-container-org22f5ffe" class="outline-3">
+<h3 id="org22f5ffe">今日の講義</h3>
+<div class="outline-text-3" id="text-org22f5ffe">
+<ul class="org-ul">
+<li><a href="./today.html">./today.html</a></li>
+
+<li><a href="./today-II-2021-11-29.html">./today-II-2021-11-29.html</a>
+<ul class="org-ul">
+<li><a href="./org/Stat-interval-estimation.html">./org/Stat-interval-estimation.html</a> 区間推定</li>
+</ul></li>
+
+<li><a href="./today-II-2021-11-15.html">./today-II-2021-11-15.html</a>
+<ul class="org-ul">
+<li><a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a> 点推定</li>
+</ul></li>
+
+<li><a href="./today-II-2021-11-08.html">./today-II-2021-11-08.html</a>
+<ul class="org-ul">
+<li><a href="./org/Stat-estimation-2.html">./org/Stat-estimation-2.html</a> 点推定</li>
+</ul></li>
+
+<li><a href="./today-II-2021-11-01.html">./today-II-2021-11-01.html</a>      
+<ul class="org-ul">
+<li><a href="./org/Stat-estimation.html">./org/Stat-estimation.html</a> 統計的推測</li>
+<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> のこり</li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><a href="./today-II-2021-10-25.html">./today-II-2021-10-25.html</a> 
+<ul class="org-ul">
+<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> 4.3 から 4.6まで</li>
+</ul></li>
+
+<li><a href="./today-II-2021-10-18.html">./today-II-2021-10-18.html</a>
+<ul class="org-ul">
+<li><a href="./org/RforS-II-04.html">./org/RforS-II-04.html</a> 4.3まで</li>
+</ul></li>
+
+<li><a href="./today-II-2021-10-11.html">./today-II-2021-10-11.html</a>
+<ul class="org-ul">
+<li>ほとんどガイダンス</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3fb1a8" class="outline-2">
+<h2 id="orgc3fb1a8">オンライン講義 2021 前期</h2>
+<div class="outline-text-2" id="text-orgc3fb1a8">
+<ul class="org-ul">
+<li><a href="./today-2021-06-02.html">./today-2021-06-02.html</a></li>
+<li><a href="./today=2021-06-16.html">./today=2021-06-16.html</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org0d66eb9" class="outline-2">
+<h2 id="org0d66eb9">「Rによるやさしい統計学」の演習</h2>
+<div class="outline-text-2" id="text-org0d66eb9">
+</div>
+<div id="outline-container-org6f1a94e" class="outline-3">
+<h3 id="org6f1a94e">教科書</h3>
+<div class="outline-text-3" id="text-org6f1a94e">
+<p>
+<a href="https://www.ohmsha.co.jp/book/9784274067105/">Rによるやさしい統計学 | Ohmsha</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbc0efa" class="outline-3">
+<h3 id="orgbbc0efa">演習用コンテンツ</h3>
+<div class="outline-text-3" id="text-orgbbc0efa">
+<p>
+教科書のまとめ
+</p>
+
+<ul class="org-ul">
+<li>Emacs org-mode版
+<ol class="org-ol">
+<li><a href="./org/RforS-0.html">./org/RforS-0.html</a> (5.26)</li>
+<li><a href="./org/RforS-1.html">./org/RforS-1.html</a> (5.19)</li>
+<li><a href="./org/RforS-2.html">./org/RforS-2.html</a> (5.26)</li>
+</ol></li>
+
+<li>HTML版 <a href="https://masayuki054.github.io/RforS">https://masayuki054.github.io/RforS</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgea8d8d6" class="outline-3">
+<h3 id="orgea8d8d6">関連ページ</h3>
+<div class="outline-text-3" id="text-orgea8d8d6">
+<ul class="org-ul">
+<li><a href="https://masayuki054.github.io/RforS">https://masayuki054.github.io/RforS</a></li>
+<li><a href="https://github.com/masayuki054/RforS">https://github.com/masayuki054/RforS</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc751ff7" class="outline-3">
+<h3 id="orgc751ff7">ブログ</h3>
+<div class="outline-text-3" id="text-orgc751ff7">
+<ul class="org-ul">
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/192843">確率統計学 2021 - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/202703">講義の進行 確率統計2021 - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/28/083025">レポートと試験のこと 確率統計2021 - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/190718">Rに関すること - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/193244">講義予定 確率統計学 2021 - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/04/20/213400">演習問題 確率統計 2021 - masayuki054's diary</a></li>
+<li><a href="http://masayuki054.hatenablog.com/entry/2021/03/14/163010">授業アンケートへの解答 データ解析 2020 - masayuki054's diary</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org36706a5" class="outline-3">
+<h3 id="org36706a5">ドライブ</h3>
+<div class="outline-text-3" id="text-org36706a5">
+<ul class="org-ul">
+<li><a href="https://drive.google.com/drive/folders/1CLc4ys-Z1nBe0gZkicfWfPdXbYK1480w">アンケート - Google ドライブ</a></li>
+<li><a href="https://drive.google.com/drive/folders/1E3kil-he8dK0iGxrEpB4GIsxiJ1N7LKd">2021 - Google ドライブ</a></li>
+<li><a href="https://drive.google.com/drive/u/0/folders/1deXv6LjZU3KXXCjeTJfR2YfB6KEsOtKy">黒板 - Google ドライブ</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org428a85b" class="outline-3">
+<h3 id="org428a85b">参考サイト  <a href="http://whitewell.sakura.ne.jp/R/contents.html">Introduction to Programming Language R</a></h3>
+<div class="outline-text-3" id="text-org428a85b">
+<p>
+<a href="http://whitewell.sakura.ne.jp/R/Rintro-01.html">- R解説(1)</a> 課題をやってみましょう
+</p>
+<ul class="org-ul">
+<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-02.html">R解説(2)</a> 課題をやってみましょう</li>
+<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-03.html">R解説(3)</a> 課題をやってみましょう</li>
+<li><a href="http://whitewell.sakura.ne.jp/R/Rintro-04.html">R解説(4)</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3c9f40b" class="outline-3">
+<h3 id="org3c9f40b">参考サイト</h3>
+<div class="outline-text-3" id="text-org3c9f40b">
+<ul class="org-ul">
+<li><a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a>    <a href="https://www.ohmsha.co.jp/book/9784274067105/">Rによるやさしい統計学 | Ohmsha</a> の解説動画とデータ</li>
+
+<li><a href="https://htsuda.net/stats/">Rによる統計入門</a> 津田裕之氏
+<ul class="org-ul">
+<li>google colaboratory で R を使うについても書かれている</li>
+</ul></li>
+
+<li><a href="http://www.okadajp.org/RWiki/">RjpWiki - RjpWiki</a></li>
+
+<li><a href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r2.html">R-Tips</a></li>
+
+<li><a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a>
+<ul class="org-ul">
+<li>教科書に基づいた確率統計の講義サイト</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2021-12-06 月 11:38</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
