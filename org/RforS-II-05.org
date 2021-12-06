@@ -1,12 +1,10 @@
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: Rによるやさしい統計学 5章
-#+OPTIONS:
-#+property: header-arg:R :session t :results output :exports both
+#+title: 5章 統計的仮説検定
+#+OPTIONS: tex:t
+#+property: header-arg:R :session *rfors* :results output :exports both
 
-
-* 5章 統計的仮説検定
 
 統計的仮説検定は、推測統計の中でも利用頻度の高い重要なもの。
 
@@ -44,10 +42,12 @@
 
 - 仮説を棄却する
 
+** 教科書の図5.1 母集団と標本
 
-      
-#+begin_src R :session t :results output :exports both :tangle babel/05-01.R
-sample.size <- 50
+[[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] 5.1の補足説明スライドに詳しい解説があります。
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05-01.R
+sample.size <- 1000
 A <- rnorm(sample.size)
 B <- rnorm(sample.size)
 C <- A*0.5 + sqrt(0.75)*B
@@ -74,9 +74,8 @@ dev.off()
 : X11cairo 
 :        2
 
-[[./graphs/fig-05-01-population_and_samples.png]]<>
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 cor(A,B)
 cor(A-mean(A), B-mean(B))
@@ -93,6 +92,7 @@ cor(自尊感情s, ソーシャルスキルs)
 : [1] 0.8111516
 : [1] 0.5348279
 
+      
     
 ** 5.2　統計的仮説検定の手順と用語
     - 母集団に関する帰無仮説と対立仮説を設定する
@@ -103,12 +103,117 @@ cor(自尊感情s, ソーシャルスキルs)
 
 *** 5.2.1 帰無仮説と対立仮説
 
+- 帰無仮説 :: 提案する手法が従来の手法と「差がない」、 提案する手法は
+  「効果がない」という仮説---本来主張したいこととは逆の仮説。 この仮説
+  が棄却されることを目標として仮説検定を行う。
+
+  具体的には、母平均μ=0 (母平均は0である), 母相関係数 ρ=0 (相関がな
+  い), 母平均の差μ1 - μ2= 0 (差がない)というような仮説
+
+- 対立仮説 :: 帰無仮説が棄却されたときに採択される仮説
+
+  帰無仮説とは逆の仮説であり、実験などで示したい・主張したいことを表し
+  たもの
+
+  具体的には、母平均μ≠0 (母平均は0でない), 母相関係数 ρ≠0 (相関が
+  ある), 母平均の差μ1 - μ2≠ 0 (差がある)というような仮説
+
+対立仮説の設定により、検定は次のどちらかで行う (両側検定の方がより厳し
+い条件であり、普通は両側検定で行う):
+
+    - 片側検定：対立仮説が、母平均μ > 0 (もしくはμ < 0 )、 、母相関
+      係数　ρ > 0 (もしくはρ < 0 )、、母平均の差μ1 > μ2 (もしくは
+      μ1 < μ2 )、の場合
+
+    - 両側検定：対立仮説が、母平均μ≠0、母相関係数ρ≠0 、母平均の差
+      μ1 - μ2≠ 0の場合
+
+      両側検定では、例えば母平均μ≠0を調べるには、母平均μ > 0 とμ <
+      0 の両方を調べなければならない
+
+帰無仮説が正しいものとして分析を行う。 実際に得られたデータから計算さ
+れた検定統計量の値によって採択を判断する。
+
+帰無仮説が正しいとしたとき、検定統計量が、ほぼ起こり得ない値(それほど
+極端な値)であれば、帰無仮説を棄却する(つまり、本来の主張を表す対立仮説
+が採択される)。
+
+そうでなければ, つまり，確率的に十分起こりうるような値であれば、
+帰無仮説を採択する.
+この場合は、本来主張したかった対立仮説が棄却されてしまう。
+
+  
 *** 5.2.2 検定統計量
+
+    - 検定統計量 :: 統計的仮説検定のために用いられる標本統計量のこと。
+      代表的な検定統計量の例: t, χ2、F
+
+    - 検定統計量の実現値 :: 実際のデータ（手に入った標本）を基に計算し
+      てえられる具体的な値のこと
+
+      検定統計量の実現値は、対立仮説に合うほど 0から離れた値を示す
+
 *** 5.2.3 有意水準と棄却域
+
+- 有意水準 \( \alpha \) :: 対立仮説を採択するか決定するときの基準。
+
+  有意水準は5％または1％(α=0.05またはα=0.01)に設定することが多い(つ
+  まり、標本が100回に5回(5%の場合)以下にしか現れないデータであった---
+  こんなことは偶然では起こりえない---、だから帰無仮説が成り立たないと
+  考えて良いのではないか、という判断基準)
+
+- 帰無分布 :: 帰無仮説が正しいものとして考えた時の標本分布
+
+  -帰無分布に基づいて確率計算される
+  
+- 棄却域 :: 帰無仮説のもとで、非常に生じにくい検定統計量の値の範囲
+
+  帰無仮説が棄却される領域(だから、この範囲に入るのが『望ましい』)
+
+  棄却域に検定統計量の実現値が入ったら、帰無仮説を棄却する. 
+  * 本来主張したかったことが採択される *
+
+- 採択域 :: 棄却域以外の部分---「帰無仮説が採択される領域」
+- 臨界値 :: 棄却域と採択域の境目の値 
+
+
 *** 5.2.4 統計的仮説検定の結果の報告
+
+検定統計量の実現値が棄却域に入った場合、「差がない」という帰無仮説を棄
+却し、「差がある」という対立仮説を採択する。
+
+「検定結果は5% (または1%)水準で有意である」または 「p < .05 (または p
+ < .01 )で有意差が見られた 」 と記述する。
+
+帰無仮説が棄却できない場合は、「検定の結果、差が有意でなかった」または
+「有意差が認められなかった」と書く。
+
 *** 5.2.5 p 値
+帰無分布で，検定統計量の実現値以上の領域が起る確率。
+
+p値が有意水準より小さいとき帰無仮説を棄却する。
+
 *** 5.2.6 第1 種の誤りと第2 種の誤り
+
+- 第1種の誤り \( \alpha \):: 「帰無仮説が真のとき，帰無仮説を棄却していまう」誤り
+  のこと
+
+- 第2種の誤り \( \beta \):: 「帰無仮説が偽のとき，帰無仮説を採択していまう」誤りのこと  
+
+
 *** 5.2.7 検定力
+
+- 検定力 :: 帰無仮説が偽の場合、全体の確率1から第2種の誤りの確率(1 - β)を引いた確率
+「第2種の誤りを犯さない確率」とも、つまり間違っている帰無仮説を正しく棄却できる確率のこと　
+
+
+*** 「有意差がない」ということ
+
+「実験や調査で得られた「条件間の差」は，標本抽出による誤差によって，十
+分起り得る差です」ということ。
+「統計的に意味のある差ではない」ということ。
+
+有意差がみられなかったとしても，「同じである」ということではない。
 
 ** 5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）
 
@@ -117,10 +222,12 @@ cor(自尊感情s, ソーシャルスキルs)
     - 標準化  \( Z = \frac{\bar(X) -\mu} {\sigma \sqrt{n}} \)
 
 *** 標本
-     
-     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
 
-     指導法データ <- read.csv("data/shidouhouU8.csv")
+[[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]]からshidouhouU8.csv をダウンロードしてください。
+     
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.r
+
+     指導法データ <- read.csv("RforS/data/shidouhouU8.csv")
      (心理学テスト <- 指導法データ$psych_test)
 
      #+end_src
@@ -132,7 +239,7 @@ cor(自尊感情s, ソーシャルスキルs)
 
      母集団が N(12, 10)なので
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 this.mean <- 12
 this.sd <- sqrt(10)
@@ -151,7 +258,7 @@ norm_stat <- function (X) {
 
 *** 有意水準の決定
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 this.alpha <- 0.05
 
@@ -161,18 +268,17 @@ this.alpha <- 0.05
 
 *** 検定統計量の実現値を求める
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 (z <- norm_stat(心理学テスト))
 
 #+end_src
 
 #+RESULTS:
-:  norm_stat(心理学テスト) でエラー: 
-:    関数 "norm_stat" を見つけることができませんでした
+:  mean(X) でエラー:  オブジェクト '心理学テスト' がありません
 
 *** 帰無仮説の棄却 or 採択の決定
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
@@ -183,7 +289,7 @@ if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
 *** 棄却域の描画
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 png("graphs/fig-05-02.png", width=400, height=300)
 curve(dnorm(x), -3, 3)
 z.lower <- qnorm(this.alpha/2)
@@ -212,7 +318,6 @@ null device
           1
 #+end_example
 
-[[graphs/fig-05-02.png]]
      
 
 ** 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
@@ -228,7 +333,7 @@ null device
      - 自由度1，2，4，8，16 の t-分布のグラフ
      - 標準正規分布のグラフ (緑)
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 dev.new()
 
@@ -236,7 +341,7 @@ dev.new()
 
 #+RESULTS:
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 png("graphs/fig-05-03.png", width=400, height=300)
 curve(dnorm(x), -5, 5, col="green")
@@ -259,7 +364,7 @@ replayPlot(fig)
 
 *** 標本
      
-     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/r-05-03.r
 
 指導法データ <- read.csv("data/shidouhouU8.csv")
 (心理学テスト <- 指導法データ$psych_test)
@@ -279,7 +384,7 @@ replayPlot(fig)
 
      母分散が未知なので，標本不偏分散を用いる。
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 t_stat <- function (X) {
   (mean(X)-this.mean) / sqrt(var(X)/length(X))
@@ -291,7 +396,7 @@ t_stat <- function (X) {
      
 *** 有意水準の決定
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 this.mean <-12
 this.alpha <- 0.05
 
@@ -301,7 +406,7 @@ this.alpha <- 0.05
 
 *** 検定統計量の実現値を求める
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 (t <- t_stat(心理学テスト))
 
 #+end_src
@@ -311,7 +416,7 @@ this.alpha <- 0.05
 
 *** 帰無仮説の棄却 or 採択の決定
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 if ( pt(t,19)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
@@ -322,7 +427,7 @@ if ( pt(t,19)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
 *** 棄却域の描画
      
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 dev.off()
 # png("graphs/fig-05-02.png", width=400, height=300)
 curve(dt(x,19), -3, 3)
@@ -339,10 +444,9 @@ curve(x-x-0.01, xlim=c(t.upper,3), col='green',lwd=20,add=TRUE)
 : null device 
 :           1
 
-[[graphs/fig-05-02.png]]
 
 *** t-test
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 t.test(心理学テスト, mu=12)
 
@@ -364,7 +468,7 @@ mean of x
 #+end_example
 
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 t.test(心理学テスト, mu=11)
 
@@ -408,7 +512,7 @@ mean of x
 
 **** 標本
 
-    #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+    #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/r-05-03.r
 
     指導法データ <- read.csv("data/shidouhouU8.csv")
     (統計テスト1 <- 指導法データ$stat_test1)
@@ -421,7 +525,7 @@ mean of x
      :  [1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
     
 **** 統計検定量
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 this.alpha =0.05
 this.pho = 0
 pho_stat <- function(X1,X2) {
@@ -440,7 +544,7 @@ pho_stat(統計テスト1,統計テスト2)
       
 **** 帰無仮説と対立仮説の設定
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 
@@ -450,7 +554,7 @@ if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 : [1] "pho/=0"
 
 **** cor.test()
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 cor.test(統計テスト1, 統計テスト2)
 
@@ -480,7 +584,7 @@ sample estimates:
     
 
 *** クロス集計表
-     #+begin_src R :session t :results output :exports both
+     #+begin_src R :session *rfors* :results output :exports both
 
      指導法データ <- read.csv("data/shidouhouU8.csv")
      (数学s <- 指導法データ$math)
@@ -523,7 +627,7 @@ sample estimates:
        \]
 
        
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 curve(dchisq(x,1), 0, 20)
 for (i in seq(2,16,2)) {
   curve(dchisq(x,i), 0, 20, add=TRUE)
@@ -548,7 +652,7 @@ dev.off()
   
 *** 統計検定量
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 (chi2_stat <- function(Ob,Ex) {
   sum((Ob-Ex)^2 / Ex)
@@ -562,7 +666,7 @@ dev.off()
 : }
 
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 sum(クロス集計表[1,])
 sum(クロス集計表[2,])
 
@@ -572,7 +676,7 @@ sum(クロス集計表[2,])
 : [1] 14
 : [1] 6
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 sum(クロス集計表[,1])
 sum(クロス集計表[,2])
 

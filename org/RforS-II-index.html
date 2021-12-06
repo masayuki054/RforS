@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 月 10:35 -->
+<!-- 2021-12-05 日 15:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>RforS II index (データ解析)</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
@@ -204,44 +204,18 @@
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
 <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">RforS II index (データ解析)</h1>
 
-<div id="outline-container-org959a52b" class="outline-2">
-<h2 id="org959a52b">Rによるやさしい統計学 (データ解析の一部として)</h2>
-<div class="outline-text-2" id="text-org959a52b">
-<p>
-<a href="./RforS-II-index.html">./RforS-II-index.html</a>
-</p>
+<div id="outline-container-org545e1f8" class="outline-2">
+<h2 id="org545e1f8">Rによるやさしい統計学 (RforS: データ解析のRの教科書)</h2>
+<div class="outline-text-2" id="text-org545e1f8">
 </div>
-
-<div id="outline-container-org277db78" class="outline-3">
-<h3 id="org277db78">教科書のまとめ</h3>
-<div class="outline-text-3" id="text-org277db78">
+<div id="outline-container-org956ade2" class="outline-3">
+<h3 id="org956ade2">RforS のまとめ</h3>
+<div class="outline-text-3" id="text-org956ade2">
 <ul class="org-ul">
 <li><a href="./RforS-II-04.html">./RforS-II-04.html</a></li>
 <li><a href="./RforS-II-05.html">./RforS-II-05.html</a></li>
@@ -249,11 +223,10 @@
 <li><a href="./RforS-II-07.html">./RforS-II-07.html</a></li>
 </ul>
 </div>
-</div>
 
-<div id="outline-container-orgce2f45a" class="outline-3">
-<h3 id="orgce2f45a">data/</h3>
-<div class="outline-text-3" id="text-orgce2f45a">
+<div id="outline-container-org05e31c4" class="outline-4">
+<h4 id="org05e31c4">data/</h4>
+<div class="outline-text-4" id="text-org05e31c4">
 <ul class="org-ul">
 <li>データ処理のコードです: <a href="./RforS-II-data.html">./RforS-II-data.html</a></li>
 <li>データ置き場です: <a href="./data/">./data/</a></li>
@@ -261,28 +234,58 @@
 </div>
 </div>
 
-<div id="outline-container-orgbcf105a" class="outline-3">
-<h3 id="orgbcf105a">R-コード</h3>
-<div class="outline-text-3" id="text-orgbcf105a">
+<div id="outline-container-org977caec" class="outline-4">
+<h4 id="org977caec">R-コード</h4>
+<div class="outline-text-4" id="text-org977caec">
 <p>
-節ごとにまとまっています: <a href="./RforS-Codes/">./RforS-Codes/</a>
+節ごとにまとまっています: <a href="./RforS-Codes/">./RforS-Codes/</a>,
+講義で使った <a href="./Codes/">./Codes/</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org04e8495" class="outline-3">
-<h3 id="org04e8495">グラフなど</h3>
-<div class="outline-text-3" id="text-org04e8495">
+<div id="outline-container-org36f4a5a" class="outline-4">
+<h4 id="org36f4a5a">グラフなど</h4>
+<div class="outline-text-4" id="text-org36f4a5a">
 <ul class="org-ul">
 <li><a href="./RforS-graphs">./RforS-graphs</a></li>
+<li><a href="./graphs">./graphs</a></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+
+<div id="outline-container-org6fd554d" class="outline-2">
+<h2 id="org6fd554d">確率と統計 (データ解析の数理の教科書)</h2>
+<div class="outline-text-2" id="text-org6fd554d">
+</div>
+<div id="outline-container-org2e8d1fa" class="outline-3">
+<h3 id="org2e8d1fa">教科書のまとめ</h3>
+<div class="outline-text-3" id="text-org2e8d1fa">
+<ul class="org-ul">
+<li>7章 <a href="./Stat-estimation.html">./Stat-estimation.html</a></li>
+<li>8章 <a href="./Stat-estimation-2.html">./Stat-estimation-2.html</a></li>
+<li>10章 <a href="./Stat-interval-estimation.html">./Stat-interval-estimation.html</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org7ace95c" class="outline-4">
+<h4 id="org7ace95c">R-コード</h4>
+</div>
+<div id="outline-container-orgb5066d9" class="outline-4">
+<h4 id="orgb5066d9">グラフなど</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge71c259" class="outline-2">
+<h2 id="orge71c259">補足説明</h2>
+</div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2021-10-18 月 10:35</p>
+<p class="date">Created: 2021-12-05 日 15:15</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
