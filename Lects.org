@@ -1,8 +1,3 @@
-#+setupfile: org/info/index-bigblow-header.setup
-#+include: org/info/common-header.org
-#+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 2021講義記録
-#+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
 * データ解析 2021 後期
