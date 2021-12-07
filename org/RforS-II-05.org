@@ -46,7 +46,10 @@
 
 [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] 5.1の補足説明スライドに詳しい解説があります。
 
-#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05-01.R
+#+begin_src R :session *rfors* :results output graphics :file RforS/graph/Fig-5.1.png :exports both :tangle RforS/code/05.R
+#
+# 図5.1 母集団と標本
+#
 sample.size <- 1000
 A <- rnorm(sample.size)
 B <- rnorm(sample.size)
@@ -60,22 +63,24 @@ points(50, 50, cex=45) # 母集団を囲む円
 legend(50, 10, legend="抽出された標本に含まれるデータ",pch=1)
 legend(10, 100, legend="母集団 (円の中全体にデータが散らばっていて相関はゼロ)")
 
-png("graphs/fig-05-01-population_and_samples.png")
-plot(自尊感情s, ソーシャルスキルs,
-     xlim=c(0,100), ylim=c(0,100))
-points(50, 50, cex=45) # 母集団を囲む円
-legend(50, 10, legend="抽出された標本に含まれるデータ",pch=1)
-legend(10, 100, legend="母集団 (円の中全体にデータが散らばっていて相関はゼロ)")
-dev.off()
-
 #+end_src
 
 #+RESULTS:
-: X11cairo 
-:        2
 
+
+[[./RforS/graph/Fig-5.1.png]]
+
+
+
+標準正規分布からの二つの独立な標本，\(\vec{A}\), \( \vec{B} \) から\(
+\vec{C} = 1/2 \vec{A} + \sqrt{3} / 2 \vec{B} \)を作り，\(\vec{A}\) と
+\( \vec{C} \) をそれぞれ10倍し50足したものを，自尊感情とソーシャルスキ
+ルにする。
 
 #+begin_src R :session *rfors* :results output :exports both
+
+A %*% A /sample.size
+A %*% B /sample.size
 
 cor(A,B)
 cor(A-mean(A), B-mean(B))
@@ -86,11 +91,15 @@ cor(自尊感情s, ソーシャルスキルs)
 #+end_src
 
 #+RESULTS:
-: [1] -0.0603372
-: [1] -0.0603372
-: [1] 0.5348279
-: [1] 0.8111516
-: [1] 0.5348279
+:           [,1]
+: [1,] 0.9320742
+:             [,1]
+: [1,] -0.02395751
+: [1] -0.02515168
+: [1] -0.02515168
+: [1] 0.4801763
+: [1] 0.8648173
+: [1] 0.4801763
 
       
     
