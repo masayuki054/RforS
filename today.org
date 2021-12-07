@@ -1,14 +1,13 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 11/29 RforS 07 (データ解析) 
+#+title: 12/06 RforS 08 (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
-* Done このページ
-  CLOSED: [2021-10-24 日 21:38]
+* Doing このページ
   
   [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
 
@@ -20,18 +19,18 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
 * 今日 (12/06) の流れ
 
-** Todo 標本が従う分布 [2/5] [[./org/Stat-sample-distribution.org]]
+** Todo 標本が従う分布 [5/5] [[./org/Stat-sample-distribution.org]]
      - [X] Z-分布 (標準正規分布)
      - [X] t-分布 (スチューデント化)
-     - [ ] カイ二乗分布
-     - [ ] F 分布
-     - [ ] 標本分布間の関係
+     - [X] カイ二乗分布
+     - [X] F 分布
+     - [X] 標本分布間の関係
        [[./org/misc/relation_of_sample_distribution.org]]
  
 ** Doing 区間推定 
    教科書10章，先週から始まりました。
 
-   - [-] [[./org/Stat-interval-estimation.org]] [4/6]
+   - [X] [[./org/Stat-interval-estimation.org]] [6/6]
 
         - [X] [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
         - [X] [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
@@ -40,10 +39,10 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
           - 標準化，スチューデント化による統計量
           - 統計量が従う分布
           - 信頼度，標本誤差，信頼区間
-        - [ ] [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
-        - [ ] [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
+        - [X] [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
 
-** 検定 (RforS-5, K-11)
+** Doing 検定 (RforS-5, K-11)
    - [ ] RforS [[./org/RforS-II-05.org]] [0/1]
 
 
@@ -126,17 +125,16 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
 #+include: Lects.org
   
-* Done 講義ノート
-    CLOSED: [2021-10-18 月 09:45]
+* Doing 講義ノート
     [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
     - 板書用の手書きノート 
 
-* Done Rに関すること
+* Doing Rに関すること
     - [[./org/R-info.org]]
     - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
-* Done 参考書
+* Doing 参考書
     - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
       - 中京大 白井先生, Rによるやさしい統計学
 
@@ -146,14 +144,14 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
     - [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
       - 絵が豊富
   
-* Done 気をつけること
+* Doing 気をつけること
 
    - 講義ノート・教科書を読んでもらってから，説明すること
 
    - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
      すること
 
-* Done 分布表
+* Doing 分布表
 
     R が使えないときに，確率計算に使ってください。
    

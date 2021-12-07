@@ -450,6 +450,7 @@ est_tz_conf_interval(0.05, sample)
     \end{eqnarray}
     
 
+
 * 10.7 二つの母集団の平均の差の区間推定
   
 ** 薬と血中濃度の問題
@@ -457,7 +458,8 @@ est_tz_conf_interval(0.05, sample)
    - Aグループ :: 新薬を投与し， \( \overline{X_{(n)}} = 3.56 \)
    - Bグループ :: 新薬を投与し， \( \overline{Y_{(m)}} = 1.27 \)
 
-  平均的には，\( \( \overline{X_{(n)}} - \overline{Y_{(m)}} = 2.29 \)
+
+  平均的には，\( \overline{X_{(n)}} - \overline{Y_{(m)}} = 2.29 \)
   だが，その誤差の見積りは？
 
   
@@ -475,7 +477,7 @@ est_tz_conf_interval(0.05, sample)
    | \( \overline{X_{(n)}} \sim N(\mu_x, \sigma^2_x/n) \) | \(X_{i=1:n} \) |
    | \( \overline{Y_{(m)}} \sim N(\mu_y, \sigma^2_y/m) \) | \(Y_{i=1:m} \) |
 
-   \( \overline{X_{(n)}} - \overline{Y_{(n)}} \sim N(\mu_x-\mu_y,
+   \( \overline{X_{(n)}} - \overline{Y_{(m)}} \sim N(\mu_x-\mu_y,
    \sigma_x^2/n + \sigma_y^2/m )\)
 
    

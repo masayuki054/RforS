@@ -1,3 +1,4 @@
+
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
@@ -40,7 +41,7 @@
 
      \( X \sim N(\mu, \sigma^2) \) のとき， \( Z = \frac{X-\mu}{\sigma} \) \( \sim N(0, 1) \) となる。
 
-     \( Z^2 \) は，\(E[Z^2] = 0 \), \(V[Z^2]=2\),  \( Z^2 \sim
+     \( Z^2 \) は，\(E[Z^2] = 1 \), \(V[Z^2]=2\),  \( Z^2 \sim
      \chi^2_{(1)} \) (自由度1のカイ二乗分布) となる。
      
 **** 標準化された平方和の分布
@@ -64,16 +65,18 @@
       - 非対称, 平均は中央にない
 	
     
- #+begin_src R ：tangle R-text/code/05.R :session *rtext* :results output graphics :file R-text/graph/05-chisq.png
+ #+begin_src R ：tangle R-text/code/05.R :session *rtext* :results output graphics :file RforS/graph/05-chisq.png
 
 curve(dchisq(x,df=1),from=0, to=10, lty=1, col=1,main="自由度によって形が変るカイ二乗分布")
 curve(dchisq(x,df=3),from=0, to=10, lty=1, col=2, add=T)
 curve(dchisq(x,df=10),from=0, to=10, lty=1, col=3, add=T)
+
 legend(2, 0.7, c("自由度=1", "自由度=3", "自由度=10"), lty=c(1,1,1), col=c(1,2,3))
 
  #+end_src
 
  #+RESULTS:
+ [[file:RforS/graph/05-chisq.png]]
 
 
  [[./R-text/graph/05-chisq.png]]
@@ -247,16 +250,17 @@ F統計量 :: \( F_{(\nu_1, \nu_2)} = \frac{\chi^2_{(\nu_1)}/{\nu_1}}{\chi^2_{(\
 
 ** F 分布のグラフ
 
-#+begin_src R ：tangle R-text/code/05.R :session *rtext* :results output graphics :file R-text/graph/05-F-1.png
+#+begin_src R ：tangle R-text/code/05.R :session *rtext* :results output graphics :file RforS/graph/05-F-1.png
 
 curve(df(x,1,4),from=0, to=10, lty=1, col=1,main="自由度によって形が変るF分布")
 curve(df(x,5,28),from=0,to=10, lty=1, col=2, add=T)
 curve(df(x,28,6),from=0, to=10, lty=1, col=3, add=T)
-legend(2, 0.7, c("自由度=(1,4)", "自由度=(5,28)","自由度=(28,6"), lty=c(1,1,1), col=c(1,2,3))
+legend(2, 0.7, c("自由度=(1,4)", "自由度=(5,28)","自由度=(28,6)"), lty=c(1,1,1), col=c(1,2,3))
 
 #+end_src
 
 #+RESULTS:
+[[file:RforS/graph/05-F-1.png]]
 
 [[./R-text/graph/05-F-1.png]]
 
