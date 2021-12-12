@@ -225,7 +225,18 @@ Y_1^2  & = &  (\vec{A^t_1} \vec{X})^t (\vec{A^t_1} \vec{X})\\
    \sigma^2/n) \)
 
    \( B(n,p) \stackrel{P}{\longrightarrow} N(np, np(1-p)) \) \( (n\rightarrow \infty) \)
+
+
    
+*** 中心極限定理に関するメモ
+
+[[http://www.chem.konan-u.ac.jp/applphys/web_material/GaussFromBinominal.pdf][GaussFromBinominal.pdf]]
+
+[[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
+
+
+   
+
 * 標準化とスチューデント化
 
   確率変数 \( X \sim N(\mu, \sigma^2)\) の標準化   \( Z = \frac{X-\mu}{\sigma}

@@ -1,0 +1,5 @@
+指導法データ <- read.csv("data/shidouhouU8.csv")
+(心理学テスト <- 指導法データ$psych_test)
+    指導法データ <- read.csv("data/shidouhouU8.csv")
+    (統計テスト1 <- 指導法データ$stat_test1)
+    (統計テスト2 <- 指導法データ$stat_test2)

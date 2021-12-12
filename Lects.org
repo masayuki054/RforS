@@ -1,9 +1,11 @@
 #+property: header-arg:R :session t :results output :exports both
-
 * データ解析 2021 後期
 
 ** 今日の講義
    - [[./today.org]]
+     
+   - [[./today-II-2021-12-06.org]]
+     - [[./org/Stat-interval-estimation.org]] 区間推定
 
    - [[./today-II-2021-11-29.org]]
      - [[./org/Stat-interval-estimation.org]] 区間推定

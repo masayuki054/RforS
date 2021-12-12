@@ -1,7 +1,7 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 12/06 RforS 08 (データ解析) 
+#+title: 12/13 RforS 08 (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
@@ -17,80 +17,105 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
     - github からダウンロード可能です。
     - ~suzuki/public_html/stat2 からもアクセスできます。
 
-* 今日 (12/06) の流れ
+* 今日 (12/13) の流れ
 
-** Todo 標本が従う分布 [5/5] [[./org/Stat-sample-distribution.org]]
+** Doing 検定 (RforS-5, K-11)
+   - [ ] RforS [[./org/RforS-II-05.org]] [0/3]
+     
+     - [ ] 5.1 統計的仮説検定の必要性
+     - [ ] 教科書の図5.1 母集団と標本
+     - [ ] 5.2　統計的仮説検定の手順と用語 [0/8]
+       - [ ] 帰無仮説と対立仮説
+       - [ ] 検定統計量
+       - [ ] 有意水準と棄却域
+       - [ ] 統計的仮説検定の結果の報告
+       - [ ] p 値
+       - [ ] 第1 種の誤りと第2 種の誤り
+       - [ ] 検定力
+       - [ ] 「有意差がない」ということ
+     - [ ] 5.3 標準正規分布を用いた検定（1つの平均値の検定・母分散既知） 
+     - [ ] 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+         - [ ] t.test()
+     - [ ] 5.5 相関係数の検定 (無相関検定)
+	 - [ ] 例題
+	 - [ ] cor.test()
+     - [ ] 5.6 独立性の検定（カイ二乗検定） [/]
+       - クロス集計表
+       - カイ二乗検定
+       - chisq.test()
+     - [ ] 5.7 サンプルサイズの検定結果への影響について
+       - サンプル数が異なる二つのクロス集計表の順位
+	 - 履修A     
+	 - 履修B
+       - カイ二乗検定  
+       - サンプル数の違い
+
+** 進行チェック (作成中)
+    
+標本と統計的推測
+
+- 前期の内容では，下記内容が関係します：
+  - 確率変数の和の平均と分散，畳み込み
+  - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
+
+      - 標本不偏分散は母分散の不偏，一致推定量
+      - 正規化した標本不偏分散は，カイ二乗分布する
+	
+    - [X]
+      - 標本不偏分散の一致性
+      - 標本不偏分散の正規化は，カイ二乗分布に従う
+
+     - [X] [[./org/Stat-estimation-2.org]]
+
+母集団と標本 R-4 [[./org/RforS-II-04.org]]
+
+- [[./org/RforS-II-04.org::4.4 推定値がどれくらいあてになるのかを調べる方法][4.4 推定値がどれくらいあてになるのかを調べる方法]]
+- [[./org/RforS-II-04.org::4.5 標本分布][4.5 標本分布]]
+- [[./org/RforS-II-04.org::4.6 標本平均以外の標本分布][4.6 標本平均以外の標本分布]]
+
+標本分布
+[[./org/Stat-estimation.org]]
+- [[./org/Stat-estimation.org::* 標本平均の性質][K7 標本平均の性質]]
+- [[./org/Stat-estimation.org::* 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布][K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布]]
+- [[./org/Stat-estimation.org::* 大数の法則と中心極限定理][K5 大数の法則と中心極限定理]]
+- [[./org/Stat-estimation.org::*標本が従う分布][K7 標本が従う分布]]
+  - [[./org/Stat-sample-distribution.org]]
      - [X] Z-分布 (標準正規分布)
      - [X] t-分布 (スチューデント化)
      - [X] カイ二乗分布
      - [X] F 分布
      - [X] 標本分布間の関係
-       [[./org/misc/relation_of_sample_distribution.org]]
+     [[./org/misc/relation_of_sample_distribution.org]]
  
-** Doing 区間推定 
-   教科書10章，先週から始まりました。
 
-   - [X] [[./org/Stat-interval-estimation.org]] [6/6]
-
-        - [X] [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
-        - [X] [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
-        - [X] [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
-        - [X] [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
-          - 標準化，スチューデント化による統計量
-          - 統計量が従う分布
-          - 信頼度，標本誤差，信頼区間
-        - [X] [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
-        - [X] [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
-
-** Doing 検定 (RforS-5, K-11)
-   - [ ] RforS [[./org/RforS-II-05.org]] [0/1]
-
-
-
-** 進行チェック (作成中)
-    
-*** Done 標本と統計的推測 [3/3]
-
-    - [X] 前期の内容では，下記内容が関係します：
-      - 確率変数の和の平均と分散，畳み込み
-      - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
-
-    - [X] R-4 [[./org/RforS-II-04.org]]
-      - [[./org/RforS-II-04.org::4.4 推定値がどれくらいあてになるのかを調べる方法][4.4 推定値がどれくらいあてになるのかを調べる方法]]
-      - [[./org/RforS-II-04.org::4.5 標本分布][4.5 標本分布]]
-      - [[./org/RforS-II-04.org::4.6 標本平均以外の標本分布][4.6 標本平均以外の標本分布]]
-
-      - 標本不偏分散は母分散の不偏，一致推定量
-      - 正規化した標本不偏分散は，カイ二乗分布する
-	
-    - [X] [[./org/Stat-estimation.org]]      
-      - 標本不偏分散の一致性
-      - 標本不偏分散の正規化は，カイ二乗分布に従う
-
-*** Done 点推定 (K7, K8, R4)
-
-     - [X] [[./org/Stat-estimation-2.org]]
-       - 不偏性
-       - 一致性
-       - 最尤法
-       - 最小二乗誤差
-
-*** 未整理
-- [[./org/Stat-estimation.org::* 標本平均の性質][K7 標本平均の性質]]
-- [[./org/Stat-estimation.org::* 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布][K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布]]
-- [[./org/Stat-estimation.org::* 大数の法則と中心極限定理][K5 大数の法則と中心極限定理]]
-- [[./org/Stat-estimation.org::*標本が従う分布][K7 標本が従う分布]]
+点推定 (K7, K8, R4)
+[[./org/Stat-estimation-2.org]]
 - [[./org/Stat-estimation-2.org::*8.1 推定量 \( T(\vec{X}) \)][8.1 推定量]]
 - [[./org/Stat-estimation-2.org::*8.2 推定量の作り方 (モーメント法)][8.2 推定量の作り方 (モーメント法)]]
 - [[./org/Stat-estimation-2.org::*8.3 推定量の良さ (平均2乗誤差の小ささ)][8.3 推定量の良さ (平均2乗誤差の小ささ)]]
 - [[./org/Stat-estimation-2.org::*8.4 最尤推定][8.4 最尤推定]]
 - [[./org/Stat-estimation-2.org::*8.5 例][8.5 例]]
+
+- 不偏性
+- 一致性
+- 最尤法
+- 最小二乗誤差
+
+
+区間推定  [[./org/Stat-interval-estimation.org]]  
 - [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
 - [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
 - [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
 - [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
+標本が従う分布  [[./org/Stat-sample-distribution.org]]
+- [X] カイ二乗分布
+- [X] F 分布
+- [X] 標本分布間の関係   [[./org/misc/relation_of_sample_distribution.org]]
+区間推定 
 - [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
 - [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
+検定 RforS [[./org/RforS-II-05.org]]
+
 
 * お知らせ   
  

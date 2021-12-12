@@ -5,6 +5,7 @@
 #+OPTIONS: tex:t
 #+property: header-arg:R :session *rfors* :results output :exports both
 
+* 5.0 はじめに
 
 統計的仮説検定は、推測統計の中でも利用頻度の高い重要なもの。
 
@@ -16,7 +17,7 @@
 - 無相関検定、
 - カイ二乗検定
    
-** 5.1 統計的仮説検定の必要性
+* 5.1 統計的仮説検定の必要性
 
 - 「日本人大学生の自尊感情とソーシャルスキルの間に相関関係がある」と主張
   するために，
@@ -42,7 +43,7 @@
 
 - 仮説を棄却する
 
-** 教科書の図5.1 母集団と標本
+* 教科書の図5.1 母集団と標本
 
 [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] 5.1の補足説明スライドに詳しい解説があります。
 
@@ -50,7 +51,7 @@
 #
 # 図5.1 母集団と標本
 #
-sample.size <- 1000
+sample.size <- 500
 A <- rnorm(sample.size)
 B <- rnorm(sample.size)
 C <- A*0.5 + sqrt(0.75)*B
@@ -70,38 +71,93 @@ legend(10, 100, legend="母集団 (円の中全体にデータが散らばって
 [[./RforS/graph/Fig-5.1.png]]
 
 
+** 自尊感情とソーシャルスキルの間にできた相関関係
 
-標準正規分布からの二つの独立な標本，\(\vec{A}\), \( \vec{B} \) から\(
-\vec{C} = 1/2 \vec{A} + \sqrt{3} / 2 \vec{B} \)を作り，\(\vec{A}\) と
-\( \vec{C} \) をそれぞれ10倍し50足したものを，自尊感情とソーシャルスキ
-ルにする。
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+#
+# 自尊感情とソーシャルスキルの間にできた相関関係
+#
 
-#+begin_src R :session *rfors* :results output :exports both
-
-A %*% A /sample.size
-A %*% B /sample.size
-
-A%*%A
-sum(A^2)
-cor(A,B)
-cor(A-mean(A), B-mean(B))
-cor(A,C)
-cor(B,C)
 cor(自尊感情s, ソーシャルスキルs)
 
 #+end_src
 
+標準正規分布からの二つの独立な標本，\(\vec{A}\), \( \vec{B} \) から
+\(\vec{C} = 1/2 \vec{A} + \sqrt{3} / 2 \vec{B} \)を作り，\(\vec{A}\) と
+\( \vec{C} \) をそれぞれ10倍し50足したものを，自尊感情とソーシャルスキ
+ルにする。
+
+すると，自尊感情とソーシャルスキルの間に相関関係が生れることになる。
+
+*** ベクトルの内積と相関係数に
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+
+##
+## ベクトルの内積と相関係数に
+##
+
+A %*% A /length(A)  ## 内積
+A %*% B /length(A)  ## 内積
+sum(A^2) /length(A)
+
+(A-mean(A)) %*% (B-mean(B)) /length(A)
+#+end_src
+
 #+RESULTS:
-      
-    
-** 5.2　統計的仮説検定の手順と用語
+:          [,1]
+: [1,] 0.970859
+:            [,1]
+: [1,] 0.01688769
+: [1] 0.970859
+:            [,1]
+: [1,] 0.01320886
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+cor(A,B)
+cor(A-mean(A), B-mean(B))
+cor(A,C)
+cor(B,C)
+
+#+end_src
+
+#+RESULTS:
+: [1] 0.01377069
+: [1] 0.01377069
+: [1] 0.5129959
+: [1] 0.865374
+
+*** 標本とベクトル
+
+- 標本は，多次元確率変数の実現値。
+- 多次元確率変数の値は，標本。
+- 標本は標本値のベクトル。
+- 分散は，中心化した値の平方和。
+  中心化した値のベクトルの長さの2乗。
+  
+- 2つの標本の相関は，ベクトルの内積
+- 標本が無相関のときは，ベクトルが直交すること。
+
+
+- 標本平均 :: \( \overline{X} \equiv \frac{1}{n} \Sigma_{i} X_i \)
+
+- 標本分散 :: \( \sigma_{XX}^2 \equiv \frac{1}{n}   \Sigma_i  (X_i-\overline{X})^2 \)
+  
+- 共分散 :: \( \sigma_{XY}^{2} = \frac{1}{n}
+  \Sigma_i  (X_i-\overline{X}) (Y_i-\overline{Y}) \)
+
+- 相関係数 :: \( r \equiv \frac { \sigma_{XY}^{2} }
+  {\sqrt{ \sigma_{XX}^2  \sigma_{YY}^2 }} \)
+
+* 5.2 統計的仮説検定の手順と用語
+
     - 母集団に関する帰無仮説と対立仮説を設定する
     - 検定統計量を選ぶ
     - 有意水準 \( \alpha \) を決める
     - 検定統計量の実現値を求める
     - 帰無仮説の棄却，対立仮説の採択
 
-*** 5.2.1 帰無仮説と対立仮説
+** 5.2.1 帰無仮説と対立仮説
 
 - 帰無仮説 :: 提案する手法が従来の手法と「差がない」、 提案する手法は
   「効果がない」という仮説---本来主張したいこととは逆の仮説。 この仮説
@@ -121,29 +177,29 @@ cor(自尊感情s, ソーシャルスキルs)
 対立仮説の設定により、検定は次のどちらかで行う (両側検定の方がより厳し
 い条件であり、普通は両側検定で行う):
 
-    - 片側検定：対立仮説が、母平均μ > 0 (もしくはμ < 0 )、 、母相関
-      係数　ρ > 0 (もしくはρ < 0 )、、母平均の差μ1 > μ2 (もしくは
-      μ1 < μ2 )、の場合
+- 片側検定：対立仮説が、母平均μ > 0 (もしくはμ < 0 )、 、母相関係数
+  ρ > 0 (もしくはρ < 0 )、、母平均の差μ1 > μ2 (もしくはμ1 < μ2 )、
+  の場合
 
-    - 両側検定：対立仮説が、母平均μ≠0、母相関係数ρ≠0 、母平均の差
-      μ1 - μ2≠ 0の場合
+- 両側検定：対立仮説が、母平均μ≠0、母相関係数ρ≠0 、母平均の差 μ1 -
+  μ2≠ 0の場合
 
-      両側検定では、例えば母平均μ≠0を調べるには、母平均μ > 0 とμ <
-      0 の両方を調べなければならない
+  両側検定では、例えば母平均μ≠0を調べるには、母平均μ > 0 とμ < 0
+  の両方を調べなければならない
 
 帰無仮説が正しいものとして分析を行う。 実際に得られたデータから計算さ
 れた検定統計量の値によって採択を判断する。
 
-帰無仮説が正しいとしたとき、検定統計量が、ほぼ起こり得ない値(それほど
-極端な値)であれば、帰無仮説を棄却する(つまり、本来の主張を表す対立仮説
-が採択される)。
+- 帰無仮説が正しいとしたとき、検定統計量が、ほぼ起こり得ない値(それほ
+  ど極端な値)であれば、帰無仮説を棄却する(つまり、本来の主張を表す対立
+  仮説が採択される)。
 
-そうでなければ, つまり，確率的に十分起こりうるような値であれば、
-帰無仮説を採択する.
-この場合は、本来主張したかった対立仮説が棄却されてしまう。
+- そうでなければ, つまり，確率的に十分起こりうるような値であれば、
+  帰無仮説を採択する.
 
-  
-*** 5.2.2 検定統計量
+  この場合は、本来主張したかった対立仮説が棄却されてしまう。
+
+** 5.2.2 検定統計量
 
     - 検定統計量 :: 統計的仮説検定のために用いられる標本統計量のこと。
       代表的な検定統計量の例: t, χ2、F
@@ -151,135 +207,182 @@ cor(自尊感情s, ソーシャルスキルs)
     - 検定統計量の実現値 :: 実際のデータ（手に入った標本）を基に計算し
       てえられる具体的な値のこと
 
-      検定統計量の実現値は、対立仮説に合うほど 0から離れた値を示す
+    検定統計量の実現値は、対立仮説に合うほど 0から離れた値を示す
 
-*** 5.2.3 有意水準と棄却域
+** 5.2.3 有意水準と棄却域
 
 - 有意水準 \( \alpha \) :: 対立仮説を採択するか決定するときの基準。
 
-  有意水準は5％または1％(α=0.05またはα=0.01)に設定することが多い(つ
-  まり、標本が100回に5回(5%の場合)以下にしか現れないデータであった---
-  こんなことは偶然では起こりえない---、だから帰無仮説が成り立たないと
-  考えて良いのではないか、という判断基準)
+  有意水準は5％または1％(α=0.05またはα=0.01)に設定することが多い
+
+  - 標本が100回に5回(5%の場合)以下にしか現れないデータであった
+  - こんなことは偶然では起こりえない
+  - だから帰無仮説が成り立たないと考えて良いのではないか、という判断基準
 
 - 帰無分布 :: 帰無仮説が正しいものとして考えた時の標本分布
 
-  -帰無分布に基づいて確率計算される
+  - 帰無分布に基づいて確率計算される
   
 - 棄却域 :: 帰無仮説のもとで、非常に生じにくい検定統計量の値の範囲
 
-  帰無仮説が棄却される領域(だから、この範囲に入るのが『望ましい』)
+  - 帰無仮説が棄却される領域 (だから、この範囲に入るのが *望ましい*)
 
-  棄却域に検定統計量の実現値が入ったら、帰無仮説を棄却する. 
-  * 本来主張したかったことが採択される *
+  - 棄却域に検定統計量の実現値が入ったら、帰無仮説を棄却する. 
+    * 本来主張したかったことが採択される *
 
 - 採択域 :: 棄却域以外の部分---「帰無仮説が採択される領域」
+  
 - 臨界値 :: 棄却域と採択域の境目の値 
 
 
-*** 5.2.4 統計的仮説検定の結果の報告
+** 5.2.4 統計的仮説検定の結果の報告
 
 検定統計量の実現値が棄却域に入った場合、「差がない」という帰無仮説を棄
 却し、「差がある」という対立仮説を採択する。
 
-「検定結果は5% (または1%)水準で有意である」または 「p < .05 (または p
- < .01 )で有意差が見られた 」 と記述する。
+- 「検定結果は5% (または1%) 水準で有意である」
+
+- または 「p < .05 (または p < .01 )で有意差が見られた 」 と記述する。
 
 帰無仮説が棄却できない場合は、「検定の結果、差が有意でなかった」または
 「有意差が認められなかった」と書く。
 
-*** 5.2.5 p 値
-帰無分布で，検定統計量の実現値以上の領域が起る確率。
+** 5.2.5 p 値
 
-p値が有意水準より小さいとき帰無仮説を棄却する。
+- p 値 :: 帰無分布で，検定統計量の実現値以上の領域が起る確率。
 
-*** 5.2.6 第1 種の誤りと第2 種の誤り
+  p値が有意水準より小さいとき帰無仮説を棄却する。
 
-- 第1種の誤り \( \alpha \):: 「帰無仮説が真のとき，帰無仮説を棄却していまう」誤り
+** 5.2.6 第1 種の誤りと第2 種の誤り
+
+- 第1種の誤り \( \alpha \) :: 「帰無仮説が真のとき，帰無仮説を棄却していまう」誤り
   のこと
 
-- 第2種の誤り \( \beta \):: 「帰無仮説が偽のとき，帰無仮説を採択していまう」誤りのこと  
+- 第2種の誤り \( \beta \) :: 「帰無仮説が偽のとき，帰無仮説を採択していまう」誤りのこと  
 
+** 5.2.7 検定力
 
-*** 5.2.7 検定力
+- 検定力 :: 帰無仮説が偽の場合、全体の確率1から第2種の誤りの確率(1 -
+  β)を引いた確率「第2種の誤りを犯さない確率」とも、つまり間違っている
+  帰無仮説を正しく棄却できる確率のこと　
 
-- 検定力 :: 帰無仮説が偽の場合、全体の確率1から第2種の誤りの確率(1 - β)を引いた確率
-「第2種の誤りを犯さない確率」とも、つまり間違っている帰無仮説を正しく棄却できる確率のこと　
+  帰無分布 \( ( \mu = \mu_0)  \) での臨界点を z* とすると，対立分布 \(
+  ( \mu = \mu_1, \mu_0 < \mu_1 の場合)  \) での z* 以下の確率が
+  \(\beta\).  \( 1- \beta \) が検定力。
+  
+  
+** 「有意差がない」ということ
 
+- 「実験や調査で得られた「条件間の差」は，標本抽出による誤差によって，十
+  分起り得る差です」ということ。
 
-*** 「有意差がない」ということ
+- 「統計的に意味のある差ではない」ということ。
 
-「実験や調査で得られた「条件間の差」は，標本抽出による誤差によって，十
-分起り得る差です」ということ。
-「統計的に意味のある差ではない」ということ。
+- 有意差がみられなかったとしても，「同じである」ということではない。
 
-有意差がみられなかったとしても，「同じである」ということではない。
-
-** 5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）
+* 5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）
 
     - \( N(\mu, \sigma^2) \) からの標本による標本の
     - 標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)
     - 標準化  \( Z = \frac{\bar(X) -\mu} {\sigma \sqrt{n}} \)
 
-*** 標本
+      
+** 標本
 
 [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]]からshidouhouU8.csv をダウンロードしてください。
      
-     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.r
-
-     指導法データ <- read.csv("RforS/data/shidouhouU8.csv")
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+     ##
+     ## 指導法データ
+     ##
+     (指導法データ <- read.csv("RforS/data/shidouhouU8.csv"))
      (心理学テスト <- 指導法データ$psych_test)
 
      #+end_src
 
      #+RESULTS:
-     :  [1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
+     #+begin_example
+	SID   name sex math stat psych_test stat_test1 stat_test2 method
+     1    1   大村  男 嫌い 好き         13          6         10      C
+     2    2   本多  男 嫌い 好き         14         10         13      B
+     3    3   川崎  男 好き 好き          7          6          8      B
+     4    4   多村  男 好き 好き         12         10         15      A
+     5    5   松中  男 嫌い 嫌い         10          5          8      B
+     6    6 小久保  男 嫌い 嫌い          6          3          6      C
+     7    7   柴原  男 嫌い 嫌い          8          5          9      A
+     8    8   井手  男 嫌い 嫌い         15          9         10      D
+     9    9   田上  男 嫌い 嫌い          4          3          7      D
+     10  10   松田  男 好き 嫌い         14          3          3      D
+     11  11   高谷  女 好き 好き          9         11         18      A
+     12  12   杉内  女 嫌い 好き          6          6         14      A
+     13  13   和田  女 好き 好き         10         11         18      A
+     14  14   新垣  女 嫌い 嫌い         12          9         11      C
+     15  15   大隣  女 嫌い 好き          5          7         12      B
+     16  16   水田  女 好き 嫌い         12          5          5      D
+     17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+     18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+     19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+     20  20   馬原  女 嫌い 嫌い         15          9          7      D
+      [1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
+     #+end_example
+
      
-*** 統計検定量の選択
+** 統計検定量の選択
 
      母集団が N(12, 10)なので
      
-#+begin_src R :session *rfors* :results output :exports both
-
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+##
+## Z検定量
+##
 this.mean <- 12
 this.sd <- sqrt(10)
 
-norm_stat <- function (X) {
-  (mean(X)-this.mean) / (this.sd/sqrt(length(X)))
+z_stat <- function (x) {
+  (mean(x)-this.mean) / (this.sd/sqrt(length(x)))
 }
 
+norm_stat(心理学テスト)
 #+end_src
 
 #+RESULTS:
+: [1] -2.828427
      
-*** 帰無仮説と対立仮説の設定
+** 帰無仮説と対立仮説の設定
      - 帰無仮説 :: \( \mu = 12\)
      - 対立仮説 :: \( \mu \neq 12 \)
 
-*** 有意水準の決定
+** 有意水準の決定
 
-#+begin_src R :session *rfors* :results output :exports both
-
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+##
+## 有意水準の決定
+##
 this.alpha <- 0.05
 
 #+end_src
 
 #+RESULTS:
 
-*** 検定統計量の実現値を求める
+** 検定統計量の実現値を求める
      
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+##
+## 検定統計量の実現値を求める
+##
 (z <- norm_stat(心理学テスト))
 
 #+end_src
 
 #+RESULTS:
-:  mean(X) でエラー:  オブジェクト '心理学テスト' がありません
+: [1] -2.828427
 
-*** 帰無仮説の棄却 or 採択の決定
+** 帰無仮説の棄却 or 採択の決定
 
-#+begin_src R :session *rfors* :results output :exports both
-
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+##
+## 帰無仮説の棄却 or 採択の決定
+##
 if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
 #+end_src
@@ -287,10 +390,12 @@ if ( pnorm(z)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 #+RESULTS:
 : [1] "mu/=12"
 
-*** 棄却域の描画
+** 棄却域の描画
      
-#+begin_src R :session *rfors* :results output :exports both
-png("graphs/fig-05-02.png", width=400, height=300)
+#+begin_src R :session *rfors* :results graphics :file RforS/graph/fig-05-02.png :exports both 
+## 
+## 棄却域の描画
+##
 curve(dnorm(x), -3, 3)
 z.lower <- qnorm(this.alpha/2)
 z.upper <- qnorm(1-this.alpha/2)
@@ -298,29 +403,12 @@ abline(v=z.lower)
 abline(v=z.upper)
 curve(x-x-0.01, xlim=c(-3,z.lower), col='green',lwd=10,add=TRUE)
 curve(x-x-0.01, xlim=c(z.upper,3), col='green',lwd=10,add=TRUE)
-dev.off()
 #+end_src
 
 #+RESULTS:
-#+begin_example
- qnorm(this.alpha/2) でエラー:  オブジェクト 'this.alpha' がありません
- qnorm(1 - this.alpha/2) でエラー: 
-   オブジェクト 'this.alpha' がありません
- int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
-   オブジェクト 'z.lower' がありません
- int_abline(a = a, b = b, h = h, v = v, untf = untf, ...) でエラー: 
-   オブジェクト 'z.upper' がありません
- curve(x - x - 0.01, xlim = c(-3, z.lower), col = "green", lwd = 10,  でエラー: 
-   オブジェクト 'z.lower' がありません
- curve(x - x - 0.01, xlim = c(z.upper, 3), col = "green", lwd = 10,  でエラー: 
-   オブジェクト 'z.upper' がありません
-null device 
-          1
-#+end_example
+[[./RforS/graph/fig-05-02.png]]
 
-     
-
-** 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+* 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
 
     - 分散未知の \( N(\mu, \sigma^2) \) からの標本，
     - 標本平均の標本分布は，\( \bar{X} \sim N(\mu, \frac{\sigma^2}{n})\)
@@ -328,43 +416,30 @@ null device
       \sqrt{n}} \),
       \( \Hat{\sigma} \)は，不偏分散の正の平方根
 
-*** t-分布
+** t-分布
 
      - 自由度1，2，4，8，16 の t-分布のグラフ
      - 標準正規分布のグラフ (緑)
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output graphics :exports both :tangle RforS/code/05.R :file RforS/graph/fig-05-03.png
 
-dev.new()
+## 自由度1，2，4，8，16 の t-分布のグラフ
+## 標準正規分布のグラフ (緑)
 
-#+end_src
-
-#+RESULTS:
-     
-#+begin_src R :session *rfors* :results output :exports both
-
-png("graphs/fig-05-03.png", width=400, height=300)
-curve(dnorm(x), -5, 5, col="green")
+curve(dnorm(x), -5, 5, col="green", main="t-分布")
 for(i in 1:4) {
   curve(dt(x,2^i), -5, 5, add=TRUE)  
 }
-fig <- recordPlot()
-fig
-dev.off()
-dev.new()
-replayPlot(fig)
 
 #+end_src
 
 #+RESULTS:
-: null device 
-:           1
-[[./graphs/fig-05-03.png]]
 
+[[./RforS/graph/fig-05-03.png]]
 
-*** 標本
+** 標本
      
-     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/r-05-03.r
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 指導法データ <- read.csv("data/shidouhouU8.csv")
 (心理学テスト <- 指導法データ$psych_test)
@@ -375,16 +450,16 @@ replayPlot(fig)
      :  [1] 13 14  7 12 10  6  8 15  4 14  9  6 10 12  5 12  8  8 12 15
 
 
-*** 帰無仮説と対立仮説の設定
+** 帰無仮説と対立仮説の設定
+
      - 帰無仮説 :: \( \mu = 12\)
      - 対立仮説 :: \( \mu \neq 12 \)
 
-
-*** 統計検定量の選択
+** 統計検定量の選択
 
      母分散が未知なので，標本不偏分散を用いる。
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 t_stat <- function (X) {
   (mean(X)-this.mean) / sqrt(var(X)/length(X))
@@ -394,9 +469,10 @@ t_stat <- function (X) {
 
 #+RESULTS:
      
-*** 有意水準の決定
+** 有意水準の決定
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+
 this.mean <-12
 this.alpha <- 0.05
 
@@ -404,9 +480,9 @@ this.alpha <- 0.05
 
 #+RESULTS:
 
-*** 検定統計量の実現値を求める
+** 検定統計量の実現値を求める
      
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 (t <- t_stat(心理学テスト))
 
 #+end_src
@@ -414,9 +490,9 @@ this.alpha <- 0.05
 #+RESULTS:
 : [1] -2.616648
 
-*** 帰無仮説の棄却 or 採択の決定
+** 帰無仮説の棄却 or 採択の決定
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 if ( pt(t,19)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 
@@ -425,11 +501,9 @@ if ( pt(t,19)*2 > this.alpha ) {  print("mu==12")  } else {   print("mu/=12") }
 #+RESULTS:
 : [1] "mu/=12"
 
-*** 棄却域の描画
+** 棄却域の描画
      
-#+begin_src R :session *rfors* :results output :exports both
-dev.off()
-# png("graphs/fig-05-02.png", width=400, height=300)
+#+begin_src R :session *rfors* :results output graphics :exports both :tangle RforS/code/05.R :file RforS/graph/fig-05-04.png
 curve(dt(x,19), -3, 3)
 t.lower <- qt(this.alpha/2,19)
 t.upper <- qt(1-this.alpha/2,19)
@@ -437,16 +511,16 @@ abline(v=t.lower)
 abline(v=t.upper)
 curve(x-x-0.01, xlim=c(-3,t.lower), col='green',lwd=20,add=TRUE)
 curve(x-x-0.01, xlim=c(t.upper,3), col='green',lwd=20,add=TRUE)
-# dev.off()
 #+end_src
 
 #+RESULTS:
-: null device 
-:           1
+
+[[./RforS/graph/fig-05-04.png]]
 
 
-*** t-test
-#+begin_src R :session *rfors* :results output :exports both
+
+** t-test
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 t.test(心理学テスト, mu=12)
 
@@ -468,7 +542,7 @@ mean of x
 #+end_example
 
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 t.test(心理学テスト, mu=11)
 
@@ -489,30 +563,34 @@ mean of x
        10
 #+end_example
 
-** 5.5 相関係数の検定 (無相関検定)
+* 5.5 相関係数の検定 (無相関検定)
+
+- 参考:: [[http://www.ipc.shimane-u.ac.jp/food/kobayasi/soukankeisuunokentei.htm][相関係数の検定の仕方]]
+
+
     帰無仮説として，「母集団において相関が0である」と設定
 
     - 母集団相関係数 (母相関)に関する検定を行なうとき
     - 標本相関係数の変換
 
       \[
-      t = \frac {r \sqrt(n-2)} {\sqrt( 1-r^2 )}
+      t = \frac {r \sqrt{(n-2)}} {\sqrt{ 1-r^2 }}
       \]
 
       
     - すると，t は自由度 n-2 の t-分布にしたがう
       
 
-*** 例題
+** 例題
 
      指導法データについて，統計テスト1と統計テスト2の得点の相関係数の
      検定を行ってください。
 
      有意水準5%の両側検定とします。
 
-**** 標本
+*** 標本
 
-    #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/r-05-03.r
+    #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
     指導法データ <- read.csv("data/shidouhouU8.csv")
     (統計テスト1 <- 指導法データ$stat_test1)
@@ -524,17 +602,22 @@ mean of x
      :  [1]  6 10  6 10  5  3  5  9  3  3 11  6 11  9  7  5  8  7  7  9
      :  [1] 10 13  8 15  8  6  9 10  7  3 18 14 18 11 12  5  7 12  7  7
     
-**** 統計検定量
-#+begin_src R :session *rfors* :results output :exports both
+*** 統計検定量
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+
 this.alpha =0.05
 this.pho = 0
+
 pho_stat <- function(X1,X2) {
   n <- length(X1)
   r <- cor(X1,X2)
   r*sqrt(n-2) / sqrt( 1-r^2)
 }
+
 cor(統計テスト1,統計テスト2)
 pho_stat(統計テスト1,統計テスト2)
+
 #+end_src
 
 #+RESULTS:
@@ -542,9 +625,9 @@ pho_stat(統計テスト1,統計テスト2)
 : [1] 4.805707
       
       
-**** 帰無仮説と対立仮説の設定
+*** 帰無仮説と対立仮説の設定
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 
@@ -553,8 +636,9 @@ if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 #+RESULTS:
 : [1] "pho/=0"
 
-**** cor.test()
-#+begin_src R :session *rfors* :results output :exports both
+*** cor.test()
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 cor.test(統計テスト1, 統計テスト2)
 
@@ -573,50 +657,49 @@ alternative hypothesis: true correlation is not equal to 0
 sample estimates:
      cor 
 0.749659
+
 #+end_example
       
       
-** 5.6 独立性の検定（カイ二乗検定）
+* 5.6 独立性の検定（カイ二乗検定）
 
-    - 独立性の検定 :: 二つの質的変数が独立か
+  - 独立性の検定 :: 二つの質的変数が独立か
 
-    3.5節の数学と統計の好き嫌いの間の *連関* を考える
-    
+  3.5節の数学と統計の好き嫌いの間の *連関* を考える
 
-*** クロス集計表
-     #+begin_src R :session *rfors* :results output :exports both
+** クロス集計表
 
-     指導法データ <- read.csv("data/shidouhouU8.csv")
-     (数学s <- 指導法データ$math)
-     (統計s <- 指導法データ$stat)
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
-     #クロス集計表の作成
+指導法データ <- read.csv("data/shidouhouU8.csv")
+(数学s <- 指導法データ$math)
+(統計s <- 指導法データ$stat)
 
-     (クロス集計表 <- table(数学s, 統計s))
+#クロス集計表の作成
 
-     #+end_src
-
-     #+RESULTS:
-     #+begin_example
-      [1] 嫌い 嫌い 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 嫌い 好き 嫌い 嫌い
-     [16] 好き 嫌い 嫌い 嫌い 嫌い
-     Levels: 嫌い 好き
-      [1] 好き 好き 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 好き 嫌い 好き
-     [16] 嫌い 嫌い 嫌い 嫌い 嫌い
-     Levels: 嫌い 好き
-	   統計s
-     数学s 嫌い 好き
-       嫌い   10    4
-       好き    2    4
-     #+end_example
+(クロス集計表 <- table(数学s, 統計s))
 
 #+end_src
+
+#+RESULTS:
+#+begin_example
+ [1] 嫌い 嫌い 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 嫌い 好き 嫌い 嫌い
+[16] 好き 嫌い 嫌い 嫌い 嫌い
+Levels: 嫌い 好き
+ [1] 好き 好き 好き 好き 嫌い 嫌い 嫌い 嫌い 嫌い 嫌い 好き 好き 好き 嫌い 好き
+[16] 嫌い 嫌い 嫌い 嫌い 嫌い
+Levels: 嫌い 好き
+      統計s
+数学s 嫌い 好き
+  嫌い   10    4
+  好き    2    4
+#+end_example
      
-*** 問題
+** 問題
      数学と統計の好き嫌いの間に有意な連関があると言えるでしょうか？
      有意水準 5% で検定してください。
      
-*** カイ二乗検定
+** カイ二乗検定
 
      - \( O_i \) :: 観測度数
      - \( E_i \) :: 期待度数 (あらかじめ期待される，または，理論的に求
@@ -626,13 +709,13 @@ sample estimates:
        \Chi^2 = \sum_1^k \frac {(O_i - E_i)^2 } { E_i}
        \]
 
-       
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R :file RforS/graph/Fig-05-06.png
+
 curve(dchisq(x,1), 0, 20)
 for (i in seq(2,16,2)) {
   curve(dchisq(x,i), 0, 20, add=TRUE)
   }
-png("graphs/fig-05-06.png", width=400, height=300)
+
 curve(dchisq(x,1), 0, 20)
 for (i in 2:4) {
   curve(dchisq(x,2^i), 0, 20, add=TRUE)
@@ -640,19 +723,16 @@ for (i in 2:4) {
 dev.off()
 #+end_src 
 
-#+RESULTS:
-: png 
-:   2
+[[./RforS/graph/Fig-05-06.png]]
 
-[[./graphs/fig-05-06.png]]
 
 - 取り得る値の下限は0
 - 非対称分布
 - 自由度が大きくなると，正規分布に近づく
   
-*** 統計検定量
+** 統計検定量
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 (chi2_stat <- function(Ob,Ex) {
   sum((Ob-Ex)^2 / Ex)
@@ -666,7 +746,7 @@ dev.off()
 : }
 
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 sum(クロス集計表[1,])
 sum(クロス集計表[2,])
 
@@ -676,7 +756,7 @@ sum(クロス集計表[2,])
 : [1] 14
 : [1] 6
 
-#+begin_src R :session *rfors* :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 sum(クロス集計表[,1])
 sum(クロス集計表[,2])
 
@@ -686,7 +766,7 @@ sum(クロス集計表[,2])
 : [1] 12
 : [1] 8
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 ( total <- sum(sum(クロス集計表[,1]),sum(クロス集計表[,2])) )
 
 期待度数s <- matrix(nrow=2, ncol=2)
@@ -707,7 +787,7 @@ for(i in 1:2) {
 : [1,]  8.4  5.6
 : [2,]  3.6  2.4
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 観測度数s <- クロス集計表
 
@@ -724,19 +804,18 @@ sum(chi2)
 :   好き 0.7111111 1.0666667
 : [1] 2.539683
   
-*** p 値
+** p 値
      
 
 
-*** chisq.test
+** chisq.test
 
      nxm のクロス集計表のカイ二乗検定の自由度は，
-     (n-1)x(m-1)
-     )
-#+begin_src R :session t :results output :exports both
+     \( (n-1)x(m-1) \)
+ 
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 chisq.test(クロス集計表)
-
 
 #+end_src
 
@@ -750,14 +829,12 @@ chisq.test(クロス集計表)
 :  警告メッセージ: 
 :  chisq.test(クロス集計表) で:   カイ自乗近似は不正確かもしれません
      
-** 5.7 サンプルサイズの検定結果への影響について
-
-
+* 5.7 サンプルサイズの検定結果への影響について
     
-*** サンプル数が異なる二つのクロス集計表の順位
+** サンプル数が異なる二つのクロス集計表の順位
 
-**** 履修A     
-    #+begin_src R :session t :results output :exports both
+*** 履修A     
+    #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
     library(vcd)
     (履修A <- matrix(c(16,12,4,8), 2, 2))
     rownames(履修A) <- c("文系", "理系")
@@ -774,8 +851,8 @@ chisq.test(クロス集計表)
     : 理系       12          8
 
       
-**** 履修B
-      #+begin_src R :session t :results output :exports both
+*** 履修B
+      #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
       (履修B <- matrix(c(160,120,40,80), 2, 2))
       rownames(履修B) <- c("文系", "理系")
       colnames(履修B) <- c("履修した","履修しない")
@@ -790,9 +867,9 @@ chisq.test(クロス集計表)
       : 文系      160         40
       : 理系      120         80
   
-*** カイ二乗検定  
+** カイ二乗検定  
 
-     #+begin_src R :session t :results output :exports both
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 chisq.test(履修A, correct=FALSE)
 
@@ -805,7 +882,7 @@ chisq.test(履修A, correct=FALSE)
      : data:  履修A
      : X-squared = 1.9048, df = 1, p-value = 0.1675
 
-     #+begin_src R :session t :results output :exports both
+     #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
 
 chisq.test(履修B, correct=FALSE)
@@ -819,7 +896,7 @@ chisq.test(履修B, correct=FALSE)
      : data:  履修B
      : X-squared = 19.048, df = 1, p-value = 1.275e-05
 
-*** サンプル数の違い
+** サンプル数の違い
      
       帰無仮説、帰無分布、棄却域は全く同じものとなります。
 
