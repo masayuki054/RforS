@@ -1,30 +1,23 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 12/13 RforS 08 (データ解析) 
+#+title: 12/13 RforS 09 (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
-* Doing このページ
-  
-  [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
-
-    - 今日のオンライン講義の説明の流れです。
-    - Emacs org-mode で書いています。
-      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
-    - github からダウンロード可能です。
-    - ~suzuki/public_html/stat2 からもアクセスできます。
-
 * 今日 (12/13) の流れ
 
 ** Doing 検定 (RforS-5, K-11)
-   - [ ] RforS [[./org/RforS-II-05.org]] [0/3]
+  
+   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
+     ぶ(4) - 中京大 白井先生のコンテンツ
      
-     - [ ] 5.1 統計的仮説検定の必要性
-     - [ ] 教科書の図5.1 母集団と標本
-     - [ ] 5.2　統計的仮説検定の手順と用語 [0/8]
+   - [-] RforS [[./org/RforS-II-05.org]] [1/8]  - 鈴木のまとめ
+     - [X] R5.1 統計的仮説検定の必要性
+     - [-] 教科書の図5.1 母集団と標本
+     - [ ] R5.2　統計的仮説検定の手順と用語 [0/8]
        - [ ] 帰無仮説と対立仮説
        - [ ] 検定統計量
        - [ ] 有意水準と棄却域
@@ -33,17 +26,17 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
        - [ ] 第1 種の誤りと第2 種の誤り
        - [ ] 検定力
        - [ ] 「有意差がない」ということ
-     - [ ] 5.3 標準正規分布を用いた検定（1つの平均値の検定・母分散既知） 
-     - [ ] 5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+     - [ ] R5.3 標準正規分布を用いた検定（1つの平均値の検定・母分散既知） 
+     - [ ] R5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
          - [ ] t.test()
-     - [ ] 5.5 相関係数の検定 (無相関検定)
+     - [ ] R5.5 相関係数の検定 (無相関検定)
 	 - [ ] 例題
 	 - [ ] cor.test()
-     - [ ] 5.6 独立性の検定（カイ二乗検定） [/]
+     - [ ] R5.6 独立性の検定（カイ二乗検定）
        - クロス集計表
        - カイ二乗検定
        - chisq.test()
-     - [ ] 5.7 サンプルサイズの検定結果への影響について
+     - [ ] R5.7 サンプルサイズの検定結果への影響について
        - サンプル数が異なる二つのクロス集計表の順位
 	 - 履修A     
 	 - 履修B
@@ -58,14 +51,6 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   - 確率変数の和の平均と分散，畳み込み
   - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
 
-      - 標本不偏分散は母分散の不偏，一致推定量
-      - 正規化した標本不偏分散は，カイ二乗分布する
-	
-    - [X]
-      - 標本不偏分散の一致性
-      - 標本不偏分散の正規化は，カイ二乗分布に従う
-
-     - [X] [[./org/Stat-estimation-2.org]]
 
 母集団と標本 R-4 [[./org/RforS-II-04.org]]
 
@@ -87,7 +72,6 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
      - [X] 標本分布間の関係
      [[./org/misc/relation_of_sample_distribution.org]]
  
-
 点推定 (K7, K8, R4)
 [[./org/Stat-estimation-2.org]]
 - [[./org/Stat-estimation-2.org::*8.1 推定量 \( T(\vec{X}) \)][8.1 推定量]]
@@ -101,28 +85,53 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 - 最尤法
 - 最小二乗誤差
 
-
 区間推定  [[./org/Stat-interval-estimation.org]]  
 - [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
 - [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
 - [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
 - [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
+
 標本が従う分布  [[./org/Stat-sample-distribution.org]]
+- 標本不偏分散の一致性
+- 標本不偏分散の正規化は，カイ二乗分布に従う
 - [X] カイ二乗分布
 - [X] F 分布
 - [X] 標本分布間の関係   [[./org/misc/relation_of_sample_distribution.org]]
+
 区間推定 
 - [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
 - [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
 検定 RforS [[./org/RforS-II-05.org]]
 
+* このページ
+  
+  [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
+
+    - 今日のオンライン講義の説明の流れです。
+    - Emacs org-mode で書いています。
+      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
+    - github からダウンロード可能です。
+    - ~suzuki/public_html/stat2 からもアクセスできます。
 
 * お知らせ   
  
 ** [2021-11-29 月] 2回目のレポートを出題しました。
-
-
     [[./reports.org]]
+
+** [2021-12-13 月] [[./org/RforS-II-05.Rmd]]
+
+[[./org/RforS-II-05.org]] を markdown 化したものです。
+Rプログラム部分を，R chunk 化 (```{r} と ``` で囲む)すれば
+RStudio で実行と文書化ができるようになるはずです。
+
+[[https://kazutan.github.io/kazutanR/Rmd_intro.html][R Markdown入門]] を参考にしてください。
+
+** [2021-12-13 月] R コードの参考
+
+- [[https://cfes-project.eco.u-toyama.ac.jp/education/education_2017/r_2017/rcode_fall2017/][演習資料 – NIHU北東アジア地域研究プロジェクト富山大学拠点]]
+
+- [[https://cfes-project.eco.u-toyama.ac.jp/education/education_2017/r_2017/][2017年度 後期「Rによる計量分析：データ解析と可視化」 – NIHU北東アジア地域研究プロジェクト富山大学拠点]]
+
 
 * 2冊の教科書と進行
 
