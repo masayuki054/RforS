@@ -338,11 +338,16 @@ est_theta(enq, honest_p)
      \begin{eqnarray}
      E[(S_B-S)^2] &= & E[(Z^*-E[Z^*])^2] \\
      & = & V[Z^*] \\
+     & = & V[\overline{X} \overline{Y}] \\
+     & = & E[(\overline{X} \overline{Y})^2-  E[\overline{X}]^2 E[\overline{Y}]^2\\
+     & = & E[\overline{X}^2] E[\overline{Y}^2] -  S^2 \\
+     & = & (\mu_x^2+\frac{\sigma_x^2}{n}) (\mu_y^2+\frac{\sigma_y^2}{n}) -  S^2 \\
      & = & \mu_x^2\frac{\sigma_y^2}{n} + \mu_y^2 \frac{\sigma_x^2}{n} +
      \frac{\sigma_x^2}{n}\frac{\sigma_y^2}{n} \\
      & = & \frac{1}{n} (\mu_x^2\sigma_y^2 + \mu_y^2\sigma_x^2 + \frac{1}{n}
      \sigma_x^2 \sigma_y^2) \\
      \end{eqnarray}
+
      
 *** 結論
 
