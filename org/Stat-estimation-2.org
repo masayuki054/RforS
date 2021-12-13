@@ -231,7 +231,7 @@ satisfied_p <- 6/10
 
 honest <- rep(0,size)
 honest [(runif(size,0,1))>(1-honest_p)] <- 1
-table(dice)
+table(honest)
 
 satisfied <- rep(0,size)
 satisfied [(runif(size,0,1))>(1-satisfied_p)] <- 1
@@ -252,16 +252,16 @@ est_theta(enq, honest_p)
 
     #+RESULTS:
     #+begin_example
-    dice
+    honest
       0   1 
-    354 646
+    690 310
     satisfied
       0   1 
-    439 561
-    [1] 0.309
-    [1] 0.561
-    [1] 0.514
-    [1] 0.458
+    429 571
+    [1] 0.31
+    [1] 0.571
+    [1] 0.485
+    [1] 0.545
     #+end_example
 
 
