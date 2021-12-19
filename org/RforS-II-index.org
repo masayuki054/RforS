@@ -12,7 +12,8 @@
    - [[./RforS-II-04.org]]
    - [[./RforS-II-05.org]]
    - [[./RforS-II-06.org]]          
-   - [[./RforS-II-07.org]]     
+   - [[./RforS-II-07.org]] (未完)
+
  
 ** data/
    - データ処理のコードです: [[./RforS-II-data.org]]
@@ -31,7 +32,8 @@
 ** 教科書のまとめ
 
    - 7章 [[./Stat-estimation.org]]
-   - 8章 [[./Stat-estimation-2.org]]     
+   - 8章 [[./Stat-estimation-2.org]]
+   - 10章 [[./Stat-interval-estimation.org]]
 
 *** R-コード
 *** グラフなど

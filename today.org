@@ -15,6 +15,9 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
      ぶ(4) - 中京大 白井先生のコンテンツ
 
    - [-] RforS [[./org/RforS-II-05.org]] [4/8]  - 鈴木のまとめ
+     - [ ] [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）][5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）]]
+       - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*棄却域の描画][棄却域の描画]]
+       - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*t-test][t-test]]
      - [ ] R5.5 相関係数の検定 (無相関検定)
 	 - [ ] 例題
 	 - [ ] cor.test()
@@ -206,17 +209,13 @@ RStudio で実行と文書化ができるようになるはずです。
 
 * 講師のノート
    - Rノート  [[./org/RforS-II-index.org]]
-   - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]  の 8章，7章，5章
+   - 昨年の講義ノート [[https://drive.google.com/drive/folders/1vFIqux3NytwvUEygZ74O9XzuyCoJfj7D][lect-note - Google ドライブ]]
    - 昨年の板書  [[https://drive.google.com/drive/u/0/folders/10uKe0TnjEjoQxigeXfyjh_4ZTzxmoCNI][board-2020 - Google ドライブ]]
-
 
 * Todo 講義記録
 
 #+include: Lects.org
-  
-* Doing 講義ノート
-    [[https://drive.google.com/drive/u/0/folders/1nGs6svr0actrLPmtz6onPuj2eUrHMQ8M][note - Google ドライブ]]
-    - 板書用の手書きノート 
+
 
 * Doing Rに関すること
     - [[./org/R-info.org]]

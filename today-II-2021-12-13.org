@@ -14,7 +14,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
      ぶ(4) - 中京大 白井先生のコンテンツ
      
-   - [-] RforS [[./org/RforS-II-05.org]] [5/8]  - 鈴木のまとめ
+   - [-] RforS [[./org/RforS-II-05.org]] [4/8]  - 鈴木のまとめ
      - [X] R5.1 統計的仮説検定の必要性
      - [X] 教科書の図5.1 母集団と標本
      - [X] R5.2　統計的仮説検定の手順と用語 [8/8]
@@ -27,8 +27,8 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
        - [X] 検定力
        - [X] 「有意差がない」ということ
      - [X] R5.3 標準正規分布を用いた検定（1つの平均値の検定・母分散既知） 
-     - [X] R5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
-         - [X] t.test()
+     - [ ] R5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+         - [ ] t.test()
      - [ ] R5.5 相関係数の検定 (無相関検定)
 	 - [ ] 例題
 	 - [ ] cor.test()
