@@ -1,13 +1,13 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 12/13 RforS 09 (データ解析) 
+#+title: 12/20 RforS 10 (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
-* 今日 (12/13) の流れ
+* 今日 (12/20) の流れ
 
 ** Doing 検定 (RforS-5, K-11)
   
