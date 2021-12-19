@@ -13,8 +13,22 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
      ぶ(4) - 中京大 白井先生のコンテンツ
-
-   - [-] RforS [[./org/RforS-II-05.org]] [4/8]  - 鈴木のまとめ
+     
+   - [-] RforS [[./org/RforS-II-05.org]] [5/8]  - 鈴木のまとめ
+     - [X] R5.1 統計的仮説検定の必要性
+     - [X] 教科書の図5.1 母集団と標本
+     - [X] R5.2　統計的仮説検定の手順と用語 [8/8]
+       - [X] 帰無仮説と対立仮説
+       - [X] 検定統計量
+       - [X] 有意水準と棄却域
+       - [X] 統計的仮説検定の結果の報告
+       - [X] p 値
+       - [X] 第1 種の誤りと第2 種の誤り
+       - [X] 検定力
+       - [X] 「有意差がない」ということ
+     - [X] R5.3 標準正規分布を用いた検定（1つの平均値の検定・母分散既知） 
+     - [X] R5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）
+         - [X] t.test()
      - [ ] R5.5 相関係数の検定 (無相関検定)
 	 - [ ] 例題
 	 - [ ] cor.test()
@@ -29,39 +43,22 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
        - カイ二乗検定  
        - サンプル数の違い
 
-** Doing 検定 (RforS-6, K-11)
-  
-   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
-     ぶ(4) - 中京大 白井先生のコンテンツ
-	 
-   - RforS [[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]] [0/3]
-     - [ ]  [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
-     - [ ]  [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]] [0/3]
-       - [ ] [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
-       - [ ] [[file:org/RforS-II-06.org::分散未知の場合 (t-検定)][分散未知の場合 (t-検定)]]
-       - [ ] [[file:org/RforS-II-06.org::例題][例題]]
-     - [ ]  [[file:org/RforS-II-06.org::6.3 t-検定の前提条件][6.3 t-検定の前提条件]] [0/3]
-       - [ ] [[file:org/RforS-II-06.org::6.3.1 分散の等質性の検定][6.3.1 分散の等質性の検定]]
-       - [ ] [[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
-       - [ ] [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
-    
 ** 進行チェック (作成中)
     
-*** 標本と統計的推測
+標本と統計的推測
 
 - 前期の内容では，下記内容が関係します：
   - 確率変数の和の平均と分散，畳み込み
   - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
 
 
-*** 母集団と標本 R-4 [[./org/RforS-II-04.org]]
+母集団と標本 R-4 [[./org/RforS-II-04.org]]
 
 - [[./org/RforS-II-04.org::4.4 推定値がどれくらいあてになるのかを調べる方法][4.4 推定値がどれくらいあてになるのかを調べる方法]]
 - [[./org/RforS-II-04.org::4.5 標本分布][4.5 標本分布]]
 - [[./org/RforS-II-04.org::4.6 標本平均以外の標本分布][4.6 標本平均以外の標本分布]]
 
-*** 標本分布 (K5, K7)
-
+標本分布
 [[./org/Stat-estimation.org]]
 - [[./org/Stat-estimation.org::* 標本平均の性質][K7 標本平均の性質]]
 - [[./org/Stat-estimation.org::* 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布][K7 標本平均と標本不偏分散の独立性，および標本不偏分散が従う標本分布]]
@@ -75,7 +72,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
      - [X] 標本分布間の関係
      [[./org/misc/relation_of_sample_distribution.org]]
  
-*** 点推定 (K7, K8, R4)
+点推定 (K7, K8, R4)
 [[./org/Stat-estimation-2.org]]
 - [[./org/Stat-estimation-2.org::*8.1 推定量 \( T(\vec{X}) \)][8.1 推定量]]
 - [[./org/Stat-estimation-2.org::*8.2 推定量の作り方 (モーメント法)][8.2 推定量の作り方 (モーメント法)]]
@@ -88,64 +85,23 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 - 最尤法
 - 最小二乗誤差
 
-*** 区間推定 (K10)  [[./org/Stat-interval-estimation.org]]  
+区間推定  [[./org/Stat-interval-estimation.org]]  
 - [[./org/Stat-interval-estimation.org::*10.1 母平均の区間推定 (分散既知)][10.1 母平均の区間推定 (分散既知)]]
 - [[./org/Stat-interval-estimation.org::*10.2 母平均の区間推定 (分散未知)][10.2 母平均の区間推定 (分散未知)]]
 - [[./org/Stat-interval-estimation.org::*10.3 母平均の区間推定 (母分布未知)][10.3 母平均の区間推定 (母分布未知)]]
 - [[./org/Stat-interval-estimation.org::*10.5 例: 内閣支持率調査アンケート][10.5 例: 内閣支持率調査アンケート]]
 
-*** 標本が従う分布  [[./org/Stat-sample-distribution.org]]
+標本が従う分布  [[./org/Stat-sample-distribution.org]]
 - 標本不偏分散の一致性
 - 標本不偏分散の正規化は，カイ二乗分布に従う
 - [X] カイ二乗分布
 - [X] F 分布
 - [X] 標本分布間の関係   [[./org/misc/relation_of_sample_distribution.org]]
 
+区間推定 
 - [[./org/Stat-interval-estimation.org::*10.7 二つの母集団の平均の差の区間推定][10.7 二つの母集団の平均の差の区間推定]]
 - [[./org/Stat-interval-estimation.org::*10.8 分散パラメータの区間推定][10.8 分散パラメータの区間推定]]
-
-*** 検定 RforS [[./org/RforS-II-05.org]]
-
-- [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.1 統計的仮説検定の必要性][R5.1 統計的仮説検定の必要性]] 
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*教科書の図5.1 母集団と標本][R教科書の図5.1 母集団と標本]]
--[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2 統計的仮説検定の手順と用語][ R5.2 統計的仮説検定の手順と用語]]
- -[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2.1 帰無仮説と対立仮説][ R5.2.1 帰無仮説と対立仮説]]
- -[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2.2 検定統計量][ R5.2.2 検定統計量]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2.3 有意水準と棄却域][R5.2.3 有意水準と棄却域]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.4 統計的仮説検定の結果の報告][R5.2.4 統計的仮説検定の結果の報告]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.5 p 値][5.2.5 p 値]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.6 第1 種の誤りと第2 種の誤り][5.2.6 第1 種の誤りと第2 種の誤り]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.7 検定力][5.2.7 検定力]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*「有意差がない」ということ][「有意差がない」ということ]]
-- [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）][5.3 標準正規分布を用いた検定（1 つの平均値の検定・母分散σ2 が既知）]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::棄却域の描画][棄却域の描画]]        
-- [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）][5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*棄却域の描画][棄却域の描画]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*t-test][t-test]]
-- [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.5 相関係数の検定 (無相関検定)][5.5 相関係数の検定 (無相関検定)]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*例題][例題]]
-- [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.6 独立性の検定（カイ二乗検定）][5.6 独立性の検定（カイ二乗検定）]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*クロス集計表][クロス集計表]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*統計検定量][統計検定量]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*p 値][p 値]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*chisq.test][chisq.test]]
--[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.7 サンプルサイズの検定結果への影響について][ 5.7 サンプルサイズの検定結果への影響について]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数が異なる二つのクロス集計表の順位][サンプル数が異なる二つのクロス集計表の順位]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数の違い][サンプル数の違い]]
-
-6章 2つの平均値を比較する]]
-[[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
-[[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]]
-- [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
-- [[file:org/RforS-II-06.org::分散未知の場合 (t-検定)][分散未知の場合 (t-検定)]]
-- [[file:org/RforS-II-06.org::例題][例題]]
-[[file:org/RforS-II-06.org::6.3 t-検定の前提条件][6.3 t-検定の前提条件]]
-[[file:org/RforS-II-06.org::6.3.1 分散の等質性の検定][6.3.1 分散の等質性の検定]]
-[[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
-- [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
-    
+検定 RforS [[./org/RforS-II-05.org]]
 
 * このページ
   
@@ -157,19 +113,8 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
     - github からダウンロード可能です。
     - ~suzuki/public_html/stat2 からもアクセスできます。
 
-* お知らせ
-
-** [2021-12-21 月] 5回目のレポートと期末試験を予定しています。
-    [[./reports.org]]
-
-** [2021-12-21 月] 4回目のレポートを出題しました。
-    [[./reports.org]]
-
+* お知らせ   
  
-** [2021-12-21 月] 3回目のレポートを出題しました。
-    [[./reports.org]]
-
-
 ** [2021-11-29 月] 2回目のレポートを出題しました。
     [[./reports.org]]
 
@@ -196,12 +141,12 @@ RStudio で実行と文書化ができるようになるはずです。
     Rによるやさしい統計学
     - R: (R-4, R-5, R-6, R-7)， (R-8, R-9)
 
-** 対応 [4/6]
+** 対応 [3/6]
     - [X] 標本と統計的推測 K-7:R-4
     - [X] 大数の法則と中心極限定理 K-5:R-4
     - [X] 点推定 K-8: (R-4, R-5)
-    - [X] 区間推定 K-10:R-4
-    - [-] 検定 K-11, R-5, R-6
+    - [-] 区間推定 K-10:R-4
+    - [-] 検定 K-11, R-5
     - [ ] いろいろな検定 K-12:(R-6, R-7)
 
 * 講師のノート
@@ -224,9 +169,6 @@ RStudio で実行と文書化ができるようになるはずです。
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
 * Doing 参考書
-     - [[https://www.jstat.or.jp/openstatistics/][データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition”]]
-       [[http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf][2021-3-3Open(S).pdf]]
-       
     - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
       - 中京大 白井先生, Rによるやさしい統計学
 

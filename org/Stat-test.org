@@ -42,14 +42,40 @@ var(sample)
 
 会社の主張 \( H : \mu = \mu_0 ( = 3) \).
 
-帰無仮説 (null hypothesis)
-- 真であることが示されても，当り前である仮説
+- 帰無仮説 (null hypothesis) :: 
+  真であることが示されても，当り前である仮説
 
 検証方法:
 ある値 \( c \) を定めて，\( |\overline{X}-\mu_0| > c \Rightarrow \) 帰無仮説 H を棄
 却する
 
-棄却域 (reject region): \( W = \{ \vec{X}=(X_1, \cdots ,
-X_n): |\overline{X}-\mu_0| \ge c \} \)
+- 棄却域 (reject region) ::
+  \( W = \{ \vec{X}=(X_1, \cdots , X_n): |\overline{X}-\mu_0| \ge c \}
+  \)
+  
+
+- 第一種の誤り :: 帰無仮説が正しいのに，帰無仮説を棄却してしまう確率
+  \( \alpha \)。
+
+  この確率値\( \alpha \)は，* 有意水準 * と呼ばれる。
+
+  \( \alpha \)は，0.1, 0.05, 0.01 などが使われる。
+
+- 有意水準 \(\alpha\) から，閾値 \( c \) が決る
+    
+  \( P_H(W) = P_H (|\overline{X} - \mu_0 | \geq c ) \leq \alpha = 0.05 \)
+
+  
+  
+  
+  
 
 
+
+* 11.2 検定の作り方
+
+** 設定
+
+- 母集団 \( \sim N(\mu, \sigma^2) \)
+- 無作為標本 \( X_{i=1:n} \sim  N(\mu, \sigma^2) \)
+- 帰無仮説 \(H : \mu = \mu_0 \)   
