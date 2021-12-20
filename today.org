@@ -167,11 +167,9 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
 ** [2021-12-21 月] 4回目のレポートを出題しました。
     [[./reports.org]]
-
  
 ** [2021-12-21 月] 3回目のレポートを出題しました。
     [[./reports.org]]
-
 
 ** [2021-11-29 月] 2回目のレポートを出題しました。
     [[./reports.org]]

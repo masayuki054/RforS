@@ -563,9 +563,7 @@ mean of x
       t = \frac {r \sqrt{(n-2)}} {\sqrt{ 1-r^2 }}
       \]
 
-      
     - すると，t は自由度 n-2 の t-分布にしたがう
-      
 
 ** 例題
 
@@ -649,9 +647,24 @@ sample estimates:
       
 * 5.6 独立性の検定（カイ二乗検定）
 
-  - 独立性の検定 :: 二つの質的変数が独立か
+  - 独立性の検定 :: 二つの質的変数が独立かを調べる検定
 
-  3.5節の数学と統計の好き嫌いの間の *連関* を考える
+    カイ二乗分布を利用するため、カイ二乗検定ともいう。
+
+  - 期待度数 :: 2つの変数の間に連関がない(独立である)という帰無仮説の
+    もとで、帰無仮説が正しければ（連関がなければ）これくらいの度数をと
+    るだろうと期待される度数
+
+    クロス集計表におけるセルの期待度数 = (セルが属する行の周辺度数 ×セルが属する列の周辺度数)÷総度数
+
+  - 独立性の検定における検定統計量の式 ::
+
+    \(
+    \chi^2 = \Sigma_{i} \frac{(O_i-E_i)^2}{E_i} \) , \(O_i\) は観測度
+    数，\(E_i\)は期待度数
+    
+
+3.5節の数学と統計の好き嫌いの間の *連関* を考える
 
 ** クロス集計表
 
@@ -692,22 +705,21 @@ Levels: 嫌い 好き
        められる，度数)
 
        \[
-       \Chi^2 = \sum_1^k \frac {(O_i - E_i)^2 } { E_i}
+       \chi^2 = \sum_1^k \frac {(O_i - E_i)^2 } { E_i}
        \]
 
-#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R :file RforS/graph/Fig-05-06.png
+***  カイ二乗分布
+
+#+begin_src R :session *rfors* :results output graphics :exports both :tangle RforS/code/05.R :file RforS/graph/Fig-05-06.png
 
 curve(dchisq(x,1), 0, 20)
 for (i in seq(2,16,2)) {
   curve(dchisq(x,i), 0, 20, add=TRUE)
   }
 
-curve(dchisq(x,1), 0, 20)
-for (i in 2:4) {
-  curve(dchisq(x,2^i), 0, 20, add=TRUE)
-  }
-dev.off()
 #+end_src 
+
+#+RESULTS:
 
 [[./RforS/graph/Fig-05-06.png]]
 
@@ -715,22 +727,19 @@ dev.off()
 - 取り得る値の下限は0
 - 非対称分布
 - 自由度が大きくなると，正規分布に近づく
+- 期待値 n, 分散 2n
   
 ** 統計検定量
 
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
-(chi2_stat <- function(Ob,Ex) {
+chi2_stat <- function(Ob,Ex) {
   sum((Ob-Ex)^2 / Ex)
-})
+}
 
 #+end_src
 
 #+RESULTS:
-: function(Ob,Ex) {
-:   sum((Ob-Ex)^2 / Ex)
-: }
-
 
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 sum(クロス集計表[1,])
@@ -790,32 +799,69 @@ sum(chi2)
 :   好き 0.7111111 1.0666667
 : [1] 2.539683
   
-** p 値
-     
+** 帰無仮説の棄却採択の判定:
+
+\( n \times m \)  のクロス集計表のカイ二乗検定の自由度は，\(
+(n-1)\times (m-1) \)
+
+
+帰無仮説によればこの検定統計量は自由度1のカイ二乗分布に従うので，
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+
+qchisq(0.95, 1)
+
+#+end_src
+
+
+#+RESULTS:
+: [1] 3.841459
+
+\( 2.539683 \le  3.841459 \), よって棄却されない
+
+*** p値
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
+
+pchisq(sum(chi2),1)
+1-pchisq(sum(chi2),1)
+#+end_src
+
+#+RESULTS:
+: [1] 0.8889829
+: [1] 0.1110171
 
 
 ** chisq.test
 
-     nxm のクロス集計表のカイ二乗検定の自由度は，
-     \( (n-1)x(m-1) \)
+R組み込みのカイ二乗検定 chisq.test を使う:
+
  
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
 
-chisq.test(クロス集計表)
+chisq.test(クロス集計表,correct=FALSE)
 
 #+end_src
 
 #+RESULTS:
 : 
-: 	Pearson's Chi-squared test with Yates' continuity correction
+: 	Pearson's Chi-squared test
 : 
 : data:  クロス集計表
-: X-squared = 1.2004, df = 1, p-value = 0.2732
+: X-squared = 2.5397, df = 1, p-value = 0.111
 : 
 :  警告メッセージ: 
-:  chisq.test(クロス集計表) で:   カイ自乗近似は不正確かもしれません
+:  chisq.test(クロス集計表, correct = FALSE) で: 
+:    カイ自乗近似は不正確かもしれません
      
 * 5.7 サンプルサイズの検定結果への影響について
+
+** 統計的仮説検定一般にいえる性質
+
+標本における連関の大きさが全く同じであっても、サンプルサイズが異なると
+検定の結果が変わることがある。
+
+サンプルサイズが大きくなると、有意になりや
+すい。
     
 ** サンプル数が異なる二つのクロス集計表の順位
 
@@ -852,7 +898,17 @@ chisq.test(クロス集計表)
       :      履修した 履修しない
       : 文系      160         40
       : 理系      120         80
-  
+
+** サンプル数の違い
+     
+      帰無仮説、帰無分布、棄却域は全く同じものとなります。
+
+      違うのは検定統計量の実現値だけです。
+
+      chisq.test関数により検定を行ってみましょう。
+
+      カイ二乗検定量に10倍違いがあり，検定は，有意になりやすくなる。
+
 ** カイ二乗検定  
 
      #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/05.R
@@ -881,16 +937,4 @@ chisq.test(履修B, correct=FALSE)
      : 
      : data:  履修B
      : X-squared = 19.048, df = 1, p-value = 1.275e-05
-
-** サンプル数の違い
-     
-      帰無仮説、帰無分布、棄却域は全く同じものとなります。
-
-      違うのは検定統計量の実現値だけです。
-
-      chisq.test関数により検定を行ってみましょう。
-
-      カイ二乗検定量に10倍違いがあり，検定は，有意になりやすくなる。
-
-      
 
