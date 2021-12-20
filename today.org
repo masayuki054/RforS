@@ -35,7 +35,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 ** Doing 検定 (RforS-6, K-11)
   
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
-     ぶ(4) - 中京大 白井先生のコンテンツ
+     ぶ(5) - 中京大 白井先生のコンテンツ
 	 
    - RforS [[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]] [0/3]
      - [ ]  [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
@@ -48,14 +48,14 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
        - [ ] [[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
        - [ ] [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
     
-** 進行チェック (作成中)
+
+* 進行チェック (作成中)
     
 *** 標本と統計的推測
 
 - 前期の内容では，下記内容が関係します：
   - 確率変数の和の平均と分散，畳み込み
   - [[https://drive.google.com/open?id=1-uXJGr0GmW9mc4yB1h1izHsoOUgpm0Y8&authuser=msyk054%40gmail.com&usp=drive_fs][期待値に関する公式]]
-
 
 *** 母集団と標本 R-4 [[./org/RforS-II-04.org]]
 
@@ -116,7 +116,6 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
  -[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2.2 検定統計量][ R5.2.2 検定統計量]]
  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.2.3 有意水準と棄却域][R5.2.3 有意水準と棄却域]]
  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.4 統計的仮説検定の結果の報告][R5.2.4 統計的仮説検定の結果の報告]]
- - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.5 p 値][5.2.5 p 値]]
  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.6 第1 種の誤りと第2 種の誤り][5.2.6 第1 種の誤りと第2 種の誤り]]
  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::5.2.7 検定力][5.2.7 検定力]]
  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*「有意差がない」ということ][「有意差がない」ということ]]
@@ -131,14 +130,13 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*クロス集計表][クロス集計表]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*統計検定量][統計検定量]]
-  - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*p 値][p 値]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*chisq.test][chisq.test]]
 -[[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.7 サンプルサイズの検定結果への影響について][ 5.7 サンプルサイズの検定結果への影響について]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数が異なる二つのクロス集計表の順位][サンプル数が異なる二つのクロス集計表の順位]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数の違い][サンプル数の違い]]
 
-6章 2つの平均値を比較する]]
+[[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]]
 [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
 [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]]
 - [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
@@ -149,16 +147,6 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 [[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
 - [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
     
-
-* このページ
-  
-  [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
-
-    - 今日のオンライン講義の説明の流れです。
-    - Emacs org-mode で書いています。
-      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
-    - github からダウンロード可能です。
-    - ~suzuki/public_html/stat2 からもアクセスできます。
 
 * お知らせ
 
@@ -249,4 +237,14 @@ RStudio で実行と文書化ができるようになるはずです。
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/chisq.pdf][CHISQ-TABLE.docx - chisq.pdf]]
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/F.pdf][Fs - F.pdf]]
    
+
+* このページ
+  
+  [[https://github.com/masayuki054/RforS/blob/main/today.org][RforS/today.org at main · masayuki054/RforS · GitHub]]
+
+    - 今日のオンライン講義の説明の流れです。
+    - Emacs org-mode で書いています。
+      - [[http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html#lang-r][org-modeのコードブロック(Babel)の使い方 | Misohena Blog]]
+    - github からダウンロード可能です。
+    - ~suzuki/public_html/stat2 からもアクセスできます。
 
