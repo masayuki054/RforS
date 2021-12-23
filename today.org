@@ -208,8 +208,9 @@ RStudio で実行と文書化ができるようになるはずです。
     - [[http://cse.naro.affrc.go.jp/takezawa/r-tips.pdf][R-Tips - r-tips.pdf]]
     - [[http://www.okadajp.org/RWiki/?R%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E4%B8%AD%E3%81%AE%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%80%81%E4%B9%B1%E6%95%B0%E9%96%A2%E6%95%B0%E4%B8%80%E8%A6%A7][Rの基本パッケージ中の確率分布、乱数関数一覧 - RjpWiki]] 
 
-* Doing 参考書
-     - [[https://www.jstat.or.jp/openstatistics/][データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition”]]
+* 参考書 (new)
+** 参考書
+     - (new) [[https://www.jstat.or.jp/openstatistics/][データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition”]]
        [[http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf][2021-3-3Open(S).pdf]]
        
     - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] 
@@ -220,16 +221,10 @@ RStudio で実行と文書化ができるようになるはずです。
 
     - [[https://www.ohmsha.co.jp/book/9784274227387/][入門 統計学（第2版） 検定から多変量解析・実験計画法・ベイズ統計学まで | Ohmsha]]
       - 絵が豊富
-  
-* Doing 気をつけること
 
-   - 講義ノート・教科書を読んでもらってから，説明すること
+    - [[http://wiki.cis.iwate-u.ac.jp/~suzuki/bio_stat][鈴木の生物統計学]]
 
-   - プログラムは説明してから，入力の時間をとり，その後説明しながら実行
-     すること
-
-* Doing 分布表
-
+** 分布表
     R が使えないときに，確率計算に使ってください。
    
     - [[http://www3.u-toyama.ac.jp/kkarato/2019/statistics/table/z.pdf][標準正規分布配布用 - z.pdf]]
