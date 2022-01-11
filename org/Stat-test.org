@@ -65,10 +65,6 @@ var(sample)
     
   \( P_H(W) = P_H (|\overline{X} - \mu_0 | \geq c ) \leq \alpha = 0.05 \)
 
-  
-  
-  
-  
 
 
 

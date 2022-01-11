@@ -7,49 +7,30 @@
 
 http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
 
-* 今日 (1/12) の流れ
+* 今日 (12/20) の流れ
 
 ** Doing 検定 (RforS-5, K-11)
   
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
      ぶ(4) - 中京大 白井先生のコンテンツ
 
-   - [-] RforS [[./org/RforS-II-05.org]] [2/4]  - 鈴木のまとめ
+   - [-] RforS [[./org/RforS-II-05.org]] [3/4]  - 鈴木のまとめ
      - [X] [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）][5.4 t 分布を用いた検定（1 つの平均値の検定・母分散σ2 が未知）]]
        - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*棄却域の描画][棄却域の描画]]
-       - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*t-test][t-test]]
-
-     - [ ] 検出力
-       [[http://wiki.cis.iwate-u.ac.jp/~suzuki/bio_stat/org/power.org]]
-       - 教科書の説明が少いので
-       
-     - [ ] R5.6 独立性の検定（カイ二乗検定）
-       - クロス集計表
-       - カイ二乗検定
-       - chisq.test()
+       - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*t-test][t.test]]
+     - [X] R5.5 相関係数の検定 (無相関検定)
+	 - [X] 例題
+	 - [X] cor.test()
+     - [X] R5.6 独立性の検定（カイ二乗検定）
+       - [X] クロス集計表
+       - [X] カイ二乗検定
+       - [X] chisq.test()
      - [ ] R5.7 サンプルサイズの検定結果への影響について
        - サンプル数が異なる二つのクロス集計表の順位
 	 - 履修A     
 	 - 履修B
        - カイ二乗検定  
        - サンプル数の違い
-
-** Doing 検定 (RforS-6, K-11)
-  
-   - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
-     ぶ(5) - 中京大 白井先生のコンテンツ
-	 
-   - RforS [[file:org/RforS-II-06.org][6章 2つの平均値を比較する][6 2つの平均値を比較]] [0/3]
-     - [ ]  [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
-     - [ ]  [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]] [0/3]
-       - [ ] [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
-       - [ ] [[file:org/RforS-II-06.org::分散未知の場合 (t-検定)][分散未知の場合 (t-検定)]]
-       - [ ] [[file:org/RforS-II-06.org::例題][例題]]
-     - [ ]  [[file:org/RforS-II-06.org::6.3 t-検定の前提条件][6.3 t-検定の前提条件]] [0/3]
-       - [ ] [[file:org/RforS-II-06.org::6.3.1 分散の等質性の検定][6.3.1 分散の等質性の検定]]
-       - [ ] [[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
-       - [ ] [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
-    
 
 * 進行チェック (作成中)
     
@@ -138,16 +119,17 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数の違い][サンプル数の違い]]
 
-- [[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]]
-  - [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
-  - [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]]
-    - [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
-    - [[file:org/RforS-II-06.org::分散未知の場合 (t-検定)][分散未知の場合 (t-検定)]]
-    - [[file:org/RforS-II-06.org::例題][例題]]
-  - [[file:org/RforS-II-06.org::6.3 t-検定の前提条件][6.3 t-検定の前提条件]]
-    - [[file:org/RforS-II-06.org::6.3.1 分散の等質性の検定][6.3.1 分散の等質性の検定]]
-  - [[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
-    - [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
+[[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]]
+[[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
+[[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]]
+- [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
+- [[file:org/RforS-II-06.org::分散未知の場合 (t-検定)][分散未知の場合 (t-検定)]]
+- [[file:org/RforS-II-06.org::例題][例題]]
+[[file:org/RforS-II-06.org::6.3 t-検定の前提条件][6.3 t-検定の前提条件]]
+[[file:org/RforS-II-06.org::6.3.1 分散の等質性の検定][6.3.1 分散の等質性の検定]]
+[[file:org/RforS-II-06.org::6.4 対応のある (z,t)-検定][6.4 対応のある (z,t)-検定]]
+- [[file:org/RforS-II-06.org::対応のあるデータの検定量][対応のあるデータの検定量]]
+    
 
 * お知らせ
 

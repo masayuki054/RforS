@@ -1,55 +1,227 @@
 #+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 7章 分散分析
 #+OPTIONS: tex:t
 #+property: header-arg:R :session t :results output :exports both
 
 
-* Rによるやさしい統計
 
-  [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]]
+* 7.0 分散分析 (anova, Analysis Of Variance)
 
-  [[http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html][社会統計演習]] (青山)
+   3つ以上の *平均値を比較する* ために，分散分析を紹介する
 
-  
-** 7章 分散分析
+   - 分散分析の考え方の基礎，「平方和の分解」
+     - 要因の数の違い，
+     - 標本の対応の有無による違い，がある
 
-   3つ以上の平均値を比較するために，分散分析を紹介する
-   
-
-*** 7.1 一元配置分散分析
-
-***** 変動の区別
+*** 変動の区別
       
-****** 全体の変動
+**** 全体の変動
        - 全データをまとめて扱う
        - 全平均 と 個々のデータの偏差，分散
 
-****** 方法の違いによる変動
+**** 方法 (要因) の違いによる変動
        - 方法ごとにグループを作成
        - 全平均 と グループ内平均との偏差，分散
+       - 水準 :: 同じ方法で処方レベルの違い
 	 
-****** 個の違いによる変動 (誤差)
+**** 個の違いによる変動 (誤差)
        - 同じ方法グループ内のデータの変動は，個々の違いが原因。
-       - 指導法の効果を見るためには，雑音と考える。
-    
-***** [[file:RforS-II-07-data.org::*指導法データの準備][指導法データの準備]] 
+       - 方法の効果を見るためには，雑音と考える。
 
-***** 検定統計量 ::
-	 \[
-	 F = \frac { 群間平方和 / \mbox{群間の自由度} }
+**** 分散分析
+
+全体の変動 = 方法 (要因)による変動 + 個の違いによる変動 となる。
+
+要因毎にわけ，誤差に較べて大きな影響を与えている要因を探す。
+
+* 7.1 一元配置分散分析
+
+一つの要因の分析を行なう。
+
+*** [[file:RforS-II-07-data.org::*指導法データの準備][指導法データの準備]]
+
+#+begin_src R :session *rfors* :results output :exports both :tangle babel/r-05-03.r
+
+(指導法データ <- read.csv("data/shidouhouU8.csv"))
+class(指導法データ)
+str(指導法データ)
+
+#+end_src
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+(As <- subset(指導法データ, method=="A")$stat_test2)
+(Bs <- subset(指導法データ, method=="B")$stat_test2)
+(Cs <- subset(指導法データ, method=="C")$stat_test2)
+(Ds <- subset(指導法データ, method=="D")$stat_test2)
+
+(統計テスト2 <- c(As, Bs, Cs, Ds))
+
+(指導法 <- c(rep("A",5),rep("B",5),rep("C",5),rep("D",5)))
+(指導法2 <- factor(指導法))		# 要因型ベクトルに変換
+
+#+end_src
+
+#+RESULTS:
+: [1] 15  9 18 14 18
+: [1] 13  8  8 12  7
+: [1] 10  6 11  7 12
+: [1] 10  7  3  5  7
+:  [1] 15  9 18 14 18 13  8  8 12  7 10  6 11  7 12 10  7  3  5  7
+:  [1] "A" "A" "A" "A" "A" "B" "B" "B" "B" "B" "C" "C" "C" "C" "C" "D" "D" "D" "D"
+: [20] "D"
+:  [1] A A A A A B B B B B C C C C C D D D D D
+: Levels: A B C D
+
+
+指導法を受けている全ての人を母集団とし，その母集団において，指導法ごと
+に求めたテスト得点の平均値に違いがあるかを知りたい。
+
+この20人のデータは，母集団からの無作為抽出標本です。
+
+この標本が，母平均の等しい4群 (A,B,C,Dの指導法ごとの) から抽出された可
+能性が高いかを検討する。
+
+そのための検定が，*分散分析* です。
+
+*** 検定の流れ
+**** 帰無仮説と対立仮説の設定
+
+- 帰無仮説 \(H_0\) :: 4群の母平均は等しい
+
+- 対立仮説 \(H_2\) :: 4群の母平均は等しくない
+
+**** 検定統計量 
+
+	 \(
+	 F = \frac { \mbox{群間平方和} / \mbox{群間の自由度} }
   	           { \mbox{群内平方和} / \mbox{群内の自由度} }
-	 \] (mboxが出力されていませんので，教科書を参照)
+	 \)
 
 	 \( F \) は，全ての群の母平均が等しいときに，* F分布 * に従う
 
-       - 群間平方和 :: 全体平均値と群間平均値の差の2乗和
-       - 群内平方和 :: 群内平均値との差の2乗和
-	
+       - 群間平方和 :: 全体平均値と群間平均値の差の2乗和, 自由度 (4ー1)
+       - 群内平方和 :: 群内平均値との差の2乗和， 自由度 4*(5ー1)
 
-***** 全体差
+***** F-分布の確率密度関数
 
-#+begin_src R :session t :results output :exports both
+#+BEGIN_SRC R :SESSION *RFORS* :RESULTS OUTPUT GRAPHICS :FILE RFORS/GRAPH/F.PNG :EXPORTS BOTH
+CURVE(DF(X, 3, 16),0, 5)
+#+END_SRC
+
+#+RESULTS:
+
+[[./RFORS/GRAPH/F.PNG]]
+
+**** 有意水準 \(\alpha\) の決定
+
+     \( \ALPHA=0.05 \) の片側検定， F値は正値。
+
+**** 統計検定量の実現値の計算
+
+- oneway.test 関数 :: 一元配置分散分析のみ実行可能
+
+  #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+# var.equal=TRUEにより母分散の等質性を仮定
+oneway.test(統計テスト2 ~ 指導法2, var.equal=TRUE )
+
+  #+end_src
+
+  #+RESULTS:
+  : 
+  : 	One-way analysis of means
+  : 
+  : data:  統計テスト2 and 指導法2
+  : F = 7.1111, num df = 3, denom df = 16, p-value = 0.002988
+
+  p-値が，0.002988 であるので，帰無仮説を棄却。  
+  
+- aov 関数 :: 最も一般的
+
+  #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+ aov(統計テスト2 ~ 指導法2)
+
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  Call:
+     aov(formula = 統計テスト2 ~ 指導法2)
+
+  Terms:
+		  指導法2 Residuals
+  Sum of Squares      184       138
+  Deg. of Freedom       3        16
+
+  Residual standard error: 2.936835
+  Estimated effects may be unbalanced
+  #+end_example
+
+    #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+summary(aov(統計テスト2 ~ 指導法2))
+
+  #+end_src
+
+  #+RESULTS:
+  : 
+  : 	One-way analysis of means
+  : 
+  : data:  統計テスト2 and 指導法2
+  : F = 7.1111, num df = 3, denom df = 16, p-value = 0.002988
+
+  p-値が，0.002988 であるので，帰無仮説を棄却。  
+
+- anova関数 :: 複数のモデルの比較など，高度な分析に対応
+
+  #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+anova(lm(統計テスト2 ~ 指導法2))
+
+  #+end_src
+
+  #+RESULTS:
+  : Analysis of Variance Table
+  : 
+  : Response: 統計テスト2
+  :           Df Sum Sq Mean Sq F value   Pr(>F)   
+  : 指導法2    3    184  61.333  7.1111 0.002988 **
+  : Residuals 16    138   8.625                    
+  : ---
+  : Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  p-値が，0.002988 であるので，帰無仮説を棄却。
+
+*** Rによる変動と検定値の計算
+
+****
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+
+全データ <- cbind(As, Bs, Cs, Ds)	
+群平均 <- colMeans(全データ)	# 水準ごとの平均のベクトル
+
+# 水準ごとの平均のベクトルを行数だけ並べた行列を作る
+群平均行列 <- matrix(rep(群平均, nrow(全データ)), nrow=nrow(全データ), 
+                     ncol=ncol(全データ),byrow=TRUE)
+
+群内 <- 全データ - 群平均行列	# 各データと、その群内の平均との差
+群内平方和 <- sum(群内^2)		# 　群内平方和
+
+分母 <- 群内平方和 / ( (nrow(全データ)-1)*ncol(全データ) )
+
+#+end_src
+
+#+RESULTS:
+
+**** 全体差
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 
 (全体差 <- 全データ - 全平均) # 行列 - スカラ
 
@@ -63,7 +235,7 @@
 : [4,]  4  2 -3 -5
 : [5,]  8 -3  2 -3
 
-***** 群間差
+**** 群間差
 
       群平均行列 から 全平均を引く
 #+begin_src R :session t :results output :exports both
@@ -79,7 +251,7 @@
 : [4,]  4.8 -0.4 -0.8 -3.6
 : [5,]  4.8 -0.4 -0.8 -3.6
       
-***** 群内差
+**** 群内差
 
       全データから各群内平均を引く
 
@@ -97,7 +269,7 @@
 : [4,] -0.8  2.4 -2.2 -1.4
 : [5,]  3.2 -2.6  2.8  0.6
 
-*****  平方
+**** 平方
 
 #+begin_src R :session t :results output :exports both
 
@@ -129,7 +301,7 @@
 [5,] 10.24  6.76  7.84  0.36
 #+end_example
 
-***** 平方和と自由度とF-値
+**** 平方和と自由度とF-値
       
 #+begin_src R :session t :results output :exports both
 
@@ -162,7 +334,7 @@
 : [1] 7.111111
 
 
-**** 7.1.3 多重比較 (Tukey の方法)
+** 7.1.3 多重比較 (Tukey の方法)
 
      7.1.1項の帰無仮説の棄却では，4つの群の母平均が等しくないことは分
      るが，どの群に間に差があるのかは分らない。
@@ -171,9 +343,8 @@
      法を使う。
 
      ここでは，Tukeyの方法について説明する。
-
      
-***** 検定統計量 q
+*** 検定統計量 q
 
       各群のデータ数と分散が等しいと仮定します。
 
@@ -182,12 +353,12 @@
       \sqrt{\textrm{群内の平均平方} / \textrm{各群のデータ数} }}
       \]
 
-      [[s-:]] q は t-検定(分散が同じ2群の平均値の差の検定)に似ている
+      ((s-:)) q は t-検定(分散が同じ2群の平均値の差の検定)に似ている
 
       
-***** データの準備
+*** データの準備
 
-      #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+      #+begin_src R :session *rfors* :results output :exports both :tangle babel/r-05-03.r
 
      指導法データ <- read.csv("data/shidouhouU8.csv")
 
@@ -203,7 +374,7 @@
 
       #+end_src
 
-***** 統計検定値 q の実現値値
+*** 統計検定値 q の実現値値
       
       #+begin_src R :session t :results output :exports both
       
@@ -214,7 +385,7 @@
       #+RESULTS:
       : [1] 6.395651
 
-***** 棄却域の決定
+*** 棄却域の決定
       
       有意水準 5%, 平均値の数 4, 群内自由度 16，を指定します。
 
@@ -232,7 +403,7 @@ qtukey(0.05, 4, 16, lower.tail=FALSE)
 
       どちらも4.046093となり，棄却域は \( q > 4.046093 \) となります。
       
-***** TukeyHSD (Honest Significantl Difference)
+*** TukeyHSD (Honest Significant Difference)
 
       #+begin_src R :session t :results output :exports both
 
@@ -258,20 +429,20 @@ TukeyHSD(aov(統計テスト2 ~ 指導法))
       #+end_example
 
 
-*** 7.2 一元配置分散分析 (対応あり)
+* 7.2 一元配置分散分析 (対応あり)
 
     一元配置分散分析 (対応あり)では、
 
     - 同じ被験者が
     - 複数の条件を経験する
 
-**** 例題
+    などの対応のあるデータを対象とする。
+
+*** 例題
 
      以下の表は5名の学生に、線形代数、微分積分、確率統計に対する好意度
      の評定データである。 これら3つの科目に対する好意度に差があるだろ
      うか？（念のため：これは１要因３水準)
-
-***** [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-07-data.org::*7.2-データ準備][7.2-データ準備]] (Rコード)
 
       #+NAME: table-7.3
   | 学生 | 線形代数 | 微分積分 | 確率統計 |
@@ -281,6 +452,8 @@ TukeyHSD(aov(統計テスト2 ~ 指導法))
   | 大引 |        9 |        7 |        7 |
   | 吉川 |        5 |        1 |        2 |
   | 荻野 |        6 |        3 |        5 |
+
+**** 対応がないものとして分散分析してみる
 
 ***** 仮説
 
@@ -301,36 +474,34 @@ TukeyHSD(aov(統計テスト2 ~ 指導法))
 
 ***** 対応がないものとして実行
 
- #+begin_src R :session t :results output :exports both
+ #+begin_src R  :session *rfors* :results output :exports both :tangle babel/07.R
 
-summary (aov(好感度s ~ 科目s))
+好意度 <- c(7,8,9,5,6,5,4,7,1,3,8,6,7,2,5)
+科目 <- factor(c(rep("線形代数",5),rep("微分積分",5),rep("確率統計",5)))
+summary(aov(好意度~科目))			# 好意度を科目の観点から分析する
 
  #+end_src
 
  #+RESULTS:
- :  [1] 7 8 9 5 6 5 4 7 1 3 8 6 7 2 5
- :  [1] "学生"     "学生"     "学生"     "学生"     "学生"     "線形代数"
- :  [7] "線形代数" "線形代数" "線形代数" "線形代数" "微分積分" "微分積分"
- : [13] "微分積分" "微分積分" "微分積分"
  :             Df Sum Sq Mean Sq F value Pr(>F)
- : 科目s        2  22.53  11.267   2.641  0.112
+ : 科目         2  22.53  11.267   2.641  0.112
  : Residuals   12  51.20   4.267
 
-***** 結果
+*** 結果
       - F値 :: 2.641
       - p値 :: 0.1121 > 0.05
 
       p値か 5%水準より大きいため, 有意な差は認められない。
       帰無仮説を採択。
 	 
-**** 7.2.2 一元配置分散分析 (対応あり)の実行
+*** 7.2.2 一元配置分散分析 (対応あり)の実行
 
-***** 仮説
+**** 仮説
 
       - 帰無仮説 H_0 :: 3科目の好感度の母平均は等しい
       - 対立仮説 H_1 :: 3科目の好感度の母平均は等しくない
 	
-***** 検定統計量 F ::
+**** 検定統計量 F 
 	 \[
 	 F = \frac { \mbox{条件平方和} / \mbox{条件の自由度} }
 	           { \mbox{残差平方和} / \mbox{残差の自由度} }
@@ -342,7 +513,9 @@ summary (aov(好感度s ~ 科目s))
        - 残差平方和 :: 全体平均値と群間平均値の差の2乗和
        - 条件平方和 :: 群間平方和と同じ
 
-#+begin_src R :session t :results output :exports both
+**** 検定統計量の実現値
+
+#+begin_src R :session *rfors* :results output :exports both :tangle babel/07.R
 
 aov(好意度 ~ 科目 + 人)
 summary(aov(好意度 ~ 科目 + 人))
@@ -369,10 +542,21 @@ Residuals    8   6.13   0.767
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #+end_example
 
+***** 結果
+科目の違いによる平均値差の検定をおこないたかったので，
+科目の行を見ます。F-値が14.7， p-値が\( 0.002 < 0.05 \) で，
+帰無仮説は棄却されます。
 
-**** ## Error 項を指定して，分散分析を実行
+人の行では，人による好感度の差が有意であると示されています。
 
-#+begin_src R :session t :results output :exports both
+Fは，分子の自由度が2, 分母の自由度が8のF-分布に従います。
+
+
+**** Error 項を指定した分散分析
+
+Error 項を指定して分散分析を実行しても同じ結果になります:
+
+#+begin_src R :session *rfors* :results output :exports both :tangle babel/07.R
 
 summary(aov(好意度 ~ 科目 + Error(人/科目)))
 
@@ -393,21 +577,9 @@ Residuals  8  6.133   0.767
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #+end_example
 
-**** # 対応がないものとして分析
-     
-#+begin_src R :session t :results output :exports both
 
-summary(aov(好意度 ~ 科目))
-
-#+end_src
-
-#+RESULTS:
-:             Df Sum Sq Mean Sq F value Pr(>F)
-: 科目         2  22.53  11.267   2.641  0.112
-: Residuals   12  51.20   4.267
-
-
-**** # Tukey の多重比較
+*** 
+** # Tukey の多重比較
 #+begin_src R :session t :results output :exports both
 
 TukeyHSD(aov(好意度 ~ 科目 + 人))
@@ -441,7 +613,7 @@ $人
 田中-大引 -1.0000000 -3.4698711  1.4698711 0.6448878
 #+end_example
 
-**** # 個人の比較には興味がないので，科目についてのみ多重比較
+** # 個人の比較には興味がないので，科目についてのみ多重比較
 
 #+begin_src R :session t :results output :exports both
 
@@ -463,13 +635,5 @@ $科目
 微分積分-線形代数 -3.0 -4.582381 -1.417619 0.0016141
 #+end_example
 
-**** 信頼区間を図示
-#+begin_src R :session t :results output :exports both
-
-plot(TukeyHSD(aov(好意度 ~ 科目 + 人), "科目"))
-
-#+end_src
-
-#+RESULTS:
 
 
