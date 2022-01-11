@@ -600,13 +600,12 @@ pho_stat <- function(X1,X2) {
 }
 
 cor(統計テスト1,統計テスト2)
-pho_stat(統計テスト1,統計テスト2)
+t <- pho_stat(統計テスト1,統計テスト2)
 
 #+end_src
 
 #+RESULTS:
 : [1] 0.749659
-: [1] 4.805707
       
       
 *** 帰無仮説と対立仮説の設定
@@ -618,7 +617,7 @@ if ( pt(t,17)*2 > this.alpha ) {  print("pho==0")  } else {   print("pho/=0") }
 #+end_src
 
 #+RESULTS:
-: [1] "pho/=0"
+: [1] "pho==0"
 
 *** cor.test()
 
