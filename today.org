@@ -1,7 +1,7 @@
 #+setupfile: org/info/index-bigblow-header.setup
 #+include: org/info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
-#+title: 12/20 RforS 10 (データ解析) 
+#+title: 01/12 RforS 11 (データ解析) 
 #+OPTIONS:
 #+property: header-arg:R :session t :results output :exports both
 
@@ -39,7 +39,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
    - [[http://whitewell.sakura.ne.jp/R/][Webpage for Probability Theory and Statistics (B)]] のRで統計学を学
      ぶ(5) - 中京大 白井先生のコンテンツ
 	 
-   - RforS [[file:org/RforS-II-06.org][6章 2つの平均値を比較する][6 2つの平均値を比較]] [0/3]
+   - RforS [[file:org/RforS-II-06.org]] [0/3]
      - [ ]  [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
      - [ ]  [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]] [0/3]
        - [ ] [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
@@ -138,7 +138,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*カイ二乗検定][カイ二乗検定]]
   - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*サンプル数の違い][サンプル数の違い]]
 
-- [[file:org/RforS-II-06.org::*6章 2つの平均値を比較する][6 2つの平均値を比較する]]
+- [[file:org/RforS-II-06.org][6章 2つの平均値を比較する]]
   - [[file:org/RforS-II-06.org::6.1 2つの平均値を比較するケース][6.1 2つの平均値を比較するケース]]
   - [[file:org/RforS-II-06.org::6.2 独立な2群の検定][6.2 独立な2群の検定]]
     - [[file:org/RforS-II-06.org::分散既知 あるいは 大標本の場合 (z-検定)][分散既知 あるいは 大標本の場合 (z-検定)]]
@@ -201,7 +201,7 @@ RStudio で実行と文書化ができるようになるはずです。
 
 * Todo 講義記録
 
-#+include: Lects.org
+[[./Lects.org]]
 
 
 * Doing Rに関すること
