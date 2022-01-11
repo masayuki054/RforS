@@ -1,9 +1,17 @@
+#+setupfile: org/info/index-bigblow-header.setup
+#+include: org/info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+title: 講義記録 (データ解析) 
+#+OPTIONS:
+
 #+property: header-arg:R :session t :results output :exports both
 * データ解析 2021 後期
 
 ** 今日の講義
    - [[./today.org]]
-
+     
+   - [[./today-II-2021-12-20.org]]
+     
    - [[./today-II-2021-12-13.org]]
      
    - [[./today-II-2021-12-06.org]]
