@@ -17,9 +17,9 @@
 
 ** 指導法データ (data.frame)
 
-     #+begin_src R :session t :results output :exports both :tangle babel/r-05-03.r
+     #+begin_src R :session *rfors* :results output :exports both :tangle babel/r-05-03.r
 
-     (指導法データ <- read.csv("データ/表.csv"))
+     (指導法データ <- read.csv("data/shidouhouU8.csv"))
      class(指導法データ)
      str(指導法データ)
 
@@ -61,7 +61,7 @@
       $ method    : Factor w/ 4 levels "A","B","C","D": 3 2 2 1 2 3 1 4 4 4 ...
      #+end_example
 
-     #+begin_src R :session t :results output :exports both
+     #+begin_src R :session *rfors* :results output :exports both
 
 数学s <- 指導法データ$math
 統計s <- 指導法データ$stat
@@ -71,13 +71,16 @@
 
 #+end_src
 
+#+RESULTS:
+
 *** クロス集計表
-     #+begin_src R :session t :results output :exports both
+
+#+begin_src R :session *rfors* :results output :exports both
 
      (クロス集計表 <- table(数学s, 統計s))
 
      class(クロス集計表)
-     #+end_src
+#+end_src
 
      #+RESULTS:
      :       統計s
@@ -86,7 +89,7 @@
      :   好き    2    4
      : [1] "table"
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 colnames(クロス集計表)
 rownames(クロス集計表)
 #+end_src
@@ -95,7 +98,8 @@ rownames(クロス集計表)
 : [1] "嫌い" "好き"
 : [1] "嫌い" "好き"
 
-#+begin_src R :session t :results output :exports both
+
+#+begin_src R :session *rfors* :results output :exports both
 
 addmargins(クロス集計表)
 
@@ -114,7 +118,7 @@ addmargins(クロス集計表)
 :   嫌い   10    4
 :   好き    2    4
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 sum(クロス集計表[1,])
 sum(クロス集計表[2,])
 
@@ -124,7 +128,7 @@ sum(クロス集計表[2,])
 : [1] 14
 : [1] 6
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 sum(クロス集計表[,1])
 sum(クロス集計表[,2])
 
@@ -134,7 +138,7 @@ sum(クロス集計表[,2])
 : [1] 12
 : [1] 8
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 ( total <- sum(sum(クロス集計表[,1]),sum(クロス集計表[,2])) )
 
 期待度数s <- matrix(nrow=2, ncol=2)
@@ -155,7 +159,7 @@ for(i in 1:2) {
 : [1,]  8.4  5.6
 : [2,]  3.6  2.4
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 観測度数s <- クロス集計表
 
@@ -174,7 +178,7 @@ sum(chi2)
 
 *** table と 行列
 
-    #+begin_src R :session t :results output :exports both
+    #+begin_src R :session *rfors* :results output :exports both
     (履修A <- matrix(c(16,12,4,8),nrow=2,
                      dimnames=list(系=c("文系", "理系"),
                                    履修=c("した", "しない"))
@@ -190,7 +194,7 @@ sum(chi2)
 
     
 *** subset
-    #+begin_src R :session t :results output :exports both
+    #+begin_src R :session *rfors* :results output :exports both
 
 subset(指導法データ, sex=="男")$stat_test1
 subset(指導法データ, sex=="女")$stat_test1
@@ -204,11 +208,11 @@ subset(指導法データ, sex=="女")$stat_test1
 
 *** 7章の一元
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 # (統計2と指導 <- 指導法データ[c(8,9)])
 # (統計2と指導 <- 指導法データ[c("stat_test2","method")])
 
-(As <- subset(指導法データ, method=="A"))
+# (As <- subset(指導法データ, method=="A"))
 (As <- subset(指導法データ, method=="A"))$stat_test2
 (Bs <- subset(指導法データ, method=="B"))$stat_test2
 (Cs <- subset(指導法データ, method=="C"))$stat_test2
@@ -218,16 +222,8 @@ subset(指導法データ, sex=="女")$stat_test1
 #+end_src
 
 #+RESULTS:
-#+begin_example
-   SID name sex math stat psych_test stat_test1 stat_test2 method
-4    4 多村  男 好き 好き         12         10         15      A
-7    7 柴原  男 嫌い 嫌い          8          5          9      A
-11  11 高谷  女 好き 好き          9         11         18      A
-12  12 杉内  女 嫌い 好き          6          6         14      A
-13  13 和田  女 好き 好き         10         11         18      A
-[1] 15  9 18 14 18
-[1] 13  8  8 12  7
-[1] 10  6 11  7 12
-[1] 10  7  3  5  7
-#+end_example
+: [1] 15  9 18 14 18
+: [1] 13  8  8 12  7
+: [1] 10  6 11  7 12
+: [1] 10  7  3  5  7
 

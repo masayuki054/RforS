@@ -47,4 +47,11 @@
    - [[https://www.medi-08-data-06.work/entry/entral_limit_theorem][中心極限定理って結局何なのさ - 医療職からデータサイエンティストへ]]
    - [[https://www.medi-08-data-06.work/entry/staticapower][有意水準と検出力をグラフィカルにシミュレーションで理解する]]
 
+* 検定
    
+** 分散分析  https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml
+   良い説明
+   
+
+
+
