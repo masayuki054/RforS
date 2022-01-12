@@ -20,7 +20,7 @@ http://wiki.cis.iwate-u.ac.jp/~suzuki/RforS/today.html
        - [[file:~/COMM/Lects/R/RforStatistcs/RforS/org/RforS-II-05.org::*t-test][t-test]]
 
      - [ ] 検出力
-       [[http://wiki.cis.iwate-u.ac.jp/~suzuki/bio_stat/org/power.org]]
+       [[http://wiki.cis.iwate-u.ac.jp/~suzuki/bio_stat/org/power.html]]
        - 教科書の説明が少いので
        
      - [ ] R5.6 独立性の検定（カイ二乗検定）
