@@ -551,8 +551,7 @@ mean of x
 
 * 5.5 相関係数の検定 (無相関検定)
 
-- 参考:: [[http://www.ipc.shimane-u.ac.jp/food/kobayasi/soukankeisuunokentei.htm][相関係数の検定の仕方]]
-
+- 参考:: [[http://www.ipc.shimane-u.ac.jp/food/kobayasi/soukankeisuunokentei.htm][相関係数の検定の仕方]], [[https://en.wikipedia.org/wiki/Pearson_correlation_coefficient][Pearson correlation coefficient - Wikipedia]]
 
     帰無仮説として，「母集団において相関が0である」と設定
 
@@ -692,6 +691,16 @@ Levels: 嫌い 好き
   嫌い   10    4
   好き    2    4
 #+end_example
+
+|----------+----------+----------+----|
+|          | 統計嫌い | 統計好き | 計 |
+|----------+----------+----------+----|
+| 数学嫌い |       10 |        4 | 14 |
+| 数学好き |        2 |        4 |  6 |
+|----------+----------+----------+----|
+| 計       |       12 |        8 | 20 |
+|----------+----------+----------+----|
+
      
 ** 問題
      数学と統計の好き嫌いの間に有意な連関があると言えるでしょうか？

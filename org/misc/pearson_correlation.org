@@ -1,13 +1,13 @@
 * Pearson correlation coefficient
 
-[[/wiki/Correlation_coefficient][Correlation coefficient]].
+[[https://en.wikipedia.org/wiki/Pearson_correlation_coefficient][Pearson correlation coefficient - Wikipedia]]
 
 In [[/wiki/Statistics][statistics]], the *Pearson correlation
 coefficient* (*PCC*, pronounced [[/wiki/Help:IPA/English][/ˈpɪərsən/]])
 ― also known as *Pearson's /r/*, the *Pearson product-moment correlation
 coefficient* (*PPMCC*), the *bivariate
-correlation*,^{[[#cite_note-1][[1]]]} or colloquially simply as *the
-correlation coefficient*^{[[#cite_note-2][[2]]]} ― is a measure of
+correlation*, or colloquially simply as *the
+correlation coefficient* ― is a measure of
 [[/wiki/Linear][linear]]
 [[/wiki/Correlation_and_dependence][correlation]] between two sets of
 data. It is the ratio between the [[/wiki/Covariance][covariance]] of
@@ -22,16 +22,8 @@ from a high school to have a Pearson correlation coefficient
 significantly greater than 0, but less than 1 (as 1 would represent an
 unrealistically perfect correlation).
 
-[[/wiki/File:Correlation_coefficient.png][[[//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Correlation_coefficient.png/400px-Correlation_coefficient.png]]]]
-
-[[/wiki/File:Correlation_coefficient.png][]]
-
 Examples of scatter diagrams with different values of correlation
 coefficient (/ρ/)
-
-[[/wiki/File:Correlation_examples2.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/400px-Correlation_examples2.svg.png]]]]
-
-[[/wiki/File:Correlation_examples2.svg][]]
 
 Several sets of (/x/, /y/) points, with the correlation coefficient of
 /x/ and /y/ for each set. Note that the correlation reflects the
@@ -41,88 +33,18 @@ relationships (bottom). N.B.: the figure in the center has a slope of 0
 but in that case the correlation coefficient is undefined because the
 variance of /Y/ is zero.
 
-<<toc>>
+** Naming and history
 
-** Contents
-   :PROPERTIES:
-   :CUSTOM_ID: mw-toc-heading
-   :END:
-
-- [[#Naming_and_history][1 Naming and history]]
-- [[#Definition][2 Definition]]
-
-  - [[#For_a_population][2.1 For a population]]
-  - [[#For_a_sample][2.2 For a sample]]
-  - [[#Practical_issues][2.3 Practical issues]]
-
-- [[#Mathematical_properties][3 Mathematical properties]]
-- [[#Interpretation][4 Interpretation]]
-
-  - [[#Geometric_interpretation][4.1 Geometric interpretation]]
-  - [[#Interpretation_of_the_size_of_a_correlation][4.2 Interpretation
-    of the size of a correlation]]
-
-- [[#Inference][5 Inference]]
-
-  - [[#Using_a_permutation_test][5.1 Using a permutation test]]
-  - [[#Using_a_bootstrap][5.2 Using a bootstrap]]
-  - [[#Testing_using_Student's_t-distribution][5.3 Testing using
-    Student's /t/-distribution]]
-  - [[#Using_the_exact_distribution][5.4 Using the exact distribution]]
-  - [[#Using_the_exact_confidence_distribution][5.5 Using the exact
-    confidence distribution]]
-  - [[#Using_the_Fisher_transformation][5.6 Using the Fisher
-    transformation]]
-
-- [[#In_least_squares_regression_analysis][6 In least squares regression
-  analysis]]
-- [[#Sensitivity_to_the_data_distribution][7 Sensitivity to the data
-  distribution]]
-
-  - [[#Existence][7.1 Existence]]
-  - [[#Sample_size][7.2 Sample size]]
-  - [[#Robustness][7.3 Robustness]]
-
-- [[#Variants][8 Variants]]
-
-  - [[#Adjusted_correlation_coefficient][8.1 Adjusted correlation
-    coefficient]]
-  - [[#Weighted_correlation_coefficient][8.2 Weighted correlation
-    coefficient]]
-  - [[#Reflective_correlation_coefficient][8.3 Reflective correlation
-    coefficient]]
-  - [[#Scaled_correlation_coefficient][8.4 Scaled correlation
-    coefficient]]
-  - [[#Pearson's_distance][8.5 Pearson's distance]]
-  - [[#Circular_correlation_coefficient][8.6 Circular correlation
-    coefficient]]
-  - [[#Partial_correlation][8.7 Partial correlation]]
-
-- [[#Decorrelation_of_n_random_variables][9 Decorrelation of /n/ random
-  variables]]
-- [[#Software_implementations][10 Software implementations]]
-- [[#See_also][11 See also]]
-- [[#Footnotes][12 Footnotes]]
-- [[#References][13 References]]
-- [[#External_links][14 External links]]
-
-** Naming and
-history[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=1][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: naming-and-historyedit
-   :END:
 It was developed by [[/wiki/Karl_Pearson][Karl Pearson]] from a related
 idea introduced by [[/wiki/Francis_Galton][Francis Galton]] in the
 1880s, and for which the mathematical formula was derived and published
 by [[/wiki/Auguste_Bravais][Auguste Bravais]]
-in 1844.^{[[#cite_note-6][[a]]][[#cite_note-7][[6]]][[#cite_note-8][[7]]][[#cite_note-9][[8]]][[#cite_note-10][[9]]]}
+in 1844.
 The naming of the coefficient is thus an example of
 [[/wiki/Stigler%27s_Law][Stigler's Law]].
 
 ** Definition[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=2][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: definitionedit
-   :END:
+
 Pearson's correlation coefficient is the covariance of the two variables
 divided by the product of their standard deviations. The form of the
 definition involves a "product moment", that is, the mean (the first
@@ -130,159 +52,150 @@ definition involves a "product moment", that is, the mean (the first
 of the mean-adjusted random variables; hence the modifier
 /product-moment/ in the name.
 
-*** For a
-population[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=3][edit]]]
-    :PROPERTIES:
-    :CUSTOM_ID: for-a-populationedit
-    :END:
+*** For a population
+
 Pearson's correlation coefficient, when applied to a
 [[/wiki/Statistical_population][population]], is commonly represented by
 the Greek letter /ρ/ (rho) and may be referred to as the /population
 correlation coefficient/ or the /population Pearson correlation
 coefficient/. Given a pair of random variables
-\((X,Y)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/41f29b9537685f499713112d6802e811cbf51bba]],
-the formula for /ρ/^{[[#cite_note-RealCorBasic-11][[10]]]}
-is:^{[[#cite_note-12][[11]]]}
+\((X,Y)\)
+the formula for /ρ/
+is:
 
-| \(\rho_{X,Y} = \frac{{cov}(X,Y)}{\sigma_{X}\sigma_{Y}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f76ccfa7c2ed7f5b085115086107bbe25d329cec]] | |   |   |   | | *(Eq.1)* |
-|                                                                                                                                                              | |   |   |   | |          |
+\(\rho_{X,Y} = \frac{{cov}(X,Y)}{\sigma_{X}\sigma_{Y}}\)
 
 where:
 
-- \(cov\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b35a5e29cef19ef8b54ae74d92322f3df6dbbea2]]
+- \(cov\)
   is the covariance
-- \(\sigma_{X}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/380c53c60c8301a5c80924b66363d831dfa80b9b]]
+- \(\sigma_{X}\)
   is the standard deviation of
-  \(X\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab]]
-- \(\sigma_{Y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6a9fb889441f514e155f65e77dc5b7c7a5a84f35]]
+  \(X\)
+- \(\sigma_{Y}\)
   is the standard deviation of
-  \(Y\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f]]
+  \(Y\)
 
 The formula for
-\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]
+\(\rho\)
 can be expressed in terms of mean and expectation.
-Since^{[[#cite_note-RealCorBasic-11][[10]]]}
+Since
 
-\({cov}(X,Y) = \mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1e88bc4ba085b98d5cca09b958ad378d50127308]]
+\({cov}(X,Y) = \mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack,\)
 the formula for
-\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]
+\(\rho\)[[
 can also be written as
 
-| \(\rho_{X,Y} = \frac{\mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack}{\sigma_{X}\sigma_{Y}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/042c646e848d2dc6e15d7b5c7a5b891941b2eab6]] | |   |   |   | | *(Eq.2)* |
+ \(\rho_{X,Y} = \frac{\mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack}{\sigma_{X}\sigma_{Y}}\)
 |                                                                                                                                                                                                      | |   |   |   | |          |
 
 where:
 
-- \(\sigma_{Y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6a9fb889441f514e155f65e77dc5b7c7a5a84f35]]
+- \(\sigma_{Y}\)
   and
-  \(\sigma_{X}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/380c53c60c8301a5c80924b66363d831dfa80b9b]]
+  \(\sigma_{X}\)
   are defined as above
-- \(\mu_{X}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2bfe6d3f115b8d6cb595119ea9bc7962a11db65a]]
-  is the [[/wiki/Mean][mean]] of
-  \(X\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab]]
-- \(\mu_{Y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/3d61d6c2c7513bb6589518e6c034e7988aadf91c]]
+- \(\mu_{X}\)  is the [[/wiki/Mean][mean]] of
+  \(X\)
+- \(\mu_{Y}\)
   is the mean of
-  \(Y\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/961d67d6b454b4df2301ac571808a3538b3a6d3f]]
-- \(\mathbb{E}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b0e2b171416452bdde30128e279b76ba4d872773]]
-  is the [[/wiki/Expected_Value][expectation]].
+  \(Y\)
+- \(\mathbb{E}\)  is the [[/wiki/Expected_Value][expectation]].
 
 The formula for
-\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]
+\(\rho\)[[
 can be expressed in terms of uncentered moments. Since
 
-\(\mu_{X} = \mathbb{E}\lbrack\, X\,\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1182bdcc66a113596e3ece07a0acbeda8d56d483]]
-\(\mu_{Y} = \mathbb{E}\lbrack\, Y\,\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b2f14f5eda9d726e57048a2c56889912a80a06b6]]
-\(\sigma_{X}^{2} = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack X\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, X^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, X\,\rbrack} \right)^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/cbf27c91550c7c82ee7e9e948673eb99da1a7378]]
-\(\sigma_{Y}^{2} = \mathbb{E}\lbrack\,\left( {Y - \mathbb{E}\lbrack Y\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, Y^{2}\,\rbrack - \left( {\,\mathbb{E}\lbrack\, Y\,\rbrack} \right)^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ed498483dae15dbb86e957b5a1463f5536885902]]
-\(\mathbb{E}\lbrack\,\left( {X - \mu_{X}} \right)\left( {Y - \mu_{Y}} \right)\,\rbrack = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack\, X\,\rbrack} \right)\left( {Y - \mathbb{E}\lbrack\, Y\,\rbrack} \right)\,\rbrack = \mathbb{E}\lbrack\, X\, Y\,\rbrack - \mathbb{E}\lbrack\, X\,\rbrack\mathbb{E}\lbrack\, Y\,\rbrack\,,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4443378e105084380438782ebd391f8cb0e8e048]]
+\(\mu_{X} = \mathbb{E}\lbrack\, X\,\rbrack\)
+\(\mu_{Y} = \mathbb{E}\lbrack\, Y\,\rbrack\)
+\(\sigma_{X}^{2} = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack X\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, X^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, X\,\rbrack} \right)^{2}\)
+\(\sigma_{Y}^{2} = \mathbb{E}\lbrack\,\left( {Y - \mathbb{E}\lbrack Y\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, Y^{2}\,\rbrack - \left( {\,\mathbb{E}\lbrack\, Y\,\rbrack} \right)^{2}\)
+\(\mathbb{E}\lbrack\,\left( {X - \mu_{X}} \right)\left( {Y - \mu_{Y}} \right)\,\rbrack = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack\, X\,\rbrack} \right)\left( {Y - \mathbb{E}\lbrack\, Y\,\rbrack} \right)\,\rbrack = \mathbb{E}\lbrack\, X\, Y\,\rbrack - \mathbb{E}\lbrack\, X\,\rbrack\mathbb{E}\lbrack\, Y\,\rbrack\,,\)
 the formula for
-\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]
+\(\rho\)
 can also be written as
 
 \[\rho_{X,Y} = \frac{\mathbb{E}\lbrack\, X\, Y\,\rbrack - \mathbb{E}\lbrack\, X\,\rbrack\mathbb{E}\lbrack\, Y\,\rbrack}{\sqrt{\mathbb{E}\lbrack\, X^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, X\,\rbrack} \right)^{2}}\ \sqrt{\mathbb{E}\lbrack\, Y^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, Y\,\rbrack} \right)^{2}}}.\]
-
-[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0a96c914bb811b84698b4d4118794cf4c8167ca7]]
 
 *** For a sample
 
 Pearson's correlation coefficient, when applied to a
 [[/wiki/Sample_(statistics)][sample]], is commonly represented by
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]
+\(r_{xy}\)
 and may be referred to as the /sample correlation coefficient/ or the
 /sample Pearson correlation coefficient/. We can obtain a formula for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]
+\(r_{xy}\)
 by substituting estimates of the covariances and variances based on a
 sample into the formula above. Given paired data
-\(\left\{ {(x_{1},y_{1}),\ldots,(x_{n},y_{n})} \right\}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/594dca31c11c4148e945d30efde2027812bce8f8]]
+\(\left\{ {(x_{1},y_{1}),\ldots,(x_{n},y_{n})} \right\}\)
 consisting of
-\(n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b]]
+\(n\)
 pairs,
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]
+\(r_{xy}\)
 is defined as:
 
-| \(r_{xy} = \frac{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}(y_{i} - \overline{y})^{2}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2b9c2079a3ffc1aacd36201ea0a3fb2460dc226f]] | |   |   |   | | *(Eq.3)* |
-|                                                                                                                                                                                                                                                                                                               | |   |   |   | |          |
+ \(r_{xy} = \frac{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}(y_{i} - \overline{y})^{2}}}\)
 
 where:
 
-- \(n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b]]
+- \(n\)
   is sample size
-- \(x_{i},y_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2dccea2bb6a826b389fd2d042508c3d30443dd77]]
+- \(x_{i},y_{i}\)
   are the individual sample points indexed with /i/
-- \(\overline{x} = \frac{1}{n}\sum\limits_{i = 1}^{n}x_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/5792e9289b8786ab64a5ef4e0cd083f9c151062e]]
+- \(\overline{x} = \frac{1}{n}\sum\limits_{i = 1}^{n}x_{i}\)
   (the sample mean); and analogously for
-  \(\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af]]
+  \(\overline{y}\)[[
 
 Rearranging gives us this formula for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]:
+\(r_{xy}\)
 
-\(r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}{\sqrt{n\sum x_{i}^{2} - \left( {\sum x_{i}} \right)^{2}}\ \sqrt{n\sum y_{i}^{2} - \left( {\sum y_{i}} \right)^{2}}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b87fab4bd95646a6aa894efe96e894761c94498f]]
+\(r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}{\sqrt{n\sum x_{i}^{2} - \left( {\sum x_{i}} \right)^{2}}\ \sqrt{n\sum y_{i}^{2} - \left( {\sum y_{i}} \right)^{2}}}.\)
 where
-\(n,x_{i},y_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/493671619244268bb3ee6a7adca3a28521296a7a]]
+\(n,x_{i},y_{i}\)
 are defined as above.
 
 This formula suggests a convenient single-pass algorithm for calculating
 sample correlations, though depending on the numbers involved, it can
 sometimes be [[/wiki/Numerical_stability][numerically unstable]].
 
-Rearranging again gives us this^{[[#cite_note-RealCorBasic-11][[10]]]}
+Rearranging again gives us this
 formula for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]:
+\(r_{xy}\)
 
-\(r_{xy} = \frac{\sum\limits_{i}x_{i}y_{i} - n\overline{x}\overline{y}}{\sqrt{\sum\limits_{i}x_{i}^{2} - n{\overline{x}}^{2}}\ \sqrt{\sum\limits_{i}y_{i}^{2} - n{\overline{y}}^{2}}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ea28b20c22c6e42ae31ec9dd6c963e3a78136eed]]
+\(r_{xy} = \frac{\sum\limits_{i}x_{i}y_{i} - n\overline{x}\overline{y}}{\sqrt{\sum\limits_{i}x_{i}^{2} - n{\overline{x}}^{2}}\ \sqrt{\sum\limits_{i}y_{i}^{2} - n{\overline{y}}^{2}}}.\)
 where
-\(n,x_{i},y_{i},\overline{x},\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0f83533d3ab105f9972137dcc5a47411fc2ba5e4]]
+\(n,x_{i},y_{i},\overline{x},\overline{y}\)
 are defined as above.
 
 An equivalent expression gives the formula for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]
+\(r_{xy}\)
 as the mean of the products of the [[/wiki/Standard_score][standard
 scores]] as follows:
 
-\(r_{xy} = \frac{1}{n - 1}\sum\limits_{i = 1}^{n}\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\left( \frac{y_{i} - \overline{y}}{s_{y}} \right)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/9363d4a765bda05563bf32c9216e3cf250ac387d]]
+\(r_{xy} = \frac{1}{n - 1}\sum\limits_{i = 1}^{n}\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\left( \frac{y_{i} - \overline{y}}{s_{y}} \right)\)
 where:
 
-- \(n,x_{i},y_{i},\overline{x},\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0f83533d3ab105f9972137dcc5a47411fc2ba5e4]]
+- \(n,x_{i},y_{i},\overline{x},\overline{y}\)
   are defined as above, and
-  \(s_{x},s_{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/571a094967e19f2a2fe7f6e0d75d1b33acef8c84]]
+  \(s_{x},s_{y}\)
   are defined below
-- \(\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ddffcae5dec630f0ea0149d90c7d23e75b363a97]]
+- \(\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\)
   is the standard score (and analogously for the standard score of
-  \(y\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d]])
+  \(y\)
 
 Alternative formulae for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]
+\(r_{xy}\)
 are also available. For example. one can use the following formula for
-\(r_{xy}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bfa846f27e4f6c993bd259805d3ce59f4882]]:
+\(r_{xy}\)
 
-\(r_{xy} = \frac{\sum x_{i}y_{i} - n\overline{x}\overline{y}}{(n - 1)s_{x}s_{y}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1ea4ff80b5f62cbad42cd98edef63a4e5dcfe930]]
+\(r_{xy} = \frac{\sum x_{i}y_{i} - n\overline{x}\overline{y}}{(n - 1)s_{x}s_{y}}\)
 where:
 
-- \(n,x_{i},y_{i},\overline{x},\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0f83533d3ab105f9972137dcc5a47411fc2ba5e4]]
+- \(n,x_{i},y_{i},\overline{x},\overline{y}\)
   are defined as above and:
-- \(s_{x} = \sqrt{\frac{1}{n - 1}\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/3771178992d5cc958247dd962f4c159c2b019814]]
+- \(s_{x} = \sqrt{\frac{1}{n - 1}\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\)
   (the sample standard deviation); and analogously for
-  \(s_{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/bec93eb58677e5642c86ecdb2430703a8ee57da2]]
+  \(s_{y}\)
 
 *** Practical issues
 
@@ -291,11 +204,11 @@ between two sets of [[/wiki/Random_variables][stochastic variables]] is
 nontrivial, in particular where Canonical Correlation Analysis reports
 degraded correlation values due to the heavy noise contributions. A
 generalization of the approach is given
-elsewhere.^{[[#cite_note-13][[12]]]}
+elsewhere.
 
 In case of missing data, Garren derived the
 [[/wiki/Maximum_likelihood][maximum likelihood]]
-estimator.^{[[#cite_note-14][[13]]]}
+estimator.
 
 ** Mathematicalproperties
 
@@ -315,8 +228,7 @@ transform /X/ to /a/ + /bX/ and transform /Y/ to /c/ + /dY/, where /a/,
 correlation coefficient. (This holds for both the population and sample
 Pearson correlation coefficients.) Note that more general linear
 transformations do change the correlation: see
-[[#Decorrelation_of_n_random_variables][§ Decorrelation of n random
-variables]] for an application of this.
+[[/Decorrelation_of_n_random_variables][§ Decorrelation of n randomvariables]] for an application of this.
 
 ** Interpretation
 
@@ -326,9 +238,9 @@ between /X/ and /Y/ perfectly, with all data points lying on a
 [[/wiki/Line_(mathematics)][line]]. The correlation sign is determined
 by the [[/wiki/Regression_slope][regression slope]]: a value of +1
 implies that all data points lie on a line for which /Y/ increases as
-/X/ increases, and vice versa for −1.^{[[#cite_note-STAT_462-15][[14]]]}
+/X/ increases, and vice versa for −1.
 A value of 0 implies that there is no linear dependency between the
-variables.^{[[#cite_note-16][[15]]]}
+variables.
 
 More generally, note that (/X/_{/i/} − /X/)(/Y/_{/i/} − /Y/) is positive
 if and only if /X/_{/i/} and /Y/_{/i/} lie on the same side of their
@@ -341,7 +253,7 @@ respective means. Moreover, the stronger is either tendency, the larger
 is the [[/wiki/Absolute_value][absolute value]] of the correlation
 coefficient.
 
-Rodgers and Nicewander^{[[#cite_note-17][[16]]]} cataloged thirteen ways
+Rodgers and Nicewander cataloged thirteen ways
 of interpreting correlation or simple functions of it:
 
 - Function of raw scores and means
@@ -377,7 +289,7 @@ coefficient and the angle /φ/ between the two regression lines, /y/ =
 /x/ and /x/ on /y/ respectively. (Here, /φ/ is measured counterclockwise
 within the first quadrant formed around the lines' intersection point if
 /r/ > 0, or counterclockwise from the fourth to the second quadrant if
-/r/ < 0.) One can show^{[[#cite_note-18][[17]]]} that if the standard
+/r/ < 0.) One can show that if the standard
 deviations are equal, then /r/ = sec /φ/ − tan /φ/, where sec and tan
 are [[/wiki/Trigonometric_functions][trigonometric functions]].
 
@@ -386,7 +298,7 @@ means of their respective variables so as to have an average of zero for
 each variable), the correlation coefficient can also be viewed as the
 [[/wiki/Cosine][cosine]] of the [[/wiki/Angle][angle]] /θ/ between the
 two observed [[/wiki/Vector_(geometry)][vectors]] in /N/-dimensional
-space (for /N/ observations of each variable)^{[[#cite_note-19][[18]]]}
+space (for /N/ observations of each variable)
 
 Both the uncentered (non-Pearson-compliant) and centered correlation
 coefficients can be determined for a dataset. As an example, suppose
@@ -401,7 +313,7 @@ By the usual procedure for finding the angle /θ/ between two vectors
 (see [[/wiki/Dot_product][dot product]]), the /uncentered/ correlation
 coefficient is:
 
-\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{2.93}{\sqrt{103}\sqrt{0.0983}} = 0.920814711.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e9246ea010f8aa2a5c7388806a81621a602b241f]]
+\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{2.93}{\sqrt{103}\sqrt{0.0983}} = 0.920814711.\)
 This uncentered correlation coefficient is identical with the
 [[/wiki/Cosine_similarity][cosine similarity]]. Note that the above data
 were deliberately chosen to be perfectly correlated: /y/ = 0.10 + 0.01
@@ -410,7 +322,7 @@ Centering the data (shifting *x* by ℰ(*x*) = 3.8 and *y* by ℰ(*y*) =
 0.138) yields *x* = (−2.8, −1.8, −0.8, 1.2, 4.2) and *y* = (−0.028,
 −0.018, −0.008, 0.012, 0.042), from which
 
-\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{0.308}{\sqrt{30.8}\sqrt{0.00308}} = 1 = \rho_{xy},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4b5c7f0af0f3cdc5fa45784605b88c9e085b62c0]]
+\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{0.308}{\sqrt{30.8}\sqrt{0.00308}} = 1 = \rho_{xy},\)
 as expected.
 
 *** Interpretation of the size of a
@@ -426,7 +338,7 @@ correlation[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&sec
 This figure gives a sense of how the usefulness of a Pearson correlation
 for predicting values varies with its magnitude. Given jointly normal
 /X/, /Y/ with correlation /ρ/,
-\(1 - \sqrt{1 - \rho^{2}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/8d2503071eb5432a487fd7f300442f2cf5fc6073]]
+\(1 - \sqrt{1 - \rho^{2}}\)
 (plotted here as a function of /ρ/) is the factor by which a given
 [[/wiki/Prediction_interval][prediction interval]] for /Y/ may be
 reduced given the corresponding value of /X/. For example, if /ρ/ = 0.5,
@@ -435,9 +347,9 @@ than the 95% prediction interval of /Y/.
 
 Several authors have offered guidelines for the interpretation of a
 correlation
-coefficient.^{[[#cite_note-Buda-20][[19]]][[#cite_note-Cohen88-21][[20]]]}
+coefficient.
 However, all such criteria are in some ways
-arbitrary.^{[[#cite_note-Cohen88-21][[20]]]} The interpretation of a
+arbitrary. The interpretation of a
 correlation coefficient depends on the context and purposes. A
 correlation of 0.8 may be very low if one is verifying a physical law
 using high-quality instruments, but may be regarded as very high in the
@@ -516,47 +428,47 @@ function of Pearson's correlation coefficient follows
 degrees of freedom /n/ − 2. Specifically, if the underlying variables
 have a bivariate normal distribution, the variable
 
-\(t = r\sqrt{\frac{n - 2}{1 - r^{2}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e0810a6f2000a63525adbbd2f5e79db1f554057e]]
+\(t = r\sqrt{\frac{n - 2}{1 - r^{2}}}\)
 has a student's /t/-distribution in the null case (zero
-correlation).^{[[#cite_note-22][[21]]]} This holds approximately in case
+correlation). This holds approximately in case
 of non-normal observed values if sample sizes are large
-enough.^{[[#cite_note-23][[22]]]} For determining the critical values
+enough. For determining the critical values
 for /r/ the inverse function is needed:
 
-\(r = \frac{t}{\sqrt{n - 2 + t^{2}}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/24f585a954feeb53a614741b1b137cb07a57384d]]
+\(r = \frac{t}{\sqrt{n - 2 + t^{2}}}.\)
 Alternatively, large sample, asymptotic approaches can be used.
 
-Another early paper^{[[#cite_note-24][[23]]]} provides graphs and tables
+Another early paper provides graphs and tables
 for general values of /ρ/, for small sample sizes, and discusses
 computational approaches.
 
 In the case where the underlying variables are not normal, the sampling
 distribution of Pearson's correlation coefficient follows a Student's
 /t/-distribution, but the degrees of freedom are
-reduced.^{[[#cite_note-25][[24]]]}
+reduced.
 
 *** Using the exact istribution
 
 For data that follow a [[/wiki/Bivariate_normal_distribution][bivariates
 normal distribution]], the exact density function /f/(/r/) for the
 sample correlation coefficient /r/ of a normal bivariate
-is^{[[#cite_note-26][[25]]][[#cite_note-27][[26]]][[#cite_note-28][[27]]]}
+is
 
-\(f(r) = \frac{(n - 2)\,\Gamma(n - 1)(1 - \rho^{2})^{\frac{n - 1}{2}}(1 - r^{2})^{\frac{n - 4}{2}}}{\sqrt{2\pi}\,\Gamma(n - \frac{1}{2})(1 - \rho r)^{n - \frac{3}{2}}}{}_{2}F_{1}(\frac{1}{2},\frac{1}{2};\frac{1}{2}(2n - 1);\frac{1}{2}(\rho r + 1))\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b8b11e1f254e59c3d924c914dfa4f5a9dc017d4d]]
+\(f(r) = \frac{(n - 2)\,\Gamma(n - 1)(1 - \rho^{2})^{\frac{n - 1}{2}}(1 - r^{2})^{\frac{n - 4}{2}}}{\sqrt{2\pi}\,\Gamma(n - \frac{1}{2})(1 - \rho r)^{n - \frac{3}{2}}}{}_{2}F_{1}(\frac{1}{2},\frac{1}{2};\frac{1}{2}(2n - 1);\frac{1}{2}(\rho r + 1))\)
 where
-\(\Gamma\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19]]
+\(\Gamma\)
 is the [[/wiki/Gamma_function][gamma function]] and
-\({}_{2}F_{1}(a,b;c;z)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/98109d3d8cc5865398696e396bc469aff388b963]]
+\({}_{2}F_{1}(a,b;c;z)\)
 is the [[/wiki/Hypergeometric_function][Gaussian hypergeometric
 function]].
 
 In the special case when
-\(\rho = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2ba6310b27df5f9c9b0b1732e08cce27b99d68cf]],
+\(\rho = 0\)
 the exact density function /f/(/r/) can be written as:
 
-\(f(r) = \frac{\left( {1 - r^{2}} \right)^{\frac{n - 4}{2}}}{B\left( {\frac{1}{2},\frac{1}{2}(n - 2)} \right)},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/43448f47054d0a9708c27b2151d8a8305e499d78]]
+\(f(r) = \frac{\left( {1 - r^{2}} \right)^{\frac{n - 4}{2}}}{B\left( {\frac{1}{2},\frac{1}{2}(n - 2)} \right)},\)
 where
-\(B\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/93003d072991ba424a73ed1e081afe55c124b6ce]]
+\(B\)
 is the [[/wiki/Beta_function][beta function]], which is one way of
 writing the density of a Student's t-distribution, as above.
 
@@ -564,16 +476,16 @@ writing the density of a Student's t-distribution, as above.
 
 Confidence intervals and tests can be calculated from a
 [[/wiki/Confidence_distribution][confidence distribution]]. An exact
-confidence density for /ρ/ is^{[[#cite_note-29][[28]]]}
+confidence density for /ρ/ is
 
 \[\pi(\rho|r) = \frac{\nu(\nu - 1)\Gamma(\nu - 1)}{\sqrt{2\pi}\Gamma(\nu + \frac{1}{2})}(1 - r^{2})^{\frac{\nu - 1}{2}} \cdot (1 - \rho^{2})^{\frac{\nu - 2}{2}} \cdot (1 - r\rho)^{\frac{1 - 2\nu}{2}}F\left( {\frac{3}{2}, - \frac{1}{2};\nu + \frac{1}{2};\frac{1 + r\rho}{2}} \right)\]
 
-[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c906ed1aef035b9f2c82dae3bc1823b33b88a383]]
+
 
 where
-\(F\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57]]
+\(F\)
 is the Gaussian hypergeometric function and
-\(\nu = n - 1 > 1\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/90621e9d8a7d137425c6871c269cc3dc8acddfe6]].
+\(\nu = n - 1 > 1\)
 
 *** Using the Fisher transformation
 
@@ -581,29 +493,29 @@ In practice, [[/wiki/Confidence_intervals][confidence intervals]] and
 [[/wiki/Hypothesis_test][hypothesis tests]] relating to /ρ/ are usually
 carried out using the [[/wiki/Fisher_transformation][Fisher
 transformation]],
-\(F\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57]]/:/
+\(F\)
 
-\(F(r) \equiv \frac{1}{2}\,\ln\left( \frac{1 + r}{1 - r} \right) = {artanh}(r)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e0d292b07d038e9969434f745faa99f170296f50]]
+\(F(r) \equiv \frac{1}{2}\,\ln\left( \frac{1 + r}{1 - r} \right) = {artanh}(r)\)
 /F/(/r/) approximately follows a [[/wiki/Normal_distribution][normal
 distribution]] with
 
-\(\text{mean} = F(\rho) = {artanh}(\rho)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/654763efc6d55f537bffdfe1bdc33599e1f3d2c1]]    and
+\(\text{mean} = F(\rho) = {artanh}(\rho)\)
 [[/wiki/Standard_error][standard error]]
-\(= \text{SE} = \frac{1}{\sqrt{n - 3}},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e1f040350f3f8007ca5b83524778904a0cf56e41]]
+\(= \text{SE} = \frac{1}{\sqrt{n - 3}},\)
 where /n/ is the sample size. The approximation error is lowest for a
 large sample size
-\(n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b]]
+\(n\)
 and small
-\(r\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538]]
+\(r\)
 and
-\(\rho_{0}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d9c04a9d26b86af8c6205ba2a6287fd655b6b714]]
+\(\rho_{0}\)
 and increases otherwise.
 
 Using the approximation, a [[/wiki/Standard_score][z-score]] is
 
-\(z = \frac{x - \text{mean}}{\text{SE}} = \lbrack F(r) - F(\rho_{0})\rbrack\sqrt{n - 3}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/da7a3d54a70f9005e3bf9a2accf62cbf0fa0ea71]]
+\(z = \frac{x - \text{mean}}{\text{SE}} = \lbrack F(r) - F(\rho_{0})\rbrack\sqrt{n - 3}\)
 under the [[/wiki/Null_hypothesis][null hypothesis]] that
-\(\rho = \rho_{0}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f238f1650226a8b22c2e7daea44054d5616bf57b]],
+\(\rho = \rho_{0}\)
 given the assumption that the sample pairs are
 [[/wiki/Independent_and_identically_distributed][independent and
 identically distributed]] and follow a
@@ -611,20 +523,20 @@ identically distributed]] and follow a
 Thus an approximate [[/wiki/P-value][p-value]] can be obtained from a
 normal probability table. For example, if /z/ = 2.2 is observed and a
 two-sided p-value is desired to test the null hypothesis that
-\(\rho = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2ba6310b27df5f9c9b0b1732e08cce27b99d68cf]],
+\(\rho = 0\)
 the p-value is 2 Φ(−2.2) = 0.028, where Φ is the standard normal
 [[/wiki/Cumulative_distribution_function][cumulative distribution
 function]].
 
 To obtain a confidence interval for ρ, we first compute a confidence
 interval for
-/F/(/\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]/):
+/F/(/\(\rho\)
 
-\(100(1 - \alpha)\%\text{CI}:{artanh}(\rho) \in \lbrack{artanh}(r) \pm z_{\alpha/2}\text{SE}\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/affc3f0ee39499c97bb851229113f49d83100bf2]]
+\(100(1 - \alpha)\%\text{CI}:{artanh}(\rho) \in \lbrack{artanh}(r) \pm z_{\alpha/2}\text{SE}\rbrack\)
 The inverse Fisher transformation brings the interval back to the
 correlation scale.
 
-\(100(1 - \alpha)\%\text{CI}:\rho \in \lbrack\tanh({artanh}(r) - z_{\alpha/2}\text{SE}),\tanh({artanh}(r) + z_{\alpha/2}\text{SE})\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/bf658969d39ea848505750b5cd76db21da78dd5c]]
+\(100(1 - \alpha)\%\text{CI}:\rho \in \lbrack\tanh({artanh}(r) - z_{\alpha/2}\text{SE}),\tanh({artanh}(r) + z_{\alpha/2}\text{SE})\rbrack\)
 For example, suppose we observe /r/ = 0.3 with a sample size of /n/=50,
 and we wish to obtain a 95% confidence interval for ρ. The transformed
 value is arctanh(/r/) = 0.30952, so the confidence interval on the
@@ -643,27 +555,27 @@ The square of the sample correlation coefficient is typically denoted
 this case, it estimates the fraction of the variance in /Y/ that is
 explained by /X/ in a [[/wiki/Simple_linear_regression][simple linear
 regression]]. So if we have the observed dataset
-\(Y_{1},\ldots,Y_{n}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/010c105dda336a4624a635ea54886fb040034d64]]
+\(Y_{1},\ldots,Y_{n}\)
 and the fitted dataset
-\({\hat{Y}}_{1},\ldots,{\hat{Y}}_{n}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7b92b6ed682745ccf89687f13a8d9babd6b98b45]]
+\({\hat{Y}}_{1},\ldots,{\hat{Y}}_{n}\)
 then as a starting point the total variation in the /Y/_{/i/} around
 their average value can be decomposed as follows
 
-\(\sum\limits_{i}(Y_{i} - \overline{Y})^{2} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2} + \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c9118c1be467c66001f725256173b44a232ff3ee]]
+\(\sum\limits_{i}(Y_{i} - \overline{Y})^{2} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2} + \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2},\)
 where the
-\({\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/95e3f64a5026a18a1d7ff1b9991ad98465260fd9]]
+\({\hat{Y}}_{i}\)
 are the fitted values from the regression analysis. This can be
 rearranged to give
 
-\(1 = \frac{\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}} + \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/5a66f944f825488f551eee242c6ee5d89172501c]]
+\(1 = \frac{\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}} + \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}.\)
 The two summands above are the fraction of variance in /Y/ that is
 explained by /X/ (right) and that is unexplained by /X/ (left).
 
 Next, we apply a property of least square regression models, that the
 sample covariance between
-\({\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/95e3f64a5026a18a1d7ff1b9991ad98465260fd9]]
+\({\hat{Y}}_{i}\)
 and
-\(Y_{i} - {\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/bd03d5a74128859466ac10cc4561d4aeb8d72d49]]
+\(Y_{i} - {\hat{Y}}_{i}\)
 is zero. Thus, the sample correlation coefficient between the observed
 and fitted response values in the regression can be written (calculation
 is under expectation, assumes Gaussian statistics)
@@ -674,36 +586,36 @@ is under expectation, assumes Gaussian statistics)
  & {= \frac{\sum\limits_{i}\lbrack(Y_{i} - {\hat{Y}}_{i})({\hat{Y}}_{i} - \overline{Y}) + ({\hat{Y}}_{i} - \overline{Y})^{2}\rbrack}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
  & {= \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
  & {= \sqrt{\frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}}.} \\
-\end{matrix}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d86595f3f77e8ee96952760d9176a5fa140cc562]]
+\end{matrix}\)
 Thus
 
-\(r(Y,\hat{Y})^{2} = \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6b69ee444a1cf744688c7629e8379f8365436bca]]
+\(r(Y,\hat{Y})^{2} = \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}\)
 where
-\(r(Y,\hat{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c96eb90dcf4a4f321c44761777ca0b5a3b557dd9]]
+\(r(Y,\hat{Y})^{2}\)
 is the proportion of variance in /Y/ explained by a linear function of
 /X/.
 
 In the derivation above, the fact that
 
-\(\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})({\hat{Y}}_{i} - \overline{Y}) = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c6c05d40d242e53a1773c0b3d16091f6038300d1]]
+\(\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})({\hat{Y}}_{i} - \overline{Y}) = 0\)
 can be proved by noticing that the partial derivatives of the
 [[/wiki/Residual_sum_of_squares][residual sum of squares]] (RSS) over
 /β/_{0} and /β/_{1} are equal to 0 in the least squares model, where
 
-\(\text{RSS} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4f0767dfb81d4b557639ff4a261ce799dd180c96]].
+\(\text{RSS} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}\)
 In the end, the equation can be written as:
 
-\(r(Y,\hat{Y})^{2} = \frac{\text{SS}_{\text{reg}}}{\text{SS}_{\text{tot}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4d3a38b66d8c711fed7d3ce42bbf4b8527fa55a9]]
+\(r(Y,\hat{Y})^{2} = \frac{\text{SS}_{\text{reg}}}{\text{SS}_{\text{tot}}}\)
 where
 
-- \(\text{SS}_{\text{reg}} = \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2326f7ddf5f4b56f75e373683b5c990d91917b80]]
-- \(\text{SS}_{\text{tot}} = \sum\limits_{i}(Y_{i} - \overline{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/185d77782aeb203c935c650891e8a9c70f38ceb8]]
+- \(\text{SS}_{\text{reg}} = \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}\)
+- \(\text{SS}_{\text{tot}} = \sum\limits_{i}(Y_{i} - \overline{Y})^{2}\)
 
 The symbol
-\(\text{SS}_{\text{reg}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a2bb9bbb9357f5fc855305e0a69f112bddb99cdb]]
+\(\text{SS}_{\text{reg}}\)
 is called the regression sum of squares, also called the
 [[/wiki/Explained_sum_of_squares][explained sum of squares]], and
-\(\text{SS}_{\text{tot}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f89b1b62a6c558284ef336502630d606a8c1cf4d]]
+\(\text{SS}_{\text{tot}}\)
 is the [[/wiki/Total_sum_of_squares][total sum of squares]]
 (proportional to the [[/wiki/Variance][variance]] of the data).
 
@@ -754,22 +666,22 @@ distribution is bounded, ρ is always defined.
   [[/wiki/Law_of_large_numbers][law of large numbers]] can be applied).
 - If the sample size is small, then the sample correlation coefficient
   /r/ is not an unbiased estimate of
-  /ρ/.^{[[#cite_note-RealCorBasic-11][[10]]]} The adjusted correlation
+  /ρ/. The adjusted correlation
   coefficient must be used instead: see elsewhere in this article for
   the definition.
 - Correlations can be different for imbalanced
   [[/wiki/Dichotomous_variable][dichotomous]] data when there is
-  variance error in sample.^{[[#cite_note-30][[29]]]}
+  variance error in sample.
 
 *** Robustness
 
 Like many commonly used statistics, the sample statistic /r/ is not
-[[/wiki/Robust_statistics][robust]],^{[[#cite_note-wilcox-31][[30]]]} so
+[[/wiki/Robust_statistics][robust]], so
 its value can be misleading if [[/wiki/Outlier][outliers]] are
-present.^{[[#cite_note-32][[31]]][[#cite_note-33][[32]]]} Specifically,
+present. Specifically,
 the PMCC is neither distributionally
 robust,^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} nor
-outlier resistant^{[[#cite_note-wilcox-31][[30]]]} (see
+outlier resistant (see
 [[/wiki/Robust_statistics#Definition][Robust statistics#Definition]]).
 Inspection of the [[/wiki/Scatterplot][scatterplot]] between /X/ and /Y/
 will typically reveal a situation where lack of robustness might be an
@@ -802,7 +714,7 @@ membership or another factor that it is desirable to control, we can
 stratify the data based on the value of /W/, then calculate a
 correlation coefficient within each stratum. The stratum-level estimates
 can then be combined to estimate the overall correlation while
-controlling for /W/.^{[[#cite_note-34][[33]]]}
+controlling for /W/.
 
 ** Variants
 
@@ -818,22 +730,22 @@ different purposes. Here are some examples.
 The sample correlation coefficient r is not an unbiased estimate of ρ.
 For data that follows a [[/wiki/Bivariate_normal_distribution][bivariate
 normal distribution]], the expectation E[/r/] for the sample correlation
-coefficient r of a normal bivariate is^{[[#cite_note-35][[34]]]}
+coefficient r of a normal bivariate is
 
-\(\mathbb{E}\lbrack r\rbrack = \rho - \frac{\rho\left( {1 - \rho^{2}} \right)}{2n} + \cdots,\quad\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/683b838e709e3b32a3c22dfec4fa665a593f42ad]]
+\(\mathbb{E}\lbrack r\rbrack = \rho - \frac{\rho\left( {1 - \rho^{2}} \right)}{2n} + \cdots,\quad\)
 therefore r is a biased estimator of
-\(\rho.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7ae3f23f76f614ab4dc47bfc296699c2be740666]]
+\(\rho.\)
 The unique minimum variance unbiased estimator /r/_{adj} is given
-by^{[[#cite_note-36][[35]]]}
+by
 
-| \(r_{\text{adj}} = r\,{_{2}\mathbf{F}_{1}}\left( {\frac{1}{2},\frac{1}{2};\frac{n - 1}{2};1 - r^{2}} \right),\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/00d4b4792e418cc86e6d5f37c095157474d27d4f]] | |   |   |   | | *(1)* |
-|                                                                                                                                                                                                                     | |   |   |   | |       |
+\(r_{\text{adj}} = r\,{_{2}\mathbf{F}_{1}}\left( {\frac{1}{2},\frac{1}{2};\frac{n - 1}{2};1 - r^{2}} \right),\)
+
 
 where:
 
-- \(r,n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3cab944a623d7a357cbef615f6ca81d32206107]]
+- \(r,n\)
   are defined as above,
-- \({_{2}\mathbf{F}_{1}}(a,b;c;z)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/8a2c006415714efae128b57c0fad2b0c37257065]]
+- \({_{2}\mathbf{F}_{1}}(a,b;c;z)\)
   is the [[/wiki/Hypergeometric_function][Gaussian hypergeometric
   function]].
 
@@ -841,18 +753,18 @@ An approximately unbiased estimator /r/_{adj} can be
 obtained^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} by
 truncating E[/r/] and solving this truncated equation:
 
-| \(r = \mathbb{E}\lbrack r\rbrack \approx r_{\text{adj}} - \frac{r_{\text{adj}}(1 - r_{\text{adj}}^{2})}{2n}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6382c40e3ad4e06d65c7d09e214ebc8daba5d30c]] | |   |   |   | | *(2)* |
+| \(r = \mathbb{E}\lbrack r\rbrack \approx r_{\text{adj}} - \frac{r_{\text{adj}}(1 - r_{\text{adj}}^{2})}{2n}.\)
 |                                                                                                                                                                                                                    | |   |   |   | |       |
 
 An approximate solution^{[/[[/wiki/Wikipedia:Citation_needed][citation
-needed]]/]} to equation (*[[#math_2][2]]*) is:
+needed]]/]} to equation (*[[/math_2][2]]*) is:
 
-| \(r_{\text{adj}} \approx r\left\lbrack {1 + \frac{1 - r^{2}}{2n}} \right\rbrack,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/cbf3f71f2cfe17f8f0d422d5ac0d482cc429a925]] | |   |   |   | | *(3)* |
+| \(r_{\text{adj}} \approx r\left\lbrack {1 + \frac{1 - r^{2}}{2n}} \right\rbrack,\)
 |                                                                                                                                                                                        | |   |   |   | |       |
 
-where in (*[[#math_3][3]]*):
+where in (*[[/math_3][3]]*):
 
-- \(r,n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3cab944a623d7a357cbef615f6ca81d32206107]]
+- \(r,n\)
   are defined as above,
 - /r/_{adj} is a suboptimal
   estimator,^{[/[[/wiki/Wikipedia:Citation_needed][citation
@@ -863,11 +775,11 @@ where in (*[[#math_3][3]]*):
 - /r/_{adj} has a bias of order
   1⁄(/n/ − 1).
 
-Another proposed^{[[#cite_note-RealCorBasic-11][[10]]]} adjusted
+Another proposed adjusted
 correlation coefficient
 is:^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]}
 
-\(r_{\text{adj}} = \sqrt{1 - \frac{(1 - r^{2})(n - 1)}{(n - 2)}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/40c19e17c9a6c528dbf5fde1b5577d9d65bd4e85]]
+\(r_{\text{adj}} = \sqrt{1 - \frac{(1 - r^{2})(n - 1)}{(n - 2)}}.\)
 Note that /r/_{adj} ≈ /r/ for large values of n.
 
 *** Weighted correlation coefficient
@@ -875,25 +787,25 @@ Note that /r/_{adj} ≈ /r/ for large values of n.
 Suppose observations to be correlated have differing degrees of
 importance that can be expressed with a weight vector /w/. To calculate
 the correlation between vectors /x/ and /y/ with the weight vector /w/
-(all of length /n/),^{[[#cite_note-37][[36]]][[#cite_note-38][[37]]]}
+(all of length /n/),
 
 - Weighted mean:
 
   \[m(x;w) = \frac{\sum\limits_{i}w_{i}x_{i}}{\sum\limits_{i}w_{i}}.\]
 
-  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/c0c9277e02db423861aa4ad28c3a66dbdfa8850d]]
+  
 
 - Weighted covariance
 
   \[{cov}(x,y;w) = \frac{\sum\limits_{i}w_{i} \cdot (x_{i} - m(x;w))(y_{i} - m(y;w))}{\sum\limits_{i}w_{i}}.\]
 
-  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/3dc4f106a16942bd22b5c8721a0a567816dce50d]]
+  
 
 - Weighted correlation
 
   \[{corr}(x,y;w) = \frac{{cov}(x,y;w)}{\sqrt{{cov}(x,x;w){cov}(y,y;w)}}.\]
 
-  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/3d703455daf32e17a67de117ef93433125980424]]
+  
 
 *** Reflective correlation
 coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=25][edit]]]
@@ -905,18 +817,18 @@ which the data are not centered around their mean
 values.^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} The
 population reflective correlation is
 
-\({corr}_{r}(X,Y) = \frac{\mathbb{E}\lbrack\, X\, Y\,\rbrack}{\sqrt{\mathbb{E}\lbrack\, X^{2}\,\rbrack \cdot \mathbb{E}\lbrack\, Y^{2}\,\rbrack}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e6d897e4b303a062ed14cc9f88f35f5c8ffc91f7]]
+\({corr}_{r}(X,Y) = \frac{\mathbb{E}\lbrack\, X\, Y\,\rbrack}{\sqrt{\mathbb{E}\lbrack\, X^{2}\,\rbrack \cdot \mathbb{E}\lbrack\, Y^{2}\,\rbrack}}.\)
 The reflective correlation is symmetric, but it is not invariant under
 translation:
 
-\({corr}_{r}(X,Y) = {corr}_{r}(Y,X) = {corr}_{r}(X,bY) \neq {corr}_{r}(X,a + bY),\quad a \neq 0,b > 0.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/45be7f276b0b408d286c9d49ed7dff78e2a0aa69]]
+\({corr}_{r}(X,Y) = {corr}_{r}(Y,X) = {corr}_{r}(X,bY) \neq {corr}_{r}(X,a + bY),\quad a \neq 0,b > 0.\)
 The sample reflective correlation is equivalent to
 [[/wiki/Cosine_similarity][cosine similarity]]:
 
-\(rr_{xy} = \frac{\sum x_{i}y_{i}}{\sqrt{(\sum x_{i}^{2})(\sum y_{i}^{2})}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/22f362146fa321cdb0444e6b66603bd9d1ea02a6]]
+\(rr_{xy} = \frac{\sum x_{i}y_{i}}{\sqrt{(\sum x_{i}^{2})(\sum y_{i}^{2})}}.\)
 The weighted version of the sample reflective correlation is
 
-\(rr_{xy,w} = \frac{\sum w_{i}x_{i}y_{i}}{\sqrt{(\sum w_{i}x_{i}^{2})(\sum w_{i}y_{i}^{2})}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e3473f0dd4cd5dd5adcfd0399d4dadb08a9caec9]]
+\(rr_{xy,w} = \frac{\sum w_{i}x_{i}y_{i}}{\sqrt{(\sum w_{i}x_{i}^{2})(\sum w_{i}y_{i}^{2})}}.\)
 *** Scaled correlation
 coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=26][edit]]]
     :PROPERTIES:
@@ -928,30 +840,30 @@ Main article: [[/wiki/Scaled_correlation][Scaled correlation]]
 Scaled correlation is a variant of Pearson's correlation in which the
 range of the data is restricted intentionally and in a controlled manner
 to reveal correlations between fast components in time
-series.^{[[#cite_note-Nikolicetal-39][[38]]]} Scaled correlation is
+series. Scaled correlation is
 defined as average correlation across short segments of data.
 
 Let
-\(K\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0]]
+\(K\)
 be the number of segments that can fit into the total length of the
 signal
-\(T\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0]]
+\(T\)
 for a given scale
-\(s\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632]]:
+\(s\)
 
-\(K = {round}\left( \frac{T}{s} \right).\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7a18a5b1b26d158dc37bd2b34fe0921ee1c73dc5]]
+\(K = {round}\left( \frac{T}{s} \right).\)
 The scaled correlation across the entire signals
-\({\overline{r}}_{s}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f1fb173b0ab9244d34f1fc5ceb57f7cb091bc5fb]]
+\({\overline{r}}_{s}\)
 is then computed as
 
-\({\overline{r}}_{s} = \frac{1}{K}\sum\limits_{k = 1}^{K}r_{k},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d3c9d6d707342d0e2f0ce3b221d114124ac6ef20]]
+\({\overline{r}}_{s} = \frac{1}{K}\sum\limits_{k = 1}^{K}r_{k},\)
 where
-\(r_{k}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/9b28e0e640d099f3676330bd4f604ae15c37bb4f]]
+\(r_{k}\)
 is Pearson's coefficient of correlation for segment
-\(k\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40]].
+\(k\)
 
 By choosing the parameter
-\(s\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632]],
+\(s\)
 the range of values is reduced and the correlations on long time scale
 are filtered out, only the correlations on short time scales being
 revealed. Thus, the contributions of slow components are removed and
@@ -964,35 +876,31 @@ distance[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&sectio
     :END:
 A distance metric for two variables X and Y known as /Pearson's
 distance/ can be defined from their correlation coefficient
-as^{[[#cite_note-40][[39]]]}
+as
 
-\(d_{X,Y} = 1 - \rho_{X,Y}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e68aeaeed324bc9a50c6e3215f77ef7986038a89]]
+\(d_{X,Y} = 1 - \rho_{X,Y}.\)
 Considering that the Pearson correlation coefficient falls between [−1,
 +1], the Pearson distance lies in [0, 2]. The Pearson distance has been
 used in [[/wiki/Cluster_analysis][cluster analysis]] and data detection
 for communications and storage with unknown gain and
-offset^{[[#cite_note-41][[40]]]}
+offset
 
-*** Circular correlation
-coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=28][edit]]]
-    :PROPERTIES:
-    :CUSTOM_ID: circular-correlation-coefficientedit
-    :END:
+*** Circular correlation coefficient
 
 Further information: [[/wiki/Circular_statistics][Circular statistics]]
 
 For variables X = {/x/_{1},...,/x/_{/n/}} and Y =
 {/y/_{1},...,/y/_{/n/}} that are defined on the unit circle [0, 2π), it
 is possible to define a circular analog of Pearson's
-coefficient.^{[[#cite_note-SRJ-42][[41]]]} This is done by transforming
+coefficient. This is done by transforming
 data points in X and Y with a [[/wiki/Sine][sine]] function such that
 the correlation coefficient is given as:
 
-\(r_{\text{circular}} = \frac{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})\sin(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}\sin(y_{i} - \overline{y})^{2}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4b9ca950ffae319129c11e0da879728b4143e5f9]]
+\(r_{\text{circular}} = \frac{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})\sin(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}\sin(y_{i} - \overline{y})^{2}}}\)
 where
-\(\overline{x}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/466e03e1c9533b4dab1b9949dad393883f385d80]]
+\(\overline{x}\)
 and
-\(\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af]]
+\(\overline{y}\)
 are the [[/wiki/Mean_of_circular_quantities][circular means]] of /X/
 and /Y/. This measure can be useful in fields like meteorology where the
 angular direction of data is important.
@@ -1011,11 +919,7 @@ measures the strength of dependence between a pair of variables that is
 not accounted for by the way in which they both change in response to
 variations in a selected subset of the other variables.
 
-** Decorrelation of /n/ random
-variables[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=30][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: decorrelation-of-n-random-variablesedit
-   :END:
+** Decorrelation of /n/ random variables[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=30][edit]]]
 
 Main article: [[/wiki/Decorrelation][Decorrelation]]
 
@@ -1023,14 +927,14 @@ It is always possible to remove the correlations between all pairs of an
 arbitrary number of random variables by using a data transformation,
 even if the relationship between the variables is nonlinear. A
 presentation of this result for population distributions is given by Cox
-& Hinkley.^{[[#cite_note-43][[42]]]}
+& Hinkley.
 
 A corresponding result exists for reducing the sample correlations to
 zero. Suppose a vector of /n/ random variables is observed /m/ times.
 Let /X/ be a matrix where
-\(X_{i,j}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b2b9e6670d691d42489f7be6e034cbcca7a92f03]]
+\(X_{i,j}\)
 is the /j/th variable of observation /i/. Let
-\(Z_{m,m}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e40ff160c7b41d1bcc4a806d848128347d3c38f3]]
+\(Z_{m,m}\)
 be an /m/ by /m/ square matrix with every element 1. Then /D/ is the
 data transformed so every random variable has zero mean, and /T/ is the
 data transformed so all variables have zero mean and zero correlation
@@ -1041,8 +945,8 @@ deviation to get unit variance. The transformed variables will be
 uncorrelated, even though they may not be
 [[/wiki/Statistical_independence][independent]].
 
-\(D = X - \frac{1}{m}Z_{m,m}X\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/03456ef75e5fee295db26dc7ed15ec1d6b102866]]
-\(T = D(D^{\mathsf{T}}D)^{- \frac{1}{2}},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/872f960553d8d1f9a2019224522c25f232f6f986]]
+\(D = X - \frac{1}{m}Z_{m,m}X\)
+\(T = D(D^{\mathsf{T}}D)^{- \frac{1}{2}},\)
 where an exponent of −+1⁄2 represents the
 [[/wiki/Matrix_square_root][matrix square root]] of the
 [[/wiki/Matrix_inverse][inverse]] of a matrix. The correlation matrix of
@@ -1050,915 +954,9 @@ where an exponent of −+1⁄2 represents the
 vector of /n/ elements, then the same transform can be applied to /x/ to
 get the transformed vectors /d/ and /t/:
 
-\(d = x - \frac{1}{m}Z_{1,m}X,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ec18c03e3baee8fe5087f73be402f05b3b8db048]]
-\(t = d(D^{\mathsf{T}}D)^{- \frac{1}{2}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7ba2f18311264d9b6e7c8dcdac92ff6e0097b43f]]
+\(d = x - \frac{1}{m}Z_{1,m}X,\)[[
+\(t = d(D^{\mathsf{T}}D)^{- \frac{1}{2}}.\)
 This decorrelation is related to
 [[/wiki/Principal_components_analysis][principal components analysis]]
 for multivariate data.
 
-** Software
-implementations[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=31][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: software-implementationsedit
-   :END:
-
-- [[/wiki/R_(programming_language)][R]]'s statistics base-package
-  implements the correlation coefficient with =cor(x, y)=, or (with the
-  P value also) with
-  [[http://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html][=cor.test(x, y)=]].
-- The [[/wiki/SciPy][SciPy]]
-  [[/wiki/Python_(programming_language)][Python]] library via
-  [[https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html][=pearsonr(x, y)=]].
-- The [[/wiki/Pandas_(software)][Pandas]] Python library implements
-  Pearson correlation coefficient calculation as the default option for
-  the method
-  [[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html][=pandas.DataFrame.corr=]]
-- [[/wiki/Wolfram_Mathematica][Wolfram Mathematica]] via the
-  [[https://reference.wolfram.com/language/ref/Correlation.html][=Correlation=]]
-  function, or (with the P value) with
-  [[https://reference.wolfram.com/language/ref/CorrelationTest.html][=CorrelationTest=]].
-- The Boost [[/wiki/C%2B%2B][C++]] library via the
-  [[https://www.boost.org/doc/libs/1_76_0/libs/math/doc/html/math_toolkit/bivariate_statistics.html][=correlation_coefficient=]]
-  function.
-
-** See
-also[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=32][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: see-alsoedit
-   :END:
-
-- [[/wiki/File:Nuvola_apps_edu_mathematics_blue-p.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/28px-Nuvola_apps_edu_mathematics_blue-p.svg.png]]]][[/wiki/Portal:Mathematics][Mathematics
-  portal]]
-
-- [[/wiki/Anscombe%27s_quartet][Anscombe's quartet]]
-- [[/wiki/Association_(statistics)][Association (statistics)]]
-- [[/wiki/Coefficient_of_colligation][Coefficient of colligation]]
-
-  - [[/wiki/Yule%27s_Q][Yule's Q]]
-  - [[/wiki/Yule%27s_Y][Yule's Y]]
-
-- [[/wiki/Concordance_correlation_coefficient][Concordance correlation
-  coefficient]]
-- [[/wiki/Correlation_and_dependence][Correlation and dependence]]
-- [[/wiki/Correlation_ratio][Correlation ratio]]
-- [[/wiki/Disattenuation][Disattenuation]]
-- [[/wiki/Distance_correlation][Distance correlation]]
-- [[/wiki/Maximal_information_coefficient][Maximal information
-  coefficient]]
-- [[/wiki/Multiple_correlation][Multiple correlation]]
-- [[/wiki/Normally_distributed_and_uncorrelated_does_not_imply_independent][Normally
-  distributed and uncorrelated does not imply independent]]
-- [[/wiki/Odds_ratio][Odds ratio]]
-- [[/wiki/Partial_correlation][Partial correlation]]
-- [[/wiki/Polychoric_correlation][Polychoric correlation]]
-- [[/wiki/Quadrant_count_ratio][Quadrant count ratio]]
-- [[/wiki/RV_coefficient][RV coefficient]]
-- [[/wiki/Spearman%27s_rank_correlation_coefficient][Spearman's rank
-  correlation coefficient]]
-
-** Footnotes[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=33][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: footnotesedit
-   :END:
-
-1. *[[#cite_ref-6][^]]* As early as 1877, Galton was using the term
-   "reversion" and the symbol "/r/" for what would become
-   "regression".^{[[#cite_note-3][[3]]][[#cite_note-4][[4]]][[#cite_note-5][[5]]]}
-
-** References[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=34][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: referencesedit
-   :END:
-
-1.  *[[#cite_ref-1][^]]*
-    [[http://libguides.library.kent.edu/SPSS/PearsonCorr]["SPSS
-    Tutorials: Pearson Correlation"]].
-2.  *[[#cite_ref-2][^]]*
-    [[https://www.statisticshowto.com/probability-and-statistics/correlation-coefficient-formula/]["Correlation
-    Coefficient: Simple Definition, Formula, Easy Steps"]]. /Statistics
-    How To/.
-3.  *[[#cite_ref-3][^]]* Galton, F. (5--19 April 1877).
-    [[https://books.google.com/books?id=eskKAAAAYAAJ&pg=PA512]["Typical
-    laws of heredity"]]. /Nature/. *15* (388, 389, 390): 492--495,
-    512--514, 532--533.
-    [[/wiki/Bibcode_(identifier)][Bibcode]]:[[https://ui.adsabs.harvard.edu/abs/1877Natur..15..492.][1877Natur..15..492.]].
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1038%2F015492a0][10.1038/015492a0]].
-    [[/wiki/S2CID_(identifier)][S2CID]] [[https://api.semanticscholar.org/CorpusID:4136393][4136393]].
-    In the "Appendix" on page 532, Galton uses the term "reversion" and
-    the symbol /r/.
-4.  *[[#cite_ref-4][^]]* Galton, F. (24 September 1885).
-    [[https://books.google.com/books?id=lN3RjXLUuWsC&pg=PA499]["The
-    British Association: Section II, Anthropology: Opening address by
-    Francis Galton, F.R.S., etc., President of the Anthropological
-    Institute, President of the Section"]]. /Nature/. *32* (830):
-    507--510.
-5.  *[[#cite_ref-5][^]]* Galton, F. (1886).
-    [[https://books.google.com/books?id=JPcRAAAAYAAJ&pg=PA246]["Regression
-    towards mediocrity in hereditary stature"]]. /Journal of the
-    Anthropological Institute of Great Britain and Ireland/. *15*:
-    246--263.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.2307%2F2841583][10.2307/2841583]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2841583][2841583]].
-6.  *[[#cite_ref-7][^]]* Pearson, Karl (20 June 1895).
-    [[https://books.google.com/books?id=60aL0zlT-90C&pg=PA240]["Notes on
-    regression and inheritance in the case of two parents"]].
-    /Proceedings of the Royal Society of London/. *58*: 240--242.
-    [[/wiki/Bibcode_(identifier)][Bibcode]]:[[https://ui.adsabs.harvard.edu/abs/1895RSPS...58..240P][1895RSPS...58..240P]].
-7.  *[[#cite_ref-8][^]]* Stigler, Stephen M. (1989).
-    [[https://doi.org/10.1214%2Fss%2F1177012580]["Francis Galton's
-    account of the invention of correlation"]]. /Statistical Science/.
-    *4* (2): 73--79.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1214%2Fss%2F1177012580][10.1214/ss/1177012580]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2245329][2245329]].
-8.  *[[#cite_ref-9][^]]*
-    [[https://books.google.com/books?id=y3s_AAAAcAAJ&q=Sur%20Les%20Probabilit%C3%A9s%20des%20Erreurs%20de%20Situation%20d'un%20Point&pg=PA1]["Analyse
-    mathematique sur les probabilités des erreurs de situation d'un
-    point"]]. /Mem. Acad. Roy. Sci. Inst. France/. Sci. Math, et Phys.
-    (in French). *9*: 255--332. 1844 -- via Google Books.
-9.  *[[#cite_ref-10][^]]* Wright, S. (1921). "Correlation and
-    causation". /Journal of Agricultural Research/. *20* (7): 557--585.
-10. ^ [[#cite_ref-RealCorBasic_11-0][^{/*a*/}]]
-    [[#cite_ref-RealCorBasic_11-1][^{/*b*/}]]
-    [[#cite_ref-RealCorBasic_11-2][^{/*c*/}]]
-    [[#cite_ref-RealCorBasic_11-3][^{/*d*/}]]
-    [[#cite_ref-RealCorBasic_11-4][^{/*e*/}]]
-    [[http://www.real-statistics.com/correlation/basic-concepts-correlation/][Real
-    Statistics Using Excel: Correlation: Basic Concepts]], retrieved 22
-    February 2015
-11. *[[#cite_ref-12][^]]* Weisstein, Eric W.
-    [[https://mathworld.wolfram.com/StatisticalCorrelation.html]["Statistical
-    Correlation"]]. /mathworld.wolfram.com/. Retrieved 22 August 2020.
-12. *[[#cite_ref-13][^]]* Moriya, N. (2008). "Noise-related multivariate
-    optimal joint-analysis in longitudinal stochastic processes". In
-    Yang, Fengshan (ed.).
-    /[[/w/index.php?title=Progress_in_Applied_Mathematical_Modeling&action=edit&redlink=1][Progress
-    in Applied Mathematical Modeling]]/.
-    [[/wiki/Nova_Science_Publishers,_Inc.][Nova Science Publishers,
-    Inc.]] pp. 223--260.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/978-1-60021-976-4][978-1-60021-976-4]].
-13. *[[#cite_ref-14][^]]* Garren, Steven T. (15 June 1998). "Maximum
-    likelihood estimation of the correlation coefficient in a bivariate
-    normal model, with missing data". /Statistics & Probability
-    Letters/. *38* (3): 281--288.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1016%2FS0167-7152%2898%2900035-2][10.1016/S0167-7152(98)00035-2]].
-14. *[[#cite_ref-STAT_462_15-0][^]]*
-    [[https://online.stat.psu.edu/stat462/node/96/]["2.6 - (Pearson)
-    Correlation Coefficient r"]]. /STAT 462/. Retrieved 10 July 2021.
-15. *[[#cite_ref-16][^]]*
-    [[https://opentextbc.ca/introbusinessstatopenstax/chapter/the-correlation-coefficient-r/]["Introductory
-    Business Statistics: The Correlation Coefficient r"]].
-    /opentextbc.ca/. Retrieved 21 August 2020.
-16. *[[#cite_ref-17][^]]* Rodgers; Nicewander (1988).
-    [[https://www.stat.berkeley.edu/~rabbee/correlation.pdf]["Thirteen
-    ways to look at the correlation coefficient"]] (PDF). /The American
-    Statistician/. *42* (1): 59--66.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.2307%2F2685263][10.2307/2685263]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2685263][2685263]].
-17. *[[#cite_ref-18][^]]* Schmid, John Jr. (December 1947). "The
-    relationship between the coefficient of correlation and the angle
-    included between regression lines". /The Journal of Educational
-    Research/. *41* (4): 311--313.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1080%2F00220671.1947.10881608][10.1080/00220671.1947.10881608]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/27528906][27528906]].
-18. *[[#cite_ref-19][^]]* Rummel, R.J. (1976).
-    [[http://www.hawaii.edu/powerkills/UC.HTM]["Understanding
-    Correlation"]]. ch. 5 (as illustrated for a special case in the next
-    paragraph).
-19. *[[#cite_ref-Buda_20-0][^]]* Buda, Andrzej; Jarynowski, Andrzej
-    (December 2010). /Life Time of Correlations and its Applications/.
-    Wydawnictwo Niezależne. pp. 5--21.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/9788391527290][9788391527290]].
-20. ^ [[#cite_ref-Cohen88_21-0][^{/*a*/}]]
-    [[#cite_ref-Cohen88_21-1][^{/*b*/}]] Cohen, J. (1988). /Statistical
-    Power Analysis for the Behavioral Sciences/ (2nd ed.).
-21. *[[#cite_ref-22][^]]* Rahman, N. A. (1968) /A Course in Theoretical
-    Statistics/, Charles Griffin and Company, 1968
-22. *[[#cite_ref-23][^]]* Kendall, M. G., Stuart, A. (1973) /The
-    Advanced Theory of Statistics, Volume 2: Inference and
-    Relationship/, Griffin.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/0-85264-215-6][0-85264-215-6]]
-    (Section 31.19)
-23. *[[#cite_ref-24][^]]* [[/wiki/H._E._Soper][Soper, H.E.]]; Young,
-    A.W.; Cave, B.M.; Lee, A.; Pearson, K. (1917).
-    [[https://zenodo.org/record/1431587]["On the distribution of the
-    correlation coefficient in small samples. Appendix II to the papers
-    of "Student" and R.A. Fisher. A co-operative study"]].
-    /[[/wiki/Biometrika][Biometrika]]/. *11* (4): 328--413.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1093%2Fbiomet%2F11.4.328][10.1093/biomet/11.4.328]].
-24. *[[#cite_ref-25][^]]* Davey, Catherine E.; Grayden, David B.; Egan,
-    Gary F.; Johnston, Leigh A. (January 2013). "Filtering induces
-    correlation in fMRI resting state data". /NeuroImage/. *64*:
-    728--740.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1016%2Fj.neuroimage.2012.08.022][10.1016/j.neuroimage.2012.08.022]].
-    [[/wiki/Hdl_(identifier)][hdl]]:[[//hdl.handle.net/11343%2F44035][11343/44035]].
-    [[/wiki/PMID_(identifier)][PMID]] [[//pubmed.ncbi.nlm.nih.gov/22939874][22939874]].
-    [[/wiki/S2CID_(identifier)][S2CID]] [[https://api.semanticscholar.org/CorpusID:207184701][207184701]].
-25. *[[#cite_ref-26][^]]* Hotelling, Harold (1953). "New Light on the
-    Correlation Coefficient and its Transforms". /Journal of the Royal
-    Statistical Society/. Series B (Methodological). *15* (2): 193--232.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1111%2Fj.2517-6161.1953.tb00135.x][10.1111/j.2517-6161.1953.tb00135.x]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2983768][2983768]].
-26. *[[#cite_ref-27][^]]* Kenney, J.F.; Keeping, E.S. (1951).
-    /Mathematics of Statistics/. Part 2 (2nd ed.). Princeton, NJ: Van
-    Nostrand.
-27. *[[#cite_ref-28][^]]* Weisstein, Eric W.
-    [[http://mathworld.wolfram.com/CorrelationCoefficientBivariateNormalDistribution.html]["Correlation
-    Coefficient---Bivariate Normal Distribution"]].
-    /mathworld.wolfram.com/.
-28. *[[#cite_ref-29][^]]* Taraldsen, Gunnar (2020).
-    [[http://rgdoi.net/10.13140/RG.2.2.23673.49769]["Confidence in
-    Correlation"]].
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.13140%2FRG.2.2.23673.49769][10.13140/RG.2.2.23673.49769]].
-    Cite journal requires =|journal==
-    ([[/wiki/Help:CS1_errors#missing_periodical][help]])
-29. *[[#cite_ref-30][^]]* Lai, Chun Sing; Tao, Yingshan; Xu, Fangyuan;
-    Ng, Wing W.Y.; Jia, Youwei; Yuan, Haoliang; Huang, Chao; Lai, Loi
-    Lei; Xu, Zhao; Locatelli, Giorgio (January 2019).
-    [[http://eprints.whiterose.ac.uk/134706/2/ELSEVI_3.pdf]["A robust
-    correlation analysis framework for imbalanced and dichotomous data
-    with uncertainty"]] (PDF). /Information Sciences/. *470*: 58--77.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1016%2Fj.ins.2018.08.017][10.1016/j.ins.2018.08.017]].
-30. ^ [[#cite_ref-wilcox_31-0][^{/*a*/}]]
-    [[#cite_ref-wilcox_31-1][^{/*b*/}]] Wilcox, Rand R. (2005).
-    /Introduction to robust estimation and hypothesis testing/. Academic
-    Press.
-31. *[[#cite_ref-32][^]]* [[/wiki/Susan_J._Devlin][Devlin, Susan J.]];
-    Gnanadesikan, R.; Kettenring J.R. (1975). "Robust estimation and
-    outlier detection with correlation coefficients". /Biometrika/. *62*
-    (3): 531--545.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1093%2Fbiomet%2F62.3.531][10.1093/biomet/62.3.531]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2335508][2335508]].
-32. *[[#cite_ref-33][^]]* Huber, Peter. J. (2004). /Robust Statistics/.
-    Wiley.^{[/[[/wiki/Wikipedia:Citing_sources][page needed]]/]}
-33. *[[#cite_ref-34][^]]* Katz., Mitchell H. (2006) /Multivariable
-    Analysis -- A Practical Guide for Clinicians/. 2nd Edition.
-    Cambridge University Press.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/978-0-521-54985-1][978-0-521-54985-1]].
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/0-521-54985-X][0-521-54985-X]]
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.2277%2F052154985X][10.2277/052154985X]]
-34. *[[#cite_ref-35][^]]* Hotelling, H. (1953). "New Light on the
-    Correlation Coefficient and its Transforms". /Journal of the Royal
-    Statistical Society. Series B (Methodological)/. *15* (2): 193--232.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1111%2Fj.2517-6161.1953.tb00135.x][10.1111/j.2517-6161.1953.tb00135.x]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2983768][2983768]].
-35. *[[#cite_ref-36][^]]* Olkin, Ingram; Pratt,John W. (March 1958).
-    [[https://doi.org/10.1214%2Faoms%2F1177706717]["Unbiased Estimation
-    of Certain Correlation Coefficients"]]. /The Annals of Mathematical
-    Statistics/. *29* (1): 201--211.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1214%2Faoms%2F1177706717][10.1214/aoms/1177706717]].
-    [[/wiki/JSTOR_(identifier)][JSTOR]] [[//www.jstor.org/stable/2237306][2237306]]..
-36. *[[#cite_ref-37][^]]*
-    [[http://sci.tech-archive.net/Archive/sci.stat.math/2006-02/msg00171.html]["Re:
-    Compute a weighted correlation"]]. /sci.tech-archive.net/.
-37. *[[#cite_ref-38][^]]*
-    [[http://www.mathworks.com/matlabcentral/fileexchange/20846-weighted-correlation-matrix]["Weighted
-    Correlation Matrix -- File Exchange -- MATLAB Central"]].
-38. *[[#cite_ref-Nikolicetal_39-0][^]]* Nikolić, D; Muresan, RC; Feng,
-    W; Singer, W (2012).
-    [[http://www.danko-nikolic.com/wp-content/uploads/2012/03/Scaled-correlation-analysis.pdf]["Scaled
-    correlation analysis: a better way to compute a cross-correlogram"]]
-    (PDF). /European Journal of Neuroscience/. *35* (5): 1--21.
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1111%2Fj.1460-9568.2011.07987.x][10.1111/j.1460-9568.2011.07987.x]].
-    [[/wiki/PMID_(identifier)][PMID]] [[//pubmed.ncbi.nlm.nih.gov/22324876][22324876]].
-    [[/wiki/S2CID_(identifier)][S2CID]] [[https://api.semanticscholar.org/CorpusID:4694570][4694570]].
-39. *[[#cite_ref-40][^]]* Fulekar (Ed.), M.H. (2009) /Bioinformatics:
-    Applications in Life and Environmental Sciences/, Springer (pp. 110)
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/1-4020-8879-5][1-4020-8879-5]]
-40. *[[#cite_ref-41][^]]* Immink, K. Schouhamer; Weber, J. (October
-    2010).
-    [[https://www.researchgate.net/publication/265604603]["Minimum
-    Pearson distance detection for multilevel channels with gain and /
-    or offset mismatch"]]. /IEEE Transactions on Information Theory/.
-    *60* (10): 5966--5974.
-    [[/wiki/CiteSeerX_(identifier)][CiteSeerX]] [[//citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.642.9971][10.1.1.642.9971]].
-    [[/wiki/Doi_(identifier)][doi]]:[[https://doi.org/10.1109%2Ftit.2014.2342744][10.1109/tit.2014.2342744]].
-    [[/wiki/S2CID_(identifier)][S2CID]] [[https://api.semanticscholar.org/CorpusID:1027502][1027502]].
-    Retrieved 11 February 2018.
-41. *[[#cite_ref-SRJ_42-0][^]]* Jammalamadaka, S. Rao; SenGupta, A.
-    (2001).
-    [[https://books.google.com/books?id=sKqWMGqQXQkC&q=Jammalamadaka+Topics+in+circular][/Topics
-    in circular statistics/]]. New Jersey: World Scientific. p. 176.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/978-981-02-3778-3][978-981-02-3778-3]].
-    Retrieved 21 September 2016.
-42. *[[#cite_ref-43][^]]* Cox, D.R.; Hinkley, D.V. (1974). /Theoretical
-    Statistics/. Chapman & Hall. Appendix 3.
-    [[/wiki/ISBN_(identifier)][ISBN]] [[/wiki/Special:BookSources/0-412-12420-3][0-412-12420-3]].
-
-** External
-links[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=35][edit]]]
-   :PROPERTIES:
-   :CUSTOM_ID: external-linksedit
-   :END:
-| [[//upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wikiversity_logo_2017.svg/40px-Wikiversity_logo_2017.svg.png]] | Wikiversity has learning resources about /*[[https://en.wikiversity.org/wiki/Linear_correlation][Linear correlation]]*/ |
-
-- [[http://comparingcorrelations.org]["cocor"]].
-  /comparingcorrelations.org/. -- A free web interface and R package for
-  the statistical comparison of two dependent or independent
-  correlations with overlapping or non-overlapping variables.
-- [[http://nagysandor.eu/AsimovTeka/correlation_en/index.html]["Correlation"]].
-  /nagysandor.eu/. -- an interactive Flash simulation on the correlation
-  of two normally distributed variables.
-- [[http://www.hackmath.net/en/calculator/linear-regression]["Correlation
-  coefficient calculator"]]. /hackmath.net/. Linear regression. --
-- [[http://frank.mtsu.edu/~dkfuller/tables/correlationtable.pdf]["Critical
-  values for Pearson's correlation coefficient"]] (PDF).
-  /frank.mtsu.edu/~dkfuller/. -- large table.
-- [[http://guessthecorrelation.com]["Guess the Correlation"]]. -- A game
-  where players guess how correlated two variables in a scatter plot
-  are, in order to gain a better understanding of the concept of
-  correlation.
-
-| - [[/wiki/Template:Statistics][v]]                                                                                                                                                                                                                         |  |
-| - [[/wiki/Template_talk:Statistics][t]]                                                                                                                                                                                                                    |  |
-| - [[https://en.wikipedia.org/w/index.php?title=Template:Statistics&action=edit][e]]                                                                                                                                                                        |  |
-|                                                                                                                                                                                                                                                            |  |
-| <<Statistics>>                                                                                                                                                                                                                                             |  |
-| [[/wiki/Statistics][Statistics]]                                                                                                                                                                                                                           |  |
-| <<*_Outline_*_Index>>                                                                                                                                                                                                                                      |  |
-|                                                                                                                                                                                                                                                            |  |
-| - [[/wiki/Outline_of_statistics][Outline]]                                                                                                                                                                                                                 |  |
-| - [[/wiki/List_of_statistics_articles][Index]]                                                                                                                                                                                                             |  |
-| | <<Descriptive_statistics>>                                                                                                                                                                 |  |                                                          |  |
-| | [[/wiki/Descriptive_statistics][Descriptive statistics]]                                                                                                                                   |  |                                                          |  |
-| | | [[/wiki/Continuous_probability_distribution][Continuous data]] | | [[/wiki/Central_tendency][Center]]           | - [[/wiki/Mean][Mean]]                                             | | |  |                                                          |  |
-| | |                                                                | |                                              |                                                                    | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Arithmetic_mean][arithmetic]]                          | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Geometric_mean][geometric]]                            | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Harmonic_mean][harmonic]]                              | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Cubic_mean][cubic]]                                    | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Generalized_mean][generalized/power]]                  | | |  |                                                          |  |
-| | |                                                                | |                                              |                                                                    | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Median][Median]]                                         | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Mode_(statistics)][Mode]]                                | | |  |                                                          |  |
-| | |                                                                | | [[/wiki/Statistical_dispersion][Dispersion]] | - [[/wiki/Variance#Sample_variance][Variance]]                     | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Standard_deviation][Standard deviation]]                 | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Average_absolute_deviation][Average absolute deviation]] | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Coefficient_of_variation][Coefficient of variation]]     | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Percentile][Percentile]]                                 | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Range_(statistics)][Range]]                              | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Interquartile_range][Interquartile range]]               | | |  |                                                          |  |
-| | |                                                                | | [[/wiki/Shape_of_the_distribution][Shape]]   | - [[/wiki/Central_limit_theorem][Central limit theorem]]           | | |  |                                                          |  |
-| | |                                                                | |                                              | - [[/wiki/Moment_(mathematics)][Moments]]                          | | |  |                                                          |  |
-| | |                                                                | |                                              |                                                                    | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Skewness][Skewness]]                                   | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/Kurtosis][Kurtosis]]                                   | | |  |                                                          |  |
-| | |                                                                | |                                              |   - [[/wiki/L-moment][L-moments]]                                  | | |  |                                                          |  |
-| | | [[/wiki/Count_data][Count data]]                               | - [[/wiki/Index_of_dispersion][Index of dispersion]]                                                                  | |  |                                                          |  |
-| | | Summary tables                                                 | - [[/wiki/Grouped_data][Grouped data]]                                                                                | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Frequency_distribution][Frequency distribution]]                                                            | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Contingency_table][Contingency table]]                                                                      | |  |                                                          |  |
-| | | [[/wiki/Correlation_and_dependence][Dependence]]               | - Pearson product-moment correlation                                                                                  | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Rank_correlation][Rank correlation]]                                                                        | |  |                                                          |  |
-| | |                                                                |                                                                                                                       | |  |                                                          |  |
-| | |                                                                |   - [[/wiki/Spearman%27s_rank_correlation_coefficient][Spearman's ρ]]                                                 | |  |                                                          |  |
-| | |                                                                |   - [[/wiki/Kendall_rank_correlation_coefficient][Kendall's τ]]                                                       | |  |                                                          |  |
-| | |                                                                |                                                                                                                       | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Partial_correlation][Partial correlation]]                                                                  | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Scatter_plot][Scatter plot]]                                                                                | |  |                                                          |  |
-| | | [[/wiki/Statistical_graphics][Graphics]]                       | - [[/wiki/Bar_chart][Bar chart]]                                                                                      | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Biplot][Biplot]]                                                                                            | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Box_plot][Box plot]]                                                                                        | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Control_chart][Control chart]]                                                                              | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Correlogram][Correlogram]]                                                                                  | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Fan_chart_(statistics)][Fan chart]]                                                                         | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Forest_plot][Forest plot]]                                                                                  | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Histogram][Histogram]]                                                                                      | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Pie_chart][Pie chart]]                                                                                      | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Q%E2%80%93Q_plot][Q--Q plot]]                                                                               | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Run_chart][Run chart]]                                                                                      | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Scatter_plot][Scatter plot]]                                                                                | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Stem-and-leaf_display][Stem-and-leaf display]]                                                              | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Radar_chart][Radar chart]]                                                                                  | |  |                                                          |  |
-| | |                                                                | - [[/wiki/Violin_plot][Violin plot]]                                                                                  | |  |                                                          |  |
-| | <<Data_collection>>                                                                                                             |  |                                                                                                                     |  |
-| | [[/wiki/Data_collection][Data collection]]                                                                                      |  |                                                                                                                     |  |
-| | | [[/wiki/Design_of_experiments][Study design]]        | - [[/wiki/Statistical_population][Population]]                       | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Statistic][Statistic]]                                     | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Effect_size][Effect size]]                                 | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Statistical_power][Statistical power]]                     | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Optimal_design][Optimal design]]                           | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Sample_size_determination][Sample size determination]]     | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Replication_(statistics)][Replication]]                    | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Missing_data][Missing data]]                               | |  |                                                                                                                     |  |
-| | | [[/wiki/Survey_methodology][Survey methodology]]     | - [[/wiki/Sampling_(statistics)][Sampling]]                          | |  |                                                                                                                     |  |
-| | |                                                      |                                                                      | |  |                                                                                                                     |  |
-| | |                                                      |   - [[/wiki/Stratified_sampling][stratified]]                        | |  |                                                                                                                     |  |
-| | |                                                      |   - [[/wiki/Cluster_sampling][cluster]]                              | |  |                                                                                                                     |  |
-| | |                                                      |                                                                      | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Standard_error][Standard error]]                           | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Opinion_poll][Opinion poll]]                               | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Questionnaire][Questionnaire]]                             | |  |                                                                                                                     |  |
-| | | [[/wiki/Experiment][Controlled experiments]]         | - [[/wiki/Scientific_control][Scientific control]]                   | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Randomized_experiment][Randomized experiment]]             | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Randomized_controlled_trial][Randomized controlled trial]] | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Random_assignment][Random assignment]]                     | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Blocking_(statistics)][Blocking]]                          | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Interaction_(statistics)][Interaction]]                    | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Factorial_experiment][Factorial experiment]]               | |  |                                                                                                                     |  |
-| | | Adaptive Designs                                     | - [[/wiki/Adaptive_clinical_trial][Adaptive clinical trial]]         | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Up-and-Down_Designs][Up-and-Down Designs]]                 | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Stochastic_approximation][Stochastic approximation]]       | |  |                                                                                                                     |  |
-| | | [[/wiki/Observational_study][Observational Studies]] | - [[/wiki/Cross-sectional_study][Cross-sectional study]]             | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Cohort_study][Cohort study]]                               | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Natural_experiment][Natural experiment]]                   | |  |                                                                                                                     |  |
-| | |                                                      | - [[/wiki/Quasi-experiment][Quasi-experiment]]                       | |  |                                                                                                                     |  |
-| | <<Statistical_inference>>                                                                                                                                                                                         |  |                                   |  |
-| | [[/wiki/Statistical_inference][Statistical inference]]                                                                                                                                                            |  |                                   |  |
-| | | [[/wiki/Statistical_theory][Statistical theory]]       | - [[/wiki/Population_(statistics)][Population]]                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Statistic][Statistic]]                                                                                                                     | |  |                                   |  |
-| | |                                                        | - [[/wiki/Probability_distribution][Probability distribution]]                                                                                       | |  |                                   |  |
-| | |                                                        | - [[/wiki/Sampling_distribution][Sampling distribution]]                                                                                             | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Order_statistic][Order statistic]]                                                                                                       | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Empirical_distribution_function][Empirical distribution]]                                                                                  | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Density_estimation][Density estimation]]                                                                                                 | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Statistical_model][Statistical model]]                                                                                                     | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Model_specification][Model specification]]                                                                                               | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Lp_space][L^{/p/} space]]                                                                                                                | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Statistical_parameter][Parameter]]                                                                                                         | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Location_parameter][location]]                                                                                                           | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Scale_parameter][scale]]                                                                                                                 | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Shape_parameter][shape]]                                                                                                                 | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Parametric_statistics][Parametric family]]                                                                                                 | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Likelihood_function][Likelihood]] [[/wiki/Monotone_likelihood_ratio][(monotone)]]                                                        | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Location%E2%80%93scale_family][Location--scale family]]                                                                                  | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Exponential_family][Exponential family]]                                                                                                 | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Completeness_(statistics)][Completeness]]                                                                                                  | |  |                                   |  |
-| | |                                                        | - [[/wiki/Sufficient_statistic][Sufficiency]]                                                                                                        | |  |                                   |  |
-| | |                                                        | - [[/wiki/Plug-in_principle][Statistical functional]]                                                                                                | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Bootstrapping_(statistics)][Bootstrap]]                                                                                                  | |  |                                   |  |
-| | |                                                        |   - [[/wiki/U-statistic][U]]                                                                                                                         | |  |                                   |  |
-| | |                                                        |   - [[/wiki/V-statistic][V]]                                                                                                                         | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Optimal_decision][Optimal decision]]                                                                                                       | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Loss_function][loss function]]                                                                                                           | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Efficiency_(statistics)][Efficiency]]                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Statistical_distance][Statistical distance]]                                                                                               | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Divergence_(statistics)][divergence]]                                                                                                    | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Asymptotic_theory_(statistics)][Asymptotics]]                                                                                              | |  |                                   |  |
-| | |                                                        | - [[/wiki/Robust_statistics][Robustness]]                                                                                                            | |  |                                   |  |
-| | | [[/wiki/Frequentist_inference][Frequentist inference]] | | [[/wiki/Point_estimation][Point estimation]]                 | - [[/wiki/Estimating_equations][Estimating equations]]                            | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Maximum_likelihood][Maximum likelihood]]                              | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Method_of_moments_(statistics)][Method of moments]]                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/M-estimator][M-estimator]]                                            | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Minimum_distance_estimation][Minimum distance]]                       | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Bias_of_an_estimator][Unbiased estimators]]                             | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Minimum-variance_unbiased_estimator][Mean-unbiased minimum-variance]] | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |     - [[/wiki/Rao%E2%80%93Blackwell_theorem][Rao--Blackwellization]]              | | |  |                                   |  |
-| | |                                                        | |                                                              |     - [[/wiki/Lehmann%E2%80%93Scheff%C3%A9_theorem][Lehmann--Scheffé theorem]]    | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Median-unbiased_estimator][Median unbiased]]                          | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Plug-in_principle][Plug-in]]                                            | | |  |                                   |  |
-| | |                                                        | | [[/wiki/Interval_estimation][Interval estimation]]           | - [[/wiki/Confidence_interval][Confidence interval]]                              | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Pivotal_quantity][Pivot]]                                               | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Likelihood_interval][Likelihood interval]]                              | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Prediction_interval][Prediction interval]]                              | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Tolerance_interval][Tolerance interval]]                                | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Resampling_(statistics)][Resampling]]                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Bootstrapping_(statistics)][Bootstrap]]                               | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Jackknife_resampling][Jackknife]]                                     | | |  |                                   |  |
-| | |                                                        | | [[/wiki/Statistical_hypothesis_testing][Testing hypotheses]] | - [[/wiki/One-_and_two-tailed_tests][1- & 2-tails]]                               | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Power_(statistics)][Power]]                                             | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Uniformly_most_powerful_test][Uniformly most powerful test]]          | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Permutation_test][Permutation test]]                                    | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              |   - [[/wiki/Randomization_test][Randomization test]]                              | | |  |                                   |  |
-| | |                                                        | |                                                              |                                                                                   | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Multiple_comparisons][Multiple comparisons]]                            | | |  |                                   |  |
-| | |                                                        | | [[/wiki/Parametric_statistics][Parametric tests]]            | - [[/wiki/Likelihood-ratio_test][Likelihood-ratio]]                               | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Score_test][Score/Lagrange multiplier]]                                 | | |  |                                   |  |
-| | |                                                        | |                                                              | - [[/wiki/Wald_test][Wald]]                                                       | | |  |                                   |  |
-| | | Specific tests                                         | | - [[/wiki/Z-test][/Z/-test (normal)]]              |                                                                                            |  | |  |                                   |  |
-| | |                                                        | | - [[/wiki/Student%27s_t-test][Student's /t/-test]] |                                                                                            |  | |  |                                   |  |
-| | |                                                        | | - [[/wiki/F-test][/F/-test]]                       |                                                                                            |  | |  |                                   |  |
-| | |                                                        | | [[/wiki/Goodness_of_fit][Goodness of fit]]         | - [[/wiki/Chi-squared_test][Chi-squared]]                                                  |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/G-test][/G/-test]]                                                               |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Kolmogorov%E2%80%93Smirnov_test][Kolmogorov--Smirnov]]                           |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Anderson%E2%80%93Darling_test][Anderson--Darling]]                               |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Lilliefors_test][Lilliefors]]                                                    |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Jarque%E2%80%93Bera_test][Jarque--Bera]]                                         |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Shapiro%E2%80%93Wilk_test][Normality (Shapiro--Wilk)]]                           |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Likelihood-ratio_test][Likelihood-ratio test]]                                   |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Model_selection][Model selection]]                                               |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Cross-validation_(statistics)][Cross validation]]                              |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Akaike_information_criterion][AIC]]                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Bayesian_information_criterion][BIC]]                                          |  | |  |                                   |  |
-| | |                                                        | | [[/wiki/Rank_statistics][Rank statistics]]         | - [[/wiki/Sign_test][Sign]]                                                                |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Sample_median][Sample median]]                                                 |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Wilcoxon_signed-rank_test][Signed rank (Wilcoxon)]]                              |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Hodges%E2%80%93Lehmann_estimator][Hodges--Lehmann estimator]]                  |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Mann%E2%80%93Whitney_U_test][Rank sum (Mann--Whitney)]]                          |  | |  |                                   |  |
-| | |                                                        | |                                                    | - [[/wiki/Nonparametric_statistics][Nonparametric]] [[/wiki/Analysis_of_variance][anova]]  |  | |  |                                   |  |
-| | |                                                        | |                                                    |                                                                                            |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Kruskal%E2%80%93Wallis_one-way_analysis_of_variance][1-way (Kruskal--Wallis)]] |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Friedman_test][2-way (Friedman)]]                                              |  | |  |                                   |  |
-| | |                                                        | |                                                    |   - [[/wiki/Jonckheere%27s_trend_test][Ordered alternative (Jonckheere--Terpstra)]]        |  | |  |                                   |  |
-| | | [[/wiki/Bayesian_inference][Bayesian inference]]       | - [[/wiki/Bayesian_probability][Bayesian probability]]                                                                                               | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Prior_probability][prior]]                                                                                                               | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Posterior_probability][posterior]]                                                                                                       | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        | - [[/wiki/Credible_interval][Credible interval]]                                                                                                     | |  |                                   |  |
-| | |                                                        | - [[/wiki/Bayes_factor][Bayes factor]]                                                                                                               | |  |                                   |  |
-| | |                                                        | - [[/wiki/Bayes_estimator][Bayesian estimator]]                                                                                                      | |  |                                   |  |
-| | |                                                        |                                                                                                                                                      | |  |                                   |  |
-| | |                                                        |   - [[/wiki/Maximum_a_posteriori_estimation][Maximum posterior estimator]]                                                                           | |  |                                   |  |
-| | <<CorrelationRegression_analysis>>                                                                                                                                                                                      |  |                             |  |
-| |                                                                                                                                                                                                                         |  |                             |  |
-| | - [[/wiki/Correlation_and_dependence][Correlation]]                                                                                                                                                                     |  |                             |  |
-| | - [[/wiki/Regression_analysis][Regression analysis]]                                                                                                                                                                    |  |                             |  |
-| | | [[/wiki/Correlation_and_dependence][Correlation]]             | - [[/wiki/Pearson_product-moment_correlation_coefficient][Pearson product-moment]]                                                                  | |  |                             |  |
-| | |                                                               | - [[/wiki/Partial_correlation][Partial correlation]]                                                                                                | |  |                             |  |
-| | |                                                               | - [[/wiki/Confounding][Confounding variable]]                                                                                                       | |  |                             |  |
-| | |                                                               | - [[/wiki/Coefficient_of_determination][Coefficient of determination]]                                                                              | |  |                             |  |
-| | | [[/wiki/Regression_analysis][Regression analysis]]            | - [[/wiki/Errors_and_residuals_in_statistics][Errors and residuals]]                                                                                | |  |                             |  |
-| | |                                                               | - [[/wiki/Regression_validation][Regression validation]]                                                                                            | |  |                             |  |
-| | |                                                               | - [[/wiki/Mixed_model][Mixed effects models]]                                                                                                       | |  |                             |  |
-| | |                                                               | - [[/wiki/Simultaneous_equations_model][Simultaneous equations models]]                                                                             | |  |                             |  |
-| | |                                                               | - [[/wiki/Multivariate_adaptive_regression_splines][Multivariate adaptive regression splines (MARS)]]                                               | |  |                             |  |
-| | | [[/wiki/Linear_regression][Linear regression]]                | - [[/wiki/Simple_linear_regression][Simple linear regression]]                                                                                      | |  |                             |  |
-| | |                                                               | - [[/wiki/Ordinary_least_squares][Ordinary least squares]]                                                                                          | |  |                             |  |
-| | |                                                               | - [[/wiki/General_linear_model][General linear model]]                                                                                              | |  |                             |  |
-| | |                                                               | - [[/wiki/Bayesian_linear_regression][Bayesian regression]]                                                                                         | |  |                             |  |
-| | | Non-standard predictors                                       | - [[/wiki/Nonlinear_regression][Nonlinear regression]]                                                                                              | |  |                             |  |
-| | |                                                               | - [[/wiki/Nonparametric_regression][Nonparametric]]                                                                                                 | |  |                             |  |
-| | |                                                               | - [[/wiki/Semiparametric_regression][Semiparametric]]                                                                                               | |  |                             |  |
-| | |                                                               | - [[/wiki/Isotonic_regression][Isotonic]]                                                                                                           | |  |                             |  |
-| | |                                                               | - [[/wiki/Robust_regression][Robust]]                                                                                                               | |  |                             |  |
-| | |                                                               | - [[/wiki/Heteroscedasticity][Heteroscedasticity]]                                                                                                  | |  |                             |  |
-| | |                                                               | - [[/wiki/Homoscedasticity][Homoscedasticity]]                                                                                                      | |  |                             |  |
-| | | [[/wiki/Generalized_linear_model][Generalized linear model]]  | - [[/wiki/Exponential_family][Exponential families]]                                                                                                | |  |                             |  |
-| | |                                                               | - [[/wiki/Logistic_regression][Logistic (Bernoulli)]] / [[/wiki/Binomial_regression][Binomial]] / [[/wiki/Poisson_regression][Poisson regressions]] | |  |                             |  |
-| | | [[/wiki/Partition_of_sums_of_squares][Partition of variance]] | - [[/wiki/Analysis_of_variance][Analysis of variance (ANOVA, anova)]]                                                                               | |  |                             |  |
-| | |                                                               | - [[/wiki/Analysis_of_covariance][Analysis of covariance]]                                                                                          | |  |                             |  |
-| | |                                                               | - [[/wiki/Multivariate_analysis_of_variance][Multivariate ANOVA]]                                                                                   | |  |                             |  |
-| | |                                                               | - [[/wiki/Degrees_of_freedom_(statistics)][Degrees of freedom]]                                                                                     | |  |                             |  |
-| | <<Categorical_/_Multivariate_/_Time-series_/_Survival_analysis>>                                                                                                                                                         |  |                            |  |
-| | [[/wiki/Categorical_variable][Categorical]] / [[/wiki/Multivariate_statistics][Multivariate]] / [[/wiki/Time_series][Time-series]] / [[/wiki/Survival_analysis][Survival analysis]]                                      |  |                            |  |
-| | | [[/wiki/Categorical_variable][Categorical]]     | - [[/wiki/Cohen%27s_kappa][Cohen's kappa]]                                                                                                                         | |  |                            |  |
-| | |                                                 | - [[/wiki/Contingency_table][Contingency table]]                                                                                                                   | |  |                            |  |
-| | |                                                 | - [[/wiki/Graphical_model][Graphical model]]                                                                                                                       | |  |                            |  |
-| | |                                                 | - [[/wiki/Poisson_regression][Log-linear model]]                                                                                                                   | |  |                            |  |
-| | |                                                 | - [[/wiki/McNemar%27s_test][McNemar's test]]                                                                                                                       | |  |                            |  |
-| | |                                                 | - [[/wiki/Cochran-Mantel-Haenszel_statistics][Cochran-Mantel-Haenszel statistics]]                                                                                 | |  |                            |  |
-| | | [[/wiki/Multivariate_statistics][Multivariate]] | - [[/wiki/General_linear_model][Regression]]                                                                                                                       | |  |                            |  |
-| | |                                                 | - [[/wiki/Multivariate_analysis_of_variance][Manova]]                                                                                                              | |  |                            |  |
-| | |                                                 | - [[/wiki/Principal_component_analysis][Principal components]]                                                                                                     | |  |                            |  |
-| | |                                                 | - [[/wiki/Canonical_correlation][Canonical correlation]]                                                                                                           | |  |                            |  |
-| | |                                                 | - [[/wiki/Linear_discriminant_analysis][Discriminant analysis]]                                                                                                    | |  |                            |  |
-| | |                                                 | - [[/wiki/Cluster_analysis][Cluster analysis]]                                                                                                                     | |  |                            |  |
-| | |                                                 | - [[/wiki/Statistical_classification][Classification]]                                                                                                             | |  |                            |  |
-| | |                                                 | - [[/wiki/Structural_equation_modeling][Structural equation model]]                                                                                                | |  |                            |  |
-| | |                                                 |                                                                                                                                                                    | |  |                            |  |
-| | |                                                 |   - [[/wiki/Factor_analysis][Factor analysis]]                                                                                                                     | |  |                            |  |
-| | |                                                 |                                                                                                                                                                    | |  |                            |  |
-| | |                                                 | - [[/wiki/Multivariate_distribution][Multivariate distributions]]                                                                                                  | |  |                            |  |
-| | |                                                 |                                                                                                                                                                    | |  |                            |  |
-| | |                                                 |   - [[/wiki/Elliptical_distribution][Elliptical distributions]]                                                                                                    | |  |                            |  |
-| | |                                                 |                                                                                                                                                                    | |  |                            |  |
-| | |                                                 |     - [[/wiki/Multivariate_normal_distribution][Normal]]                                                                                                           | |  |                            |  |
-| | | [[/wiki/Time_series][Time-series]]              | | General                                      | - [[/wiki/Decomposition_of_time_series][Decomposition]]                                                         | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Trend_estimation][Trend]]                                                                             | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Stationary_process][Stationarity]]                                                                    | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Seasonal_adjustment][Seasonal adjustment]]                                                            | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Exponential_smoothing][Exponential smoothing]]                                                        | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Cointegration][Cointegration]]                                                                        | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Structural_break][Structural break]]                                                                  | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Granger_causality][Granger causality]]                                                                | | |  |                            |  |
-| | |                                                 | | Specific tests                               | - [[/wiki/Dickey%E2%80%93Fuller_test][Dickey--Fuller]]                                                          | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Johansen_test][Johansen]]                                                                             | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Ljung%E2%80%93Box_test][Q-statistic (Ljung--Box)]]                                                    | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Durbin%E2%80%93Watson_statistic][Durbin--Watson]]                                                     | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Breusch%E2%80%93Godfrey_test][Breusch--Godfrey]]                                                      | | |  |                            |  |
-| | |                                                 | | [[/wiki/Time_domain][Time domain]]           | - [[/wiki/Autocorrelation][Autocorrelation (ACF)]]                                                              | | |  |                            |  |
-| | |                                                 | |                                              |                                                                                                                 | | |  |                            |  |
-| | |                                                 | |                                              |   - [[/wiki/Partial_autocorrelation_function][partial (PACF)]]                                                  | | |  |                            |  |
-| | |                                                 | |                                              |                                                                                                                 | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Cross-correlation][Cross-correlation (XCF)]]                                                          | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Autoregressive%E2%80%93moving-average_model][ARMA model]]                                             | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Box%E2%80%93Jenkins_method][ARIMA model (Box--Jenkins)]]                                              | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Autoregressive_conditional_heteroskedasticity][Autoregressive conditional heteroskedasticity (ARCH)]] | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Vector_autoregression][Vector autoregression (VAR)]]                                                  | | |  |                            |  |
-| | |                                                 | | [[/wiki/Frequency_domain][Frequency domain]] | - [[/wiki/Spectral_density_estimation][Spectral density estimation]]                                            | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Fourier_analysis][Fourier analysis]]                                                                  | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Wavelet][Wavelet]]                                                                                    | | |  |                            |  |
-| | |                                                 | |                                              | - [[/wiki/Whittle_likelihood][Whittle likelihood]]                                                              | | |  |                            |  |
-| | | [[/wiki/Survival_analysis][Survival]]           | | [[/wiki/Survival_function][Survival function]] | - [[/wiki/Kaplan%E2%80%93Meier_estimator][Kaplan--Meier estimator (product limit)]] |                           | |  |                            |  |
-| | |                                                 | |                                                | - [[/wiki/Proportional_hazards_model][Proportional hazards models]]                 |                           | |  |                            |  |
-| | |                                                 | |                                                | - [[/wiki/Accelerated_failure_time_model][Accelerated failure time (AFT) model]]    |                           | |  |                            |  |
-| | |                                                 | |                                                | - [[/wiki/First-hitting-time_model][First hitting time]]                            |                           | |  |                            |  |
-| | |                                                 | | [[/wiki/Failure_rate][Hazard function]]        | - [[/wiki/Nelson%E2%80%93Aalen_estimator][Nelson--Aalen estimator]]                 |                           | |  |                            |  |
-| | |                                                 | | Test                                           | - [[/wiki/Log-rank_test][Log-rank test]]                                            |                           | |  |                            |  |
-| | <<Applications>>                                                                                                                                             |  |                                                                                        |  |
-| | [[/wiki/List_of_fields_of_application_of_statistics][Applications]]                                                                                          |  |                                                                                        |  |
-| | | [[/wiki/Biostatistics][Biostatistics]]                   | - [[/wiki/Bioinformatics][Bioinformatics]]                                                    | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Clinical_trial][Clinical trials]] / [[/wiki/Clinical_study_design][studies]]        | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Epidemiology][Epidemiology]]                                                        | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Medical_statistics][Medical statistics]]                                            | |  |                                                                                        |  |
-| | | [[/wiki/Engineering_statistics][Engineering statistics]] | - [[/wiki/Chemometrics][Chemometrics]]                                                        | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Methods_engineering][Methods engineering]]                                          | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Probabilistic_design][Probabilistic design]]                                        | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Statistical_process_control][Process]] / [[/wiki/Quality_control][quality control]] | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Reliability_engineering][Reliability]]                                              | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/System_identification][System identification]]                                      | |  |                                                                                        |  |
-| | | [[/wiki/Social_statistics][Social statistics]]           | - [[/wiki/Actuarial_science][Actuarial science]]                                              | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Census][Census]]                                                                    | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Crime_statistics][Crime statistics]]                                                | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Demographic_statistics][Demography]]                                                | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Econometrics][Econometrics]]                                                        | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Jurimetrics][Jurimetrics]]                                                          | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/National_accounts][National accounts]]                                              | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Official_statistics][Official statistics]]                                          | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Population_statistics][Population statistics]]                                      | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Psychometrics][Psychometrics]]                                                      | |  |                                                                                        |  |
-| | | [[/wiki/Spatial_analysis][Spatial statistics]]           | - [[/wiki/Cartography][Cartography]]                                                          | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Environmental_statistics][Environmental statistics]]                                | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Geographic_information_system][Geographic information system]]                      | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Geostatistics][Geostatistics]]                                                      | |  |                                                                                        |  |
-| | |                                                          | - [[/wiki/Kriging][Kriging]]                                                                  | |  |                                                                                        |  |
-| - [[//upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/16px-Symbol_category_class.svg.png]]*[[/wiki/Category:Statistics][Category]]*                                                                                                 |  |
-| - *[[/wiki/File:Nuvola_apps_edu_mathematics_blue-p.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/28px-Nuvola_apps_edu_mathematics_blue-p.svg.png]]]] [[/wiki/Portal:Mathematics][Mathematics portal]]* |  |
-| - [[//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/12px-Commons-logo.svg.png]]*[[https://commons.wikimedia.org/wiki/Category:Statistics][Commons]]*                                                                                       |  |
-| - [[//upload.wikimedia.org/wikipedia/commons/thumb/3/37/People_icon.svg/16px-People_icon.svg.png]] *[[/wiki/Wikipedia:WikiProject_Statistics][WikiProject]]*                                                                                               |  |
-
-| <<Authority_control_frameless_&#124;text-top_&#124;10px_&#124;alt=Edit_this_at_Wikidata_&#124;link=https&#58;//www.wikidata.org/wiki/Q1136628#identifiers&#124;Edit_this_at_Wikidata>>                                                              |                                                                             |
-| [[/wiki/Help:Authority_control][Authority control]] [[https://www.wikidata.org/wiki/Q1136628#identifiers][[[//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/10px-OOjs_UI_icon_edit-ltr-progressive.svg.png]]]] |                                                                             |
-| General                                                                                                                                                                                                                                             | - [[https://d-nb.info/gnd/4165345-2][Integrated Authority File (Germany)]]  |
-| Other                                                                                                                                                                                                                                               | - [[https://academic.microsoft.com/v2/detail/55078378][Microsoft Academic]] |
-
-[[//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1]]
-
-Retrieved from
-"[[https://en.wikipedia.org/w/index.php?title=Pearson_correlation_coefficient&oldid=1063621984]]"
-
-<<catlinks>>
-
-<<mw-normal-catlinks>>
-[[/wiki/Help:Category][Categories]]:
-
-- [[/wiki/Category:Correlation_indicators][Correlation indicators]]
-- [[/wiki/Category:Parametric_statistics][Parametric statistics]]
-- [[/wiki/Category:Statistical_ratios][Statistical ratios]]
-
-<<mw-hidden-catlinks>>
-Hidden categories:
-
-- [[/wiki/Category:CS1:_Julian%E2%80%93Gregorian_uncertainty][CS1:
-  Julian--Gregorian uncertainty]]
-- [[/wiki/Category:CS1_French-language_sources_(fr)][CS1 French-language
-  sources (fr)]]
-- [[/wiki/Category:CS1:_long_volume_value][CS1: long volume value]]
-- [[/wiki/Category:CS1_errors:_missing_periodical][CS1 errors: missing
-  periodical]]
-- [[/wiki/Category:Wikipedia_articles_needing_page_number_citations_from_September_2010][Wikipedia
-  articles needing page number citations from September 2010]]
-- [[/wiki/Category:Articles_with_short_description][Articles with short
-  description]]
-- [[/wiki/Category:Short_description_is_different_from_Wikidata][Short
-  description is different from Wikidata]]
-- [[/wiki/Category:Use_dmy_dates_from_October_2019][Use dmy dates from
-  October 2019]]
-- [[/wiki/Category:All_articles_with_unsourced_statements][All articles
-  with unsourced statements]]
-- [[/wiki/Category:Articles_with_unsourced_statements_from_November_2009][Articles
-  with unsourced statements from November 2009]]
-- [[/wiki/Category:Articles_with_unsourced_statements_from_April_2012][Articles
-  with unsourced statements from April 2012]]
-- [[/wiki/Category:Wikipedia_articles_needing_clarification_from_February_2015][Wikipedia
-  articles needing clarification from February 2015]]
-- [[/wiki/Category:Articles_with_unsourced_statements_from_February_2015][Articles
-  with unsourced statements from February 2015]]
-- [[/wiki/Category:Articles_with_unsourced_statements_from_January_2011][Articles
-  with unsourced statements from January 2011]]
-- [[/wiki/Category:Articles_with_GND_identifiers][Articles with GND
-  identifiers]]
-- [[/wiki/Category:Articles_with_MA_identifiers][Articles with MA
-  identifiers]]
-
-<<mw-data-after-content>>
-
-<<mw-navigation>>
-** Navigation menu
-   :PROPERTIES:
-   :CUSTOM_ID: navigation-menu
-   :END:
-
-<<mw-head>>
-*** Personal tools
-    :PROPERTIES:
-    :CUSTOM_ID: p-personal-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- Not logged in
-- [[/wiki/Special:MyTalk][Talk]]
-- [[/wiki/Special:MyContributions][Contributions]]
-- [[/w/index.php?title=Special:CreateAccount&returnto=Pearson+correlation+coefficient][Create
-  account]]
-- [[/w/index.php?title=Special:UserLogin&returnto=Pearson+correlation+coefficient][Log
-  in]]
-
-<<left-navigation>>
-*** Namespaces
-    :PROPERTIES:
-    :CUSTOM_ID: p-namespaces-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/wiki/Pearson_correlation_coefficient][Article]]
-- [[/wiki/Talk:Pearson_correlation_coefficient][Talk]]
-
-*** Variants expanded collapsed
-    :PROPERTIES:
-    :CUSTOM_ID: p-variants-label
-    :CLASS: vector-menu-heading
-    :aria-label: Change language variant
-    :END:
-
-<<right-navigation>>
-*** Views
-    :PROPERTIES:
-    :CUSTOM_ID: p-views-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/wiki/Pearson_correlation_coefficient][Read]]
-- [[/w/index.php?title=Pearson_correlation_coefficient&action=edit][Edit]]
-- [[/w/index.php?title=Pearson_correlation_coefficient&action=history][View
-  history]]
-
-*** More expanded collapsed
-    :PROPERTIES:
-    :CUSTOM_ID: p-cactions-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-<<p-search>>
-
-*** Search
-    :PROPERTIES:
-    :CUSTOM_ID: search
-    :END:
-
-<<simpleSearch>>
-
-<<mw-panel>>
-
-<<p-logo>>
-[[/wiki/Main_Page][]]
-
-*** Navigation
-    :PROPERTIES:
-    :CUSTOM_ID: p-navigation-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/wiki/Main_Page][Main page]]
-- [[/wiki/Wikipedia:Contents][Contents]]
-- [[/wiki/Portal:Current_events][Current events]]
-- [[/wiki/Special:Random][Random article]]
-- [[/wiki/Wikipedia:About][About Wikipedia]]
-- [[//en.wikipedia.org/wiki/Wikipedia:Contact_us][Contact us]]
-- [[https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&utm_medium=sidebar&utm_campaign=C13_en.wikipedia.org&uselang=en][Donate]]
-
-*** Contribute
-    :PROPERTIES:
-    :CUSTOM_ID: p-interaction-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/wiki/Help:Contents][Help]]
-- [[/wiki/Help:Introduction][Learn to edit]]
-- [[/wiki/Wikipedia:Community_portal][Community portal]]
-- [[/wiki/Special:RecentChanges][Recent changes]]
-- [[/wiki/Wikipedia:File_Upload_Wizard][Upload file]]
-
-*** Tools
-    :PROPERTIES:
-    :CUSTOM_ID: p-tb-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/wiki/Special:WhatLinksHere/Pearson_correlation_coefficient][What
-  links here]]
-- [[/wiki/Special:RecentChangesLinked/Pearson_correlation_coefficient][Related
-  changes]]
-- [[/wiki/Wikipedia:File_Upload_Wizard][Upload file]]
-- [[/wiki/Special:SpecialPages][Special pages]]
-- [[/w/index.php?title=Pearson_correlation_coefficient&oldid=1063621984][Permanent
-  link]]
-- [[/w/index.php?title=Pearson_correlation_coefficient&action=info][Page
-  information]]
-- [[/w/index.php?title=Special:CiteThisPage&page=Pearson_correlation_coefficient&id=1063621984&wpFormIdentifier=titleform][Cite
-  this page]]
-- [[https://www.wikidata.org/wiki/Special:EntityPage/Q1136628][Wikidata
-  item]]
-
-*** Print/export
-    :PROPERTIES:
-    :CUSTOM_ID: p-coll-print_export-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[/w/index.php?title=Special:DownloadAsPdf&page=Pearson_correlation_coefficient&action=show-download-screen][Download
-  as PDF]]
-- [[/w/index.php?title=Pearson_correlation_coefficient&printable=yes][Printable
-  version]]
-
-*** Languages
-    :PROPERTIES:
-    :CUSTOM_ID: p-lang-label
-    :CLASS: vector-menu-heading
-    :aria-label: 
-    :END:
-
-- [[https://ar.wikipedia.org/wiki/%D9%85%D8%B9%D8%A7%D9%85%D9%84_%D8%A7%D9%84%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7_%D9%84%D8%A8%D9%8A%D8%B1%D8%B3%D9%88%D9%86][العربية]]
-- [[https://ca.wikipedia.org/wiki/Coeficient_de_correlaci%C3%B3_de_Pearson][Català]]
-- [[https://de.wikipedia.org/wiki/Korrelationskoeffizient][Deutsch]]
-- [[https://et.wikipedia.org/wiki/Lineaarne_korrelatsioonikordaja][Eesti]]
-- [[https://es.wikipedia.org/wiki/Coeficiente_de_correlaci%C3%B3n_de_Pearson][Español]]
-- [[https://eu.wikipedia.org/wiki/Korrelazio-koefiziente][Euskara]]
-- [[https://fa.wikipedia.org/wiki/%D8%B6%D8%B1%DB%8C%D8%A8_%D9%87%D9%85%D8%A8%D8%B3%D8%AA%DA%AF%DB%8C_%D9%BE%DB%8C%D8%B1%D8%B3%D9%88%D9%86][فارسی]]
-- [[https://ko.wikipedia.org/wiki/%ED%94%BC%EC%96%B4%EC%8A%A8_%EC%83%81%EA%B4%80_%EA%B3%84%EC%88%98][한국어]]
-- [[https://it.wikipedia.org/wiki/Indice_di_correlazione_di_Pearson][Italiano]]
-- [[https://he.wikipedia.org/wiki/%D7%9E%D7%AA%D7%90%D7%9D_%D7%A4%D7%99%D7%A8%D7%A1%D7%95%D7%9F][עברית]]
-- [[https://lv.wikipedia.org/wiki/P%C4%ABrsona_korel%C4%81cijas_koeficients][Latviešu]]
-- [[https://nl.wikipedia.org/wiki/Correlatieco%C3%ABffici%C3%ABnt][Nederlands]]
-- [[https://no.wikipedia.org/wiki/Pearsons_produkt-moment_korrelasjonskoeffisient][Norsk
-  bokmål]]
-- [[https://pl.wikipedia.org/wiki/Wsp%C3%B3%C5%82czynnik_korelacji_Pearsona][Polski]]
-- [[https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson][Português]]
-- [[https://simple.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient][Simple
-  English]]
-- [[https://sk.wikipedia.org/wiki/Bravaisov-Pearsonov_korela%C4%8Dn%C3%BD_koeficient][Slovenčina]]
-- [[https://sl.wikipedia.org/wiki/Pearsonov_koeficient_korelacije][Slovenščina]]
-- [[https://su.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient][Sunda]]
-- [[https://tl.wikipedia.org/wiki/Koepisyenteng_korelasyon_ni_Pearson][Tagalog]]
-- [[https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B5%D1%84%D1%96%D1%86%D1%96%D1%94%D0%BD%D1%82_%D0%BA%D0%BE%D1%80%D0%B5%D0%BB%D1%8F%D1%86%D1%96%D1%97_%D0%9F%D1%96%D1%80%D1%81%D0%BE%D0%BD%D0%B0][Українська]]
-- [[https://zh-yue.wikipedia.org/wiki/%E7%9A%AE%E4%BA%9E%E9%81%9C%E7%A9%8D%E5%B7%AE%E7%9B%B8%E9%97%9C%E4%BF%82%E6%95%B8][粵語]]
-- [[https://zh.wikipedia.org/wiki/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%A7%AF%E7%9F%A9%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0][中文]]
-
-[[https://www.wikidata.org/wiki/Special:EntityPage/Q1136628#sitelinks-wikipedia][Edit
-links]]
-
-- This page was last edited on 4 January 2022, at 01:19 (UTC).
-- Text is available under the
-  [[//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License][Creative
-  Commons Attribution-ShareAlike
-  License]][[//creativecommons.org/licenses/by-sa/3.0/][]]; additional
-  terms may apply. By using this site, you agree to the
-  [[//foundation.wikimedia.org/wiki/Terms_of_Use][Terms of Use]] and
-  [[//foundation.wikimedia.org/wiki/Privacy_policy][Privacy Policy]].
-  Wikipedia® is a registered trademark of the
-  [[//www.wikimediafoundation.org/][Wikimedia Foundation, Inc.]], a
-  non-profit organization.
-
-- [[https://foundation.wikimedia.org/wiki/Privacy_policy][Privacy
-  policy]]
-- [[/wiki/Wikipedia:About][About Wikipedia]]
-- [[/wiki/Wikipedia:General_disclaimer][Disclaimers]]
-- [[//en.wikipedia.org/wiki/Wikipedia:Contact_us][Contact Wikipedia]]
-- [[//en.m.wikipedia.org/w/index.php?title=Pearson_correlation_coefficient&mobileaction=toggle_view_mobile][Mobile
-  view]]
-- [[https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute][Developers]]
-- [[https://stats.wikimedia.org/#/en.wikipedia.org][Statistics]]
-- [[https://foundation.wikimedia.org/wiki/Cookie_statement][Cookie
-  statement]]
-
-- [[https://wikimediafoundation.org/][[[/static/images/footer/wikimedia-button.png]]]]
-- [[https://www.mediawiki.org/][[[/static/images/footer/poweredby_mediawiki_88x31.png]]]]
