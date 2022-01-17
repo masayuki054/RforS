@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-17 月 10:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>分散分析</title>
+<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="http://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">分散分析</h1>
+
+<div id="outline-container-org0261c34" class="outline-2">
+<h2 id="org0261c34">出展</h2>
+<div class="outline-text-2" id="text-org0261c34">
+<p>
+<a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html">生物統計学３</a> の分散分析
+</p>
+<ul class="org-ul">
+<li>最も詳しい式による説明</li>
+</ul>
+</div>
+
+
+<div id="outline-container-orge44053f" class="outline-3">
+<h3 id="orge44053f">参考</h3>
+<div class="outline-text-3" id="text-orge44053f">
+<p>
+<a href="https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml">https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml</a>
+</p>
+<ul class="org-ul">
+<li>良い説明</li>
+</ul>
+
+
+<p>
+<a href="https://sigma-eye.com/2019/04/11/what-nigenhaichi-bunsanbunseki/">二元配置分散分析って何？【交互作用が分かります】 | シグマアイ-仕事で使える統計を-</a>
+</p>
+<ul class="org-ul">
+<li>簡単な実例あり</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org9e12f89" class="outline-2">
+<h2 id="org9e12f89">分散分析（Analysis of Variance）</h2>
+<div class="outline-text-2" id="text-org9e12f89">
+<p>
+分散分析は，ANOVA (Analysis of Variance)
+と略記されることもある．
+</p>
+
+<p>
+分散分析は，複数の処理を同時に
+行ったときに，処理効果を推定するための最も基本的な手法である．
+</p>
+
+<p>
+データ全体の持つ情報は，
+</p>
+
+<ul class="org-ul">
+<li>総平方和にまとめられているが，これを，
+
+<ul class="org-ul">
+<li>処理の分散成分（処理平均平方）と</li>
+
+<li>誤差の分散成分（誤差平均平方）とに分離して，</li>
+</ul></li>
+
+<li>その大きさを比較することにより，処理の効果を見積もるものである．</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org344b829" class="outline-2">
+<h2 id="org344b829">因子と水準</h2>
+<div class="outline-text-2" id="text-org344b829">
+<p>
+経済学では価格や成長率，工学では作業時間や故障率，農学では収量や抵抗性
+など，調査研究したい特性を形質(character)という．着目した形質に影響を
+与えると考えられるもの，例えば，収量では品種，温度，施肥量などを要因ま
+たは因子(factor)という．要因の影響を調べるためいくつかの品種を用いたり，
+施肥量に段階を設けたりするが，それを水準(level)という．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org392c16d" class="outline-2">
+<h2 id="org392c16d">一元配置（one-way layout）</h2>
+<div class="outline-text-2" id="text-org392c16d">
+</div>
+<div id="outline-container-orgc01fca1" class="outline-3">
+<h3 id="orgc01fca1">構造モデル</h3>
+<div class="outline-text-3" id="text-orgc01fca1">
+<p>
+t 検定では，2つの処理平均の比較を行ったが，この節ではこれを拡張して，
+複数の処理平均の比較を行う手法を考える．
+</p>
+
+<p>
+いま，
+</p>
+
+<ul class="org-ul">
+<li>\( a \) 水準の処理（treatment）:: \(A_{1}\)，&#x2026;，\(A_{a}\)，があり</li>
+
+<li id="処理 \(A_{i}\)を行った \(n_{i}\) 個の標本">\(X_{i1}，\cdots ，X_{i n_{i}}\)，が得られたとする．</li>
+
+<li>処理 \(A_{i}\) からの標本:: 平均 \(mu_{i} = \mu + \alpha_{i}\)，
+分散 \(\sigma^{2}\) の正規分布に従うと仮定する．</li>
+
+<li id="総平均（grand mean）">\(\mu\)</li>
+
+<li id="処理効果 （treatment effect）">\( \alpha_{i} \) , 処理効果もしくは，主効果（main effect）と言い，</li>
+
+<li>\(\sum_{i}{\alpha_{i}} = 0\)，である．</li>
+
+<li>誤差項（error term）:: \( e_{ij} \sim N(0，\sigma^{2}) \)</li>
+</ul>
+
+
+<p>
+標本の構造モデル，
+</p>
+
+\begin{eqnarray}
+X_{ij} &=&  \mu_i + e_{ij}, _{i=1:a, j=1:n_i} \\
+& = & \mu + \alpha_i + e_{ij}
+\end{eqnarray}
+
+<p>
+として表現すると，データの持つ構造が理解しやすくなる．
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5de8ec2" class="outline-2">
+<h2 id="org5de8ec2">平方和分解</h2>
+<div class="outline-text-2" id="text-org5de8ec2">
+<p>
+いま，処理 \( A_{i} \) の標本平均を \( \overline{X}_{i.} \)， 標本総平
+均を\( \overline{X}_{..} \) とすると，これらは，
+</p>
+
+\begin{eqnarray}
+
+\overline{X}_{i.} & = & \frac{1}{n_i} \sum_{j=1}^{n_i} X_{ij} \\
+\overline{X}_{..} & = & \frac{\sum_i \sum_j X_{ij}} {\sum_{i} n_i} \\
+ n & = & \sum_{i=1}^{a} n_i \\
+\end{eqnarray}
+<p>
+標本全体の持つ情報は，総平方和 \( S_{T} \)（Total Sum of Squares）で表
+現される．これは，
+</p>
+
+\begin{eqnarray}
+
+S_T & = & \sum_i \sum_j (X_{ij} - \overline{X}_{..})^2 \\
+ & = & \sum_i \sum_j \{ (X_{ij} - \overline{X}_{i.}) + (\overline{X}_{i.} - \overline{X}_{..})\}^2 \\
+ & = & \sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 
+       + \sum_i \sum_j (\overline{X}_{i.} - \overline{X}_{..})^2 \\
+ & = & \sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 
+       + \sum_i n_i (\overline{X}_{i.} - \overline{X}_{..})^2 \\
+ & = & S_e + S_A
+\end{eqnarray}
+
+
+<p>
+のように誤差平方和 \( S_{e} \)（Error Sum of Squares）と
+処理平方和 \(S_{A} \)（Treatment Sum of Squares）とに分解される．
+</p>
+
+<p>
+これは，積の項が
+</p>
+
+\begin{eqnarray}
+
+& & \sum_i \sum_j (X_{ij} - \overline{X}_{i.}) (\overline{X}_{i.} - \overline{X}_{..}) \\
+
+& = & \sum_i (\overline{X}_{i.} - \overline{X}_{..})\sum_j (X_{ij} - \overline{X}_{i.}) \\
+
+& = & \sum_i (\overline{X}_{i.} - \overline{X}_{..})( n_i \overline{X}_{i.
+} - n_i\overline{X}_{i.}) \\
+
+& = & 0
+\end{eqnarray}
+
+
+<p>
+のように 0 となるから．
+</p>
+
+<p>
+なお，誤差平方和を群内平方和（within groups sum ofsquares），処理平方
+和を群間平方和（between groups sum of squares）と呼ぶことも多い．
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcdc8524" class="outline-2">
+<h2 id="orgcdc8524">平方和の期待値</h2>
+<div class="outline-text-2" id="text-orgcdc8524">
+<p>
+個々の標本 \( X_{ij} \) と処理 \( A_{i} \) の標本平均 \( \overline{X}_{i.}\)，
+標本総平均 \( \overline{X}_{..} \) の構造モデルがそれぞれ，
+</p>
+
+\begin{eqnarray}
+X_{ij}  & = &   \mu + \alpha_i + e_{ij},  \\
+&  &   e_{ij} \sim N(0, \sigma^2), \\
+&  &  E[e_{ij}^2]  =  \sigma^2 
+\end{eqnarray}
+
+\begin{eqnarray}
+ \overline{X}_{i.} &=&  \mu + \alpha_i + e_{i.}, \\
+& &     e_{i.} \sim N(0, \sigma^2/n_i),\\
+& &  E[e_{i.}^2]  =  \sigma^2/n_i 
+\end{eqnarray}
+
+    \begin{eqnarray}
+\overline{X}_{..} &=&  \mu + e_{..},  \\
+ & & e_{..} \sim N(0, \sigma^2/n), \\
+ & & E[e_{..}^2]  =  \sigma^2/n \\
+\end{eqnarray}
+
+<p>
+のようになるので，誤差平方和 \( S_{e} \) と処理平方和 \( S_{A} \)の期
+待値は，それぞれ，
+</p>
+
+
+\begin{eqnarray}
+E[S_e] & = & E [\sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 ] \\
+& = & E [\sum_i \sum_j (e_{ij} - \overline{e}_{i.})^2 ] \\
+& = & \sum_i E [ \sum_j (e_{ij}^2 - 2 e_{ij} \overline{e}_{i.} + \overline{e}_{i.})^2 ] \\
+& = & \sum_i E [ \sum_j e_{ij}^2 - 2 \sum_j e_{ij} \overline{e}_{i.} + n_i \overline{e}_{i.}^2 ] \\
+& = & \sum_i E [ \sum_j e_{ij}^2 - n_i \overline{e}_{i.}^2 ] \\
+& = & \sum_i \sum_j \sigma^2 - \sum_i n_i \frac{\sigma ^2}{n_i}  \\
+& = & n\sigma^2 - a \sigma^2 \\
+& = & (n-a)\sigma^2
+
+\end{eqnarray}
+
+\begin{eqnarray}
+E[S_A] & = & E[ \sum_i n_i (\overline{X}_{i.}-\overline{X}_{..})^2] \\
+       & = & E[ \sum_i n_i (\alpha_i + \overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = & E[ \sum_i n_i \{\alpha_i^2 + (\overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i E[(\overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i \{ E[\overline{e}_{i.}^2]- E[\overline{e}_{..}^2]\} \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i \frac{\sigma^2}{n_i} - \sum_i n_i \frac{\sigma^2}{n}\\
+       & = &  \sum_i n_i \alpha_i^2 + a\sigma^2 - \sigma^2\\
+       & = &  \sum_i n_i \alpha_i^2 + (a-1) \sigma^2\\
+
+\end{eqnarray}
+
+<p>
+のように計算できる．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org37f8c24" class="outline-2">
+<h2 id="org37f8c24">帰無仮説のもとでの平方和の比の分布</h2>
+<div class="outline-text-2" id="text-org37f8c24">
+<p>
+一元配置モデルにおける帰無仮説は，すべての処理効果がない，つまり，
+</p>
+
+<p>
+\( H_{0}: \alpha_{i=1:a} = 0 \)
+</p>
+
+<p>
+である．
+</p>
+
+<p>
+前節の平方和の期待値から，帰無仮説のもとで，\( S_{e} / \sigma^{2} \)
+は自由度 \(n - a \) の カイ二乗分布に従い，\( S_{A}/\sigma^{2}\) は自
+由度 \(a - 1 \)のカイ二乗分布に従うことがわかる．
+</p>
+
+<p>
+これらのカイ二乗分布をその自由度で割った比の \(F\) 値は，
+</p>
+
+<p>
+\( F = \frac{(S_A/\sigma^2)/(a-1)}{(S_e/\sigma^2)/(n-a)} = \frac{S_A^2/(a-1)}{(S_e/(n-a)}\frac{}{} = \frac{M_A}{M_e} \sim F(a-1, n-a)
+\)
+</p>
+
+<p>
+自由度\( a-1 \), \(n -a\)の F分布に従う。
+</p>
+
+
+<p>
+ここで，\(M_{A} \) は，処理平方和 \( S_{A} \) を その自由度 \(a - 1\)
+で割ったもので，処理平均平方（treatment mean
+square）と呼ばれ，処理平均から求めた 誤差分散 \(\sigma^{2}\)
+の推定値である．
+</p>
+
+<p>
+一方，\( M_{e} \) は，誤差平方和 \( S_{e} \) を その自由度 \(n -a \)
+で割ったもので，誤差平均平方（error mean square）と呼ばれ，誤差分散の
+推定値である．
+</p>
+
+
+<p>
+帰無仮説のもとでは \(M_{A} \) と \(M_{e} \)はほぼ等しいことが期待され
+るので，その比 F値は 1に近いことが期待される．よって，F値が大きな値を
+とるときは帰無仮説が正しくないと考え，帰無仮説を棄却する．F値が大きい
+か小さいかの判断基準が対応する自由度の F分布で決められる．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b91c99" class="outline-2">
+<h2 id="org5b91c99">分散分析表と <i>F</i> 検定</h2>
+<div class="outline-text-2" id="text-org5b91c99">
+<p>
+一元配置モデルの解析結果は，以下の分散分析表（ANOVA table）にまとめら
+れる．
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">変動因  </th>
+<th scope="col" class="org-left">自由度（df）</th>
+<th scope="col" class="org-left">平方和（S.S.）</th>
+<th scope="col" class="org-left">平均平方（M.S.）</th>
+<th scope="col" class="org-left"> F値  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">主効果</td>
+<td class="org-left">\(a - 1\)</td>
+<td class="org-left">\( S_{A} \)</td>
+<td class="org-left">\(M_{A} = S_{A}/ (a - 1)\)</td>
+<td class="org-left">\(M_{A} / M_{e} \)</td>
+</tr>
+
+<tr>
+<td class="org-left">誤　差</td>
+<td class="org-left">\(n - a\)</td>
+<td class="org-left">\( S_{e} \)</td>
+<td class="org-left">\(M_{e} = \( S_{e} /(n - a)\)</td>
+<td class="org-left"> </td>
+</tr>
+
+<tr>
+<td class="org-left">全　体</td>
+<td class="org-left">\(n - 1\)</td>
+<td class="org-left">\( S_{T} \)</td>
+<td class="org-left"> </td>
+<td class="org-left"> </td>
+</tr>
+</tbody>
+</table>
+
+<p>
+　この表から検定統計量 <i>F</i> 値が求められる．そして， 自由度 \(a - 1\)，
+\(n -a\) の F分布の \(1 - \gamma\) 点（例えば 95 ％点） \(F(a - 1, n -a)_{1 - \gamma}\) より F値が大きい，すなわち，
+</p>
+
+<p>
+\(F > F(a - 1, n - a)_{1 - \gamma} \)
+</p>
+
+<p>
+であるとき，帰無仮説を棄却すると，有意水準 \(\gamma\) （例えば 5
+％）の検定が行える．これを，F検定（F-test） という．
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
+<p class="date">Created: 2022-01-17 月 10:19</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

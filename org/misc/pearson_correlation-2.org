@@ -1,0 +1,1045 @@
+* Pearson correlation coefficient
+   [[https://en.wikipedia.org/wiki/Pearson_correlation_coefficient][Pearson correlation coefficient - Wikipedia]]
+
+
+[[/wiki/Correlation_coefficient][Correlation coefficient]].
+
+In [[/wiki/Statistics][statistics]], the *Pearson correlation
+coefficient* (*PCC*, pronounced [[/wiki/Help:IPA/English][/ˈpɪərsən/]])
+― also known as *Pearson's /r/*, the *Pearson product-moment correlation
+coefficient* (*PPMCC*), the *bivariate
+correlation*,^{[[#cite_note-1][[1]]]} or colloquially simply as *the
+correlation coefficient*^{[[#cite_note-2][[2]]]} ― is a measure of
+[[/wiki/Linear][linear]]
+[[/wiki/Correlation_and_dependence][correlation]] between two sets of
+data. It is the ratio between the [[/wiki/Covariance][covariance]] of
+two variables and the product of their
+[[/wiki/Standard_deviation][standard deviations]]; thus it is
+essentially a normalised measurement of the covariance, such that the
+result always has a value between −1 and 1. As with covariance itself,
+the measure can only reflect a linear correlation of variables, and
+ignores many other types of relationship or correlation. As a simple
+example, one would expect the age and height of a sample of teenagers
+from a high school to have a Pearson correlation coefficient
+significantly greater than 0, but less than 1 (as 1 would represent an
+unrealistically perfect correlation).
+
+[[/wiki/File:Correlation_coefficient.png][[[//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Correlation_coefficient.png/400px-Correlation_coefficient.png]]]]
+
+[[/wiki/File:Correlation_coefficient.png][]]
+
+Examples of scatter diagrams with different values of correlation
+coefficient (/ρ/)
+
+[[/wiki/File:Correlation_examples2.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Correlation_examples2.svg/400px-Correlation_examples2.svg.png]]]]
+
+[[/wiki/File:Correlation_examples2.svg][]]
+
+Several sets of (/x/, /y/) points, with the correlation coefficient of
+/x/ and /y/ for each set. Note that the correlation reflects the
+strength and direction of a linear relationship (top row), but not the
+slope of that relationship (middle), nor many aspects of nonlinear
+relationships (bottom). N.B.: the figure in the center has a slope of 0
+but in that case the correlation coefficient is undefined because the
+variance of /Y/ is zero.
+
+** Contents
+
+- [[#Naming_and_history][1 Naming and history]]
+- [[#Definition][2 Definition]]
+
+  - [[#For_a_population][2.1 For a population]]
+  - [[#For_a_sample][2.2 For a sample]]
+  - [[#Practical_issues][2.3 Practical issues]]
+
+- [[#Mathematical_properties][3 Mathematical properties]]
+- [[#Interpretation][4 Interpretation]]
+
+  - [[#Geometric_interpretation][4.1 Geometric interpretation]]
+  - [[#Interpretation_of_the_size_of_a_correlation][4.2 Interpretation
+    of the size of a correlation]]
+
+- [[#Inference][5 Inference]]
+
+  - [[#Using_a_permutation_test][5.1 Using a permutation test]]
+  - [[#Using_a_bootstrap][5.2 Using a bootstrap]]
+  - [[#Testing_using_Student's_t-distribution][5.3 Testing using
+    Student's /t/-distribution]]
+  - [[#Using_the_exact_distribution][5.4 Using the exact distribution]]
+  - [[#Using_the_exact_confidence_distribution][5.5 Using the exact
+    confidence distribution]]
+  - [[#Using_the_Fisher_transformation][5.6 Using the Fisher
+    transformation]]
+
+- [[#In_least_squares_regression_analysis][6 In least squares regression analysis]]
+
+- [[#Sensitivity_to_the_data_distribution][7 Sensitivity to the data distribution]]
+  - [[#Existence][7.1 Existence]]
+  - [[#Sample_size][7.2 Sample size]]
+  - [[#Robustness][7.3 Robustness]]
+
+- [[#Variants][8 Variants]]
+  - [[#Adjusted_correlation_coefficient][8.1 Adjusted correlation    coefficient]]
+  - [[#Weighted_correlation_coefficient][8.2 Weighted correlation    coefficient]]
+  - [[#Reflective_correlation_coefficient][8.3 Reflective correlation    coefficient]]
+  - [[#Scaled_correlation_coefficient][8.4 Scaled correlation    coefficient]]
+  - [[#Pearson's_distance][8.5 Pearson's distance]]
+  - [[#Circular_correlation_coefficient][8.6 Circular correlation    coefficient]]
+  - [[#Partial_correlation][8.7 Partial correlation]]
+
+- [[#Decorrelation_of_n_random_variables][9 Decorrelation of /n/ random variables]]
+- [[#Software_implementations][10 Software implementations]]
+- [[#See_also][11 See also]]
+
+** Definition[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=2][edit]]]
+
+Pearson's correlation coefficient is the covariance of the two variables
+divided by the product of their standard deviations. The form of the
+definition involves a "product moment", that is, the mean (the first
+[[/wiki/Moment_(mathematics)][moment]] about the origin) of the product
+of the mean-adjusted random variables; hence the modifier
+/product-moment/ in the name.
+
+*** For a population
+
+Pearson's correlation coefficient, when applied to a
+[[/wiki/Statistical_population][population]], is commonly represented by
+the Greek letter /ρ/ (rho) and may be referred to as the /population
+correlation coefficient/ or the /population Pearson correlation
+coefficient/. Given a pair of random variables
+\((X,Y)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/41f29b9537685f499713112d6802e811cbf51bba]],
+the formula for /ρ/^{[[#cite_note-RealCorBasic-11][[10]]]}
+is:^{[[#cite_note-12][[11]]]}
+
+ \(\rho_{X,Y} = \frac{{cov}(X,Y)}{\sigma_{X}\sigma_{Y}}\)
+
+
+where:
+
+- \(cov\)  is the covariance
+- \(\sigma_{X}\) is the standard deviation of  \(X\)
+- \(\sigma_{Y}\) is the standard deviation of \(Y\)
+
+The formula for \(\rho\) can be expressed in terms of mean and
+expectation.  Since^{[[#cite_note-RealCorBasic-11][]]}
+
+\({cov}(X,Y) = \mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack,\)
+
+the formula for \(\rho\) can also be written as
+
+\(\rho_{X,Y} = \frac{\mathbb{E}\lbrack(X - \mu_{X})(Y - \mu_{Y})\rbrack}{\sigma_{X}\sigma_{Y}}\)
+
+where:
+
+- \(\sigma_{Y}\) and \(\sigma_{X}\) are defined as above
+- \(\mu_{X}\) is the [[/wiki/Mean][mean]] of \(X\)
+- \(\mu_{Y}\) is the mean of \(Y\)
+- \(\mathbb{E}\) is the [[/wiki/Expected_Value][expectation]].
+
+The formula for \(\rho\) can be expressed in terms of uncentered
+moments. Since
+
+\(\mu_{X} = \mathbb{E}\lbrack\, X\,\rbrack\)
+\(\mu_{Y} = \mathbb{E}\lbrack\, Y\,\rbrack\)
+\(\sigma_{X}^{2} = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack X\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, X^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, X\,\rbrack} \right)^{2}\)
+\(\sigma_{Y}^{2} = \mathbb{E}\lbrack\,\left( {Y - \mathbb{E}\lbrack Y\rbrack} \right)^{2}\,\rbrack = \mathbb{E}\lbrack\, Y^{2}\,\rbrack - \left( {\,\mathbb{E}\lbrack\, Y\,\rbrack} \right)^{2}\)
+\(\mathbb{E}\lbrack\,\left( {X - \mu_{X}} \right)\left( {Y - \mu_{Y}} \right)\,\rbrack = \mathbb{E}\lbrack\,\left( {X - \mathbb{E}\lbrack\, X\,\rbrack} \right)\left( {Y - \mathbb{E}\lbrack\, Y\,\rbrack} \right)\,\rbrack = \mathbb{E}\lbrack\, X\, Y\,\rbrack - \mathbb{E}\lbrack\, X\,\rbrack\mathbb{E}\lbrack\, Y\,\rbrack\,,\)
+
+the formula for \(\rho\) can also be written as
+
+\[\rho_{X,Y} = \frac{\mathbb{E}\lbrack\, X\, Y\,\rbrack - \mathbb{E}\lbrack\, X\,\rbrack\mathbb{E}\lbrack\, Y\,\rbrack}{\sqrt{\mathbb{E}\lbrack\, X^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, X\,\rbrack} \right)^{2}}\ \sqrt{\mathbb{E}\lbrack\, Y^{2}\,\rbrack - \left( {\mathbb{E}\lbrack\, Y\,\rbrack} \right)^{2}}}.\]
+
+*** For a sample
+
+Pearson's correlation coefficient, when applied to a [[/wiki/Sample_(statistics)][sample]], is
+commonly represented by \(r_{xy}\) and may be referred to as the
+/sample correlation coefficient/ or the /sample Pearson correlation
+coefficient/. We can obtain a formula for \(r_{xy}\) by substituting
+estimates of the covariances and variances based on a sample into the
+formula above. Given paired data \(\left\{
+{(x_{1},y_{1}),\ldots,(x_{n},y_{n})} \right\}\) consisting of \(n\)
+pairs, \(r_{xy}\) is defined as:
+
+| \(r_{xy} = \frac{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}(y_{i} - \overline{y})^{2}}}\)
+|                                                                                                                                                                                                                                                                                                               | |   |   |   | |          |
+
+where:
+
+- \(n\) is sample size
+- \(x_{i},y_{i}\) are the individual sample points indexed with /i/
+- \(\overline{x} = \frac{1}{n}\sum\limits_{i = 1}^{n}x_{i}\) (the sample mean); and analogously for \(\overline{y}\)
+
+Rearranging gives us this formula for   \(r_{xy}\)
+
+\(r_{xy} = \frac{n\sum x_{i}y_{i} - \sum x_{i}\sum y_{i}}{\sqrt{n\sum x_{i}^{2} - \left( {\sum x_{i}} \right)^{2}}\ \sqrt{n\sum y_{i}^{2} - \left( {\sum y_{i}} \right)^{2}}}.\)
+
+where \(n,x_{i},y_{i}\) are defined as above.
+
+This formula suggests a convenient single-pass algorithm for calculating
+sample correlations, though depending on the numbers involved, it can
+sometimes be [[/wiki/Numerical_stability][numerically unstable]].
+
+Rearranging again gives us this^{[[#cite_note-RealCorBasic-11][[10]]]} formula for \(r_{xy}\)
+
+\(r_{xy} = \frac{\sum\limits_{i}x_{i}y_{i} -
+n\overline{x}\overline{y}}{\sqrt{\sum\limits_{i}x_{i}^{2} -
+n{\overline{x}}^{2}}\ \sqrt{\sum\limits_{i}y_{i}^{2} -
+n{\overline{y}}^{2}}}.\) where
+\(n,x_{i},y_{i},\overline{x},\overline{y}\) are defined as above.
+
+An equivalent expression gives the formula for \(r_{xy}\) as the mean
+of the products of the [[/wiki/Standard_score][standard scores]] as follows:
+
+\(r_{xy} = \frac{1}{n - 1}\sum\limits_{i = 1}^{n}\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\left( \frac{y_{i} - \overline{y}}{s_{y}} \right)\)
+
+where:
+
+- \(n,x_{i},y_{i},\overline{x},\overline{y}\) are defined as above,
+  and \(s_{x},s_{y}\) are defined below
+- \(\left( \frac{x_{i} - \overline{x}}{s_{x}} \right)\) is the
+  standard score (and analogously for the standard score of \(y\)
+
+Alternative formulae for \(r_{xy}\) are also available. For
+example. one can use the following formula for \(r_{xy}\)
+
+\(r_{xy} = \frac{\sum x_{i}y_{i} - n\overline{x}\overline{y}}{(n - 1)s_{x}s_{y}}\)
+where:
+
+- \(n,x_{i},y_{i},\overline{x},\overline{y}\) are defined as above
+  and:
+- \(s_{x} = \sqrt{\frac{1}{n - 1}\sum\limits_{i = 1}^{n}(x_{i} -
+  \overline{x})^{2}}\) (the sample standard deviation); and
+  analogously for \(s_{y}\)
+
+*** Practical issues
+
+Under heavy noise conditions, extracting the correlation coefficient
+between two sets of [[/wiki/Random_variables][stochastic variables]] is
+nontrivial, in particular where Canonical Correlation Analysis reports
+degraded correlation values due to the heavy noise contributions. A
+generalization of the approach is given
+elsewhere.^{[[#cite_note-13][[12]]]}
+
+In case of missing data, Garren derived the
+[[/wiki/Maximum_likelihood][maximum likelihood]]
+estimator.^{[[#cite_note-14][[13]]]}
+
+** Mathematicalproperties
+
+The absolute values of both the sample and population Pearson
+correlation coefficients are on or between −1 and 1. Correlations equal
+to +1 or −1 correspond to data points lying exactly on a line (in the
+case of the sample correlation), or to a bivariate distribution entirely
+supported on a line (in the case of the population correlation). The
+Pearson correlation coefficient is symmetric:
+corr(/X/,/Y/) = corr(/Y/,/X/).
+
+A key mathematical property of the Pearson correlation coefficient is
+that it is [[/wiki/Invariant_estimator][invariant]] under separate
+changes in location and scale in the two variables. That is, we may
+transform /X/ to /a/ + /bX/ and transform /Y/ to /c/ + /dY/, where /a/,
+/b/, /c/, and /d/ are constants with /b/, /d/ > 0, without changing the
+correlation coefficient. (This holds for both the population and sample
+Pearson correlation coefficients.) Note that more general linear
+transformations do change the correlation: see
+[[#Decorrelation_of_n_random_variables][§ Decorrelation of n random
+variables]] for an application of this.
+
+** Interpretation
+
+The correlation coefficient ranges from −1 to 1. An absolute value of
+exactly 1 implies that a linear equation describes the relationship
+between /X/ and /Y/ perfectly, with all data points lying on a
+[[/wiki/Line_(mathematics)][line]]. The correlation sign is determined
+by the [[/wiki/Regression_slope][regression slope]]: a value of +1
+implies that all data points lie on a line for which /Y/ increases as
+/X/ increases, and vice versa for −1.^{[[#cite_note-STAT_462-15][[14]]]}
+A value of 0 implies that there is no linear dependency between the
+variables.^{[[#cite_note-16][[15]]]}
+
+More generally, note that (/X/_{/i/} − /X/)(/Y/_{/i/} − /Y/) is positive
+if and only if /X/_{/i/} and /Y/_{/i/} lie on the same side of their
+respective means. Thus the correlation coefficient is positive if
+/X/_{/i/} and /Y/_{/i/} tend to be simultaneously greater than, or
+simultaneously less than, their respective means. The correlation
+coefficient is negative ([[/wiki/Anti-correlation][anti-correlation]])
+if /X/_{/i/} and /Y/_{/i/} tend to lie on opposite sides of their
+respective means. Moreover, the stronger is either tendency, the larger
+is the [[/wiki/Absolute_value][absolute value]] of the correlation
+coefficient.
+
+Rodgers and Nicewander^{[[#cite_note-17][[16]]]} cataloged thirteen ways
+of interpreting correlation or simple functions of it:
+
+- Function of raw scores and means
+- Standardized covariance
+- Standardized slope of the regression line
+- Geometric mean of the two regression slopes
+- Square root of the ratio of two variances
+- Mean cross-product of standardized variables
+- Function of the angle between two standardized regression lines
+- Function of the angle between two variable vectors
+- Rescaled variance of the difference between standardized scores
+- Estimated from the balloon rule
+- Related to the bivariate ellipses of isoconcentration
+- Function of test statistics from designed experiments
+- Ratio of two means
+
+*** Geometric
+interpretation[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=8][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: geometric-interpretationedit
+    :END:
+
+[[/wiki/File:Regression_lines.png][[[//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Regression_lines.png/330px-Regression_lines.png]]]]
+
+[[/wiki/File:Regression_lines.png][]]
+
+Regression lines for /y/ = /g/_{/X/}(/x/) [red] and /x/ = /g/_{/Y/}(/y/)
+[blue]
+
+For uncentered data, there is a relation between the correlation
+coefficient and the angle /φ/ between the two regression lines, /y/ =
+/g/_{/X/}(/x/) and /x/ = /g/_{/Y/}(/y/), obtained by regressing /y/ on
+/x/ and /x/ on /y/ respectively. (Here, /φ/ is measured counterclockwise
+within the first quadrant formed around the lines' intersection point if
+/r/ > 0, or counterclockwise from the fourth to the second quadrant if
+/r/ < 0.) One can show^{[[#cite_note-18][[17]]]} that if the standard
+deviations are equal, then /r/ = sec /φ/ − tan /φ/, where sec and tan
+are [[/wiki/Trigonometric_functions][trigonometric functions]].
+
+For centered data (i.e., data which have been shifted by the sample
+means of their respective variables so as to have an average of zero for
+each variable), the correlation coefficient can also be viewed as the
+[[/wiki/Cosine][cosine]] of the [[/wiki/Angle][angle]] /θ/ between the
+two observed [[/wiki/Vector_(geometry)][vectors]] in /N/-dimensional
+space (for /N/ observations of each variable)^{[[#cite_note-19][[18]]]}
+
+Both the uncentered (non-Pearson-compliant) and centered correlation
+coefficients can be determined for a dataset. As an example, suppose
+five countries are found to have gross national products of 1, 2, 3, 5,
+and 8 billion dollars, respectively. Suppose these same five countries
+(in the same order) are found to have 11%, 12%, 13%, 15%, and 18%
+poverty. Then let *x* and *y* be ordered 5-element vectors containing
+the above data: *x* = (1, 2, 3, 5, 8) and *y* = (0.11, 0.12, 0.13, 0.15,
+0.18).
+
+By the usual procedure for finding the angle /θ/ between two vectors
+(see [[/wiki/Dot_product][dot product]]), the /uncentered/ correlation
+coefficient is:
+
+\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{2.93}{\sqrt{103}\sqrt{0.0983}} = 0.920814711.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e9246ea010f8aa2a5c7388806a81621a602b241f]]
+This uncentered correlation coefficient is identical with the
+[[/wiki/Cosine_similarity][cosine similarity]]. Note that the above data
+were deliberately chosen to be perfectly correlated: /y/ = 0.10 + 0.01
+/x/. The Pearson correlation coefficient must therefore be exactly one.
+Centering the data (shifting *x* by ℰ(*x*) = 3.8 and *y* by ℰ(*y*) =
+0.138) yields *x* = (−2.8, −1.8, −0.8, 1.2, 4.2) and *y* = (−0.028,
+−0.018, −0.008, 0.012, 0.042), from which
+
+\(\cos\theta = \frac{\mathbf{x} \cdot \mathbf{y}}{\left\| \mathbf{x} \right\|\left\| \mathbf{y} \right\|} = \frac{0.308}{\sqrt{30.8}\sqrt{0.00308}} = 1 = \rho_{xy},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4b5c7f0af0f3cdc5fa45784605b88c9e085b62c0]]
+as expected.
+
+*** Interpretation of the size of a
+correlation[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=9][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: interpretation-of-the-size-of-a-correlationedit
+    :END:
+
+[[/wiki/File:Pearson_correlation_and_prediction_intervals.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Pearson_correlation_and_prediction_intervals.svg/200px-Pearson_correlation_and_prediction_intervals.svg.png]]]]
+
+[[/wiki/File:Pearson_correlation_and_prediction_intervals.svg][]]
+
+This figure gives a sense of how the usefulness of a Pearson correlation
+for predicting values varies with its magnitude. Given jointly normal
+/X/, /Y/ with correlation /ρ/,
+\(1 - \sqrt{1 - \rho^{2}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/8d2503071eb5432a487fd7f300442f2cf5fc6073]]
+(plotted here as a function of /ρ/) is the factor by which a given
+[[/wiki/Prediction_interval][prediction interval]] for /Y/ may be
+reduced given the corresponding value of /X/. For example, if /ρ/ = 0.5,
+then the 95% prediction interval of /Y/|/X/ will be about 13% smaller
+than the 95% prediction interval of /Y/.
+
+Several authors have offered guidelines for the interpretation of a
+correlation
+coefficient.^{[[#cite_note-Buda-20][[19]]][[#cite_note-Cohen88-21][[20]]]}
+However, all such criteria are in some ways
+arbitrary.^{[[#cite_note-Cohen88-21][[20]]]} The interpretation of a
+correlation coefficient depends on the context and purposes. A
+correlation of 0.8 may be very low if one is verifying a physical law
+using high-quality instruments, but may be regarded as very high in the
+social sciences, where there may be a greater contribution from
+complicating factors.
+
+** Inference
+
+Statistical inference based on Pearson's correlation coefficient often
+focuses on one of the following two aims:
+
+- One aim is to test the [[/wiki/Null_hypothesis][null hypothesis]] that
+  the true correlation coefficient /ρ/ is equal to 0, based on the value
+  of the sample correlation coefficient /r/.
+- The other aim is to derive a [[/wiki/Confidence_interval][confidence
+  interval]] that, on repeated sampling, has a given probability of
+  containing /ρ/.
+
+We discuss methods of achieving one or both of these aims below.
+
+*** Using a permutation test
+
+Permutation tests provide a direct approach to performing hypothesis
+tests and constructing confidence intervals. A permutation test for
+Pearson's correlation coefficient involves the following two steps:
+
+1. Using the original paired data (/x/_{/i/}, /y/_{/i/}), randomly
+   redefine the pairs to create a new data set (/x/_{/i/}, /y/_{/i′/}),
+   where the /i′/ are a permutation of the set {1,...,/n/}. The
+   permutation /i′/ is selected randomly, with equal probabilities
+   placed on all /n/! possible permutations. This is equivalent to
+   drawing the /i′/ randomly without replacement from the set {1, ...,
+   /n/}. In [[/wiki/Bootstrapping_(statistics)][bootstrapping]], a
+   closely related approach, the /i/ and the /i′/ are equal and drawn
+   with replacement from {1, ..., /n/};
+2. Construct a correlation coefficient /r/ from the randomized data.
+
+To perform the permutation test, repeat steps (1) and (2) a large number
+of times. The [[/wiki/P-value][p-value]] for the permutation test is the
+proportion of the /r/ values generated in step (2) that are larger than
+the Pearson correlation coefficient that was calculated from the
+original data. Here "larger" can mean either that the value is larger in
+magnitude, or larger in signed value, depending on whether a
+[[/wiki/Two-tailed_test][two-sided]] or
+[[/wiki/Two-tailed_test][one-sided]] test is desired.
+
+*** Using a bootstrap
+
+The [[/wiki/Bootstrapping_(statistics)][bootstrap]] can be used to
+construct confidence intervals for Pearson's correlation coefficient. In
+the "non-parametric" bootstrap, /n/ pairs (/x/_{/i/}, /y/_{/i/}) are
+resampled "with replacement" from the observed set of /n/ pairs, and the
+correlation coefficient /r/ is calculated based on the resampled data.
+This process is repeated a large number of times, and the empirical
+distribution of the resampled /r/ values are used to approximate the
+[[/wiki/Sampling_distribution][sampling distribution]] of the statistic.
+A 95% [[/wiki/Confidence_interval][confidence interval]] for /ρ/ can be
+defined as the interval spanning from the 2.5th to the 97.5th
+[[/wiki/Percentile][percentile]] of the resampled /r/ values.
+
+*** Testing using Student's/t-distribution
+
+
+[[/wiki/File:Critical_correlation_vs._sample_size.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/2/24/Critical_correlation_vs._sample_size.svg/324px-Critical_correlation_vs._sample_size.svg.png]]]]
+
+[[/wiki/File:Critical_correlation_vs._sample_size.svg][]]
+
+Critical values of Pearson's correlation coefficient that must be
+exceeded to be considered significantly nonzero at the 0.05 level.
+
+For pairs from an uncorrelated
+[[/wiki/Bivariate_normal_distribution][bivariate normal distribution]],
+the [[/wiki/Sampling_distribution][sampling distribution]] of a certain
+function of Pearson's correlation coefficient follows
+[[/wiki/Student%27s_t-distribution][Student's /t/-distribution]] with
+degrees of freedom /n/ − 2. Specifically, if the underlying variables
+have a bivariate normal distribution, the variable
+
+\(t = r\sqrt{\frac{n - 2}{1 - r^{2}}}\)
+has a student's /t/-distribution in the null case (zero
+correlation).^{[[#cite_note-22][[21]]]} This holds approximately in case
+of non-normal observed values if sample sizes are large
+enough.^{[[#cite_note-23][[22]]]} For determining the critical values
+for /r/ the inverse function is needed:
+
+\(r = \frac{t}{\sqrt{n - 2 + t^{2}}}.\)
+Alternatively, large sample, asymptotic approaches can be used.
+
+Another early paper^{[[#cite_note-24][[23]]]} provides graphs and tables
+for general values of /ρ/, for small sample sizes, and discusses
+computational approaches.
+
+In the case where the underlying variables are not normal, the sampling
+distribution of Pearson's correlation coefficient follows a Student's
+/t/-distribution, but the degrees of freedom are
+reduced.^{[[#cite_note-25][[24]]]}
+
+*** Using the exact istribution
+
+For data that follow a [[/wiki/Bivariate_normal_distribution][bivariate
+normal distribution]], the exact density function /f/(/r/) for the
+sample correlation coefficient /r/ of a normal bivariate
+is^{[[#cite_note-26][[25]]][[#cite_note-27][[26]]][[#cite_note-28][[27]]]}
+
+\(f(r) = \frac{(n - 2)\,\Gamma(n - 1)(1 - \rho^{2})^{\frac{n - 1}{2}}(1 - r^{2})^{\frac{n - 4}{2}}}{\sqrt{2\pi}\,\Gamma(n - \frac{1}{2})(1 - \rho r)^{n - \frac{3}{2}}}{}_{2}F_{1}(\frac{1}{2},\frac{1}{2};\frac{1}{2}(2n - 1);\frac{1}{2}(\rho r + 1))\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b8b11e1f254e59c3d924c914dfa4f5a9dc017d4d]]
+where
+\(\Gamma\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4cfde86a3f7ec967af9955d0988592f0693d2b19]]
+is the [[/wiki/Gamma_function][gamma function]] and
+\({}_{2}F_{1}(a,b;c;z)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/98109d3d8cc5865398696e396bc469aff388b963]]
+is the [[/wiki/Hypergeometric_function][Gaussian hypergeometric
+function]].
+
+In the special case when
+\(\rho = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2ba6310b27df5f9c9b0b1732e08cce27b99d68cf]],
+the exact density function /f/(/r/) can be written as:
+
+\(f(r) = \frac{\left( {1 - r^{2}} \right)^{\frac{n - 4}{2}}}{B\left( {\frac{1}{2},\frac{1}{2}(n - 2)} \right)},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/43448f47054d0a9708c27b2151d8a8305e499d78]]
+where
+\(B\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/93003d072991ba424a73ed1e081afe55c124b6ce]]
+is the [[/wiki/Beta_function][beta function]], which is one way of
+writing the density of a Student's t-distribution, as above.
+
+*** Using the exact confidence distribution
+
+Confidence intervals and tests can be calculated from a
+[[/wiki/Confidence_distribution][confidence distribution]]. An exact
+confidence density for /ρ/ is^{[[#cite_note-29][[28]]]}
+
+\[\pi(\rho|r) = \frac{\nu(\nu - 1)\Gamma(\nu - 1)}{\sqrt{2\pi}\Gamma(\nu + \frac{1}{2})}(1 - r^{2})^{\frac{\nu - 1}{2}} \cdot (1 - \rho^{2})^{\frac{\nu - 2}{2}} \cdot (1 - r\rho)^{\frac{1 - 2\nu}{2}}F\left( {\frac{3}{2}, - \frac{1}{2};\nu + \frac{1}{2};\frac{1 + r\rho}{2}} \right)\]
+
+[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c906ed1aef035b9f2c82dae3bc1823b33b88a383]]
+
+where
+\(F\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57]]
+is the Gaussian hypergeometric function and
+\(\nu = n - 1 > 1\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/90621e9d8a7d137425c6871c269cc3dc8acddfe6]].
+
+*** Using the Fisher transformation
+
+In practice, [[/wiki/Confidence_intervals][confidence intervals]] and
+[[/wiki/Hypothesis_test][hypothesis tests]] relating to /ρ/ are usually
+carried out using the [[/wiki/Fisher_transformation][Fisher
+transformation]],
+\(F\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/545fd099af8541605f7ee55f08225526be88ce57]]/:/
+
+\(F(r) \equiv \frac{1}{2}\,\ln\left( \frac{1 + r}{1 - r} \right) = {artanh}(r)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e0d292b07d038e9969434f745faa99f170296f50]]
+/F/(/r/) approximately follows a [[/wiki/Normal_distribution][normal
+distribution]] with
+
+\(\text{mean} = F(\rho) = {artanh}(\rho)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/654763efc6d55f537bffdfe1bdc33599e1f3d2c1]]    and
+[[/wiki/Standard_error][standard error]]
+\(= \text{SE} = \frac{1}{\sqrt{n - 3}},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e1f040350f3f8007ca5b83524778904a0cf56e41]]
+where /n/ is the sample size. The approximation error is lowest for a
+large sample size
+\(n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b]]
+and small
+\(r\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538]]
+and
+\(\rho_{0}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d9c04a9d26b86af8c6205ba2a6287fd655b6b714]]
+and increases otherwise.
+
+Using the approximation, a [[/wiki/Standard_score][z-score]] is
+
+\(z = \frac{x - \text{mean}}{\text{SE}} = \lbrack F(r) - F(\rho_{0})\rbrack\sqrt{n - 3}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/da7a3d54a70f9005e3bf9a2accf62cbf0fa0ea71]]
+under the [[/wiki/Null_hypothesis][null hypothesis]] that
+\(\rho = \rho_{0}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f238f1650226a8b22c2e7daea44054d5616bf57b]],
+given the assumption that the sample pairs are
+[[/wiki/Independent_and_identically_distributed][independent and
+identically distributed]] and follow a
+[[/wiki/Bivariate_normal_distribution][bivariate normal distribution]].
+Thus an approximate [[/wiki/P-value][p-value]] can be obtained from a
+normal probability table. For example, if /z/ = 2.2 is observed and a
+two-sided p-value is desired to test the null hypothesis that
+\(\rho = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2ba6310b27df5f9c9b0b1732e08cce27b99d68cf]],
+the p-value is 2 Φ(−2.2) = 0.028, where Φ is the standard normal
+[[/wiki/Cumulative_distribution_function][cumulative distribution
+function]].
+
+To obtain a confidence interval for ρ, we first compute a confidence
+interval for
+/F/(/\(\rho\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/1f7d439671d1289b6a816e6af7a304be40608d64]]/):
+
+\(100(1 - \alpha)\%\text{CI}:{artanh}(\rho) \in \lbrack{artanh}(r) \pm z_{\alpha/2}\text{SE}\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/affc3f0ee39499c97bb851229113f49d83100bf2]]
+The inverse Fisher transformation brings the interval back to the
+correlation scale.
+
+\(100(1 - \alpha)\%\text{CI}:\rho \in \lbrack\tanh({artanh}(r) - z_{\alpha/2}\text{SE}),\tanh({artanh}(r) + z_{\alpha/2}\text{SE})\rbrack\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/bf658969d39ea848505750b5cd76db21da78dd5c]]
+For example, suppose we observe /r/ = 0.3 with a sample size of /n/=50,
+and we wish to obtain a 95% confidence interval for ρ. The transformed
+value is arctanh(/r/) = 0.30952, so the confidence interval on the
+transformed scale is 0.30952 ± 1.96/√47, or (0.023624, 0.595415).
+Converting back to the correlation scale yields (0.024, 0.534).
+
+** In least squares regression analysis
+
+For more general, non-linear dependency, see
+[[/wiki/Coefficient_of_determination#In_a_non-simple_linear_model][Coefficient
+of determination § In a non-simple linear model]].
+
+The square of the sample correlation coefficient is typically denoted
+/r/^{2} and is a special case of the
+[[/wiki/Coefficient_of_determination][coefficient of determination]]. In
+this case, it estimates the fraction of the variance in /Y/ that is
+explained by /X/ in a [[/wiki/Simple_linear_regression][simple linear
+regression]]. So if we have the observed dataset
+\(Y_{1},\ldots,Y_{n}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/010c105dda336a4624a635ea54886fb040034d64]]
+and the fitted dataset
+\({\hat{Y}}_{1},\ldots,{\hat{Y}}_{n}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7b92b6ed682745ccf89687f13a8d9babd6b98b45]]
+then as a starting point the total variation in the /Y/_{/i/} around
+their average value can be decomposed as follows
+
+\(\sum\limits_{i}(Y_{i} - \overline{Y})^{2} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2} + \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c9118c1be467c66001f725256173b44a232ff3ee]]
+where the
+\({\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/95e3f64a5026a18a1d7ff1b9991ad98465260fd9]]
+are the fitted values from the regression analysis. This can be
+rearranged to give
+
+\(1 = \frac{\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}} + \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/5a66f944f825488f551eee242c6ee5d89172501c]]
+The two summands above are the fraction of variance in /Y/ that is
+explained by /X/ (right) and that is unexplained by /X/ (left).
+
+Next, we apply a property of least square regression models, that the
+sample covariance between
+\({\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/95e3f64a5026a18a1d7ff1b9991ad98465260fd9]]
+and
+\(Y_{i} - {\hat{Y}}_{i}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/bd03d5a74128859466ac10cc4561d4aeb8d72d49]]
+is zero. Thus, the sample correlation coefficient between the observed
+and fitted response values in the regression can be written (calculation
+is under expectation, assumes Gaussian statistics)
+
+\(\begin{matrix}
+{r(Y,\hat{Y})} & {= \frac{\sum\limits_{i}(Y_{i} - \overline{Y})({\hat{Y}}_{i} - \overline{Y})}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
+ & {= \frac{\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i} + {\hat{Y}}_{i} - \overline{Y})({\hat{Y}}_{i} - \overline{Y})}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
+ & {= \frac{\sum\limits_{i}\lbrack(Y_{i} - {\hat{Y}}_{i})({\hat{Y}}_{i} - \overline{Y}) + ({\hat{Y}}_{i} - \overline{Y})^{2}\rbrack}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
+ & {= \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sqrt{\sum\limits_{i}(Y_{i} - \overline{Y})^{2} \cdot \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}}} \\
+ & {= \sqrt{\frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}}.} \\
+\end{matrix}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d86595f3f77e8ee96952760d9176a5fa140cc562]]
+Thus
+
+\(r(Y,\hat{Y})^{2} = \frac{\sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}}{\sum\limits_{i}(Y_{i} - \overline{Y})^{2}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6b69ee444a1cf744688c7629e8379f8365436bca]]
+where
+\(r(Y,\hat{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c96eb90dcf4a4f321c44761777ca0b5a3b557dd9]]
+is the proportion of variance in /Y/ explained by a linear function of
+/X/.
+
+In the derivation above, the fact that
+
+\(\sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})({\hat{Y}}_{i} - \overline{Y}) = 0\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c6c05d40d242e53a1773c0b3d16091f6038300d1]]
+can be proved by noticing that the partial derivatives of the
+[[/wiki/Residual_sum_of_squares][residual sum of squares]] (RSS) over
+/β/_{0} and /β/_{1} are equal to 0 in the least squares model, where
+
+\(\text{RSS} = \sum\limits_{i}(Y_{i} - {\hat{Y}}_{i})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4f0767dfb81d4b557639ff4a261ce799dd180c96]].
+In the end, the equation can be written as:
+
+\(r(Y,\hat{Y})^{2} = \frac{\text{SS}_{\text{reg}}}{\text{SS}_{\text{tot}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4d3a38b66d8c711fed7d3ce42bbf4b8527fa55a9]]
+where
+
+- \(\text{SS}_{\text{reg}} = \sum\limits_{i}({\hat{Y}}_{i} - \overline{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2326f7ddf5f4b56f75e373683b5c990d91917b80]]
+- \(\text{SS}_{\text{tot}} = \sum\limits_{i}(Y_{i} - \overline{Y})^{2}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/185d77782aeb203c935c650891e8a9c70f38ceb8]]
+
+The symbol
+\(\text{SS}_{\text{reg}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/a2bb9bbb9357f5fc855305e0a69f112bddb99cdb]]
+is called the regression sum of squares, also called the
+[[/wiki/Explained_sum_of_squares][explained sum of squares]], and
+\(\text{SS}_{\text{tot}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f89b1b62a6c558284ef336502630d606a8c1cf4d]]
+is the [[/wiki/Total_sum_of_squares][total sum of squares]]
+(proportional to the [[/wiki/Variance][variance]] of the data).
+
+** Sensitivity to the data distribution
+
+Further information:
+[[/wiki/Correlation_and_dependence#Sensitivity_to_the_data_distribution][Correlation
+and dependence § Sensitivity to the data distribution]]
+
+*** Existence
+
+The population Pearson correlation coefficient is defined in terms of
+[[/wiki/Moment_(mathematics)][moments]], and therefore exists for any
+bivariate [[/wiki/Probability_distribution][probability distribution]]
+for which the [[/wiki/Statistical_population][population]]
+[[/wiki/Covariance][covariance]] is defined and the
+[[/wiki/Marginal_distribution][marginal]]
+[[/wiki/Population_variance][population variances]] are defined and are
+non-zero. Some probability distributions such as the
+[[/wiki/Cauchy_distribution][Cauchy distribution]] have undefined
+variance and hence ρ is not defined if /X/ or /Y/ follows such a
+distribution. In some practical applications, such as those involving
+data suspected to follow a
+[[/wiki/Heavy-tailed_distribution][heavy-tailed distribution]], this is
+an important consideration. However, the existence of the correlation
+coefficient is usually not a concern; for instance, if the range of the
+distribution is bounded, ρ is always defined.
+
+*** Sample size
+
+- If the sample size is moderate or large and the population is normal,
+  then, in the case of the bivariate [[/wiki/Normal_distribution][normal
+  distribution]], the sample correlation coefficient is the
+  [[/wiki/Maximum_likelihood_estimate][maximum likelihood estimate]] of
+  the population correlation coefficient, and is
+  [[/wiki/Asymptotic_distribution][asymptotically]]
+  [[/wiki/Bias_of_an_estimator][unbiased]] and
+  [[/wiki/Efficiency_(statistics)][efficient]], which roughly means that
+  it is impossible to construct a more accurate estimate than the sample
+  correlation coefficient.
+- If the sample size is large and the population is not normal, then the
+  sample correlation coefficient remains approximately unbiased, but may
+  not be efficient.
+- If the sample size is large, then the sample correlation coefficient
+  is a [[/wiki/Consistent_estimator][consistent estimator]] of the
+  population correlation coefficient as long as the sample means,
+  variances, and covariance are consistent (which is guaranteed when the
+  [[/wiki/Law_of_large_numbers][law of large numbers]] can be applied).
+- If the sample size is small, then the sample correlation coefficient
+  /r/ is not an unbiased estimate of
+  /ρ/.^{[[#cite_note-RealCorBasic-11][[10]]]} The adjusted correlation
+  coefficient must be used instead: see elsewhere in this article for
+  the definition.
+- Correlations can be different for imbalanced
+  [[/wiki/Dichotomous_variable][dichotomous]] data when there is
+  variance error in sample.^{[[#cite_note-30][[29]]]}
+
+*** Robustness
+
+Like many commonly used statistics, the sample statistic /r/ is not
+[[/wiki/Robust_statistics][robust]],^{[[#cite_note-wilcox-31][[30]]]} so
+its value can be misleading if [[/wiki/Outlier][outliers]] are
+present.^{[[#cite_note-32][[31]]][[#cite_note-33][[32]]]} Specifically,
+the PMCC is neither distributionally
+robust,^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} nor
+outlier resistant^{[[#cite_note-wilcox-31][[30]]]} (see
+[[/wiki/Robust_statistics#Definition][Robust statistics#Definition]]).
+Inspection of the [[/wiki/Scatterplot][scatterplot]] between /X/ and /Y/
+will typically reveal a situation where lack of robustness might be an
+issue, and in such cases it may be advisable to use a robust measure of
+association. Note however that while most robust estimators of
+association measure [[/wiki/Statistical_dependence][statistical
+dependence]] in some way, they are generally not interpretable on the
+same scale as the Pearson correlation coefficient.
+
+Statistical inference for Pearson's correlation coefficient is sensitive
+to the data distribution. Exact tests, and asymptotic tests based on the
+[[/wiki/Fisher_transformation][Fisher transformation]] can be applied if
+the data are approximately normally distributed, but may be misleading
+otherwise. In some situations, the
+[[/wiki/Bootstrapping_(statistics)][bootstrap]] can be applied to
+construct confidence intervals, and
+[[/wiki/Resampling_(statistics)][permutation tests]] can be applied to
+carry out hypothesis tests. These
+[[/wiki/Non-parametric_statistics][non-parametric]] approaches may give
+more meaningful results in some situations where bivariate normality
+does not hold. However the standard versions of these approaches rely on
+[[/wiki/Exchangeable_random_variables][exchangeability]] of the data,
+meaning that there is no ordering or grouping of the data pairs being
+analyzed that might affect the behavior of the correlation estimate.
+
+A stratified analysis is one way to either accommodate a lack of
+bivariate normality, or to isolate the correlation resulting from one
+factor while controlling for another. If /W/ represents cluster
+membership or another factor that it is desirable to control, we can
+stratify the data based on the value of /W/, then calculate a
+correlation coefficient within each stratum. The stratum-level estimates
+can then be combined to estimate the overall correlation while
+controlling for /W/.^{[[#cite_note-34][[33]]]}
+
+** Variants
+
+See also:
+[[/wiki/Correlation_and_dependence#Other_measures_of_dependence_among_random_variables][Correlation
+and dependence § Other measures of dependence among random variables]]
+
+Variations of the correlation coefficient can be calculated for
+different purposes. Here are some examples.
+
+*** Adjusted correlation coefficient
+
+The sample correlation coefficient r is not an unbiased estimate of ρ.
+For data that follows a [[/wiki/Bivariate_normal_distribution][bivariate
+normal distribution]], the expectation E[/r/] for the sample correlation
+coefficient r of a normal bivariate is^{[[#cite_note-35][[34]]]}
+
+\(\mathbb{E}\lbrack r\rbrack = \rho - \frac{\rho\left( {1 - \rho^{2}} \right)}{2n} + \cdots,\quad\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/683b838e709e3b32a3c22dfec4fa665a593f42ad]]
+therefore r is a biased estimator of
+\(\rho.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7ae3f23f76f614ab4dc47bfc296699c2be740666]]
+The unique minimum variance unbiased estimator /r/_{adj} is given
+by^{[[#cite_note-36][[35]]]}
+
+| \(r_{\text{adj}} = r\,{_{2}\mathbf{F}_{1}}\left( {\frac{1}{2},\frac{1}{2};\frac{n - 1}{2};1 - r^{2}} \right),\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/00d4b4792e418cc86e6d5f37c095157474d27d4f]] | |   |   |   | | *(1)* |
+|                                                                                                                                                                                                                     | |   |   |   | |       |
+
+where:
+
+- \(r,n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3cab944a623d7a357cbef615f6ca81d32206107]]
+  are defined as above,
+- \({_{2}\mathbf{F}_{1}}(a,b;c;z)\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/8a2c006415714efae128b57c0fad2b0c37257065]]
+  is the [[/wiki/Hypergeometric_function][Gaussian hypergeometric
+  function]].
+
+An approximately unbiased estimator /r/_{adj} can be
+obtained^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} by
+truncating E[/r/] and solving this truncated equation:
+
+| \(r = \mathbb{E}\lbrack r\rbrack \approx r_{\text{adj}} - \frac{r_{\text{adj}}(1 - r_{\text{adj}}^{2})}{2n}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6382c40e3ad4e06d65c7d09e214ebc8daba5d30c]] | |   |   |   | | *(2)* |
+|                                                                                                                                                                                                                    | |   |   |   | |       |
+
+An approximate solution^{[/[[/wiki/Wikipedia:Citation_needed][citation
+needed]]/]} to equation (*[[#math_2][2]]*) is:
+
+| \(r_{\text{adj}} \approx r\left\lbrack {1 + \frac{1 - r^{2}}{2n}} \right\rbrack,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/cbf3f71f2cfe17f8f0d422d5ac0d482cc429a925]] | |   |   |   | | *(3)* |
+|                                                                                                                                                                                        | |   |   |   | |       |
+
+where in (*[[#math_3][3]]*):
+
+- \(r,n\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3cab944a623d7a357cbef615f6ca81d32206107]]
+  are defined as above,
+- /r/_{adj} is a suboptimal
+  estimator,^{[/[[/wiki/Wikipedia:Citation_needed][citation
+  needed]]/][/[[/wiki/Wikipedia:Please_clarify][clarification
+  needed]]/]}
+- /r/_{adj} can also be obtained by maximizing log(/f/(/r/)),
+- /r/_{adj} has minimum variance for large values of n,
+- /r/_{adj} has a bias of order
+  1⁄(/n/ − 1).
+
+Another proposed^{[[#cite_note-RealCorBasic-11][[10]]]} adjusted
+correlation coefficient
+is:^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]}
+
+\(r_{\text{adj}} = \sqrt{1 - \frac{(1 - r^{2})(n - 1)}{(n - 2)}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/40c19e17c9a6c528dbf5fde1b5577d9d65bd4e85]]
+Note that /r/_{adj} ≈ /r/ for large values of n.
+
+*** Weighted correlation coefficient
+
+Suppose observations to be correlated have differing degrees of
+importance that can be expressed with a weight vector /w/. To calculate
+the correlation between vectors /x/ and /y/ with the weight vector /w/
+(all of length /n/),^{[[#cite_note-37][[36]]][[#cite_note-38][[37]]]}
+
+- Weighted mean:
+
+  \[m(x;w) = \frac{\sum\limits_{i}w_{i}x_{i}}{\sum\limits_{i}w_{i}}.\]
+
+  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/c0c9277e02db423861aa4ad28c3a66dbdfa8850d]]
+
+- Weighted covariance
+
+  \[{cov}(x,y;w) = \frac{\sum\limits_{i}w_{i} \cdot (x_{i} - m(x;w))(y_{i} - m(y;w))}{\sum\limits_{i}w_{i}}.\]
+
+  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/3dc4f106a16942bd22b5c8721a0a567816dce50d]]
+
+- Weighted correlation
+
+  \[{corr}(x,y;w) = \frac{{cov}(x,y;w)}{\sqrt{{cov}(x,x;w){cov}(y,y;w)}}.\]
+
+  [[https://wikimedia.org/api/rest_v1/media/math/render/svg/3d703455daf32e17a67de117ef93433125980424]]
+
+*** Reflective correlation
+coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=25][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: reflective-correlation-coefficientedit
+    :END:
+The reflective correlation is a variant of Pearson's correlation in
+which the data are not centered around their mean
+values.^{[/[[/wiki/Wikipedia:Citation_needed][citation needed]]/]} The
+population reflective correlation is
+
+\({corr}_{r}(X,Y) = \frac{\mathbb{E}\lbrack\, X\, Y\,\rbrack}{\sqrt{\mathbb{E}\lbrack\, X^{2}\,\rbrack \cdot \mathbb{E}\lbrack\, Y^{2}\,\rbrack}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e6d897e4b303a062ed14cc9f88f35f5c8ffc91f7]]
+The reflective correlation is symmetric, but it is not invariant under
+translation:
+
+\({corr}_{r}(X,Y) = {corr}_{r}(Y,X) = {corr}_{r}(X,bY) \neq {corr}_{r}(X,a + bY),\quad a \neq 0,b > 0.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/45be7f276b0b408d286c9d49ed7dff78e2a0aa69]]
+The sample reflective correlation is equivalent to
+[[/wiki/Cosine_similarity][cosine similarity]]:
+
+\(rr_{xy} = \frac{\sum x_{i}y_{i}}{\sqrt{(\sum x_{i}^{2})(\sum y_{i}^{2})}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/22f362146fa321cdb0444e6b66603bd9d1ea02a6]]
+The weighted version of the sample reflective correlation is
+
+\(rr_{xy,w} = \frac{\sum w_{i}x_{i}y_{i}}{\sqrt{(\sum w_{i}x_{i}^{2})(\sum w_{i}y_{i}^{2})}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e3473f0dd4cd5dd5adcfd0399d4dadb08a9caec9]]
+*** Scaled correlation
+coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=26][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: scaled-correlation-coefficientedit
+    :END:
+
+Main article: [[/wiki/Scaled_correlation][Scaled correlation]]
+
+Scaled correlation is a variant of Pearson's correlation in which the
+range of the data is restricted intentionally and in a controlled manner
+to reveal correlations between fast components in time
+series.^{[[#cite_note-Nikolicetal-39][[38]]]} Scaled correlation is
+defined as average correlation across short segments of data.
+
+Let
+\(K\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/2b76fce82a62ed5461908f0dc8f037de4e3686b0]]
+be the number of segments that can fit into the total length of the
+signal
+\(T\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ec7200acd984a1d3a3d7dc455e262fbe54f7f6e0]]
+for a given scale
+\(s\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632]]:
+
+\(K = {round}\left( \frac{T}{s} \right).\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7a18a5b1b26d158dc37bd2b34fe0921ee1c73dc5]]
+The scaled correlation across the entire signals
+\({\overline{r}}_{s}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/f1fb173b0ab9244d34f1fc5ceb57f7cb091bc5fb]]
+is then computed as
+
+\({\overline{r}}_{s} = \frac{1}{K}\sum\limits_{k = 1}^{K}r_{k},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/d3c9d6d707342d0e2f0ce3b221d114124ac6ef20]]
+where
+\(r_{k}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/9b28e0e640d099f3676330bd4f604ae15c37bb4f]]
+is Pearson's coefficient of correlation for segment
+\(k\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40]].
+
+By choosing the parameter
+\(s\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632]],
+the range of values is reduced and the correlations on long time scale
+are filtered out, only the correlations on short time scales being
+revealed. Thus, the contributions of slow components are removed and
+those of fast components are retained.
+
+*** <<Pearson.27s_distance>>Pearson's
+distance[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=27][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: pearsons-distanceedit
+    :END:
+A distance metric for two variables X and Y known as /Pearson's
+distance/ can be defined from their correlation coefficient
+as^{[[#cite_note-40][[39]]]}
+
+\(d_{X,Y} = 1 - \rho_{X,Y}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e68aeaeed324bc9a50c6e3215f77ef7986038a89]]
+Considering that the Pearson correlation coefficient falls between [−1,
++1], the Pearson distance lies in [0, 2]. The Pearson distance has been
+used in [[/wiki/Cluster_analysis][cluster analysis]] and data detection
+for communications and storage with unknown gain and
+offset^{[[#cite_note-41][[40]]]}
+
+*** Circular correlation
+coefficient[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=28][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: circular-correlation-coefficientedit
+    :END:
+
+Further information: [[/wiki/Circular_statistics][Circular statistics]]
+
+For variables X = {/x/_{1},...,/x/_{/n/}} and Y =
+{/y/_{1},...,/y/_{/n/}} that are defined on the unit circle [0, 2π), it
+is possible to define a circular analog of Pearson's
+coefficient.^{[[#cite_note-SRJ-42][[41]]]} This is done by transforming
+data points in X and Y with a [[/wiki/Sine][sine]] function such that
+the correlation coefficient is given as:
+
+\(r_{\text{circular}} = \frac{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})\sin(y_{i} - \overline{y})}{\sqrt{\sum\limits_{i = 1}^{n}\sin(x_{i} - \overline{x})^{2}}\sqrt{\sum\limits_{i = 1}^{n}\sin(y_{i} - \overline{y})^{2}}}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/4b9ca950ffae319129c11e0da879728b4143e5f9]]
+where
+\(\overline{x}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/466e03e1c9533b4dab1b9949dad393883f385d80]]
+and
+\(\overline{y}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/6b298744237368f34e61ff7dc90b34016a7037af]]
+are the [[/wiki/Mean_of_circular_quantities][circular means]] of /X/
+and /Y/. This measure can be useful in fields like meteorology where the
+angular direction of data is important.
+
+*** Partial
+correlation[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=29][edit]]]
+    :PROPERTIES:
+    :CUSTOM_ID: partial-correlationedit
+    :END:
+
+Main article: [[/wiki/Partial_correlation][Partial correlation]]
+
+If a population or data-set is characterized by more than two variables,
+a [[/wiki/Partial_correlation][partial correlation]] coefficient
+measures the strength of dependence between a pair of variables that is
+not accounted for by the way in which they both change in response to
+variations in a selected subset of the other variables.
+
+** Decorrelation of /n/ random
+variables[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=30][edit]]]
+   :PROPERTIES:
+   :CUSTOM_ID: decorrelation-of-n-random-variablesedit
+   :END:
+
+Main article: [[/wiki/Decorrelation][Decorrelation]]
+
+It is always possible to remove the correlations between all pairs of an
+arbitrary number of random variables by using a data transformation,
+even if the relationship between the variables is nonlinear. A
+presentation of this result for population distributions is given by Cox
+& Hinkley.^{[[#cite_note-43][[42]]]}
+
+A corresponding result exists for reducing the sample correlations to
+zero. Suppose a vector of /n/ random variables is observed /m/ times.
+Let /X/ be a matrix where
+\(X_{i,j}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/b2b9e6670d691d42489f7be6e034cbcca7a92f03]]
+is the /j/th variable of observation /i/. Let
+\(Z_{m,m}\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/e40ff160c7b41d1bcc4a806d848128347d3c38f3]]
+be an /m/ by /m/ square matrix with every element 1. Then /D/ is the
+data transformed so every random variable has zero mean, and /T/ is the
+data transformed so all variables have zero mean and zero correlation
+with all other variables -- the sample
+[[/wiki/Correlation_matrix][correlation matrix]] of /T/ will be the
+identity matrix. This has to be further divided by the standard
+deviation to get unit variance. The transformed variables will be
+uncorrelated, even though they may not be
+[[/wiki/Statistical_independence][independent]].
+
+\(D = X - \frac{1}{m}Z_{m,m}X\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/03456ef75e5fee295db26dc7ed15ec1d6b102866]]
+\(T = D(D^{\mathsf{T}}D)^{- \frac{1}{2}},\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/872f960553d8d1f9a2019224522c25f232f6f986]]
+where an exponent of −+1⁄2 represents the
+[[/wiki/Matrix_square_root][matrix square root]] of the
+[[/wiki/Matrix_inverse][inverse]] of a matrix. The correlation matrix of
+/T/ will be the identity matrix. If a new data observation /x/ is a row
+vector of /n/ elements, then the same transform can be applied to /x/ to
+get the transformed vectors /d/ and /t/:
+
+\(d = x - \frac{1}{m}Z_{1,m}X,\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/ec18c03e3baee8fe5087f73be402f05b3b8db048]]
+\(t = d(D^{\mathsf{T}}D)^{- \frac{1}{2}}.\)[[https://wikimedia.org/api/rest_v1/media/math/render/svg/7ba2f18311264d9b6e7c8dcdac92ff6e0097b43f]]
+This decorrelation is related to
+[[/wiki/Principal_components_analysis][principal components analysis]]
+for multivariate data.
+
+** Software
+implementations[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=31][edit]]]
+   :PROPERTIES:
+   :CUSTOM_ID: software-implementationsedit
+   :END:
+
+- [[/wiki/R_(programming_language)][R]]'s statistics base-package
+  implements the correlation coefficient with =cor(x, y)=, or (with the
+  P value also) with
+  [[http://stat.ethz.ch/R-manual/R-patched/library/stats/html/cor.test.html][=cor.test(x, y)=]].
+- The [[/wiki/SciPy][SciPy]]
+  [[/wiki/Python_(programming_language)][Python]] library via
+  [[https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html][=pearsonr(x, y)=]].
+- The [[/wiki/Pandas_(software)][Pandas]] Python library implements
+  Pearson correlation coefficient calculation as the default option for
+  the method
+  [[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.corr.html][=pandas.DataFrame.corr=]]
+- [[/wiki/Wolfram_Mathematica][Wolfram Mathematica]] via the
+  [[https://reference.wolfram.com/language/ref/Correlation.html][=Correlation=]]
+  function, or (with the P value) with
+  [[https://reference.wolfram.com/language/ref/CorrelationTest.html][=CorrelationTest=]].
+- The Boost [[/wiki/C%2B%2B][C++]] library via the
+  [[https://www.boost.org/doc/libs/1_76_0/libs/math/doc/html/math_toolkit/bivariate_statistics.html][=correlation_coefficient=]]
+  function.
+
+** See
+also[[[/w/index.php?title=Pearson_correlation_coefficient&action=edit&section=32][edit]]]
+   :PROPERTIES:
+   :CUSTOM_ID: see-alsoedit
+   :END:
+
+- [[/wiki/File:Nuvola_apps_edu_mathematics_blue-p.svg][[[//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/28px-Nuvola_apps_edu_mathematics_blue-p.svg.png]]]][[/wiki/Portal:Mathematics][Mathematics
+  portal]]
+
+- [[/wiki/Anscombe%27s_quartet][Anscombe's quartet]]
+- [[/wiki/Association_(statistics)][Association (statistics)]]
+- [[/wiki/Coefficient_of_colligation][Coefficient of colligation]]
+
+  - [[/wiki/Yule%27s_Q][Yule's Q]]
+  - [[/wiki/Yule%27s_Y][Yule's Y]]
+
+- [[/wiki/Concordance_correlation_coefficient][Concordance correlation
+  coefficient]]
+- [[/wiki/Correlation_and_dependence][Correlation and dependence]]
+- [[/wiki/Correlation_ratio][Correlation ratio]]
+- [[/wiki/Disattenuation][Disattenuation]]
+- [[/wiki/Distance_correlation][Distance correlation]]
+- [[/wiki/Maximal_information_coefficient][Maximal information
+  coefficient]]
+- [[/wiki/Multiple_correlation][Multiple correlation]]
+- [[/wiki/Normally_distributed_and_uncorrelated_does_not_imply_independent][Normally
+  distributed and uncorrelated does not imply independent]]
+- [[/wiki/Odds_ratio][Odds ratio]]
+- [[/wiki/Partial_correlation][Partial correlation]]
+- [[/wiki/Polychoric_correlation][Polychoric correlation]]
+- [[/wiki/Quadrant_count_ratio][Quadrant count ratio]]
+- [[/wiki/RV_coefficient][RV coefficient]]
+- [[/wiki/Spearman%27s_rank_correlation_coefficient][Spearman's rank
+  correlation coefficient]]
+

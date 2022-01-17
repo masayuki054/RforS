@@ -1,0 +1,240 @@
+#+setupfile: info/index-bigblow-header.setup
+#+include: info/common-header.org
+#+AUTHOR: 鈴木正幸，非常勤講師
+#+OPTIONS: tex:t
+#+title: 分散分析
+#+property: header-args:R :session *rtext* :results output :exports both
+
+* 出展
+
+  [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html][生物統計学３]] の分散分析
+  - 最も詳しい式による説明
+
+  
+** 参考
+
+  https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml
+  - 良い説明
+
+
+  [[https://sigma-eye.com/2019/04/11/what-nigenhaichi-bunsanbunseki/][二元配置分散分析って何？【交互作用が分かります】 | シグマアイ-仕事で使える統計を-]]
+  - 簡単な実例あり
+
+
+
+
+
+* 分散分析（Analysis of Variance）
+
+分散分析は，ANOVA (Analysis of Variance)
+と略記されることもある．
+
+分散分析は，複数の処理を同時に
+行ったときに，処理効果を推定するための最も基本的な手法である．
+
+データ全体の持つ情報は，
+
+- 総平方和にまとめられているが，これを，
+
+  - 処理の分散成分（処理平均平方）と
+
+  - 誤差の分散成分（誤差平均平方）とに分離して，
+
+- その大きさを比較することにより，処理の効果を見積もるものである．
+
+* 因子と水準
+
+経済学では価格や成長率，工学では作業時間や故障率，農学では収量や抵抗性
+など，調査研究したい特性を形質(character)という．着目した形質に影響を
+与えると考えられるもの，例えば，収量では品種，温度，施肥量などを要因ま
+たは因子(factor)という．要因の影響を調べるためいくつかの品種を用いたり，
+施肥量に段階を設けたりするが，それを水準(level)という．
+
+* 一元配置（one-way layout）
+** 構造モデル
+t 検定では，2つの処理平均の比較を行ったが，この節ではこれを拡張して，
+複数の処理平均の比較を行う手法を考える．
+
+いま，
+
+- \( a \) 水準の処理（treatment）:: \(A_{1}\)，...，\(A_{a}\)，があり
+
+- 処理 \(A_{i}\)を行った \(n_{i}\) 個の標本 ::
+  \(X_{i1}，\cdots ，X_{i n_{i}}\)，が得られたとする．
+
+- 処理 \(A_{i}\) からの標本:: 平均 \(mu_{i} = \mu + \alpha_{i}\)，
+  分散 \(\sigma^{2}\) の正規分布に従うと仮定する．
+
+- 総平均（grand mean） :: \(\mu\) 
+
+- 処理効果 （treatment effect） ::  \( \alpha_{i} \) , 処理効果もしくは，主効果（main effect）と言い，
+
+- \(\sum_{i}{\alpha_{i}} = 0\)，である．
+
+- 誤差項（error term）:: \( e_{ij} \sim N(0，\sigma^{2}) \)
+
+  
+標本の構造モデル，
+
+\begin{eqnarray}
+X_{ij} &=&  \mu_i + e_{ij}, _{i=1:a, j=1:n_i} \\
+& = & \mu + \alpha_i + e_{ij}
+\end{eqnarray}
+
+として表現すると，データの持つ構造が理解しやすくなる．
+
+* 平方和分解
+
+いま，処理 \( A_{i} \) の標本平均を \( \overline{X}_{i.} \)， 標本総平
+均を\( \overline{X}_{..} \) とすると，これらは，
+
+\begin{eqnarray}
+
+\overline{X}_{i.} & = & \frac{1}{n_i} \sum_{j=1}^{n_i} X_{ij} \\
+\overline{X}_{..} & = & \frac{\sum_i \sum_j X_{ij}} {\sum_{i} n_i} \\
+ n & = & \sum_{i=1}^{a} n_i \\
+\end{eqnarray}
+標本全体の持つ情報は，総平方和 \( S_{T} \)（Total Sum of Squares）で表
+現される．これは，
+
+\begin{eqnarray}
+
+S_T & = & \sum_i \sum_j (X_{ij} - \overline{X}_{..})^2 \\
+ & = & \sum_i \sum_j \{ (X_{ij} - \overline{X}_{i.}) + (\overline{X}_{i.} - \overline{X}_{..})\}^2 \\
+ & = & \sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 
+       + \sum_i \sum_j (\overline{X}_{i.} - \overline{X}_{..})^2 \\
+ & = & \sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 
+       + \sum_i n_i (\overline{X}_{i.} - \overline{X}_{..})^2 \\
+ & = & S_e + S_A
+\end{eqnarray}
+
+
+のように誤差平方和 \( S_{e} \)（Error Sum of Squares）と
+処理平方和 \(S_{A} \)（Treatment Sum of Squares）とに分解される．
+
+これは，積の項が
+
+\begin{eqnarray}
+
+& & \sum_i \sum_j (X_{ij} - \overline{X}_{i.}) (\overline{X}_{i.} - \overline{X}_{..}) \\
+
+& = & \sum_i (\overline{X}_{i.} - \overline{X}_{..})\sum_j (X_{ij} - \overline{X}_{i.}) \\
+
+& = & \sum_i (\overline{X}_{i.} - \overline{X}_{..})( n_i \overline{X}_{i.
+} - n_i\overline{X}_{i.}) \\
+
+& = & 0
+\end{eqnarray}
+
+
+のように 0 となるから．
+
+なお，誤差平方和を群内平方和（within groups sum ofsquares），処理平方
+和を群間平方和（between groups sum of squares）と呼ぶことも多い．
+
+* 平方和の期待値
+
+個々の標本 \( X_{ij} \) と処理 \( A_{i} \) の標本平均 \( \overline{X}_{i.}\)，
+標本総平均 \( \overline{X}_{..} \) の構造モデルがそれぞれ，
+
+\begin{eqnarray}
+X_{ij}  & = &   \mu + \alpha_i + e_{ij},  \\
+&  &   e_{ij} \sim N(0, \sigma^2), \\
+&  &  E[e_{ij}^2]  =  \sigma^2 
+\end{eqnarray}
+
+\begin{eqnarray}
+ \overline{X}_{i.} &=&  \mu + \alpha_i + e_{i.}, \\
+& &     e_{i.} \sim N(0, \sigma^2/n_i),\\
+& &  E[e_{i.}^2]  =  \sigma^2/n_i 
+\end{eqnarray}
+
+    \begin{eqnarray}
+\overline{X}_{..} &=&  \mu + e_{..},  \\
+ & & e_{..} \sim N(0, \sigma^2/n), \\
+ & & E[e_{..}^2]  =  \sigma^2/n \\
+\end{eqnarray}
+
+のようになるので，誤差平方和 \( S_{e} \) と処理平方和 \( S_{A} \)の期
+待値は，それぞれ，
+
+
+\begin{eqnarray}
+E[S_e] & = & E [\sum_i \sum_j (X_{ij} - \overline{X}_{i.})^2 ] \\
+& = & E [\sum_i \sum_j (e_{ij} - \overline{e}_{i.})^2 ] \\
+& = & \sum_i E [ \sum_j (e_{ij}^2 - 2 e_{ij} \overline{e}_{i.} + \overline{e}_{i.})^2 ] \\
+& = & \sum_i E [ \sum_j e_{ij}^2 - 2 \sum_j e_{ij} \overline{e}_{i.} + n_i \overline{e}_{i.}^2 ] \\
+& = & \sum_i E [ \sum_j e_{ij}^2 - n_i \overline{e}_{i.}^2 ] \\
+& = & \sum_i \sum_j \sigma^2 - \sum_i n_i \frac{\sigma ^2}{n_i}  \\
+& = & n\sigma^2 - a \sigma^2 \\
+& = & (n-a)\sigma^2
+
+\end{eqnarray}
+
+\begin{eqnarray}
+E[S_A] & = & E[ \sum_i n_i (\overline{X}_{i.}-\overline{X}_{..})^2] \\
+       & = & E[ \sum_i n_i (\alpha_i + \overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = & E[ \sum_i n_i \{\alpha_i^2 + (\overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i E[(\overline{e}_{i.}-\overline{e}_{..})^2] \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i \{ E[\overline{e}_{i.}^2]- E[\overline{e}_{..}^2]\} \\
+       & = &  \sum_i n_i \alpha_i^2 + \sum_i n_i \frac{\sigma^2}{n_i} - \sum_i n_i \frac{\sigma^2}{n}\\
+       & = &  \sum_i n_i \alpha_i^2 + a\sigma^2 - \sigma^2\\
+       & = &  \sum_i n_i \alpha_i^2 + (a-1) \sigma^2\\
+
+\end{eqnarray}
+
+のように計算できる．
+
+* 帰無仮説のもとでの平方和の比の分布
+
+一元配置モデルにおける帰無仮説は，すべての処理効果がない，つまり，
+
+\( H_{0}: \alpha_{i=1:a} = 0 \)
+
+である．
+
+前節の平方和の期待値から，帰無仮説のもとで，\( S_{e} / \sigma^{2} \)
+は自由度 \(n - a \) の カイ二乗分布に従い，\( S_{A}/\sigma^{2}\) は自
+由度 \(a - 1 \)のカイ二乗分布に従うことがわかる．
+
+これらのカイ二乗分布をその自由度で割った比の \(F\) 値は，
+
+\( F = \frac{(S_A/\sigma^2)/(a-1)}{(S_e/\sigma^2)/(n-a)} = \frac{S_A^2/(a-1)}{(S_e/(n-a)}\frac{}{} = \frac{M_A}{M_e} \sim F(a-1, n-a)
+\)
+
+自由度\( a-1 \), \(n -a\)の F分布に従う。
+
+
+ここで，\(M_{A} \) は，処理平方和 \( S_{A} \) を その自由度 \(a - 1\)
+で割ったもので，処理平均平方（treatment mean
+square）と呼ばれ，処理平均から求めた 誤差分散 \(\sigma^{2}\)
+の推定値である．
+
+一方，\( M_{e} \) は，誤差平方和 \( S_{e} \) を その自由度 \(n -a \)
+で割ったもので，誤差平均平方（error mean square）と呼ばれ，誤差分散の
+推定値である．
+
+
+帰無仮説のもとでは \(M_{A} \) と \(M_{e} \)はほぼ等しいことが期待され
+るので，その比 F値は 1に近いことが期待される．よって，F値が大きな値を
+とるときは帰無仮説が正しくないと考え，帰無仮説を棄却する．F値が大きい
+か小さいかの判断基準が対応する自由度の F分布で決められる．
+
+* 分散分析表と /F/ 検定
+一元配置モデルの解析結果は，以下の分散分析表（ANOVA table）にまとめら
+れる．
+
+| 変動因         | 自由度（df） | 平方和（S.S.） | 平均平方（M.S.）            |  F値          |
+|----------------+--------------+----------------+-----------------------------+---------------|
+| 主効果         | \(a - 1\)    | \( S_{A} \)        | \(M_{A} = S_{A}/ (a - 1)\)      | \(M_{A} / M_{e} \) |
+| 誤　差         | \(n - a\)    | \( S_{e} \)        | \(M_{e} = \( S_{e} /(n - a)\)      |               |
+| 全　体         | \(n - 1\)    | \( S_{T} \)        |                             |               |
+
+　この表から検定統計量 /F/ 値が求められる．そして， 自由度 \(a - 1\)，
+\(n -a\) の F分布の \(1 - \gamma\) 点（例えば 95 ％点） \(F(a - 1, n -a)_{1 - \gamma}\) より F値が大きい，すなわち，
+
+\(F > F(a - 1, n - a)_{1 - \gamma} \)
+
+であるとき，帰無仮説を棄却すると，有意水準 \(\gamma\) （例えば 5
+％）の検定が行える．これを，F検定（F-test） という．
+

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-01-16 日 21:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Masayuki Suzuki" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7565f60">1. 二元配置分散分析って何？【交互作用が分かります】</a>
+<ul>
+<li><a href="#org81c4d45">1.1. 二元配置分散分析の計算方法</a>
+<ul>
+<li><a href="#org75ba958">1.1.1. 分散分析の計算の流れ</a></li>
+<li><a href="#org1fe95bc">1.1.2. 実際に計算してみよう</a></li>
+<li><a href="#orgf13f7b3">1.1.3. F検定で効果を確認</a></li>
+</ul>
+</li>
+<li><a href="#orgb7f2014">1.2. エクセルで分散分析しよう</a></li>
+<li><a href="#orgfa246d2">1.3. まとめ</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7565f60" class="outline-2">
+<h2 id="org7565f60"><span class="section-number-2">1.</span> 二元配置分散分析って何？【交互作用が分かります】</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+分散分析を用いると、注目している要素が結果に効果を与えているかを知ることが出来ます。
+</p>
+
+<ul class="org-ul">
+<li><a href="https://sigma-eye.com/2019/04/08/what-bunsanbunseki/">分散分析とは何ですか？【分散で要因を特定します】</a></li>
+</ul>
+
+<p>
+以前<a href="https://sigma-eye.com/2019/04/10/ichigen-bunsanbunseki/">一元配置分散分析</a>と二元配置分散分析に大別されると紹介していますが、この一元と二元は響きでは大差無いように思われますが、得られる情報量が大きく異なります。
+</p>
+
+<p>
+今回は2元配置分散分析を紹介します。
+</p>
+
+<p>
+原理だけは押さえて、実用はエクセルで行いましょう。
+</p>
+
+<p>
+*統計学がうまく使えなかった人はコチラ*⇒<a href="https://note.com/komichi_kumano/n/n7684d2ef6bd9">統計学を活かす
+解析しやすい数値化のノウハウ</a>
+</p>
+</div>
+
+<div id="outline-container-org81c4d45" class="outline-3">
+<h3 id="org81c4d45"><span class="section-number-3">1.1.</span> 二元配置分散分析の計算方法</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+今回の二元配置分散分析を始めとした、分散分析の手法は以下の書籍を参考にしています。
+</p>
+
+<p>
+多分この記事より面白いです(笑)。ぜひご一読ください。
+</p>
+
+<p>
+<a href="https://hb.afl.rakuten.co.jp/hgc/186822fe.e3f88dc1.186822ff.8dd52a81/yomereba_main_201906081612040284?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12187159%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F">実験計画と分散分析のはなし改訂版</a>
+</p>
+
+<p>
+大村平 日科技連出版社 2013年01月
+</p>
+
+<p>
+<a href="https://hb.afl.rakuten.co.jp/hgc/186822fe.e3f88dc1.186822ff.8dd52a81/yomereba_main_201906081612040284?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12187159%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F">楽天ブックス</a>
+</p>
+
+<p>
+<a href="https://www.amazon.co.jp/exec/obidos/asin/481719457X/kumano1235/">Amazon</a>
+</p>
+
+<p>
+<a href="https://www.amazon.co.jp/gp/search?keywords=%E5%AE%9F%E9%A8%93%E8%A8%88%E7%94%BB%E3%81%A8%E5%88%86%E6%95%A3%E5%88%86%E6%9E%90%E3%81%AE%E3%81%AF%E3%81%AA%E3%81%97%E6%94%B9%E8%A8%82%E7%89%88&amp;__mk_ja_JP=%83J%83%5E%83J%83i&amp;url=node%3D2275256051&amp;tag=kumano1235">Kindle</a>
+</p>
+</div>
+
+<div id="outline-container-org75ba958" class="outline-4">
+<h4 id="org75ba958"><span class="section-number-4">1.1.1.</span> 分散分析の計算の流れ</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+原理的には一元配置分散分析です。
+</p>
+
+<p>
+先述した交互作用は、*繰り返しのある二元配置分散*で導くことが出来ます。
+</p>
+
+<p>
+『繰り返し』とは、全く同じ条件のN増し実験のことを指します。
+</p>
+
+<p>
+一条件に対して、N=1の試験を対象にした分散分析を*繰り返しの無い分散分析*と言います。
+</p>
+
+<p>
+さて二元配置分散における各変動を式で表すと、
+</p>
+
+<p>
+総分散
+</p>
+
+<p>
+\[\sum\sum\sum(x_{ijk}-\overline{\overline{x}})^2\]
+</p>
+
+<p>
+群間変動
+</p>
+
+<p>
+\[V_i=jk\sum(\overline{x_i}-\overline{\overline{x}})^2\]
+</p>
+
+<p>
+\[V_j=ik\sum(\overline{x_j}-\overline{\overline{x}})^2\]
+</p>
+
+<p>
+交互作用
+</p>
+
+<p>
+\[V_k=k\sum\sum(\overline{x_{ij}}-\overline{\overline{x}})^2-(V_i+V_j)\]
+</p>
+
+<p>
+群内変動(誤差)
+</p>
+
+<p>
+\[V_g=V-(V_i+V_j+V_k)\]
+</p>
+
+<p>
+ハイ、ピンときません
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1fe95bc" class="outline-4">
+<h4 id="org1fe95bc"><span class="section-number-4">1.1.2.</span> 実際に計算してみよう</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+ある収穫物の収量に対して、肥料と土による効果を分散分析で評価してみましょう。
+</p>
+
+<p>
+ここでは要因として肥料と土が挙がります(ちなみに全体の平均値は7になります)。
+</p>
+
+<p>
+まず、肥料の効果ですが肥料1の平均値4と肥料2の平均値10がそれぞれのマスを埋めるイメージを持ってください。
+</p>
+
+<p>
+この状態の変動(<a href="https://sigma-eye.com/2018/07/09/what-sigma/">偏差平方和</a>)を計算すると、
+</p>
+
+<p>
+\[V_1=4×(4-7)^2+4×(10-7)^2=72\]
+</p>
+
+<p>
+となります。
+</p>
+
+<p>
+次は土です。
+</p>
+
+<p>
+土の偏差平方和は
+</p>
+
+<p>
+\[V_2=4×(5-7)^2+4×(9-7)^2=32\]
+</p>
+
+<p>
+になります。そして交互作用です。
+</p>
+
+<p>
+交互作用=肥料×土の作用ですので、以下のようなマスで考えます。
+</p>
+
+<p>
+これで考えると、
+</p>
+
+<p>
+\[2×(1-7)^2+2×(1-7)^2+2×(1-7)^2+2×(1-7)^2=112\]
+</p>
+
+<p>
+この数字には肥料の変動と土の変動が混ざっていますから、引いてやります。
+</p>
+
+<p>
+\[V_k=112-72-32=8\]
+</p>
+
+<p>
+最後に誤差ですが、そもそもこの表は
+</p>
+
+<p>
+\[総変動=126\]
+</p>
+
+<p>
+ですから、そこから今まで算出した変動を総変動から差し引くと
+</p>
+
+<p>
+\[誤差=126-(72+32+8)=14\]
+</p>
+
+<p>
+これですべての変動が揃いましたが、この後F検定を実施するためにはそれぞれを自由度で引いてあげる必要があります。データの総数は8ですので
+</p>
+
+<p>
+総変動の自由度=8-1=7
+</p>
+
+<p>
+になります。
+</p>
+
+<p>
+そしてそれぞれの自由度ですが、マス目の色の数から1を引くとその自由度になります。つまり
+</p>
+
+<p>
+肥料の自由度=2-1
+</p>
+
+<p>
+土の自由度=2-1
+</p>
+
+<p>
+次に交互作用の自由度ですが、マスの色の数は4なので1を引くと3ですが、その後に肥料の自由度と土の自由度も引いてあげる必要があります。よって
+</p>
+
+<p>
+交互作用の自由度=(4-1)-1-1=1
+</p>
+
+<p>
+です。そして誤差の自由度は、総変動の自由度からこれまで算出した自由度すべてを引きます。
+</p>
+
+<p>
+誤差=7-(1+1+1)=4
+</p>
+
+<p>
+そして導かれた変動を自由度で割ると分散が算出されます。
+</p>
+
+<p>
+これらをすべて表にまとめると、このようになります。
+</p>
+
+<p>
+ここからF検定を実施していきましょう
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf13f7b3" class="outline-4">
+<h4 id="orgf13f7b3"><span class="section-number-4">1.1.3.</span> F検定で効果を確認</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+F検定は誤差に対して、有意差があるのか否かを確認するので、F値は各要因と
+交互作用の分散を誤差の分散で除することで算出されます。
+</p>
+
+<ul class="org-ul">
+<li><a href="https://sigma-eye.com/2018/09/13/f-test/">F検定？ばらつきの有意差を明確にしよう！【分散分析でも使います】</a></li>
+</ul>
+
+<p>
+またF<sub>0.05</sub>ですが、今回は奇しくもすべて自由度1,4の組み合わせであり、7.7になります。
+</p>
+
+<p>
+これらの計算結果を表にすると以下のようになります。
+</p>
+
+<p>
+[[
+以上のようにF検定の結果、肥料と土にはそれぞれ有意差があるため効果があることが分かります。
+</p>
+
+<p>
+そして交互作用は有意差が見られないので、交互作用は無いという事が分かります。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7f2014" class="outline-3">
+<h3 id="orgb7f2014"><span class="section-number-3">1.2.</span> エクセルで分散分析しよう</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+まず、*データタグ*の*データ分析*をクリックし、*分散分析：繰り返しの有る二元配置*を選択します。
+</p>
+
+
+<p>
+*データ範囲*を指定します。*行数*は繰り返しの反復数を入力します(要は一条件当たりの*N数*です)。
+</p>
+
+
+<p>
+結果が出力されます。注目すべきは下方に位置されている表のP-値です。
+</p>
+
+
+<p>
+*標本*が土で、*列*が肥料に当たります(これが分かりづらい)。
+</p>
+
+<p>
+当初の分析結果通り、P-値が有意水準α=0.05を下回っている項目は土と肥料です。
+</p>
+
+<p>
+交互作用は認められません。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa246d2" class="outline-3">
+<h3 id="orgfa246d2"><span class="section-number-3">1.3.</span> まとめ</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+二元配置分散分析は使えるようになると、*交互作用の有無を見つけることが出来ます*。
+</p>
+
+<p>
+交互作用が分かると、もしかしたらものすごい発見に繋がるかもしれません。
+</p>
+
+<p>
+分析作業自体はエクセルで、極めて短時間で実施出来ますので、ぜひ使用してみて下さい。
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2022-01-16 日 21:45</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

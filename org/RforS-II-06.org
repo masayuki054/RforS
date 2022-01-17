@@ -1,4 +1,4 @@
-#+setupfile: info/index-bigblow-header.setup
+n#+setupfile: info/index-bigblow-header.setup
 #+include: info/common-header.org
 #+AUTHOR: 鈴木正幸，非常勤講師
 #+OPTIONS: tex:t

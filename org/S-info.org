@@ -50,8 +50,18 @@
 * 検定
    
 ** 分散分析  https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml
-   良い説明
-   
+   - 良い説明
 
+   [[http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html][生物統計学３]] 分散分析
+   - 最も詳しい式による説明
+   
+   [[https://sigma-eye.com/2019/04/11/what-nigenhaichi-bunsanbunseki/][二元配置分散分析って何？【交互作用が分かります】 | シグマアイ-仕事
+   で使える統計を-]]
+    - 簡単な実例あり
+
+
+
+
+     
 
 

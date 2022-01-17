@@ -6,7 +6,6 @@
 #+property: header-arg:R :session t :results output :exports both
 
 
-
 * 7.0 分散分析 (anova, Analysis Of Variance)
 
    3つ以上の *平均値を比較する* ために，分散分析を紹介する
@@ -34,6 +33,8 @@
 
 全体の変動 = 方法 (要因)による変動 + 個の違いによる変動 となる。
 
+
+
 要因毎にわけ，誤差に較べて大きな影響を与えている要因を探す。
 
 * 7.1 一元配置分散分析
@@ -42,13 +43,49 @@
 
 *** [[file:RforS-II-07-data.org::*指導法データの準備][指導法データの準備]]
 
-#+begin_src R :session *rfors* :results output :exports both :tangle babel/r-05-03.r
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 
 (指導法データ <- read.csv("data/shidouhouU8.csv"))
 class(指導法データ)
 str(指導法データ)
 
 #+end_src
+
+#+RESULTS:
+#+begin_example
+   SID   name sex math stat psych_test stat_test1 stat_test2 method
+1    1   大村  男 嫌い 好き         13          6         10      C
+2    2   本多  男 嫌い 好き         14         10         13      B
+3    3   川崎  男 好き 好き          7          6          8      B
+4    4   多村  男 好き 好き         12         10         15      A
+5    5   松中  男 嫌い 嫌い         10          5          8      B
+6    6 小久保  男 嫌い 嫌い          6          3          6      C
+7    7   柴原  男 嫌い 嫌い          8          5          9      A
+8    8   井手  男 嫌い 嫌い         15          9         10      D
+9    9   田上  男 嫌い 嫌い          4          3          7      D
+10  10   松田  男 好き 嫌い         14          3          3      D
+11  11   高谷  女 好き 好き          9         11         18      A
+12  12   杉内  女 嫌い 好き          6          6         14      A
+13  13   和田  女 好き 好き         10         11         18      A
+14  14   新垣  女 嫌い 嫌い         12          9         11      C
+15  15   大隣  女 嫌い 好き          5          7         12      B
+16  16   水田  女 好き 嫌い         12          5          5      D
+17  17   斉藤  女 嫌い 嫌い          8          8          7      C
+18  18   柳瀬  女 嫌い 嫌い          8          7         12      C
+19  19   佐藤  女 嫌い 嫌い         12          7          7      B
+20  20   馬原  女 嫌い 嫌い         15          9          7      D
+[1] "data.frame"
+'data.frame':	20 obs. of  9 variables:
+ $ SID       : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ name      : Factor w/ 20 levels "井手","高谷",..: 14 18 12 13 6 5 4 1 16 7 ...
+ $ sex       : Factor w/ 2 levels "女","男": 2 2 2 2 2 2 2 2 2 2 ...
+ $ math      : Factor w/ 2 levels "嫌い","好き": 1 1 2 2 1 1 1 1 1 2 ...
+ $ stat      : Factor w/ 2 levels "嫌い","好き": 2 2 2 2 1 1 1 1 1 1 ...
+ $ psych_test: int  13 14 7 12 10 6 8 15 4 14 ...
+ $ stat_test1: int  6 10 6 10 5 3 5 9 3 3 ...
+ $ stat_test2: int  10 13 8 15 8 6 9 10 7 3 ...
+ $ method    : Factor w/ 4 levels "A","B","C","D": 3 2 2 1 2 3 1 4 4 4 ...
+#+end_example
 
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 
@@ -107,17 +144,17 @@ str(指導法データ)
 
 ***** F-分布の確率密度関数
 
-#+BEGIN_SRC R :SESSION *RFORS* :RESULTS OUTPUT GRAPHICS :FILE RFORS/GRAPH/F.PNG :EXPORTS BOTH
-CURVE(DF(X, 3, 16),0, 5)
-#+END_SRC
+#+begin_src R :session *rfors* :results output graphics :file RforS/graph/f.png :exports both
+curve(df(x, 3, 16),0, 5)
+#+end_src
 
 #+RESULTS:
 
-[[./RFORS/GRAPH/F.PNG]]
+[[./RforS/graph/f.png]]
 
 **** 有意水準 \(\alpha\) の決定
 
-     \( \ALPHA=0.05 \) の片側検定， F値は正値。
+     \( \alpha=0.05 \) の片側検定， F値は正値。
 
 **** 統計検定量の実現値の計算
 
@@ -197,8 +234,6 @@ anova(lm(統計テスト2 ~ 指導法2))
   p-値が，0.002988 であるので，帰無仮説を棄却。
 
 *** Rによる変動と検定値の計算
-
-****
 
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 
@@ -506,7 +541,6 @@ summary(aov(好意度~科目))			# 好意度を科目の観点から分析する
 	 F = \frac { \mbox{条件平方和} / \mbox{条件の自由度} }
 	           { \mbox{残差平方和} / \mbox{残差の自由度} }
 	 \]
-	 (mboxが出力されていませんので，教科書を参照)
 
 	 \( F \) は，全ての群の母平均が等しいときに，* F分布 * に従う
 
@@ -578,8 +612,21 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 #+end_example
 
 
-*** 
-** # Tukey の多重比較
+*** 参考: 3群以上を比較するとき、2群間の検定（T検定）を使ってはいけない理由
+
+
+いま、A,B, Cという3つの群があったとします。そこで、2群間の検定を A-B間、
+B-C間、C-AC間で有意水準5%で行ったとします。
+
+ここで、「この組み合わせの少なくとも１つは有意差がある」 となる確率を
+計算すると(実際にその間に有意差があるなしに拘らず)、 　
+1-(1-0.05)*(1-0.05)*(1-0.05) = 0.14 となります。つまり、 有意水準 5%
+(=0.05)で検定したつもりが、 この方法では実質的に 14 %で検定している、
+つまり 検定力が低下してしまう、というのが理由です。
+
+
+
+*** Tukey の多重比較
 #+begin_src R :session t :results output :exports both
 
 TukeyHSD(aov(好意度 ~ 科目 + 人))
@@ -613,7 +660,8 @@ $人
 田中-大引 -1.0000000 -3.4698711  1.4698711 0.6448878
 #+end_example
 
-** # 個人の比較には興味がないので，科目についてのみ多重比較
+*** # 個人の比較には興味がないので，科目についてのみ多重比較
+
 
 #+begin_src R :session t :results output :exports both
 
