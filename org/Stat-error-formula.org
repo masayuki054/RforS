@@ -1,0 +1,48 @@
+search (E error aov)
+
+
+
+The difference between aov(depvar~timevar+Error(id)) and
+aov(depvar~timevar+Error(id/timevar)) is whether or not you include
+timevar as a random effect.
+
+Note that there's more than one way to include a variable as a random
+effect. You could also use aov(depvar~timevar+Error(id*timevar)) or
+aov(depvar~timevar+Error(id + timevar)) as well. Each of these means
+something quite different, but it can be confusing because they'll
+often give you similar results when applied to the same dataset, due
+to the constraints of the data themselves.
+
+The slash / used in aov() denotes nesting. When you use /, R
+automatically expands it to the main effect of the bottom variable
+plus the interaction between the bottom and the top. For example, A/B
+automatically expands to A + A:B. This is similar to how A*B
+automatically expands to A + B + A:B, but with nesting, the variable
+in the nest never appears outside of its nest (i.e. there can be no
+main effect of B on its own).
+
+You can see this expansion happening in your output:
+
+> summary(aov(var~time1+Error(id / time1)))
+
+Error: id
+          Df Sum Sq Mean Sq F value Pr(>F)
+Residuals  1  52.24   52.24               
+
+Error: id:time1
+      Df Sum Sq Mean Sq
+time1  1   4291    4291
+
+Error: Within
+           Df Sum Sq Mean Sq F value  Pr(>F)   
+time1       1   1239  1238.7   10.19 0.00167 **
+Residuals 176  21399   121.6                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+The Error terms denote random effects. Notice you get one for the main
+effect of id because it's the base of the nest, and one for the
+interaction between id and time1, because time1 is nested within id
+(you also get an Error effect for Within which is the basic residual
+term for the model, i.e. the random effect of the individual
+observations themselves).

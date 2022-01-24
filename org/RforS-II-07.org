@@ -236,18 +236,78 @@ anova(lm(統計テスト2 ~ 指導法2))
 *** Rによる変動と検定値の計算
 
 #+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(全データ <- cbind(As, Bs, Cs, Ds))
+#+end_src
 
+#+RESULTS:
+:      As Bs Cs Ds
+: [1,] 15 13 10 10
+: [2,]  9  8  6  7
+: [3,] 18  8 11  3
+: [4,] 14 12  7  5
+: [5,] 18  7 12  7
 
-全データ <- cbind(As, Bs, Cs, Ds)	
-群平均 <- colMeans(全データ)	# 水準ごとの平均のベクトル
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(群平均 <- colMeans(全データ))	# 水準ごとの平均のベクトル
+#+end_src
 
+#+RESULTS:
+:   As   Bs   Cs   Ds 
+: 14.8  9.6  9.2  6.4
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 # 水準ごとの平均のベクトルを行数だけ並べた行列を作る
-群平均行列 <- matrix(rep(群平均, nrow(全データ)), nrow=nrow(全データ), 
-                     ncol=ncol(全データ),byrow=TRUE)
+(群平均行列 <- matrix(rep(群平均, nrow(全データ)), nrow=nrow(全データ), 
+                     ncol=ncol(全データ),byrow=TRUE))
+#+end_src
 
-群内 <- 全データ - 群平均行列	# 各データと、その群内の平均との差
-群内平方和 <- sum(群内^2)		# 　群内平方和
+#+RESULTS:
+:      [,1] [,2] [,3] [,4]
+: [1,] 14.8  9.6  9.2  6.4
+: [2,] 14.8  9.6  9.2  6.4
+: [3,] 14.8  9.6  9.2  6.4
+: [4,] 14.8  9.6  9.2  6.4
+: [5,] 14.8  9.6  9.2  6.4
 
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(群間 <- 群平均行列 - mean(全データ))
+#+end_src
+
+#+RESULTS:
+:      [,1] [,2] [,3] [,4]
+: [1,]  4.8 -0.4 -0.8 -3.6
+: [2,]  4.8 -0.4 -0.8 -3.6
+: [3,]  4.8 -0.4 -0.8 -3.6
+: [4,]  4.8 -0.4 -0.8 -3.6
+: [5,]  4.8 -0.4 -0.8 -3.6
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(群内 <- 全データ - 群平均行列)	# 各データと、その群内の平均との差
+#+end_src
+
+#+RESULTS:
+:        As   Bs   Cs   Ds
+: [1,]  0.2  3.4  0.8  3.6
+: [2,] -5.8 -1.6 -3.2  0.6
+: [3,]  3.2 -1.6  1.8 -3.4
+: [4,] -0.8  2.4 -2.2 -1.4
+: [5,]  3.2 -2.6  2.8  0.6
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(群内平方和 <- sum(群内^2))		# 　群内平方和
+#+end_src
+
+#+RESULTS:
+: [1] 138
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(群間平方和 <- sum(群間^2))		# 　群内平方和
+#+end_src
+
+#+RESULTS:
+: [1] 184
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
 分母 <- 群内平方和 / ( (nrow(全データ)-1)*ncol(全データ) )
 
 #+end_src
@@ -273,7 +333,7 @@ anova(lm(統計テスト2 ~ 指導法2))
 **** 群間差
 
       群平均行列 から 全平均を引く
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 (群間差 <- 群平均行列 - 全平均)
 #+end_src
@@ -290,7 +350,7 @@ anova(lm(統計テスト2 ~ 指導法2))
 
       全データから各群内平均を引く
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 (群内差 <- 全データ - 群平均行列)
 
@@ -306,7 +366,7 @@ anova(lm(統計テスト2 ~ 指導法2))
 
 **** 平方
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 全体差^2
 群間差^2
@@ -338,10 +398,10 @@ anova(lm(統計テスト2 ~ 指導法2))
 
 **** 平方和と自由度とF-値
       
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
-群間平方和 <- sum(群間差^2)
-群内平方和 <- sum(群内差^2)
+群間平方和 <- sum(群間^2)
+群内平方和 <- sum(群内^2)
 全体平方和 <- 群間平方和 + 群内平方和
 
 (群間自由度 <- ncol(全データ)-1)
@@ -411,7 +471,7 @@ anova(lm(統計テスト2 ~ 指導法2))
 
 *** 統計検定値 q の実現値値
       
-      #+begin_src R :session t :results output :exports both
+      #+begin_src R :session *rfors* :results output :exports both
       
       (q <- abs(mean(As)-mean(Ds)) / sqrt(群内平均平方/nrow(全データ)))
       
@@ -424,7 +484,7 @@ anova(lm(統計テスト2 ~ 指導法2))
       
       有意水準 5%, 平均値の数 4, 群内自由度 16，を指定します。
 
-      #+begin_src R :session t :results output :exports both
+      #+begin_src R :session *rfors* :results output :exports both
 
 qtukey(0.95, 4, 16)
 qtukey(0.05, 4, 16, lower.tail=FALSE)
@@ -440,7 +500,7 @@ qtukey(0.05, 4, 16, lower.tail=FALSE)
       
 *** TukeyHSD (Honest Significant Difference)
 
-      #+begin_src R :session t :results output :exports both
+      #+begin_src R :session *rfors* :results output :exports both
 
 TukeyHSD(aov(統計テスト2 ~ 指導法))
 
@@ -474,7 +534,6 @@ TukeyHSD(aov(統計テスト2 ~ 指導法))
     などの対応のあるデータを対象とする。
 
 *** 例題
-
      以下の表は5名の学生に、線形代数、微分積分、確率統計に対する好意度
      の評定データである。 これら3つの科目に対する好意度に差があるだろ
      うか？（念のため：これは１要因３水準)
@@ -500,7 +559,6 @@ TukeyHSD(aov(統計テスト2 ~ 指導法))
 	 F = \frac { \mbox{群間平方和} / \mbox{群間の自由度} }
 	           { \mbox{群内平方和} / \mbox{群内の自由度} }
 	 \]
-	 (mboxが出力されていませんので，教科書を参照)
 
 	 \( F \) は，全ての群の母平均が等しいときに，* F分布 * に従う
 
@@ -522,7 +580,7 @@ summary(aov(好意度~科目))			# 好意度を科目の観点から分析する
  : 科目         2  22.53  11.267   2.641  0.112
  : Residuals   12  51.20   4.267
 
-*** 結果
+***** 結果
       - F値 :: 2.641
       - p値 :: 0.1121 > 0.05
 
@@ -551,6 +609,7 @@ summary(aov(好意度~科目))			# 好意度を科目の観点から分析する
 
 #+begin_src R :session *rfors* :results output :exports both :tangle babel/07.R
 
+人 <- factor(rep(c("田中","岸", "大引", "吉川", "萩野"),3))
 aov(好意度 ~ 科目 + 人)
 summary(aov(好意度 ~ 科目 + 人))
 
@@ -577,16 +636,30 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 #+end_example
 
 ***** 結果
-科目の違いによる平均値差の検定をおこないたかったので，
-科目の行を見ます。F-値が14.7， p-値が\( 0.002 < 0.05 \) で，
-帰無仮説は棄却されます。
+科目の違いによる平均値差の検定をおこないたかったので,
+科目の行を見る:
 
-人の行では，人による好感度の差が有意であると示されています。
+- F-値が14.7，
+- p-値が\( 0.002 < 0.05 \)
+
+で，帰無仮説は棄却されます。
+
+人の行では，
+- 人による好感度の差が有意であると示されています。
 
 Fは，分子の自由度が2, 分母の自由度が8のF-分布に従います。
 
-
 **** Error 項を指定した分散分析
+
+- formula, error model などに関する説明
+  - [[https://stackoverflow.com/questions/37497948/aov-error-term-in-r-whats-the-difference-bw-errorid-and-errorid-timevar][anova - aov() error term in R: what's the difference bw Error(id) and Error(id/timevar) specification? - Stack Overflow]]
+  - [[https://cran.r-project.org/doc/contrib/manuals-jp/Mase-Rstatman.pdf][Mase-Rstatman.pdf]] (線形回帰モデルの分散分析表)
+
+aov() 関数にあたえる formula (公式) :
+- 人/科目 = 人 + 人:科目
+- 人*科目 = 人 + 科目 + 人:科目
+- 人:科目 は，人と科目の交互作用
+    
 
 Error 項を指定して分散分析を実行しても同じ結果になります:
 
@@ -604,14 +677,45 @@ Error: 人
 Residuals  4  45.07   11.27               
 
 Error: 人:科目
-          Df Sum Sq Mean Sq F value Pr(>F)   
+p          Df Sum Sq Mean Sq F value Pr(>F)   
 科目       2 22.533  11.267    14.7 0.0021 **
 Residuals  8  6.133   0.767                  
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #+end_example
 
+#+begin_src R :session *rfors* :results output :exports both :tangle babel/07.R
 
+summary(aov(好意度 ~ 科目 + 人 + Error(人:科目)))
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Error: 人:科目
+          Df Sum Sq Mean Sq F value   Pr(>F)    
+科目       2  22.53  11.267    14.7 0.002095 ** 
+人         4  45.07  11.267    14.7 0.000931 ***
+Residuals  8   6.13   0.767                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ 警告メッセージ: 
+ aov(好意度 ~ 科目 + 人 + Error(人:科目)) で:  Error() model is singular
+#+end_example
+
+*** 7.2.3 対応の有無による違い
+
+ :             Df Sum Sq Mean Sq F value Pr(>F)
+ : 科目         2  22.53  11.267   2.641  0.112
+ : Residuals   12  51.20   4.267
+
+
+ :             Df Sum Sq Mean Sq F value   Pr(>F)    
+ : 科目         2  22.53  11.267    14.7 0.002095 ** 
+ : 人           4  45.07  11.267    14.7 0.000931 ***
+: Residuals    8   6.13   0.767                     
+ 
 *** 参考: 3群以上を比較するとき、2群間の検定（T検定）を使ってはいけない理由
 
 
@@ -627,7 +731,7 @@ B-C間、C-AC間で有意水準5%で行ったとします。
 
 
 *** Tukey の多重比較
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 TukeyHSD(aov(好意度 ~ 科目 + 人))
 
@@ -660,10 +764,10 @@ $人
 田中-大引 -1.0000000 -3.4698711  1.4698711 0.6448878
 #+end_example
 
-*** # 個人の比較には興味がないので，科目についてのみ多重比較
+*** 個人の比較には興味がないので，科目についてのみ多重比較
 
 
-#+begin_src R :session t :results output :exports both
+#+begin_src R :session *rfors* :results output :exports both
 
 TukeyHSD(aov(好意度 ~ 科目 + 人), "科目")
 
@@ -683,5 +787,616 @@ $科目
 微分積分-線形代数 -3.0 -4.582381 -1.417619 0.0016141
 #+end_example
 
+* 7.2.4 平方和の分解と自由度の計算
+
+対応あり/なしでのモデルの違い
+
+- 一元配置 (対応なし)
+  
+
+  全体平方和 = 群間平方和 + 郡内平方和
+
+- 一元配置 (対応あり)
+
+  全体平方和 = 条件平方和 + 個人差平方和 + 残差平方和 
+
+  - 条件平方和は， 対応なしの群間平方和と同じ
+
+    郡内平方和 = 個人差平方和 + 残差平方和 と考える
 
 
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+(全データ <- matrix(c(7,8,9,5,6,
+                     5,4,7,1,3,
+                     8,6, 7,2,5),nrow=5,ncol=3))
+#+end_src
+
+#+RESULTS:
+:      [,1] [,2] [,3]
+: [1,]    7    5    8
+: [2,]    8    4    6
+: [3,]    9    7    7
+: [4,]    5    1    2
+: [5,]    6    3    5
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+(科目平均 <- colMeans(全データ))
+
+#+end_src
+
+#+RESULTS:
+: [1] 7.0 4.0 5.6
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(人平均 <- rowMeans(全データ))
+#+end_src
+
+#+RESULTS:
+: [1] 6.666667 6.000000 7.666667 2.666667 4.666667
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+(全平均 <- mean(全データ))
+
+#+end_src
+
+#+RESULTS:
+: [1] 5.533333
+
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(全平均行列 <- matrix(rep(全平均,15),nrow=5,ncol=3))
+#+end_src
+
+#+RESULTS:
+:          [,1]     [,2]     [,3]
+: [1,] 5.533333 5.533333 5.533333
+: [2,] 5.533333 5.533333 5.533333
+: [3,] 5.533333 5.533333 5.533333
+: [4,] 5.533333 5.533333 5.533333
+: [5,] 5.533333 5.533333 5.533333
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(科目平均行列 <- matrix(rep(科目平均,5),nrow=5,ncol=3, byrow=T))
+#+end_src
+
+#+RESULTS:
+:      [,1] [,2] [,3]
+: [1,]    7    4  5.6
+: [2,]    7    4  5.6
+: [3,]    7    4  5.6
+: [4,]    7    4  5.6
+: [5,]    7    4  5.6
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(人平均行列 <- matrix(rep(人平均,3),nrow=5,ncol=3))
+#+end_src
+
+#+RESULTS:
+:          [,1]     [,2]     [,3]
+: [1,] 6.666667 6.666667 6.666667
+: [2,] 6.000000 6.000000 6.000000
+: [3,] 7.666667 7.666667 7.666667
+: [4,] 2.666667 2.666667 2.666667
+: [5,] 4.666667 4.666667 4.666667
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(全体 <- 全データ - 全平均行列)
+#+end_src
+
+#+RESULTS:
+:            [,1]       [,2]       [,3]
+: [1,]  1.4666667 -0.5333333  2.4666667
+: [2,]  2.4666667 -1.5333333  0.4666667
+: [3,]  3.4666667  1.4666667  1.4666667
+: [4,] -0.5333333 -4.5333333 -3.5333333
+: [5,]  0.4666667 -2.5333333 -0.5333333
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(条件 <- 科目平均行列 - 全平均行列)
+#+end_src
+
+#+RESULTS:
+:          [,1]      [,2]       [,3]
+: [1,] 1.466667 -1.533333 0.06666667
+: [2,] 1.466667 -1.533333 0.06666667
+: [3,] 1.466667 -1.533333 0.06666667
+: [4,] 1.466667 -1.533333 0.06666667
+: [5,] 1.466667 -1.533333 0.06666667
+
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(個人差 <- 人平均行列 - 全平均行列)
+#+end_src
+
+#+RESULTS:
+:            [,1]       [,2]       [,3]
+: [1,]  1.1333333  1.1333333  1.1333333
+: [2,]  0.4666667  0.4666667  0.4666667
+: [3,]  2.1333333  2.1333333  2.1333333
+: [4,] -2.8666667 -2.8666667 -2.8666667
+: [5,] -0.8666667 -0.8666667 -0.8666667
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(残差 <- 全データ - 全平均行列 - 条件 - 個人差)
+
+#+end_src
+
+#+RESULTS:
+:            [,1]       [,2]        [,3]
+: [1,] -1.1333333 -0.1333333  1.26666667
+: [2,]  0.5333333 -0.4666667 -0.06666667
+: [3,] -0.1333333  0.8666667 -0.73333333
+: [4,]  0.8666667 -0.1333333 -0.73333333
+: [5,] -0.1333333 -0.1333333  0.26666667
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(全体平方和 <- sum(全体^2))
+#+end_src
+
+#+RESULTS:
+: [1] 73.73333
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(条件平方和 <- sum(条件^2))
+#+end_src
+
+#+RESULTS:
+: [1] 22.53333
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(個人差平方和 <- sum(個人差^2))
+#+end_src
+
+#+RESULTS:
+: [1] 45.06667
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+(残差平方和 <- sum(残差^2))
+#+end_src
+
+#+RESULTS:
+: [1] 6.133333
+
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+全体平方和 - (条件平方和 + 個人差平方和 +残差平方和)
+#+end_src
+
+#+RESULTS:
+: [1] -1.421085e-14
+
+** 結果
+
+   全体平方和 = 条件平方和 + 個人差平方和 + 残差平方和 となること確か
+   めた
+
+   自由度   
+   - 条件の自由度 = 条件の数 - 1 = 2
+   - 個人差の自由度 = 人数 - 1 = 4
+   - 残差の自由度 = 条件の自由度 * 個人差の自由度 = 2 * 4 = 8
+   - 全体の自由度 = 全データ数 - 1 = 14
+
+
+   全体の自由度 = 条件の自由度 + 個人差の自由度 + 残差の自由度 がなり
+   たつ
+     
+
+* 7.3 二元配置分散分析 (対応なし)
+
+    - 対応のない二元配置分散分析
+    - 2要因とも対応のある二元配置分散分析
+    - 1要因のみ対応のある二元配置分散分析
+
+** 例題
+
+*** ミネラルウォーターの美味しさの評定に関する実験データ:
+
+- 3銘柄のミネラルウォーターについて，
+
+- 2種類の温度条件のもとで，
+
+- 6通りの条件があり，
+
+- 各条件について5人の評定者，合計30人の評定者による評点
+
+
+|   冷蔵庫 |            |            |     常温 |            |            |
+| イカアン | ボスビック | ビビッテル | イカアン | ボスビック | ビビッテル |
+|        6 |         10 |         11 |        5 |          7 |         12 |
+|        4 |          8 |         12 |        4 |          6 |          8 |
+|        5 |         10 |         12 |        2 |          5 |          5 |
+|        3 |          8 |         10 |        2 |          4 |          6 |
+|        2 |          9 |         10 |        2 |          3 |          4 |
+
+*** 検定内容
+
+銘柄の違いや温度の違いにより，おいしさの評点の母平均は異なるか？
+
+*** データの準備
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+ 味 <- c(6,4,5,3,2,10,8,10,8,9,11,12,12,10,10,5,4,2,2,2,7,6,5,4,3,12,8,5,6,4)
+ 温度 <- factor(c(rep("冷蔵庫",15),rep("常温",15)))
+ 銘柄 <- factor(rep(c(rep("イカアン",5),rep("ボスビック",5),rep("ビビッテル",5)),2))
+ 温度 <- factor(c(rep("冷蔵庫",15),rep("常温",15)))
+#+end_src
+
+#+RESULTS:
+
+** 7.3.1 主効果と交互作用効果
+
+ミネラルウォーターの美味しさに関する実験では，母平均に違いがあると考え
+られている (対立仮説)
+
+違いの:
+- 要因 :: 母平均に違いをもたらす原因
+- 水準 :: ある要因の中に含まれる個々の条件 
+
+例題では;
+
+| 要因       | 水準                             |
+|------------+----------------------------------|
+| 温度の違い | 冷蔵、　常温                     |
+| 銘柄の違い | イカアン、ボスビック、ビビッテル |
+
+二元配置分散分析では、主効果と交互作用効果という2種類の効果を考える
+
+- 主効果 :: それぞれの要因ごとの効果
+
+  一元配置分散分析のときに考えた効果と同じ
+  
+- 交互作用効果 :: 2つ以上の要因が組み合わされたときに生じる効果
+
+  2つの要因の効果の単純な足し算では説明できない効果 
+
+  
+# *** 交互作用効果の視覚化
+
+# 交互作用のある、なしに見られるデータの特徴:
+
+# 以下ではinteraction.plotと
+# いう、 交互作用効果を確認するための平均値のプロットを作成する関数を用
+# いています:
+
+# **** 交互作用のない
+# |------+----+----+----+----------|
+# |      | B1 | B2 | B3 | col-mean |
+# | A1   |  4 |  3 |  6 | 13/3     |
+# | A2   |  6 |  5 |  8 | 19/3     |
+# |------+----+----+----+----------|
+# | mean |  5 |  4 |  7 | 32/6     |
+# |------+----+----+----+----------|
+
+
+# #+begin_src R :session *rfors* :results output graphics :file RforS/graph/07-03-01-1.png :exports both :tangle RforS/code/07.R
+
+# data <- c(4,3,6,6,5,8)
+# LvA <- rep(c("A1", "A2"),3)
+# LvB <- rep(c("B1", "B2", "B3"),2)
+# interaction.plot(LvA, LvB, data)
+
+# #+end_src
+
+# #+RESULTS:
+
+# [[file:RforS/graph/07-03-01-1.png]]
+
+# #+begin_src R :session *rfors* :results output graphics :file RforS/graph/07-03-01-2.png :exports both :tangle RforS/code/07.R
+
+# data <- c(4,3,6,6,5,8)
+# LvA <- rep(c("A1", "A2"),3)
+# LvB <- rep(c("B1", "B2", "B3"),2)
+# interaction.plot(LvB, LvA, data)
+
+# #+end_src
+
+# #+RESULTS:
+
+# [[file:RforS/graph/07-03-01-2.png]]
+
+# **** 交互作用があるデータ
+# |------+----+-----+------+----------|
+# |      | B1 |  B2 |   B3 | col-mean |
+# | A1   |  4 |   3 |    6 | 13/3     |
+# | A2   |  4 |   6 |    7 | 17/3     |
+# |------+----+-----+------+----------|
+# | mean |  4 | 9/2 | 13/2 | 6        |
+# |------+----+-----+------+----------|
+
+
+# #+begin_src R :session *rfors* :results output graphics :file RforS/graph/07-03-02.png :exports both :tangle RforS/code/07.R
+
+# data <- c(4,3,6,4,6,7)
+# LvA <- rep(c("A1", "A2"),3)
+# LvB <- rep(c("B1", "B2", "B3"),2)
+# interaction.plot(LvA, LvB, data)
+
+# #+end_src
+
+# #+RESULTS:
+
+# [[file:RforS/graph/07-03-02.png]]
+
+
+** 7.3.2 対応のない二元配置分散分析
+
+*** 手順の確認:
+
+    - 帰無仮説と対立仮説の設定
+    - 検定統計量の選択: 分散分析では、検定統計値としてＦを利用
+    - 有意水準 \(\alpha\) の決定: 有意水準は5％、つまりα＝0.05とする。この検定は片側検定
+    - 検定統計量の実現値を求める
+
+      aov関数を用いて実現値を求める
+      
+    - 帰無仮説の棄却or採択の決定 
+
+*** 二元配置分散分析 
+
+    - 帰無仮説と対立仮説の設定
+        　
+        - 要因A (温度の違い)の主効果
+            - 帰無仮説 \(H_0\) ::
+	      温度が違ってもおいしさ得点の母平均は等しい（要因Ａの主効果はない）
+            - 対立仮説 \(H_1\) ::
+	      温度の違いによっておいしさ得点の母平均は異なる（要因Ａの主効果がある）
+
+        - 要因B (銘柄の違い) の主効果
+            - 帰無仮説 \(H_0\) :: 銘柄が違ってもおいしさ得点の母平均は等しい(要因Bの主効果はない)
+            - 対立仮説 \(H_1\) :: 銘柄の違いによっておいしさ得点の母平均は異なる(要因Bの主効果がある) 
+
+        - 要因Aと要因Bの交互作用効果
+            - 帰無仮説 \(H_0\) :: 温度と銘柄の組み合わせによるおいしさ
+              得点の影響はない(要因Aと要因Bの交互作用効果はない)
+            - 対立仮説 \(H_1\) :: 温度と銘柄の組み合わせによるおいしさ
+              得点の影響がある(要因Aと要因Bの交互作用効果がある)
+
+    - 検定統計量の選択 :: Fを検定統計量とする
+    - 有意水準 \(\alpha\) の決定 ::  ここでは有意水準は5%、つまり \(\alpha=0.05\)とする。片側検定である
+    - 検定統計量の実現値を求める: ここでは、最も一般的なaov関数を用いる
+
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+ 味 <- c(6,4,5,3,2,10,8,10,8,9,11,12,12,10,10,5,4,2,2,2,7,6,5,4,3,12,8,5,6,4)
+ 温度 <- factor(c(rep("冷蔵庫",15),rep("常温",15)))
+ 銘柄 <- factor(rep(c(rep("イカアン",5),rep("ボスビック",5),rep("ビビッテル",5)),2))
+ summary(aov(味~温度*銘柄))
+#+end_src
+
+#+RESULTS:
+:             Df Sum Sq Mean Sq F value   Pr(>F)    
+: 温度         1   67.5   67.50  21.316  0.00011 ***
+: 銘柄         2  155.0   77.50  24.474 1.61e-06 ***
+: 温度:銘柄    2   15.0    7.50   2.368  0.11515    
+: Residuals   24   76.0    3.17                     
+: ---
+: Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+[[https://qiita.com/saka212/items/754635486c6be0e3100b][統計検定のための、Rの出力結果からわかること（分散分析編） - Qiita]]
+[[https://qiita.com/saka212/items/8c74854171775e5d5273][統計検定のための、Rの出力結果からわかること（回帰分析編） - Qiita]]
+
+    - 帰無仮説の棄却or採択の決定:
+        - 温度の主効果：5％水準で有意な効果がある (p=0.0011 = 1.1×10-4）
+        - 銘柄の主効果：5％水準で有意な効果がある (p=1.6×10-6）
+        - 温度と銘柄の交互作用効果：5％水準で有意な効果はない（p=0.115） 
+
+    - 関数による交互作用効果の図:
+
+      # interction.plot(横軸にとる要因、もう一方の要因、平均値を求める変数)
+
+
+#+begin_src R :session *rfors* :results output graphics :file RforS/graph/07-03-1.png :exports both :tangle RforS/code/07.R
+        interaction.plot(温度,銘柄,味)
+#+end_src
+
+#+RESULTS:
+
+[[file:RforS/graph/07-03-1.png]]
+
+    [温度ごとの銘柄と味との関係の図]
+#+begin_src R :session *rfors* :results output graphics :file RforS/graph/07-03-2.png :exports both :tangle RforS/code/07.R    
+    interaction.plot(銘柄,温度,味)
+#+end_src
+
+#+RESULTS:
+
+[[file:RforS/graph/07-03-2.png]]
+
+
+** 7.3.3 一元配置分散分析との比較
+
+一元配置分散分析をしてみる：
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+summary(aov(味~温度))
+#+end_src
+
+#+RESULTS:
+:             Df Sum Sq Mean Sq F value Pr(>F)   
+: 温度         1   67.5   67.50   7.683 0.0098 **
+: Residuals   28  246.0    8.79                  
+: ---
+: Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+summary(aov(味~銘柄))
+#+end_src
+
+#+RESULTS:
+:             Df Sum Sq Mean Sq F value Pr(>F)    
+: 銘柄         2  155.0   77.50    13.2  1e-04 ***
+: Residuals   27  158.5    5.87                   
+: ---
+: Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+*** 結果
+
+- いずれも有意な差がある，ことは得られているが，
+- p値に違いがあり，
+
+  一元配置の方が大きい
+
+*** 二元配置分散分析の利点
+
+1. 二つの要因について同時に検討するだけでなく，
+
+2. 残渣のばらつき(平方和) を減らせるので，
+
+   要因毎に有意な結果を得られやすくする
+
+
+* 7.4 二要因とも対応のある二元配置分散分析
+
+** 例題：
+
+ミネラルウォーターの美味しさの５人の評定者による評定データ(前の例題の表に評定者データを加えたもの):
+
+|        |   冷蔵庫 |            |            |     常温 |            |            |
+| 評定者 | イカアン | ボスビック | ビビッテル | イカアン | ボスビック | ビビッテル |
+| 村松   |        6 |         10 |         11 |        5 |          7 |         12 |
+| 川崎   |        4 |          8 |         12 |        4 |          6 |          8 |
+| 井口   |        5 |         10 |         12 |        2 |          5 |          5 |
+| 松中   |        3 |          8 |         10 |        2 |          4 |          6 |
+| 城島   |        2 |          9 |         10 |        2 |          3 |          4 |
+
+同じ評定者が、温度と銘柄のそれぞれの要因の組合わせに対して評定を下す
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+
+# 変数「味」, 「温度」, 「銘柄」 は前の例題のものを使う
+ 人1 <- factor(rep(c("村松","川崎","井口","松中","城島"),6))		# 評定車の情報
+ 数字1D1 <- factor(rep(1:5,6))		# 評定者名の代わりに数字を使う場合
+
+summary(aov(味~温度*銘柄			   # 対応のない場合と同じ
+	+Error(人1+人1:温度+人1:銘柄+人1:温度:銘柄)))  # 個人差によるデータの分析
+
+aov(味~温度*銘柄			   # 対応のない場合と同じ
+	+Error(人1+人1:温度+人1:銘柄+人1:温度:銘柄))  # 個人差によるデータの分析
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Error: 人1
+          Df Sum Sq Mean Sq F value Pr(>F)
+Residuals  4     45   11.25               
+
+Error: 人1:温度
+          Df Sum Sq Mean Sq F value Pr(>F)  
+温度       1   67.5   67.50      18 0.0132 *
+Residuals  4   15.0    3.75                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Error: 人1:銘柄
+          Df Sum Sq Mean Sq F value   Pr(>F)    
+銘柄       2    155    77.5     155 4.01e-07 ***
+Residuals  8      4     0.5                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Error: 人1:温度:銘柄
+          Df Sum Sq Mean Sq F value Pr(>F)  
+温度:銘柄  2     15     7.5       5  0.039 *
+Residuals  8     12     1.5                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#+end_example
+
+この例題の場合、「対応がある」ということは『個人差』によるデータのばら
+つきを分析することができる、ということ。
+
+したがって(個人差のばらつきを除くことにより)、
+- 温度の主効果、
+- 銘柄の主効果、
+- 温度と銘柄の交互作用の効果の分析が得られる。
+
+  上の結果は、いずれも有意であることが示されている
+
+** 対応なしの場合の分析結果と比較してみましょう。
+
+5. 帰無仮説の棄却or採択の決定:
+
+  - 温度の主効果：5％水準で有意な効果がある (p=0.0132）(P=0.00011)
+  - 銘柄の主効果：5％水準で有意な効果がある (p=4.01e-7) (p=1.6×10-6）
+  - 温度と銘柄の交互作用効果：5％水準で有意な効果がある（p=0.039)
+    対応なしでは，(p=0.11515) で有意な効果はなかった
+
+* 7.5 一要因のみ対応のある二元配置分散分析
+
+例題：ミネラルウォーターの美味しさについての評定データ(一つ前の例題の表に評定者データを加えたもの):
+
+|        |   冷蔵庫 |            |            | 常温   |          |            |            |
+| 評定者 | イカアン | ボスビック | ビビッテル | 評定者 | イカアン | ボスビック | ビビッテル |
+| 村松   |        6 |         10 |         11 | 斉藤   |        5 |          7 |         12 |
+| 川崎   |        4 |          8 |         12 | 和田   |        4 |          6 |          8 |
+| 井口   |        5 |         10 |         12 | 寺原   |        2 |          5 |          5 |
+| 松中   |        3 |          8 |         10 | 杉内   |        2 |          4 |          6 |
+| 城島   |        2 |          9 |         10 | 新垣   |        2 |          3 |          4 |
+
+
+評定
+
+- 冷蔵庫と常温では異なる評定者が評定する
+- 同じ温度に対しては同じ評定者が銘柄のそれぞれの要因の組合わせに対して評
+  定を下す
+
+#+begin_src R :session *rfors* :results output :exports both :tangle RforS/code/07.R
+# 変数「味」, 「温度」, 「銘柄」 は前の例題のものを使う
+ A1条件 <- rep(c("村松","川崎","井口","松中","城島"),3)
+ A2条件 <- rep(c("斉藤","和田","寺原","杉内","新垣"),3)
+ 人2 <- factor(c(A1条件, A2条件))
+ 数字ID2 <- factor(c(rep(1:5,3),rep(6:10,3)))		# 評定者名の代わりに数字を使う場合	
+ summary(aov(味~温度*銘柄			# 対応のない場合と同じ
+                  +Error(人2:温度+人2:温度:銘柄)))		# 追加されたオプション
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Error: 人2:温度
+          Df Sum Sq Mean Sq F value Pr(>F)  
+温度       1   67.5    67.5       9 0.0171 *
+Residuals  8   60.0     7.5                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Error: 人2:温度:銘柄
+          Df Sum Sq Mean Sq F value   Pr(>F)    
+銘柄       2    155    77.5    77.5 5.87e-09 ***
+温度:銘柄  2     15     7.5     7.5  0.00504 ** 
+Residuals 16     16     1.0                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ 警告メッセージ: 
+ aov(味 ~ 温度 * 銘柄 + Error(人2:温度 + 人2:温度:銘柄)) で: 
+  Error() model is singular
+#+end_example
+
+
+対応のない分散分析で「残差」としてまとめられていたものを次の要因に分解
+
+- 人2:温度 :: 人2と温度の交互効果
+- 人2:温度:銘柄 :: 人2と温度と銘柄の交互効果
+
+各評定者は同じ温度の条件で３種類の銘柄を飲んでいるため，
+個人差の要因となる。
+
+だから、個人差の要因である「人2」と温度の違いの要因をあらわす「温度」
+が関係する組み合わせだけを指定する
+
+この分析の結果、「温度」の主効果と「銘柄」の主効果、「温度」と「銘柄」
+の交互作用効果に有意差が認められている
+
+* 拡張
+
+- 同様に、三元配置、四元配置、...要因を増やして分析することが可能
+- ただし、要因の数が多いと、分析が複雑になり、結果の解釈が困難になることがあるので注意
+- 分散分析は、基本的に平均値の比較の検定
+
+  主効果や交互作用効果の観点からデータにおける値のばらつきの分析が可能

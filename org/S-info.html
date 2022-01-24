@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-24 月 11:22 -->
+<!-- 2022-01-12 水 19:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>レポート・試験のこと (データ解析)</title>
-<meta name="author" content="suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師" />
+<title>&lrm;</title>
+<meta name="author" content="Masayuki Suzuki" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -193,214 +193,178 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://wiki.cis.iwate-u.ac.jp/~suzuki/org-html-theme/styles/bigblow/css/bigblow.css"/>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">レポート・試験のこと (データ解析)</h1>
-
-<div id="outline-container-orgb7cebcf" class="outline-2">
-<h2 id="orgb7cebcf">Report 2021 データ解析</h2>
-<div class="outline-text-2" id="text-orgb7cebcf">
-</div>
-<div id="outline-container-orgd45d064" class="outline-3">
-<h3 id="orgd45d064">期末試験の予定</h3>
-<div class="outline-text-3" id="text-orgd45d064">
-<dl class="org-dl">
-<dt>日時場所</dt><dd>1/31 13:00~ 情報棟 106教室</dd>
-<dt>(no term)</dt><dd>持込みはA4レポート用紙4枚まで</dd>
-<dt>(no term)</dt><dd>学生証持参，着座席を当日指定</dd>
-</dl>
-</div>
-
-<div id="outline-container-org6151145" class="outline-4">
-<h4 id="org6151145">出題内容</h4>
-<div class="outline-text-4" id="text-org6151145">
-<ul class="org-ul">
-<li>標本の分布の説明 (図解)
-大数の法則，中心極限定理，確率収束，標本平均，標本分散</li>
-
-<li>標本と点推定の原理
-標本分布，一致性，不偏性，最尤推定</li>
-
-<li><p>
-信頼区間の推定の原理 (図解と解説)
-</p>
-
-<p>
-標本標準誤差
-</p></li>
-
-<li><p>
-検定の原理 (図解と解説),
-</p>
-
-<p>
-帰無仮説と対立仮説，第一，第二の過誤，検出力
-</p></li>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgaa0fbe1">1. 確率統計一般</a>
+<ul>
+<li><a href="#org37db09b">1.1. データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition” - 日本統計協会</a></li>
+<li><a href="#org20c80e8">1.2. 統計学&#x2013;2016&#x2013;富山大学経済学部&#x2013;唐渡広志</a></li>
 </ul>
-
-
-<ul class="org-ul">
-<li><p>
-信頼区間の推定の原理 (図解と解説)
-</p>
-
-<p>
-標本標準誤差，母平均の区間推定，母分散の区間推定など
-</p></li>
-
-<li><p>
-検定の原理 (図解と解説),
-</p>
-
-<p>
-帰無仮説と対立仮説，第一，第二の過誤，検出力，帰無分布 など
-</p></li>
-
-<li><p>
-一元配置分散分析の目的と原理
-</p>
-
-<p>
-全変動，郡間変動，郡内変動，条件変動， 個人変動， 残差平方和
-検定の仕組み
-</p></li>
+</li>
+<li><a href="#org910bf5b">2. Rによる統計学講義</a>
+<ul>
+<li><a href="#orga418c85">2.1. 「Rによるやさしい統計学」</a>
+<ul>
+<li><a href="#org8d29923">2.1.1. Webpage for Probability Theory and Statistics (B)</a></li>
+<li><a href="#org1adc827">2.1.2. 社会統計演習 (青山大学)</a></li>
+</ul>
+</li>
+<li><a href="#orgc4c4cb2">2.2. 生物統計学 (東大，農工大)</a></li>
+<li><a href="#org7993bfe">2.3. Rによる統計入門 津田裕之氏</a></li>
+</ul>
+</li>
+<li><a href="#orgf26c4bf">3. Rを使った統計学トピック的解説</a>
+<ul>
+<li><a href="#org81f5a80">3.1. 医療職からデータサイエンティストへ blog</a></li>
+</ul>
+</li>
+<li><a href="#org4a8517e">4. 検定</a>
+<ul>
+<li><a href="#org959f618">4.1. 分散分析  https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
+<div id="outline-container-orgaa0fbe1" class="outline-2">
+<h2 id="orgaa0fbe1"><span class="section-number-2">1.</span> 確率統計一般</h2>
+<div class="outline-text-2" id="text-1">
 </div>
-
-
-<div id="outline-container-org3f32046" class="outline-3">
-<h3 id="org3f32046">5回目のレポート (1月末)</h3>
-<div class="outline-text-3" id="text-org3f32046">
+<div id="outline-container-org37db09b" class="outline-3">
+<h3 id="org37db09b"><span class="section-number-3">1.1.</span> <a href="https://www.jstat.or.jp/openstatistics/">データ分析のための統計学入門 原著第4版 “OpenIntro Statistics Fourth Edition” - 日本統計協会</a></h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-Rによるやさしい統計学の6，7章の練習問題をすべてRで解き，
-Rのソースプログラムと実行結果，考察を提出してください。
+<a href="http://www.kunitomo-lab.sakura.ne.jp/2021-3-3Open(S).pdf">2021-3-3Open(S).pdf</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org30e5b37" class="outline-3">
-<h3 id="org30e5b37">4回目 検定 (1月中旬)</h3>
-<div class="outline-text-3" id="text-org30e5b37">
+<div id="outline-container-org20c80e8" class="outline-3">
+<h3 id="org20c80e8"><span class="section-number-3">1.2.</span> <a href="http://www3.u-toyama.ac.jp/kkarato/2016/statistics/">統計学&#x2013;2016&#x2013;富山大学経済学部&#x2013;唐渡広志</a></h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-Rによるやさしい統計学の5章の練習問題をすべてRで解き，
-Rのソースプログラムと実行結果，考察を提出してください。
+ppt よくできている
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org910bf5b" class="outline-2">
+<h2 id="org910bf5b"><span class="section-number-2">2.</span> Rによる統計学講義</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga418c85" class="outline-3">
+<h3 id="orga418c85"><span class="section-number-3">2.1.</span> 「Rによるやさしい統計学」</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org8d29923" class="outline-4">
+<h4 id="org8d29923"><span class="section-number-4">2.1.1.</span> <a href="http://whitewell.sakura.ne.jp/R/">Webpage for Probability Theory and Statistics (B)</a></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+中京大 白井先生
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org40db5f3" class="outline-3">
-<h3 id="org40db5f3">3回目 信頼区間の推定 (1月初旬)</h3>
-<div class="outline-text-3" id="text-org40db5f3">
-<p>
-教科書10.5の問題について，Rでシミュレーションし，検討・考察してくださ
-い。
-</p>
-
+<div id="outline-container-org1adc827" class="outline-4">
+<h4 id="org1adc827"><span class="section-number-4">2.1.2.</span> <a href="http://www.cc.aoyama.ac.jp/~t41338/lecture/aoyama/stat2e/stat2e_top.html">社会統計演習</a> (青山大学)</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <ul class="org-ul">
-<li>適当な支持率の母集団を作成し，</li>
-
-<li>信頼度を設定し，  
-
-<ul class="org-ul">
-<li>標本サイズを変化させながら，各サイズ毎に，
-
-<ul class="org-ul">
-<li>ある標本サイズでの支持率の信頼区間を求め，
-<ul class="org-ul">
-<li>多数の同一サイズの標本を生成し，</li>
-<li>支持率が信頼区間に入っている確率を求める</li>
-</ul></li>
-</ul></li>
-
-<li>支持率の誤差が1%以下になる標本サイズを求める</li>
-</ul></li>
-
-<li>プログラムで求めたサイズが，教科書の誤差の見積りの理論式に従がってい
-るか検討してください。</li>
-
-<li>信頼度と支持率の誤差について考察してください。</li>
+<li>Rによるやさしい統計学の動画による解説</li>
 </ul>
 </div>
 </div>
-
-
-
-
-
-
-<div id="outline-container-org82f83d2" class="outline-3">
-<h3 id="org82f83d2">2回目 点推定</h3>
-<div class="outline-text-3" id="text-org82f83d2">
-<p>
-Rのソースプログラムと実行結果，考察を提出してください。
-</p>
 </div>
 
-<div id="outline-container-org2e5d6ee" class="outline-4">
-<h4 id="org2e5d6ee">教科書 8.5.1 の職場の満足度のアンケートについて</h4>
-<div class="outline-text-4" id="text-org2e5d6ee">
+<div id="outline-container-orgc4c4cb2" class="outline-3">
+<h3 id="orgc4c4cb2"><span class="section-number-3">2.2.</span> 生物統計学 (東大，農工大)</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
-下記のRプログラムを作成してください:
+R コードの参考に
 </p>
+</div>
+<ol class="org-ol">
+<li><a id="orgb6ba500"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/distribution.html">生物統計学１（10.9）</a><br />
+<ol class="org-ol">
+<li><a id="org699698a"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex1.html">演習１（10.9）</a><br />
+<div class="outline-text-6" id="text-2-2-0-1-1">
+<p>
+<a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ans1.html">解答１</a>
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="orgd59aa9f"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/hytest.html">生物統計学２（10.23）</a><br />
+<ol class="org-ol">
+<li><a id="orgd5d505f"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex2.html">演習２（10.23）</a><br /></li>
+</ol>
+</li>
+<li><a id="orgc56336b"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/linearmodel.html">生物統計学３（10.30）</a><br />
+<ol class="org-ol">
+<li><a id="orgdc92bcf"></a><a href="http://lbm.ab.a.u-tokyo.ac.jp/~omori/noko/ex3.html">演習３（10.30）</a><br /></li>
+</ol>
+</li>
+</ol>
+</div>
 
+<div id="outline-container-org7993bfe" class="outline-3">
+<h3 id="org7993bfe"><span class="section-number-3">2.3.</span> <a href="https://htsuda.net/stats/">Rによる統計入門</a> 津田裕之氏</h3>
+<div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
-<li>教科書 8.5.1 の職場の満足度のアンケートについて, 
-<ul class="org-ul">
-<li>アルファは 1/3</li>
-<li>標本サイズ，100, 500, 1000の，満足度60%の標本を作成し，</li>
-<li>満足度 シータを推定する</li>
-</ul></li>
+<li>google colaboratory で R を使う</li>
+<li>colabo note 例  <a href="https://colab.research.google.com/drive/1cPOGoBin8sQAJqJtnmS0H8mAqzyI9CzY">R<sub>tutorial.ipynb</sub> - Colaboratory</a></li>
 </ul>
-
-<p>
-結果について考察してください。
-</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgcbb761d" class="outline-4">
-<h4 id="orgcbb761d">教科書 8.5.2 の面積の推定法について</h4>
-<div class="outline-text-4" id="text-orgcbb761d">
-<p>
-下記のRプログラムを作成してください:
-</p>
-
+<div id="outline-container-orgf26c4bf" class="outline-2">
+<h2 id="orgf26c4bf"><span class="section-number-2">3.</span> Rを使った統計学トピック的解説</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org81f5a80" class="outline-3">
+<h3 id="org81f5a80"><span class="section-number-3">3.1.</span> 医療職からデータサイエンティストへ blog</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>適当な幾つかの標本サイズについて，
+<li>わかりやすく簡単な説明</li>
+<li>R のコード</li>
 
-<ul class="org-ul">
-<li>縦と横の計測値サンプルを，正規分布を用いて生成し，</li>
-
-<li>二つの面積計算について，平均二乗誤差を計算する</li>
-</ul></li>
+<li><a href="https://www.medi-08-data-06.work/archive/category/%E7%B5%B1%E8%A8%88%E5%AD%A6">統計学 カテゴリーの記事一覧 - 医療職からデータサイエンティストへ</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/2018/12/18/232204">R の 確率密度関数 ( rnorm, pnorm, qnorm, dnorm ) とは何なのか</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/kernel-estimate2">カーネル密度推定~グラフィカルにまとめてみる~</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/distribution">脱統計初学者！確率分布まとめ~ベルヌーイ分布・二項分布・ポワソン分布・指数分布~</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/normal_tdist">脱統計初学者！確率分布まとめ~正規分布・t分布とは~</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/entral_limit_theorem">中心極限定理って結局何なのさ - 医療職からデータサイエンティストへ</a></li>
+<li><a href="https://www.medi-08-data-06.work/entry/staticapower">有意水準と検出力をグラフィカルにシミュレーションで理解する</a></li>
 </ul>
-
-<p>
-結果について考察してください。
-</p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org4a8517e" class="outline-2">
+<h2 id="org4a8517e"><span class="section-number-2">4.</span> 検定</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org959f618" class="outline-3">
+<h3 id="org959f618"><span class="section-number-3">4.1.</span> 分散分析  <a href="https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml">https://www.ouj.ac.jp/mijika/tokei/xml/k3_06023.xml</a></h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+良い説明
+</p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: suzuki@iwate-u.ac.jp 鈴木正幸，非常勤講師</p>
-<p class="date">Created: 2022-01-24 月 11:22</p>
+<p class="author">Author: Masayuki Suzuki</p>
+<p class="date">Created: 2022-01-12 水 19:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
